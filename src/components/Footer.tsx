@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="bg-green-50 py-6 text-center mt-12">
-      <p className="text-sm text-gray-600">© 2025 JankiInfotech. All rights reserved.</p>
+    <footer className="py-6 px-4 text-center border-t bg-white text-gray-600 text-sm">
+      © 2025 MithilaStack. All rights reserved.
     </footer>
   )
 }
