@@ -10,11 +10,11 @@ import Features from '@/components/Features';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-green-800 font-sans">
+    <main className="max-w-screen h-full bg-white text-green-800 font-sans">
       {/* Navbar */}
       <Navbar/>
 
-      <section className="text-center py-20 px-4 bg-white">
+      <section className="h-[calc(100vh-90px)] text-center py-20 px-4 bg-white">
       <h1 className="text-4xl md:text-6xl font-bold text-primary mb-4">
         Build Modern Solutions for Mithila
       </h1>
