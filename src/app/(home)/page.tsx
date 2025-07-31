@@ -8,7 +8,7 @@ export default function Home() {
     <main className="min-h-screen bg-white text-green-800 font-sans">
       {/* Navbar */}
       <header className="flex items-center justify-between px-6 py-4 shadow-md bg-green-100">
-        <Link href="/" className="text-xl font-bold text-green-900">
+        <Link href="/" className="text-6xl font-bold text-green-900">
           Janki<span className="text-green-600">Infotech</span>
         </Link>
         <nav className="flex gap-6 text-green-700 font-medium">
@@ -35,13 +35,7 @@ export default function Home() {
           </Link>
         </div>
         <div>
-          <Image
-            src="/assets/hero.png" // Add your hero image in public/assets/
-            alt="Tech Illustration"
-            width={500}
-            height={400}
-            className="rounded-xl shadow-lg"
-          />
+          JDFF
         </div>
       </section>
     </main>
