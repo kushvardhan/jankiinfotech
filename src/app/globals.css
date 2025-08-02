@@ -2,19 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
-  --primary: #28a745;
-  --secondary: #d1fae5;
+  --primary: #22c55e;
+  --primary-dark: #16a34a;
+  --primary-light: #86efac;
+  --secondary: #f0fdf4;
+  --accent: #dcfce7;
 
-  --font-sans: 'Arial', sans-serif;
-  --font-mono: 'Courier New', monospace;
+  --font-sans: "Inter", "Arial", sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --primary: #22c55e;
+    --primary-dark: #15803d;
+    --primary-light: #4ade80;
     --secondary: #14532d;
+    --accent: #166534;
   }
 }
 
@@ -47,10 +52,10 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
+    --primary: 142 76% 36%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 138 76% 97%;
+    --secondary-foreground: 142 76% 36%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
     --accent: 240 4.8% 95.9%;
