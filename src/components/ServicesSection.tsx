@@ -110,7 +110,7 @@ export default function ServicesSection() {
               <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 font-semibold">
                 Schedule Consultation
               </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 font-semibold">
+              <Button variant="outline" className="border-white text-blue-200 hover:bg-white hover:text-blue-600 px-8 py-3 font-semibold">
                 View Portfolio
               </Button>
             </div>

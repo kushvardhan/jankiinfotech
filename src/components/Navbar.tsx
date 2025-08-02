@@ -3,6 +3,7 @@
 import { ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import Logo from "./Logo";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,17 +12,10 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">J</span>
-            </div>
-            <span className="text-xl font-bold text-gray-900">
-              JankiInfotech
-            </span>
-          </Link>
+          <Logo size="md" />
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
@@ -133,10 +127,16 @@ export function Navbar() {
               Program
             </Link>
             <Link
-              href="/contact"
+              href="/success-stories"
               className="text-gray-700 hover:text-green-600 transition-colors"
             >
-              Get In Touch
+              Success Stories
+            </Link>
+            <Link
+              href="/schedule-consultation"
+              className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105"
+            >
+              Schedule Consultation
             </Link>
           </nav>
 
@@ -230,10 +230,16 @@ export function Navbar() {
                 Program
               </Link>
               <Link
-                href="/contact"
+                href="/success-stories"
                 className="text-gray-700 hover:text-green-600 transition-colors"
               >
-                Get In Touch
+                Success Stories
+              </Link>
+              <Link
+                href="/schedule-consultation"
+                className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105 block text-center"
+              >
+                Schedule Consultation
               </Link>
             </div>
           </div>
