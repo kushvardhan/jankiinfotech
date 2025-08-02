@@ -33,17 +33,79 @@
   }
 
   a {
-    color: var(--primary);
+    color: inherit;
     text-decoration: none;
+    transition: all 0.3s ease;
   }
 
-  a:hover {
+  /* Only add underline to specific link types, not navigation */
+  .prose a,
+  .content a {
+    color: var(--primary);
     text-decoration: underline;
+    text-decoration-color: var(--primary);
+    text-underline-offset: 2px;
+  }
+
+  .prose a:hover,
+  .content a:hover {
+    text-decoration-thickness: 2px;
   }
 
   ::selection {
     background-color: var(--primary);
     color: white;
+  }
+
+  /* Smooth animations for all interactive elements */
+  button,
+  .btn,
+  [role="button"] {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  button:hover,
+  .btn:hover,
+  [role="button"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  button:active,
+  .btn:active,
+  [role="button"]:active {
+    transform: translateY(0);
+  }
+
+  /* Improve text visibility */
+  .text-gray-500 {
+    color: rgb(107 114 128) !important; /* Make gray-500 darker */
+  }
+
+  .text-gray-400 {
+    color: rgb(75 85 99) !important; /* Make gray-400 darker */
+  }
+
+  .text-gray-300 {
+    color: rgb(55 65 81) !important; /* Make gray-300 much darker */
+  }
+
+  /* Smooth scroll for the entire page */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent horizontal scroll */
+  body,
+  html {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Fix container overflow */
+  .container {
+    max-width: 100%;
+    overflow-x: hidden;
   }
   :root {
     --background: 0 0% 100%;

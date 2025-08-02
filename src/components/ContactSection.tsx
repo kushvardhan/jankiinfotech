@@ -25,6 +25,14 @@ export default function ContactSection() {
     e.preventDefault()
     // Handle form submission here
     console.log('Form submitted:', formData)
+    setFormData({
+      fullName: '',
+      company: '',
+      findUs: '',
+      phone: '',
+      email: '',
+      projectDetails: ''
+    })
     // You can add API call here
   }
 

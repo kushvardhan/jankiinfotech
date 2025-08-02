@@ -1,3 +1,5 @@
+import WhatsAppButton from "@/components/WhatsAppButton";
+import { generateMetadata, generateStructuredData } from "@/lib/seo";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -12,33 +14,37 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title:
-    "JankiInfotech - Startup Solutions | Cloud Infrastructure & DevOps Experts",
-  description:
-    "Delivering secure digital solutions and scalable cloud infrastructure tailored to power innovation and startup success. Your trusted technology partner for web development, cloud optimization, and DevOps solutions.",
-  keywords:
-    "web development, cloud infrastructure, DevOps, startup solutions, digital transformation, software development",
-  authors: [{ name: "JankiInfotech Team" }],
-  openGraph: {
-    title: "JankiInfotech - Startup Solutions",
-    description:
-      "Delivering secure digital solutions and scalable cloud infrastructure tailored to power innovation and startup success.",
-    type: "website",
-  },
-};
+export const metadata: Metadata = generateMetadata();
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = generateStructuredData("organization", {});
+  const websiteSchema = generateStructuredData("website", {});
+
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
