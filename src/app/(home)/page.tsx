@@ -1,34 +1,27 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import Image from 'next/image'
-import { Navbar } from '@/components/Navbar';
-import { Button } from '@/components/ui/button';
-import Footer from '@/components/Footer';
-import Features from '@/components/Features';
-
+import AboutSection from "@/components/AboutSection";
+import ContactSection from "@/components/ContactSection";
+import Features from "@/components/Features";
+import Footer from "@/components/Footer";
+import HeroSection from "@/components/HeroSection";
+import { Navbar } from "@/components/Navbar";
+import ServicesSection from "@/components/ServicesSection";
+import TechnologiesSection from "@/components/TechnologiesSection";
+import WorkflowSection from "@/components/WorkflowSection";
 
 export default function Home() {
   return (
-    <main className="max-w-screen h-full bg-white text-green-800 font-sans">
-      {/* Navbar */}
-      <Navbar/>
-
-      <section className="h-[calc(100vh-90px)] text-center py-20 px-4 bg-white">
-      <h1 className="text-4xl md:text-6xl font-bold text-primary mb-4">
-        Build Modern Solutions for Mithila
-      </h1>
-      <p className="text-lg text-gray-600 mb-6 max-w-xl mx-auto">
-        Empowering local tech, communities, and culture through innovation.
-      </p>
-      <Button className="bg-primary text-white px-6 py-2 text-lg hover:bg-green-700">
-        Get Started
-      </Button>
-    </section>
-
-    <Features />
-
-    <Footer />
+    <main className="min-h-screen bg-white">
+      <Navbar />
+      <HeroSection />
+      <Features />
+      <TechnologiesSection />
+      <WorkflowSection />
+      <ServicesSection />
+      <AboutSection />
+      <ContactSection />
+      <Footer />
     </main>
-  )
+  );
 }
