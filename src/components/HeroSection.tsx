@@ -1,26 +1,41 @@
-'use client'
+"use client";
 
-import { Button } from '@/components/ui/button'
-import Image from 'next/image'
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center px-4 py-20">
+    <section className="relative min-h-screen bg-gradient-to-br from-green-50 to-white flex items-center justify-center px-4 py-20">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-      
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(34,197,94,0.15)_1px,transparent_0)] bg-[size:20px_20px]"></div>
+      </div>
+
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center space-y-8">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-            <span className="mr-2">🚀</span>
-            Trusted by Microsoft Azure
+          <Link
+            href="/internship"
+            className="inline-flex items-center px-6 py-3 bg-green-100 text-green-800 rounded-full text-sm font-medium hover:bg-green-200 transition-colors"
+          >
+            <span className="mr-2">🎓</span>
+            Summer Training Program
+          </Link>
+
+          {/* Scripting Badge */}
+          <div className="flex justify-center items-center space-x-4 mb-8">
+            <div className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-semibold">
+              Scripting
+            </div>
+            <div className="bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-2 rounded-lg text-lg font-bold">
+              New JankiInfotech
+            </div>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
             <span className="block">Delivering secure</span>
-            <span className="block text-blue-600">digital solutions</span>
+            <span className="block text-green-600">digital solutions</span>
             <span className="block">and scalable cloud</span>
             <span className="block">infrastructure</span>
           </h1>
@@ -32,47 +47,64 @@ export default function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-lg font-semibold">
+            <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg rounded-lg font-semibold">
               Schedule Consultation
             </Button>
-            <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg rounded-lg font-semibold">
+            <Button
+              variant="outline"
+              className="border-green-600 text-green-600 hover:bg-green-50 px-8 py-4 text-lg rounded-lg font-semibold"
+            >
               View Success Stories
             </Button>
           </div>
 
           {/* Client Logos */}
           <div className="pt-16">
-            <p className="text-gray-500 text-sm mb-8">Trusted by startups worldwide</p>
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-              {/* Placeholder for client logos */}
-              <div className="w-24 h-12 bg-gray-200 rounded flex items-center justify-center">
-                <span className="text-xs text-gray-500">Client 1</span>
+            <p className="text-gray-500 text-sm mb-8">
+              Trusted by startups worldwide
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60 mb-8">
+              {/* Client logos with green theme */}
+              <div className="w-20 h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200">
+                <span className="text-xs text-green-600 font-semibold">
+                  Client 1
+                </span>
               </div>
-              <div className="w-24 h-12 bg-gray-200 rounded flex items-center justify-center">
-                <span className="text-xs text-gray-500">Client 2</span>
+              <div className="w-20 h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200">
+                <span className="text-xs text-green-600 font-semibold">
+                  Client 3
+                </span>
               </div>
-              <div className="w-24 h-12 bg-gray-200 rounded flex items-center justify-center">
-                <span className="text-xs text-gray-500">Client 3</span>
+              <div className="w-20 h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200">
+                <span className="text-xs text-green-600 font-semibold">
+                  Client 4
+                </span>
               </div>
-              <div className="w-24 h-12 bg-gray-200 rounded flex items-center justify-center">
-                <span className="text-xs text-gray-500">Client 4</span>
+              <div className="w-20 h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200">
+                <span className="text-xs text-green-600 font-semibold">
+                  Client 5
+                </span>
               </div>
-              <div className="w-24 h-12 bg-gray-200 rounded flex items-center justify-center">
-                <span className="text-xs text-gray-500">Client 5</span>
+              <div className="w-20 h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200">
+                <span className="text-xs text-green-600 font-semibold">
+                  Client 6
+                </span>
               </div>
             </div>
             <div className="mt-8">
-              <span className="text-3xl font-bold text-blue-600">10+</span>
-              <span className="text-gray-600 ml-2">Startup Clients Worldwide</span>
+              <span className="text-3xl font-bold text-green-600">10+</span>
+              <span className="text-gray-600 ml-2">
+                Startup Clients Worldwide
+              </span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-blue-200 rounded-full opacity-20 animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-indigo-200 rounded-full opacity-20 animate-pulse delay-1000"></div>
-      <div className="absolute top-1/2 left-20 w-16 h-16 bg-purple-200 rounded-full opacity-20 animate-pulse delay-500"></div>
+      <div className="absolute top-20 left-10 w-20 h-20 bg-green-200 rounded-full opacity-20 animate-pulse"></div>
+      <div className="absolute bottom-20 right-10 w-32 h-32 bg-green-300 rounded-full opacity-20 animate-pulse delay-1000"></div>
+      <div className="absolute top-1/2 left-20 w-16 h-16 bg-green-100 rounded-full opacity-20 animate-pulse delay-500"></div>
     </section>
-  )
+  );
 }
