@@ -243,10 +243,10 @@ export default function ContactSection() {
                     Email
                   </h4>
                   <a
-                    href="mailto:business@jankiinfotech.com"
+                    href="mailto:jankiinfotech7@gmail.com"
                     className="text-blue-600 hover:text-blue-700"
                   >
-                    business@jankiinfotech.com
+                    jankiinfotech7@gmail.com
                   </a>
                 </div>
 
@@ -255,10 +255,10 @@ export default function ContactSection() {
                     Phone
                   </h4>
                   <a
-                    href="tel:+918579009245"
+                    href="tel:+918228800345"
                     className="text-blue-600 hover:text-blue-700"
                   >
-                    +91 857 9009 245
+                    +91 822‑8800‑345
                   </a>
                 </div>
 
