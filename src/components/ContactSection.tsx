@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { submitContactForm } from "@/lib/actions/contact";
 import { useState } from "react";
 
 export default function ContactSection() {
@@ -27,19 +28,46 @@ export default function ContactSection() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    setFormData({
-      fullName: "",
-      company: "",
-      findUs: "",
-      phone: "",
-      email: "",
-      projectDetails: "",
-    });
-    // You can add API call here
+    setIsSubmitting(true);
+    setSubmitMessage("");
+
+    try {
+      console.log("📝 Submitting contact form:", formData);
+
+      const result = await submitContactForm({
+        name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        message: formData.projectDetails,
+        service: "other",
+      });
+
+      if (result.success) {
+        console.log("✅ Form submitted successfully:", result.contactId);
+        setSubmitMessage("Thank you! Your message has been sent successfully.");
+        setFormData({
+          fullName: "",
+          company: "",
+          findUs: "",
+          phone: "",
+          email: "",
+          projectDetails: "",
+        });
+      } else {
+        console.error("❌ Form submission failed:", result.message);
+        setSubmitMessage(
+          result.message || "Something went wrong. Please try again."
+        );
+      }
+    } catch (error) {
+      console.error("❌ Error submitting form:", error);
+      setSubmitMessage("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -180,11 +208,24 @@ export default function ContactSection() {
                 />
               </div>
 
+              {submitMessage && (
+                <div
+                  className={`p-4 rounded-lg ${
+                    submitMessage.includes("successfully")
+                      ? "bg-green-50 text-green-700"
+                      : "bg-red-50 text-red-700"
+                  }`}
+                >
+                  {submitMessage}
+                </div>
+              )}
+
               <Button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 font-semibold"
+                disabled={isSubmitting}
+                className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white py-3 font-semibold transition-all duration-300"
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </form>
           </div>
