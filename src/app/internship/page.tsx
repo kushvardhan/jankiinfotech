@@ -1,15 +1,13 @@
 import { Metadata } from 'next'
-import { generateSEOMetadata } from '@/lib/seo'
 import { Button } from '@/components/ui/button'
 import { Calendar, Clock, MapPin, Users, Award, BookOpen } from 'lucide-react'
 import Link from 'next/link'
 
-export const metadata: Metadata = generateSEOMetadata({
+export const metadata: Metadata = {
   title: 'Internship Programs | JankiInfotech',
   description: 'Join our comprehensive internship programs in web development, mobile app development, and software engineering. Gain hands-on experience with industry experts.',
   keywords: ['internship', 'training', 'web development', 'mobile development', 'software engineering', 'career'],
-  path: '/internship'
-})
+};
 
 const internshipPrograms = [
   {
