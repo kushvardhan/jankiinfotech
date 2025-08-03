@@ -2,13 +2,25 @@
 
 import { ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "./Logo";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [serviceDropdown, setServiceDropdown] = useState(false);
   const [productDropdown, setProductDropdown] = useState(false);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = () => {
+      if (isOpen) setIsOpen(false);
+    };
+
+    if (isOpen) {
+      document.addEventListener("click", handleClickOutside);
+      return () => document.removeEventListener("click", handleClickOutside);
+    }
+  }, [isOpen]);
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
@@ -29,47 +41,63 @@ export function Navbar() {
             {/* Services Dropdown */}
             <div className="relative group">
               <button
-                className="flex items-center text-gray-700 hover:text-green-600 transition-colors"
+                className="flex items-center text-gray-700 hover:text-green-600 transition-all duration-300 hover:scale-105"
                 onMouseEnter={() => setServiceDropdown(true)}
                 onMouseLeave={() => setServiceDropdown(false)}
               >
                 Service
-                <ChevronDown className="ml-1 h-4 w-4" />
+                <ChevronDown
+                  className={`ml-1 h-4 w-4 transition-transform duration-300 ${
+                    serviceDropdown ? "rotate-180" : ""
+                  }`}
+                />
               </button>
               {serviceDropdown && (
                 <div
-                  className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2"
+                  className="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 py-3 animate-in slide-in-from-top-2 duration-200"
                   onMouseEnter={() => setServiceDropdown(true)}
                   onMouseLeave={() => setServiceDropdown(false)}
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
+                    backdropFilter: "blur(10px)",
+                    boxShadow:
+                      "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                  }}
                 >
                   <Link
                     href="/service/application-development"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    className="group flex items-center px-6 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-green-100 hover:text-green-700 transition-all duration-300 rounded-lg mx-2 hover:scale-105 hover:shadow-md"
                   >
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     Application Development
                   </Link>
                   <Link
                     href="/service/web-development"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    className="group flex items-center px-6 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-green-100 hover:text-green-700 transition-all duration-300 rounded-lg mx-2 hover:scale-105 hover:shadow-md"
                   >
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     Web Development
                   </Link>
                   <Link
                     href="/service/cloud-optimization"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    className="group flex items-center px-6 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-green-100 hover:text-green-700 transition-all duration-300 rounded-lg mx-2 hover:scale-105 hover:shadow-md"
                   >
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     Cloud Optimization
                   </Link>
                   <Link
                     href="/service/devops-solution"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    className="group flex items-center px-6 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-green-100 hover:text-green-700 transition-all duration-300 rounded-lg mx-2 hover:scale-105 hover:shadow-md"
                   >
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     DevOps Solution
                   </Link>
                   <Link
                     href="/service/project-consultation"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    className="group flex items-center px-6 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-green-100 hover:text-green-700 transition-all duration-300 rounded-lg mx-2 hover:scale-105 hover:shadow-md"
                   >
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     Project Consultation
                   </Link>
                 </div>
@@ -79,23 +107,35 @@ export function Navbar() {
             {/* Products Dropdown */}
             <div className="relative group">
               <button
-                className="flex items-center text-gray-700 hover:text-green-600 transition-colors"
+                className="flex items-center text-gray-700 hover:text-green-600 transition-all duration-300 hover:scale-105"
                 onMouseEnter={() => setProductDropdown(true)}
                 onMouseLeave={() => setProductDropdown(false)}
               >
                 Product
-                <ChevronDown className="ml-1 h-4 w-4" />
+                <ChevronDown
+                  className={`ml-1 h-4 w-4 transition-transform duration-300 ${
+                    productDropdown ? "rotate-180" : ""
+                  }`}
+                />
               </button>
               {productDropdown && (
                 <div
-                  className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2"
+                  className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 py-3 animate-in slide-in-from-top-2 duration-200"
                   onMouseEnter={() => setProductDropdown(true)}
                   onMouseLeave={() => setProductDropdown(false)}
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
+                    backdropFilter: "blur(10px)",
+                    boxShadow:
+                      "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                  }}
                 >
                   <Link
                     href="/product/janki-hrms"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    className="group flex items-center px-6 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-green-100 hover:text-green-700 transition-all duration-300 rounded-lg mx-2 hover:scale-105 hover:shadow-md"
                   >
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     Janki HRMS
                   </Link>
                 </div>
@@ -150,17 +190,27 @@ export function Navbar() {
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="lg:hidden py-4 border-t border-gray-200">
-            <div className="flex flex-col space-y-4">
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
+            isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="py-4 border-t border-gray-200 bg-gradient-to-b from-white to-gray-50">
+            <div className="flex flex-col space-y-2">
               <Link
                 href="/"
-                className="text-gray-700 hover:text-green-600 transition-colors"
+                className="text-gray-700 hover:text-green-600 transition-all duration-300 py-2 px-4 rounded-lg hover:bg-green-50 hover:scale-105 animate-in slide-in-from-left-2"
+                style={{ animationDelay: "0.1s" }}
               >
                 Home
               </Link>
-              <div className="space-y-2">
-                <div className="text-gray-700 font-medium">Services</div>
+              <div
+                className="space-y-2 animate-in slide-in-from-left-2"
+                style={{ animationDelay: "0.2s" }}
+              >
+                <div className="text-gray-700 font-medium py-2 px-4">
+                  Services
+                </div>
                 <div className="pl-4 space-y-2">
                   <Link
                     href="/service/application-development"
@@ -243,7 +293,7 @@ export function Navbar() {
               </Link>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );
