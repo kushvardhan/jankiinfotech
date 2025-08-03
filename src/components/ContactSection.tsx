@@ -1,40 +1,46 @@
-'use client'
+"use client";
 
-import { Button } from '@/components/ui/button'
-import { useState } from 'react'
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
-    fullName: '',
-    company: '',
-    findUs: '',
-    phone: '',
-    email: '',
-    projectDetails: ''
-  })
+    fullName: "",
+    company: "",
+    findUs: "",
+    phone: "",
+    email: "",
+    projectDetails: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
-    }))
-  }
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle form submission here
-    console.log('Form submitted:', formData)
+    console.log("Form submitted:", formData);
     setFormData({
-      fullName: '',
-      company: '',
-      findUs: '',
-      phone: '',
-      email: '',
-      projectDetails: ''
-    })
+      fullName: "",
+      company: "",
+      findUs: "",
+      phone: "",
+      email: "",
+      projectDetails: "",
+    });
     // You can add API call here
-  }
+  };
 
   return (
     <section className="py-20 bg-gray-50">
@@ -45,8 +51,8 @@ export default function ContactSection() {
             Get in Touch
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We'd love to hear from you! Whether you have questions, feedback, or business inquiries, 
-            feel free to get in touch with us.
+            We'd love to hear from you! Whether you have questions, feedback, or
+            business inquiries, feel free to get in touch with us.
           </p>
         </div>
 
@@ -55,7 +61,10 @@ export default function ContactSection() {
           <div className="bg-white rounded-2xl p-8 shadow-lg">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="fullName"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Full Name *
                 </label>
                 <input
@@ -71,7 +80,10 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="company"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Company *
                 </label>
                 <input
@@ -87,7 +99,10 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="findUs" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="findUs"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Where you find us? *
                 </label>
                 <select
@@ -109,7 +124,10 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Phone Number *
                 </label>
                 <input
@@ -125,7 +143,10 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Work Email *
                 </label>
                 <input
@@ -141,7 +162,10 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="projectDetails" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="projectDetails"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Project Details *
                 </label>
                 <textarea
@@ -156,8 +180,8 @@ export default function ContactSection() {
                 />
               </div>
 
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 font-semibold"
               >
                 Send Message
@@ -168,25 +192,39 @@ export default function ContactSection() {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">Contact Information</h3>
-              
+              <h3 className="text-2xl font-bold text-gray-900 mb-8">
+                Contact Information
+              </h3>
+
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Email</h4>
-                  <a href="mailto:business@jankiinfotech.com" className="text-blue-600 hover:text-blue-700">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                    Email
+                  </h4>
+                  <a
+                    href="mailto:business@jankiinfotech.com"
+                    className="text-blue-600 hover:text-blue-700"
+                  >
                     business@jankiinfotech.com
                   </a>
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Phone</h4>
-                  <a href="tel:+918579009245" className="text-blue-600 hover:text-blue-700">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                    Phone
+                  </h4>
+                  <a
+                    href="tel:+918579009245"
+                    className="text-blue-600 hover:text-blue-700"
+                  >
                     +91 857 9009 245
                   </a>
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Location</h4>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                    Location
+                  </h4>
                   <a href="#" className="text-blue-600 hover:text-blue-700">
                     India
                   </a>
@@ -195,10 +233,12 @@ export default function ContactSection() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Team</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Our Team
+              </h3>
               <p className="text-gray-600 mb-4">
-                We have a team of computer science graduates, interns, startup founders, 
-                led by experienced technology leaders.
+                We have a team of computer science graduates, interns, startup
+                founders, led by experienced technology leaders.
               </p>
               <ul className="space-y-2 text-gray-600">
                 <li>• Technology Leaders - Founders & Tech Veterans</li>
@@ -212,24 +252,28 @@ export default function ContactSection() {
               <div className="text-center">
                 <div className="text-4xl mb-2">🗺️</div>
                 <p className="text-gray-600">Office Location Map</p>
-                <p className="text-sm text-gray-500">Interactive map coming soon</p>
+                <p className="text-sm text-gray-500">
+                  Interactive map coming soon
+                </p>
               </div>
             </div>
 
             {/* Quote */}
             <div className="bg-blue-50 rounded-xl p-6">
               <blockquote className="text-gray-700 italic">
-                "If anyone envisions the growth of IT and ITES culture, JankiInfotech manifests first to bring this vision to life"
+                "If anyone envisions the growth of IT and ITES culture,
+                JankiInfotech manifests first to bring this vision to life"
               </blockquote>
               <p className="text-sm text-gray-600 mt-4">
-                We benefit from strong technical skills, linguistic diversity, educational heritage, 
-                and cost-effective solutions. Our goal is to create a skilled and customer-success-oriented 
-                team while contributing to technological growth.
+                We benefit from strong technical skills, linguistic diversity,
+                educational heritage, and cost-effective solutions. Our goal is
+                to create a skilled and customer-success-oriented team while
+                contributing to technological growth.
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

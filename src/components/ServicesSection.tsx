@@ -99,7 +99,7 @@ export default function ServicesSection() {
 
         {/* Additional Services */}
         <div className="mt-20 text-center">
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12 text-white">
+          <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-12 text-white">
             <h3 className="text-3xl md:text-4xl font-bold mb-4">
               Need a Custom Solution?
             </h3>
@@ -107,10 +107,10 @@ export default function ServicesSection() {
               We specialize in creating tailored technology solutions that perfectly fit your unique business requirements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 font-semibold">
+              <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 font-semibold">
                 Schedule Consultation
               </Button>
-              <Button variant="outline" className="border-white text-blue-200 hover:bg-white hover:text-blue-600 px-8 py-3 font-semibold">
+              <Button variant="outline" className="border-white text-green-400 hover:bg-white hover:text-green-600 px-8 py-3 font-semibold">
                 View Portfolio
               </Button>
             </div>
@@ -120,19 +120,19 @@ export default function ServicesSection() {
         {/* Stats Section */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div>
-            <div className="text-4xl font-bold text-blue-600 mb-2">50+</div>
+            <div className="text-4xl font-bold text-green-600 mb-2">50+</div>
             <div className="text-gray-600">Projects Completed</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-blue-600 mb-2">95%</div>
+            <div className="text-4xl font-bold text-green-600 mb-2">95%</div>
             <div className="text-gray-600">Client Satisfaction</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-blue-600 mb-2">24/7</div>
+            <div className="text-4xl font-bold text-green-600 mb-2">24/7</div>
             <div className="text-gray-600">Support Available</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-blue-600 mb-2">5+</div>
+            <div className="text-4xl font-bold text-green-600 mb-2">5+</div>
             <div className="text-gray-600">Years Experience</div>
           </div>
         </div>
