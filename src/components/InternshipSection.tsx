@@ -1,45 +1,101 @@
-'use client'
+"use client";
 
-import { Button } from '@/components/ui/button'
-import { Calendar, Clock, Users, Award, ArrowRight, BookOpen } from 'lucide-react'
-import Link from 'next/link'
+import { Button } from "@/components/ui/button";
+import {
+  ArrowRight,
+  Award,
+  BookOpen,
+  Calendar,
+  Clock,
+  Users,
+} from "lucide-react";
+import Link from "next/link";
+import { useRef, useState } from "react";
 
 const featuredPrograms = [
   {
-    title: 'Full Stack Web Development',
-    duration: '6 Months',
-    type: 'Hybrid',
-    description: 'Master modern web technologies including React, Node.js, MongoDB, and cloud deployment.',
-    skills: ['React.js', 'Node.js', 'MongoDB', 'TypeScript'],
-    startDate: 'March 2025',
-    fee: '₹25,000',
-    popular: true
+    title: "Full Stack Web Development",
+    duration: "6 Months",
+    type: "Hybrid",
+    description:
+      "Master modern web technologies including React, Node.js, MongoDB, and cloud deployment.",
+    skills: ["React.js", "Node.js", "MongoDB", "TypeScript"],
+    startDate: "March 2025",
+    fee: "₹25,000",
+    popular: true,
+    icon: "💻",
+    gradient: "from-blue-500 to-purple-600",
   },
   {
-    title: 'Mobile App Development',
-    duration: '4 Months',
-    type: 'Online',
-    description: 'Build cross-platform mobile applications using React Native and Flutter.',
-    skills: ['React Native', 'Flutter', 'Firebase', 'API Integration'],
-    startDate: 'April 2025',
-    fee: '₹20,000',
-    popular: false
+    title: "Mobile App Development",
+    duration: "4 Months",
+    type: "Online",
+    description:
+      "Build cross-platform mobile applications using React Native and Flutter.",
+    skills: ["React Native", "Flutter", "Firebase", "API Integration"],
+    startDate: "April 2025",
+    fee: "₹20,000",
+    popular: false,
+    icon: "📱",
+    gradient: "from-green-500 to-teal-600",
   },
   {
-    title: 'DevOps & Cloud Engineering',
-    duration: '5 Months',
-    type: 'Hybrid',
-    description: 'Learn modern DevOps practices, cloud platforms, and automation tools.',
-    skills: ['Docker', 'Kubernetes', 'AWS', 'Jenkins'],
-    startDate: 'May 2025',
-    fee: '₹30,000',
-    popular: false
-  }
-]
+    title: "UI/UX Design",
+    duration: "3 Months",
+    type: "Online",
+    description:
+      "Create stunning user interfaces and experiences using Figma, Adobe XD, and design principles.",
+    skills: ["Figma", "Adobe XD", "Prototyping", "User Research"],
+    startDate: "March 2025",
+    fee: "₹15,000",
+    popular: false,
+    icon: "🎨",
+    gradient: "from-pink-500 to-rose-600",
+  },
+  {
+    title: "Digital Marketing",
+    duration: "3 Months",
+    type: "Hybrid",
+    description:
+      "Master digital marketing strategies, SEO, social media marketing, and analytics.",
+    skills: ["SEO", "Google Ads", "Social Media", "Analytics"],
+    startDate: "April 2025",
+    fee: "₹18,000",
+    popular: false,
+    icon: "📈",
+    gradient: "from-orange-500 to-red-600",
+  },
+  {
+    title: "DevOps & Cloud Engineering",
+    duration: "5 Months",
+    type: "Hybrid",
+    description:
+      "Learn modern DevOps practices, cloud platforms, and automation tools.",
+    skills: ["Docker", "Kubernetes", "AWS", "Jenkins"],
+    startDate: "May 2025",
+    fee: "₹30,000",
+    popular: false,
+    icon: "☁️",
+    gradient: "from-indigo-500 to-blue-600",
+  },
+];
 
 export default function InternshipSection() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % featuredPrograms.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(
+      (prev) => (prev - 1 + featuredPrograms.length) % featuredPrograms.length
+    );
+  };
+
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
       <div className="container mx-auto max-w-7xl px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -51,15 +107,16 @@ export default function InternshipSection() {
             Launch Your Tech Career
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Join our comprehensive internship programs designed to give you hands-on experience, 
-            industry mentorship, and the skills needed to excel in the tech industry.
+            Join our comprehensive internship programs designed to give you
+            hands-on experience, industry mentorship, and the skills needed to
+            excel in the tech industry.
           </p>
         </div>
 
         {/* Programs Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {featuredPrograms.map((program, index) => (
-            <div 
+            <div
               key={index}
               className="relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-103 overflow-hidden group"
             >
@@ -68,20 +125,24 @@ export default function InternshipSection() {
                   Most Popular
                 </div>
               )}
-              
+
               <div className="p-8">
                 <div className="flex items-center justify-between mb-4">
                   <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium">
                     {program.type}
                   </span>
-                  <span className="text-2xl font-bold text-green-600">{program.fee}</span>
+                  <span className="text-2xl font-bold text-green-600">
+                    {program.fee}
+                  </span>
                 </div>
-                
+
                 <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors">
                   {program.title}
                 </h3>
-                <p className="text-gray-600 mb-6 line-clamp-3">{program.description}</p>
-                
+                <p className="text-gray-600 mb-6 line-clamp-3">
+                  {program.description}
+                </p>
+
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center text-gray-600">
                     <Clock className="h-5 w-5 mr-3 text-green-600" />
@@ -94,10 +155,12 @@ export default function InternshipSection() {
                 </div>
 
                 <div className="mb-6">
-                  <h4 className="font-semibold text-gray-900 mb-3">Key Skills:</h4>
+                  <h4 className="font-semibold text-gray-900 mb-3">
+                    Key Skills:
+                  </h4>
                   <div className="flex flex-wrap gap-2">
                     {program.skills.map((skill, skillIndex) => (
-                      <span 
+                      <span
                         key={skillIndex}
                         className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm hover:bg-green-100 hover:text-green-700 transition-colors"
                       >
@@ -119,19 +182,27 @@ export default function InternshipSection() {
         {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">500+</div>
+            <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">
+              500+
+            </div>
             <div className="text-gray-600">Students Trained</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">85%</div>
+            <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">
+              85%
+            </div>
             <div className="text-gray-600">Placement Rate</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">50+</div>
+            <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">
+              50+
+            </div>
             <div className="text-gray-600">Partner Companies</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">4.8/5</div>
+            <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">
+              4.8/5
+            </div>
             <div className="text-gray-600">Student Rating</div>
           </div>
         </div>
@@ -142,32 +213,48 @@ export default function InternshipSection() {
             <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
               <Users className="h-8 w-8 text-green-600" />
             </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Expert Mentorship</h3>
-            <p className="text-gray-600 text-sm">Learn from industry professionals with years of experience</p>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">
+              Expert Mentorship
+            </h3>
+            <p className="text-gray-600 text-sm">
+              Learn from industry professionals with years of experience
+            </p>
           </div>
-          
+
           <div className="text-center">
             <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
               <BookOpen className="h-8 w-8 text-green-600" />
             </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Hands-on Projects</h3>
-            <p className="text-gray-600 text-sm">Work on real-world projects that build your portfolio</p>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">
+              Hands-on Projects
+            </h3>
+            <p className="text-gray-600 text-sm">
+              Work on real-world projects that build your portfolio
+            </p>
           </div>
-          
+
           <div className="text-center">
             <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
               <Award className="h-8 w-8 text-green-600" />
             </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Certification</h3>
-            <p className="text-gray-600 text-sm">Receive industry-recognized certificates upon completion</p>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">
+              Certification
+            </h3>
+            <p className="text-gray-600 text-sm">
+              Receive industry-recognized certificates upon completion
+            </p>
           </div>
-          
+
           <div className="text-center">
             <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
               <Users className="h-8 w-8 text-green-600" />
             </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Job Placement</h3>
-            <p className="text-gray-600 text-sm">Get assistance with job placements and career guidance</p>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">
+              Job Placement
+            </h3>
+            <p className="text-gray-600 text-sm">
+              Get assistance with job placements and career guidance
+            </p>
           </div>
         </div>
 
@@ -178,7 +265,8 @@ export default function InternshipSection() {
               Ready to Start Your Journey?
             </h3>
             <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-              Join thousands of students who have launched their careers through our programs.
+              Join thousands of students who have launched their careers through
+              our programs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/internship">
@@ -188,7 +276,10 @@ export default function InternshipSection() {
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 text-lg font-semibold">
+                <Button
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 text-lg font-semibold"
+                >
                   Get More Info
                 </Button>
               </Link>
@@ -197,5 +288,5 @@ export default function InternshipSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
