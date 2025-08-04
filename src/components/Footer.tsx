@@ -19,8 +19,8 @@ export default function Footer() {
         <div className="text-center text-sm">
           <p>Empowering your digital presence with websites and marketing that deliver results.</p>
           <p className="mt-2">
-            📞 <a href="tel:+918228800345" className="hover:underline">+91 822‑8800‑345</a> · 
-            ✉️ <a href="mailto:jankiinfotech7@gmail.com" className="hover:underline">jankiinfotech7@gmail.com</a>
+            <a href="tel:+918228800345" className="hover:underline">+91 822‑8800‑345</a> · 
+            <a href="mailto:jankiinfotech7@gmail.com" className="hover:underline">jankiinfotech7@gmail.com</a>
           </p>
         </div>
 
