@@ -10,6 +10,7 @@ export default function ContactSection() {
     company: "",
     findUs: "",
     phone: "",
+    countryCode: '+91',
     email: "",
     projectDetails: "",
   });
@@ -28,47 +29,54 @@ export default function ContactSection() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitMessage("");
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+  setSubmitMessage("");
 
-    try {
-      console.log("📝 Submitting contact form:", formData);
+  try {
+    console.log("📝 Submitting contact form:", formData);
 
-      const result = await submitContactForm({
-        name: formData.fullName,
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        message: formData.projectDetails,
-        service: "other",
+    const result = await submitContactForm({
+      name: formData.fullName,
+      email: formData.email,
+      phone: `${formData.countryCode}${formData.phone}`,
+      company: formData.company,
+      message: formData.projectDetails,
+      service: "other",
+    });
+
+    if (result.success) {
+      console.log("✅ Form submitted successfully:", result.contactId);
+      setSubmitMessage("Thank you! Your message has been sent successfully.");
+      setFormData({
+        fullName: "",
+        company: "",
+        findUs: "",
+        phone: "",
+        countryCode: "+91",
+        email: "",
+        projectDetails: "",
       });
 
-      if (result.success) {
-        console.log("✅ Form submitted successfully:", result.contactId);
-        setSubmitMessage("Thank you! Your message has been sent successfully.");
-        setFormData({
-          fullName: "",
-          company: "",
-          findUs: "",
-          phone: "",
-          email: "",
-          projectDetails: "",
-        });
-      } else {
-        console.error("❌ Form submission failed:", result.message);
-        setSubmitMessage(
-          result.message || "Something went wrong. Please try again."
-        );
-      }
-    } catch (error) {
-      console.error("❌ Error submitting form:", error);
-      setSubmitMessage("Something went wrong. Please try again.");
-    } finally {
-      setIsSubmitting(false);
+      // 🕐 Clear the success message after 5 seconds
+      setTimeout(() => {
+        setSubmitMessage("");
+      }, 5000);
+    } else {
+      console.error("❌ Form submission failed:", result.message);
+      setSubmitMessage(
+        result.message || "Something went wrong. Please try again."
+      );
     }
-  };
+  } catch (error) {
+    console.error("❌ Error submitting form:", error);
+    setSubmitMessage("Something went wrong. Please try again.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   return (
     <section className="py-20 bg-gray-50">
@@ -151,24 +159,34 @@ export default function ContactSection() {
                 </select>
               </div>
 
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Phone Number *
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Enter your phone number"
-                />
-              </div>
+              <div className="mb-4">
+  <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+  <div className="flex gap-2">
+    <select
+      name="countryCode"
+      value={formData.countryCode}
+      onChange={handleInputChange}
+      className="w-28 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      required
+    >
+      <option value="+91">+91 (IN)</option>
+      <option value="+1">+1 (US)</option>
+      <option value="+44">+44 (UK)</option>
+      <option value="+61">+61 (AU)</option>
+    </select>
+    
+    <input
+      type="tel"
+      name="phone"
+      value={formData.phone}
+      onChange={handleInputChange}
+      className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      placeholder="Enter your phone number"
+      required
+    />
+  </div>
+</div>
+
 
               <div>
                 <label
@@ -203,7 +221,7 @@ export default function ContactSection() {
                   onChange={handleInputChange}
                   required
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 resize-none  border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Tell us about your project requirements"
                 />
               </div>
