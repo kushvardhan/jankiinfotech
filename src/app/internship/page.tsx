@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import { Award, BookOpen, Calendar, Clock, MapPin, Users } from "lucide-react";
 import { Metadata } from "next";
@@ -127,28 +125,6 @@ const internshipPrograms = [
       "Analytics & Reporting",
       "Brand Strategy",
       "Performance Marketing",
-    ],
-  },
-  {
-    id: 5,
-    title: "DevOps & Cloud Engineering",
-    duration: "5 Months",
-    type: "Hybrid",
-    description:
-      "Learn modern DevOps practices, cloud platforms, and automation tools.",
-    skills: ["Docker", "Kubernetes", "AWS", "Jenkins", "Terraform", "Linux"],
-    level: "Intermediate to Advanced",
-    seats: 12,
-    startDate: "May 2025",
-    fee: "₹30,000",
-    icon: "☁️",
-    gradient: "from-indigo-500 to-blue-600",
-    popular: false,
-    features: [
-      "Hands-on Labs",
-      "Cloud Certifications",
-      "Industry Projects",
-      "Job Placement Support",
     ],
   },
 ];
