@@ -1,70 +1,157 @@
-import { Metadata } from 'next'
-import { Button } from '@/components/ui/button'
-import { Calendar, Clock, MapPin, Users, Award, BookOpen } from 'lucide-react'
-import Link from 'next/link'
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { Award, BookOpen, Calendar, Clock, MapPin, Users } from "lucide-react";
+import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: 'Internship Programs | JankiInfotech',
-  description: 'Join our comprehensive internship programs in web development, mobile app development, and software engineering. Gain hands-on experience with industry experts.',
-  keywords: ['internship', 'training', 'web development', 'mobile development', 'software engineering', 'career'],
+  title: "Internship Programs | JankiInfotech",
+  description:
+    "Join our comprehensive internship programs in web development, mobile app development, and software engineering. Gain hands-on experience with industry experts.",
+  keywords: [
+    "internship",
+    "training",
+    "web development",
+    "mobile development",
+    "software engineering",
+    "career",
+  ],
 };
 
 const internshipPrograms = [
   {
     id: 1,
-    title: 'Full Stack Web Development',
-    duration: '6 Months',
-    type: 'Hybrid',
-    description: 'Master modern web technologies including React, Node.js, MongoDB, and cloud deployment.',
-    skills: ['React.js', 'Node.js', 'MongoDB', 'Express.js', 'TypeScript', 'AWS'],
-    level: 'Beginner to Advanced',
+    title: "Full Stack Web Development",
+    duration: "6 Months",
+    type: "Hybrid",
+    description:
+      "Master modern web technologies including React, Node.js, MongoDB, and cloud deployment.",
+    skills: [
+      "React.js",
+      "Node.js",
+      "MongoDB",
+      "Express.js",
+      "TypeScript",
+      "AWS",
+    ],
+    level: "Beginner to Advanced",
     seats: 20,
-    startDate: 'March 2025',
-    fee: '₹25,000',
+    startDate: "March 2025",
+    fee: "₹25,000",
+    icon: "💻",
+    gradient: "from-blue-500 to-purple-600",
+    popular: true,
     features: [
-      'Live Projects',
-      'Industry Mentorship',
-      'Placement Assistance',
-      'Certificate of Completion'
-    ]
+      "Live Projects",
+      "Industry Mentorship",
+      "Placement Assistance",
+      "Certificate of Completion",
+    ],
   },
   {
     id: 2,
-    title: 'Mobile App Development',
-    duration: '4 Months',
-    type: 'Online',
-    description: 'Build cross-platform mobile applications using React Native and Flutter.',
-    skills: ['React Native', 'Flutter', 'Dart', 'Firebase', 'API Integration'],
-    level: 'Intermediate',
+    title: "Mobile App Development",
+    duration: "4 Months",
+    type: "Online",
+    description:
+      "Build cross-platform mobile applications using React Native and Flutter.",
+    skills: ["React Native", "Flutter", "Dart", "Firebase", "API Integration"],
+    level: "Intermediate",
     seats: 15,
-    startDate: 'April 2025',
-    fee: '₹20,000',
+    startDate: "April 2025",
+    fee: "₹20,000",
+    icon: "📱",
+    gradient: "from-green-500 to-teal-600",
+    popular: false,
     features: [
-      'Real App Development',
-      'Play Store Publishing',
-      'UI/UX Design Training',
-      'Portfolio Building'
-    ]
+      "Real App Development",
+      "Play Store Publishing",
+      "UI/UX Design Training",
+      "Portfolio Building",
+    ],
   },
   {
     id: 3,
-    title: 'DevOps & Cloud Engineering',
-    duration: '5 Months',
-    type: 'Hybrid',
-    description: 'Learn modern DevOps practices, cloud platforms, and automation tools.',
-    skills: ['Docker', 'Kubernetes', 'AWS', 'Jenkins', 'Terraform', 'Linux'],
-    level: 'Intermediate to Advanced',
-    seats: 12,
-    startDate: 'May 2025',
-    fee: '₹30,000',
+    title: "UI/UX Design",
+    duration: "3 Months",
+    type: "Online",
+    description:
+      "Create stunning user interfaces and experiences using Figma, Adobe XD, and design principles.",
+    skills: [
+      "Figma",
+      "Adobe XD",
+      "Prototyping",
+      "User Research",
+      "Wireframing",
+      "Design Systems",
+    ],
+    level: "Beginner to Intermediate",
+    seats: 18,
+    startDate: "March 2025",
+    fee: "₹15,000",
+    icon: "🎨",
+    gradient: "from-pink-500 to-rose-600",
+    popular: false,
     features: [
-      'Hands-on Labs',
-      'Cloud Certifications',
-      'Industry Projects',
-      'Job Placement Support'
-    ]
-  }
-]
+      "Design Portfolio",
+      "Client Projects",
+      "Industry Tools",
+      "Creative Mentorship",
+    ],
+  },
+  {
+    id: 4,
+    title: "Digital Marketing",
+    duration: "3 Months",
+    type: "Hybrid",
+    description:
+      "Master digital marketing strategies, SEO, social media marketing, and analytics.",
+    skills: [
+      "SEO",
+      "Google Ads",
+      "Social Media",
+      "Analytics",
+      "Content Marketing",
+      "Email Marketing",
+    ],
+    level: "Beginner to Advanced",
+    seats: 25,
+    startDate: "April 2025",
+    fee: "₹18,000",
+    icon: "📈",
+    gradient: "from-orange-500 to-red-600",
+    popular: false,
+    features: [
+      "Campaign Management",
+      "Analytics & Reporting",
+      "Brand Strategy",
+      "Performance Marketing",
+    ],
+  },
+  {
+    id: 5,
+    title: "DevOps & Cloud Engineering",
+    duration: "5 Months",
+    type: "Hybrid",
+    description:
+      "Learn modern DevOps practices, cloud platforms, and automation tools.",
+    skills: ["Docker", "Kubernetes", "AWS", "Jenkins", "Terraform", "Linux"],
+    level: "Intermediate to Advanced",
+    seats: 12,
+    startDate: "May 2025",
+    fee: "₹30,000",
+    icon: "☁️",
+    gradient: "from-indigo-500 to-blue-600",
+    popular: false,
+    features: [
+      "Hands-on Labs",
+      "Cloud Certifications",
+      "Industry Projects",
+      "Job Placement Support",
+    ],
+  },
+];
 
 export default function InternshipPage() {
   return (
@@ -77,14 +164,18 @@ export default function InternshipPage() {
               Internship Programs
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Launch your tech career with our comprehensive internship programs. 
-              Get hands-on experience, industry mentorship, and job placement assistance.
+              Launch your tech career with our comprehensive internship
+              programs. Get hands-on experience, industry mentorship, and job
+              placement assistance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold">
                 Apply Now
               </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 text-lg font-semibold">
+              <Button
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 text-lg font-semibold"
+              >
                 Download Brochure
               </Button>
             </div>
@@ -100,15 +191,16 @@ export default function InternshipPage() {
               Our Internship Programs
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose from our carefully designed programs that combine theoretical knowledge 
-              with practical experience in cutting-edge technologies.
+              Choose from our carefully designed programs that combine
+              theoretical knowledge with practical experience in cutting-edge
+              technologies.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {internshipPrograms.map((program, index) => (
-              <div 
-                key={program.id} 
+              <div
+                key={program.id}
                 className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
               >
                 <div className="p-8">
@@ -116,12 +208,16 @@ export default function InternshipPage() {
                     <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium">
                       {program.type}
                     </span>
-                    <span className="text-2xl font-bold text-green-600">{program.fee}</span>
+                    <span className="text-2xl font-bold text-green-600">
+                      {program.fee}
+                    </span>
                   </div>
-                  
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{program.title}</h3>
+
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                    {program.title}
+                  </h3>
                   <p className="text-gray-600 mb-6">{program.description}</p>
-                  
+
                   <div className="space-y-3 mb-6">
                     <div className="flex items-center text-gray-600">
                       <Clock className="h-5 w-5 mr-3 text-green-600" />
@@ -142,10 +238,12 @@ export default function InternshipPage() {
                   </div>
 
                   <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-3">Skills You'll Learn:</h4>
+                    <h4 className="font-semibold text-gray-900 mb-3">
+                      Skills You'll Learn:
+                    </h4>
                     <div className="flex flex-wrap gap-2">
                       {program.skills.map((skill, skillIndex) => (
-                        <span 
+                        <span
                           key={skillIndex}
                           className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
                         >
@@ -156,10 +254,15 @@ export default function InternshipPage() {
                   </div>
 
                   <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-3">Program Features:</h4>
+                    <h4 className="font-semibold text-gray-900 mb-3">
+                      Program Features:
+                    </h4>
                     <ul className="space-y-2">
                       {program.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center text-gray-600">
+                        <li
+                          key={featureIndex}
+                          className="flex items-center text-gray-600"
+                        >
                           <BookOpen className="h-4 w-4 mr-2 text-green-600" />
                           {feature}
                         </li>
@@ -191,32 +294,48 @@ export default function InternshipPage() {
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Expert Mentorship</h3>
-              <p className="text-gray-600">Learn from industry professionals with years of experience</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                Expert Mentorship
+              </h3>
+              <p className="text-gray-600">
+                Learn from industry professionals with years of experience
+              </p>
             </div>
-            
+
             <div className="text-center">
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BookOpen className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Hands-on Projects</h3>
-              <p className="text-gray-600">Work on real-world projects that build your portfolio</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                Hands-on Projects
+              </h3>
+              <p className="text-gray-600">
+                Work on real-world projects that build your portfolio
+              </p>
             </div>
-            
+
             <div className="text-center">
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Certification</h3>
-              <p className="text-gray-600">Receive industry-recognized certificates upon completion</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                Certification
+              </h3>
+              <p className="text-gray-600">
+                Receive industry-recognized certificates upon completion
+              </p>
             </div>
-            
+
             <div className="text-center">
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Job Placement</h3>
-              <p className="text-gray-600">Get assistance with job placements and career guidance</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                Job Placement
+              </h3>
+              <p className="text-gray-600">
+                Get assistance with job placements and career guidance
+              </p>
             </div>
           </div>
         </div>
@@ -229,14 +348,18 @@ export default function InternshipPage() {
             Ready to Start Your Tech Journey?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Join thousands of students who have launched their careers through our internship programs.
+            Join thousands of students who have launched their careers through
+            our internship programs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold">
               Apply Now
             </Button>
             <Link href="/contact">
-              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 text-lg font-semibold">
+              <Button
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 text-lg font-semibold"
+              >
                 Contact Us
               </Button>
             </Link>
@@ -244,5 +367,5 @@ export default function InternshipPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

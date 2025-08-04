@@ -1,48 +1,59 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { submitContactForm } from '@/lib/actions/contact'
-import { Calendar, Clock, User, Mail, Phone, Building, MessageSquare } from 'lucide-react'
+import { Button } from "@/components/ui/button";
+import { submitContactForm } from "@/lib/actions/contact";
+import {
+  Building,
+  Calendar,
+  Clock,
+  Mail,
+  MessageSquare,
+  Phone,
+  User,
+} from "lucide-react";
+import { useState } from "react";
 
 export default function ScheduleConsultationForm() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    consultationType: '',
-    preferredDate: '',
-    preferredTime: '',
-    message: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    consultationType: "",
+    preferredDate: "",
+    preferredTime: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({
     type: null,
-    message: ''
-  })
+    message: "",
+  });
 
   const consultationTypes = [
-    'Web Development',
-    'Mobile App Development',
-    'Cloud & DevOps',
-    'Training Programs',
-    'General Consultation'
-  ]
+    "Web Development",
+    "Mobile App Development",
+    "Cloud & DevOps",
+    "Training Programs",
+    "General Consultation",
+  ];
 
   const timeSlots = [
-    '9:00 AM - 10:00 AM',
-    '10:00 AM - 11:00 AM',
-    '11:00 AM - 12:00 PM',
-    '2:00 PM - 3:00 PM',
-    '3:00 PM - 4:00 PM',
-    '4:00 PM - 5:00 PM'
-  ]
+    "9:00 AM - 10:00 AM",
+    "10:00 AM - 11:00 AM",
+    "11:00 AM - 12:00 PM",
+    "2:00 PM - 3:00 PM",
+    "3:00 PM - 4:00 PM",
+    "4:00 PM - 5:00 PM",
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus({ type: null, message: '' })
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
 
     try {
       const consultationMessage = `
@@ -50,10 +61,10 @@ Consultation Request:
 - Type: ${formData.consultationType}
 - Preferred Date: ${formData.preferredDate}
 - Preferred Time: ${formData.preferredTime}
-- Company: ${formData.company || 'Not specified'}
+- Company: ${formData.company || "Not specified"}
 
 Message: ${formData.message}
-      `.trim()
+      `.trim();
 
       const result = await submitContactForm({
         name: formData.name,
@@ -61,52 +72,57 @@ Message: ${formData.message}
         phone: formData.phone,
         company: formData.company,
         message: consultationMessage,
-        service: 'consulting'
-      })
+        service: "consulting",
+      });
 
       if (result.success) {
         setSubmitStatus({
-          type: 'success',
-          message: 'Consultation request submitted successfully! We\'ll contact you within 24 hours to confirm your appointment.'
-        })
+          type: "success",
+          message:
+            "Consultation request submitted successfully! We'll contact you within 24 hours to confirm your appointment.",
+        });
         setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          company: '',
-          consultationType: '',
-          preferredDate: '',
-          preferredTime: '',
-          message: ''
-        })
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          consultationType: "",
+          preferredDate: "",
+          preferredTime: "",
+          message: "",
+        });
       } else {
         setSubmitStatus({
-          type: 'error',
-          message: result.message || 'Something went wrong. Please try again.'
-        })
+          type: "error",
+          message: result.message || "Something went wrong. Please try again.",
+        });
       }
     } catch (error) {
-      console.error('Form submission error:', error)
+      console.error("Form submission error:", error);
       setSubmitStatus({
-        type: 'error',
-        message: 'Something went wrong. Please try again.'
-      })
+        type: "error",
+        message: "Something went wrong. Please try again.",
+      });
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
-    }))
-  }
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   // Get tomorrow's date as minimum date
-  const tomorrow = new Date()
-  tomorrow.setDate(tomorrow.getDate() + 1)
-  const minDate = tomorrow.toISOString().split('T')[0]
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const minDate = tomorrow.toISOString().split("T")[0];
 
   return (
     <div className="bg-white rounded-2xl shadow-lg p-8">
@@ -114,7 +130,10 @@ Message: ${formData.message}
         {/* Personal Information */}
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               <User className="w-4 h-4 inline mr-2" />
               Full Name *
             </label>
@@ -130,7 +149,10 @@ Message: ${formData.message}
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               <Mail className="w-4 h-4 inline mr-2" />
               Email Address *
             </label>
@@ -149,7 +171,10 @@ Message: ${formData.message}
 
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="phone"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               <Phone className="w-4 h-4 inline mr-2" />
               Phone Number
             </label>
@@ -164,7 +189,10 @@ Message: ${formData.message}
             />
           </div>
           <div>
-            <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="company"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               <Building className="w-4 h-4 inline mr-2" />
               Company/Organization
             </label>
@@ -182,7 +210,10 @@ Message: ${formData.message}
 
         {/* Consultation Details */}
         <div>
-          <label htmlFor="consultationType" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="consultationType"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             Consultation Type *
           </label>
           <select
@@ -195,14 +226,19 @@ Message: ${formData.message}
           >
             <option value="">Select consultation type</option>
             {consultationTypes.map((type) => (
-              <option key={type} value={type}>{type}</option>
+              <option key={type} value={type}>
+                {type}
+              </option>
             ))}
           </select>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="preferredDate" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="preferredDate"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               <Calendar className="w-4 h-4 inline mr-2" />
               Preferred Date *
             </label>
@@ -218,7 +254,10 @@ Message: ${formData.message}
             />
           </div>
           <div>
-            <label htmlFor="preferredTime" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="preferredTime"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               <Clock className="w-4 h-4 inline mr-2" />
               Preferred Time *
             </label>
@@ -232,14 +271,19 @@ Message: ${formData.message}
             >
               <option value="">Select preferred time</option>
               {timeSlots.map((slot) => (
-                <option key={slot} value={slot}>{slot}</option>
+                <option key={slot} value={slot}>
+                  {slot}
+                </option>
               ))}
             </select>
           </div>
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             <MessageSquare className="w-4 h-4 inline mr-2" />
             Project Details *
           </label>
@@ -257,11 +301,13 @@ Message: ${formData.message}
 
         {/* Status Message */}
         {submitStatus.type && (
-          <div className={`p-4 rounded-lg ${
-            submitStatus.type === 'success' 
-              ? 'bg-green-50 text-green-800 border border-green-200' 
-              : 'bg-red-50 text-red-800 border border-red-200'
-          }`}>
+          <div
+            className={`p-4 rounded-lg ${
+              submitStatus.type === "success"
+                ? "bg-green-50 text-green-800 border border-green-200"
+                : "bg-red-50 text-red-800 border border-red-200"
+            }`}
+          >
             {submitStatus.message}
           </div>
         )}
@@ -272,14 +318,15 @@ Message: ${formData.message}
           disabled={isSubmitting}
           className="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
         >
-          {isSubmitting ? 'Submitting...' : 'Schedule Consultation'}
+          {isSubmitting ? "Submitting..." : "Schedule Consultation"}
         </Button>
 
         <p className="text-sm text-gray-600 text-center">
-          By submitting this form, you agree to our terms of service and privacy policy. 
-          We'll contact you within 24 hours to confirm your consultation appointment.
+          By submitting this form, you agree to our terms of service and privacy
+          policy. We&apos;ll contact you within 24 hours to confirm your
+          consultation appointment.
         </p>
       </form>
     </div>
-  )
+  );
 }
