@@ -1,16 +1,34 @@
-import { NextResponse } from 'next/server'
-import { connectToDB } from '@/lib/mongodb'
-import User
+import connectDB from "@/lib/mongodb";
+import Student from "@/models/Student";
+import { NextResponse } from "next/server";
 
-export async function GET(req: Request, { params }: { params: { id: string } }) {
+export async function GET(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
   try {
-    await connectToDB()
-    const user = await User.findById(params.id)
+    await connectDB();
 
-    if (!user) return NextResponse.json({ error: 'User not found' }, { status: 404 })
+    const student = await Student.findById(params.id);
 
-    return NextResponse.json(user)
+    if (!student) {
+      return NextResponse.json({ error: "Student not found" }, { status: 404 });
+    }
+
+    // Return student data
+    return NextResponse.json({
+      _id: student._id.toString(),
+      name: student.name,
+      email: student.email,
+      domain: student.domain,
+      duration: student.duration,
+      company: student.company,
+    });
   } catch (error) {
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+    console.error("Error fetching student:", error);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }
