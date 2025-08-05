@@ -80,7 +80,7 @@ export default function StudentCard({ student }: StudentCardProps) {
 
           {/* Certificate Content */}
           <div className="text-center mb-8">
-            <div className="text-6xl mb-4">{getDomainIcon(student.domain)}</div>
+            {/* <div className="text-6xl mb-4">{getDomainIcon(student.domain)}</div> */}
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
               Certificate of Completion
             </h2>
