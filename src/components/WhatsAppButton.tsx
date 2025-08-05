@@ -1,43 +1,49 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { MessageCircle, X } from 'lucide-react'
+import { MessageCircle, X } from "lucide-react";
+import { useState } from "react";
 
 export default function WhatsAppButton() {
-  const [isOpen, setIsOpen] = useState(false)
-  
+  const [isOpen, setIsOpen] = useState(false);
+
   // WhatsApp number (replace with actual JankiInfotech WhatsApp number)
-  const whatsappNumber = '+919876543210' // Replace with actual number
-  
+  const whatsappNumber = "+919876543210"; // Replace with actual number
+
   const predefinedMessages = [
     {
-      title: 'General Inquiry',
-      message: 'Hi! I would like to know more about your services.'
+      title: "General Inquiry",
+      message: "Hi! I would like to know more about your services.",
     },
     {
-      title: 'Web Development',
-      message: 'Hi! I\'m interested in web development services. Can you provide more details?'
+      title: "Web Development",
+      message:
+        "Hi! I&apos;m interested in web development services. Can you provide more details?",
     },
     {
-      title: 'Mobile App Development',
-      message: 'Hi! I need help with mobile app development. Can we discuss?'
+      title: "Mobile App Development",
+      message: "Hi! I need help with mobile app development. Can we discuss?",
     },
     {
-      title: 'Training Programs',
-      message: 'Hi! I\'m interested in your training programs. Can you share more information?'
+      title: "Training Programs",
+      message:
+        "Hi! I&apos;m interested in your training programs. Can you share more information?",
     },
     {
-      title: 'Schedule Consultation',
-      message: 'Hi! I would like to schedule a free consultation. When are you available?'
-    }
-  ]
+      title: "Schedule Consultation",
+      message:
+        "Hi! I would like to schedule a free consultation. When are you available?",
+    },
+  ];
 
   const sendWhatsAppMessage = (message: string) => {
-    const encodedMessage = encodeURIComponent(message)
-    const whatsappUrl = `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodedMessage}`
-    window.open(whatsappUrl, '_blank')
-    setIsOpen(false)
-  }
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappNumber.replace(
+      "+",
+      ""
+    )}?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank");
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -63,7 +69,7 @@ export default function WhatsAppButton() {
                 <X className="w-5 h-5" />
               </button>
             </div>
-            
+
             <div className="space-y-2">
               {predefinedMessages.map((msg, index) => (
                 <button
@@ -71,12 +77,16 @@ export default function WhatsAppButton() {
                   onClick={() => sendWhatsAppMessage(msg.message)}
                   className="w-full text-left p-3 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100 hover:border-green-200"
                 >
-                  <div className="font-medium text-gray-900 text-sm">{msg.title}</div>
-                  <div className="text-xs text-gray-600 mt-1 line-clamp-2">{msg.message}</div>
+                  <div className="font-medium text-gray-900 text-sm">
+                    {msg.title}
+                  </div>
+                  <div className="text-xs text-gray-600 mt-1 line-clamp-2">
+                    {msg.message}
+                  </div>
                 </button>
               ))}
             </div>
-            
+
             <div className="mt-4 pt-4 border-t border-gray-100">
               <p className="text-xs text-gray-500 text-center">
                 Click on any option to start chatting on WhatsApp
@@ -96,7 +106,7 @@ export default function WhatsAppButton() {
           ) : (
             <MessageCircle className="w-7 h-7 text-white" />
           )}
-          
+
           {/* Pulse animation when closed */}
           {!isOpen && (
             <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20"></div>
@@ -114,11 +124,8 @@ export default function WhatsAppButton() {
 
       {/* Backdrop */}
       {isOpen && (
-        <div
-          className="fixed inset-0 z-40"
-          onClick={() => setIsOpen(false)}
-        />
+        <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
       )}
     </>
-  )
+  );
 }
