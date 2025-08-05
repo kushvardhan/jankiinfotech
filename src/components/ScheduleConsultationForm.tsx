@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import PhoneInput from "@/components/ui/phone-input";
 import { submitContactForm } from "@/lib/actions/contact";
 import {
   Building,
@@ -24,6 +25,7 @@ export default function ScheduleConsultationForm() {
     preferredTime: "",
     message: "",
   });
+  const [phoneValid, setPhoneValid] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null;
@@ -79,7 +81,7 @@ Message: ${formData.message}
         setSubmitStatus({
           type: "success",
           message:
-            "Consultation request submitted successfully! We'll contact you within 24 hours to confirm your appointment.",
+            "Consultation request submitted successfully! We&apos;ll contact you within 24 hours to confirm your appointment.",
         });
         setFormData({
           name: "",
@@ -178,13 +180,12 @@ Message: ${formData.message}
               <Phone className="w-4 h-4 inline mr-2" />
               Phone Number
             </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
+            <PhoneInput
               value={formData.phone}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300"
+              onChange={(value, isValid) => {
+                setFormData(prev => ({ ...prev, phone: value }))
+                setPhoneValid(isValid)
+              }}
               placeholder="Enter your phone number"
             />
           </div>
