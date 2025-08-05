@@ -1,4 +1,4 @@
-import WhatsAppButton from "@/components/WhatsAppButton";
+import FloatingButtons from "@/components/FloatingButtons";
 import { generateMetadata, generateStructuredData } from "@/lib/seo";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -44,7 +44,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <WhatsAppButton />
+        <FloatingButtons />
       </body>
     </html>
   );
