@@ -1,7 +1,17 @@
 import { Button } from "@/components/ui/button";
-import { Award, BookOpen, Calendar, Clock, MapPin, Users } from "lucide-react";
+import {
+  Award,
+  BookOpen,
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  MapPin,
+  Users,
+} from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
+import { useState } from "react";
 
 export const metadata: Metadata = {
   title: "Internship Programs | JankiInfotech",
@@ -130,8 +140,21 @@ const internshipPrograms = [
 ];
 
 export default function InternshipPage() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % internshipPrograms.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(
+      (prev) =>
+        (prev - 1 + internshipPrograms.length) % internshipPrograms.length
+    );
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white py-20">
         <div className="container mx-auto max-w-7xl px-4">
@@ -173,85 +196,199 @@ export default function InternshipPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {internshipPrograms.map((program, index) => (
+          {/* Desktop Grid */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+            {internshipPrograms.map((program) => (
               <div
                 key={program.id}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
+                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden max-h-[600px] hover:max-h-none"
+                style={{
+                  background: `linear-gradient(135deg, ${program.gradient
+                    .split(" ")[0]
+                    .replace("from-", "")} 0%, ${program.gradient
+                    .split(" ")[2]
+                    .replace("to-", "")} 100%)`,
+                  backgroundSize: "200% 200%",
+                  backgroundPosition: "100% 100%",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundPosition = "0% 0%";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundPosition = "100% 100%";
+                }}
               >
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium">
-                      {program.type}
-                    </span>
-                    <span className="text-2xl font-bold text-green-600">
-                      {program.fee}
-                    </span>
+                <div className="absolute inset-0 bg-white bg-opacity-95 hover:bg-opacity-90 transition-all duration-300"></div>
+                <div className="relative z-10">
+                  <div className="p-8">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium">
+                        {program.type}
+                      </span>
+                      <span className="text-2xl font-bold text-green-600">
+                        {program.fee}
+                      </span>
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                      {program.title}
+                    </h3>
+                    <p className="text-gray-600 mb-6">{program.description}</p>
+
+                    <div className="space-y-3 mb-6">
+                      <div className="flex items-center text-gray-600">
+                        <Clock className="h-5 w-5 mr-3 text-green-600" />
+                        <span>{program.duration}</span>
+                      </div>
+                      <div className="flex items-center text-gray-600">
+                        <Users className="h-5 w-5 mr-3 text-green-600" />
+                        <span>{program.seats} seats available</span>
+                      </div>
+                      <div className="flex items-center text-gray-600">
+                        <Calendar className="h-5 w-5 mr-3 text-green-600" />
+                        <span>Starts {program.startDate}</span>
+                      </div>
+                      <div className="flex items-center text-gray-600">
+                        <Award className="h-5 w-5 mr-3 text-green-600" />
+                        <span>{program.level}</span>
+                      </div>
+                    </div>
+
+                    <div className="mb-6">
+                      <h4 className="font-semibold text-gray-900 mb-3">
+                        Skills You&apos;ll Learn:
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {program.skills.map((skill, skillIndex) => (
+                          <span
+                            key={skillIndex}
+                            className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mb-6">
+                      <h4 className="font-semibold text-gray-900 mb-3">
+                        Program Features:
+                      </h4>
+                      <ul className="space-y-2">
+                        {program.features.map((feature, featureIndex) => (
+                          <li
+                            key={featureIndex}
+                            className="flex items-center text-gray-600"
+                          >
+                            <BookOpen className="h-4 w-4 mr-2 text-green-600" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 font-semibold">
+                      Apply for this Program
+                    </Button>
                   </div>
-
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                    {program.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6">{program.description}</p>
-
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center text-gray-600">
-                      <Clock className="h-5 w-5 mr-3 text-green-600" />
-                      <span>{program.duration}</span>
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <Users className="h-5 w-5 mr-3 text-green-600" />
-                      <span>{program.seats} seats available</span>
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <Calendar className="h-5 w-5 mr-3 text-green-600" />
-                      <span>Starts {program.startDate}</span>
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <Award className="h-5 w-5 mr-3 text-green-600" />
-                      <span>{program.level}</span>
-                    </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-3">
-                      Skills You'll Learn:
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {program.skills.map((skill, skillIndex) => (
-                        <span
-                          key={skillIndex}
-                          className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-3">
-                      Program Features:
-                    </h4>
-                    <ul className="space-y-2">
-                      {program.features.map((feature, featureIndex) => (
-                        <li
-                          key={featureIndex}
-                          className="flex items-center text-gray-600"
-                        >
-                          <BookOpen className="h-4 w-4 mr-2 text-green-600" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 font-semibold">
-                    Apply for this Program
-                  </Button>
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Mobile Slider */}
+          <div className="md:hidden mb-8">
+            <div className="relative overflow-hidden">
+              <div
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              >
+                {internshipPrograms.map((program) => (
+                  <div key={program.id} className="w-full flex-shrink-0 px-4">
+                    <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+                      <div className="p-6">
+                        <div className="text-center mb-4">
+                          <div className="text-4xl mb-2">{program.icon}</div>
+                          <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium">
+                            {program.type}
+                          </span>
+                        </div>
+
+                        <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+                          {program.title}
+                        </h3>
+                        <p className="text-gray-600 mb-4 text-center text-sm">
+                          {program.description}
+                        </p>
+
+                        <div className="space-y-2 mb-4">
+                          <div className="flex items-center justify-center text-gray-600 text-sm">
+                            <Clock className="h-4 w-4 mr-2 text-green-600" />
+                            <span>{program.duration}</span>
+                          </div>
+                          <div className="flex items-center justify-center text-gray-600 text-sm">
+                            <Calendar className="h-4 w-4 mr-2 text-green-600" />
+                            <span>Starts {program.startDate}</span>
+                          </div>
+                        </div>
+
+                        <div className="mb-4">
+                          <div className="flex flex-wrap gap-1 justify-center">
+                            {program.skills
+                              .slice(0, 3)
+                              .map((skill, skillIndex) => (
+                                <span
+                                  key={skillIndex}
+                                  className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs"
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                          </div>
+                        </div>
+
+                        <div className="text-center mb-4">
+                          <span className="text-2xl font-bold text-green-600">
+                            {program.fee}
+                          </span>
+                        </div>
+
+                        <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 font-semibold">
+                          Apply for this Program
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Navigation Buttons */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-2 hover:bg-gray-50 transition-colors z-10"
+              >
+                <ChevronLeft className="h-5 w-5 text-gray-600" />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-2 hover:bg-gray-50 transition-colors z-10"
+              >
+                <ChevronRight className="h-5 w-5 text-gray-600" />
+              </button>
+
+              {/* Dots Indicator */}
+              <div className="flex justify-center mt-6 space-x-2">
+                {internshipPrograms.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      index === currentSlide ? "bg-green-600" : "bg-gray-300"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
