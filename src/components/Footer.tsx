@@ -317,8 +317,8 @@ export default function Footer() {
                     <p
                       className={`text-sm ${
                         message.includes("Thank you")
-                          ? "text-green-100"
-                          : "text-red-200"
+                          ? "text-blue-300"
+                          : "text-red-300"
                       }`}
                     >
                       {message}
@@ -344,7 +344,7 @@ export default function Footer() {
                 </p>
                 <p title="kushvardhan39797@gmail.com" className="text-sm text-gray-500 mt-1">
   Crafted with <Heart  className="h-5 w-5 inline text-red-600 cursor-pointer" />{" "}by{" "}
-  <span className='text-md text-gray-800'>kushvardhan<span className='text-sm text-gray-800'>39797</span>@gmail.com</span>
+  <span className='text-regular text-gray-800 font-mono'>kushvardhan<span className='text-sm text-gray-800 font-mono'>39797</span>@gmail.com</span>
 </p>
 
                 {/* Developer signature - hidden but accessible */}
