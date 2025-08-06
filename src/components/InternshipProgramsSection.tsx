@@ -1,8 +1,16 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Award, BookOpen, Calendar, Clock, Users, ChevronLeft, ChevronRight } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import {
+  Award,
+  BookOpen,
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  Users,
+} from "lucide-react";
+import { useState } from "react";
 
 const internshipPrograms = [
   {
@@ -114,18 +122,21 @@ const internshipPrograms = [
       "Performance Marketing",
     ],
   },
-]
+];
 
 export default function InternshipProgramsSection() {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % internshipPrograms.length)
-  }
+    setCurrentSlide((prev) => (prev + 1) % internshipPrograms.length);
+  };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + internshipPrograms.length) % internshipPrograms.length)
-  }
+    setCurrentSlide(
+      (prev) =>
+        (prev - 1 + internshipPrograms.length) % internshipPrograms.length
+    );
+  };
 
   return (
     <section className="py-20">
@@ -135,9 +146,8 @@ export default function InternshipProgramsSection() {
             Our Internship Programs
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Choose from our carefully designed programs that combine
-            theoretical knowledge with practical experience in cutting-edge
-            technologies.
+            Choose from our carefully designed programs that combine theoretical
+            knowledge with practical experience in cutting-edge technologies.
           </p>
         </div>
 
@@ -148,15 +158,23 @@ export default function InternshipProgramsSection() {
               key={program.id}
               className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden max-h-[600px] hover:max-h-none"
               style={{
-                background: `linear-gradient(135deg, ${program.gradient.split(' ')[0].replace('from-', '')} 0%, ${program.gradient.split(' ')[2].replace('to-', '')} 100%)`,
-                backgroundSize: '200% 200%',
-                backgroundPosition: '100% 100%'
+                background: program.gradient
+                  ? `linear-gradient(135deg, ${
+                      program.gradient.split(" ")[0]?.replace("from-", "") ||
+                      "blue-500"
+                    } 0%, ${
+                      program.gradient.split(" ")[2]?.replace("to-", "") ||
+                      "purple-600"
+                    } 100%)`
+                  : "linear-gradient(135deg, #3b82f6 0%, #9333ea 100%)",
+                backgroundSize: "200% 200%",
+                backgroundPosition: "100% 100%",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundPosition = '0% 0%'
+                e.currentTarget.style.backgroundPosition = "0% 0%";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundPosition = '100% 100%'
+                e.currentTarget.style.backgroundPosition = "100% 100%";
               }}
             >
               <div className="absolute inset-0 bg-white bg-opacity-95 hover:bg-opacity-90 transition-all duration-300"></div>
@@ -240,15 +258,12 @@ export default function InternshipProgramsSection() {
         {/* Mobile Slider */}
         <div className="md:hidden mb-8">
           <div className="relative overflow-hidden">
-            <div 
+            <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
               {internshipPrograms.map((program) => (
-                <div
-                  key={program.id}
-                  className="w-full flex-shrink-0 px-4"
-                >
+                <div key={program.id} className="w-full flex-shrink-0 px-4">
                   <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div className="p-6">
                       <div className="text-center mb-4">
@@ -257,12 +272,14 @@ export default function InternshipProgramsSection() {
                           {program.type}
                         </span>
                       </div>
-                      
+
                       <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
                         {program.title}
                       </h3>
-                      <p className="text-gray-600 mb-4 text-center text-sm">{program.description}</p>
-                      
+                      <p className="text-gray-600 mb-4 text-center text-sm">
+                        {program.description}
+                      </p>
+
                       <div className="space-y-2 mb-4">
                         <div className="flex items-center justify-center text-gray-600 text-sm">
                           <Clock className="h-4 w-4 mr-2 text-green-600" />
@@ -276,19 +293,23 @@ export default function InternshipProgramsSection() {
 
                       <div className="mb-4">
                         <div className="flex flex-wrap gap-1 justify-center">
-                          {program.skills.slice(0, 3).map((skill, skillIndex) => (
-                            <span 
-                              key={skillIndex}
-                              className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs"
-                            >
-                              {skill}
-                            </span>
-                          ))}
+                          {program.skills
+                            .slice(0, 3)
+                            .map((skill, skillIndex) => (
+                              <span
+                                key={skillIndex}
+                                className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs"
+                              >
+                                {skill}
+                              </span>
+                            ))}
                         </div>
                       </div>
 
                       <div className="text-center mb-4">
-                        <span className="text-2xl font-bold text-green-600">{program.fee}</span>
+                        <span className="text-2xl font-bold text-green-600">
+                          {program.fee}
+                        </span>
                       </div>
 
                       <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 font-semibold">
@@ -299,7 +320,7 @@ export default function InternshipProgramsSection() {
                 </div>
               ))}
             </div>
-            
+
             {/* Navigation Buttons */}
             <button
               onClick={prevSlide}
@@ -313,7 +334,7 @@ export default function InternshipProgramsSection() {
             >
               <ChevronRight className="h-5 w-5 text-gray-600" />
             </button>
-            
+
             {/* Dots Indicator */}
             <div className="flex justify-center mt-6 space-x-2">
               {internshipPrograms.map((_, index) => (
@@ -321,7 +342,7 @@ export default function InternshipProgramsSection() {
                   key={index}
                   onClick={() => setCurrentSlide(index)}
                   className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentSlide ? 'bg-green-600' : 'bg-gray-300'
+                    index === currentSlide ? "bg-green-600" : "bg-gray-300"
                   }`}
                 />
               ))}
@@ -330,5 +351,5 @@ export default function InternshipProgramsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
