@@ -60,7 +60,7 @@ export default function FloatingButtons() {
         
         {/* WhatsApp Chat Options Popup */}
         {isWhatsAppOpen && (
-          <div className="w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 p-4 animate-in slide-in-from-bottom-2 duration-300">
+          <div className="w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 p-4 animate-in slide-in-from-bottom-2 duration-500">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center">
                 <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center mr-3">

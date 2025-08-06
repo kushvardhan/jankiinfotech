@@ -342,10 +342,11 @@ export default function Footer() {
                   </span>
                   . All rights reserved.
                 </p>
-                <p title={`Developer: kushvardhan39797@gmail.com`} className="text-sm text-gray-500 mt-1">
-                  Crafted with <Heart className="h-5 w-5 inline text-red-600" />{" "}
-                  in India
-                </p>
+                <p title="kushvardhan39797@gmail.com" className="text-sm text-gray-500 mt-1">
+  Crafted with <Heart  className="h-5 w-5 inline text-red-600 cursor-pointer" />{" "}by{" "}
+  <span className='text-md text-gray-800'>kushvardhan<span className='text-sm text-gray-800'>39797</span>@gmail.com</span>
+</p>
+
                 {/* Developer signature - hidden but accessible */}
                 <div className="opacity-0 hover:opacity-100 transition-opacity duration-1000 text-xs text-gray-400 mt-2">
                   <span
