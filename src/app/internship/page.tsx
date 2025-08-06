@@ -1,19 +1,8 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
-import {
-  Award,
-  BookOpen,
-  Calendar,
-  ChevronLeft,
-  ChevronRight,
-  Clock,
-  MapPin,
-  Users,
-} from "lucide-react";
+import { Award, BookOpen, Calendar, Clock, MapPin, Users } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
-import { useState } from "react";
+import InternshipProgramsSection from "@/components/InternshipProgramsSection";
 
 export const metadata: Metadata = {
   title: "Internship Programs | JankiInfotech",
@@ -142,19 +131,6 @@ const internshipPrograms = [
 ];
 
 export default function InternshipPage() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % internshipPrograms.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide(
-      (prev) =>
-        (prev - 1 + internshipPrograms.length) % internshipPrograms.length
-    );
-  };
-
   return (
     <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
