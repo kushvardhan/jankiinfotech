@@ -213,7 +213,7 @@ export default function Footer() {
                   </div>
                   <div className="flex justify-between">
                     <span>Sunday</span>
-                    <span>Closed</span>
+                    <span>AnyTime</span>
                   </div>
                 </div>
               </div>
@@ -299,7 +299,7 @@ export default function Footer() {
                       placeholder="Enter your email"
                       required
                       disabled={isSubmitting}
-                      className="flex-1 px-3 py-2 text-sm bg-white bg-opacity-20 border border-white border-opacity-30 rounded-l-lg placeholder-white placeholder-opacity-70 text-white focus:outline-none focus:bg-opacity-30 disabled:opacity-50"
+                      className="flex-1 px-3 py-2 text-sm bg-white bg-opacity-20 border border-white border-opacity-30 rounded-l-lg placeholder-white placeholder-opacity-70 text-zinc-700 text-md font-semibold font-mono focus:outline-none focus:bg-opacity-30 disabled:opacity-50"
                     />
                     <button
                       type="submit"
@@ -342,9 +342,9 @@ export default function Footer() {
                   </span>
                   . All rights reserved.
                 </p>
-                <p className="text-sm text-gray-500 mt-1">
-                  Crafted with <Heart className="h-3 w-3 inline text-red-500" />{" "}
-                  in Bihar, India
+                <p title={`Developer: kushvardhan39797@gmail.com`} className="text-sm text-gray-500 mt-1">
+                  Crafted with <Heart className="h-5 w-5 inline text-red-600" />{" "}
+                  in India
                 </p>
                 {/* Developer signature - hidden but accessible */}
                 <div className="opacity-0 hover:opacity-100 transition-opacity duration-1000 text-xs text-gray-400 mt-2">
