@@ -44,7 +44,12 @@ export function generateMetadata({
     title: seoTitle,
     description: seoDescription,
     keywords: seoKeywords,
-    authors: author ? [{ name: author }] : [{ name: "JankiInfotech Team" }],
+    authors: author
+      ? [{ name: author }]
+      : [
+          { name: "JankiInfotech Team" },
+          { name: "Kush Vardhan", url: "mailto:kushvardhan39797@gmail.com" },
+        ],
     creator: "JankiInfotech",
     publisher: "JankiInfotech",
     robots: {
@@ -89,6 +94,13 @@ export function generateMetadata({
     },
     verification: {
       google: "your-google-verification-code", // Replace with actual verification code
+    },
+    other: {
+      developer: "Kush Vardhan",
+      "developer-email": "kushvardhan39797@gmail.com",
+      "developed-by": "Kush Vardhan (kushvardhan39797@gmail.com)",
+      "website-developer": "Kush Vardhan",
+      "technical-lead": "Kush Vardhan",
     },
   };
 }

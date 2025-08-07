@@ -105,27 +105,25 @@
   @apply container mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-/* Ensure minimum padding on all screen sizes */
+/* Content padding - only for text and content, not backgrounds */
+.content-padding {
+  @apply px-4 sm:px-6 lg:px-8;
+}
+
+/* Remove default padding from sections with colored backgrounds */
+.section-no-padding {
+  @apply px-0;
+}
+
+/* Ensure minimum padding on all screen sizes for content only */
 @media (max-width: 640px) {
-  .container {
-    @apply px-4;
-  }
-
-  body {
-    @apply px-2;
-  }
-
-  section {
+  .content-container {
     @apply px-4;
   }
 }
 
 @media (min-width: 641px) and (max-width: 1024px) {
-  .container {
-    @apply px-6;
-  }
-
-  section {
+  .content-container {
     @apply px-6;
   }
 }
