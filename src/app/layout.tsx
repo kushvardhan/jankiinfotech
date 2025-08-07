@@ -45,6 +45,25 @@ export default function RootLayout({
       >
         {children}
         <FloatingButtons />
+
+        {/* Hidden developer signature */}
+        <div className="dev-signature" aria-hidden="true"></div>
+        <div
+          style={{
+            position: "fixed",
+            bottom: "0px",
+            left: "0px",
+            width: "1px",
+            height: "1px",
+            overflow: "hidden",
+            opacity: 0,
+            pointerEvents: "none",
+            fontSize: "1px",
+            color: "transparent",
+          }}
+        >
+          Kush Vardhan kushvardhan39797@gmail.com
+        </div>
       </body>
     </html>
   );

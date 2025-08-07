@@ -3,11 +3,12 @@
 import { Button } from "@/components/ui/button";
 import {
   Award,
-  BookOpen,
   Calendar,
   ChevronLeft,
   ChevronRight,
   Clock,
+  Sparkles,
+  Star,
   Users,
 } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -149,7 +150,7 @@ export default function InternshipProgramsSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isAnimating) {
-        nextSlide();
+        setCurrentIndex((prev) => (prev + 1) % internshipPrograms.length);
       }
     }, 5000);
     return () => clearInterval(interval);
@@ -186,8 +187,9 @@ export default function InternshipProgramsSection() {
             Internship Programs
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Embark on a transformative journey with our industry-leading programs designed to
-            shape the next generation of tech professionals.
+            Embark on a transformative journey with our industry-leading
+            programs designed to shape the next generation of tech
+            professionals.
           </p>
         </div>
 
@@ -196,33 +198,35 @@ export default function InternshipProgramsSection() {
           <div className="relative w-full max-w-6xl h-full">
             {internshipPrograms.map((program, index) => {
               const position = getCardPosition(index);
-              const isCenter = position === 'center';
-              const isLeft = position === 'left';
-              const isRight = position === 'right';
-              const isHidden = position === 'hidden';
+              const isCenter = position === "center";
+              const isLeft = position === "left";
+              const isRight = position === "right";
+              const isHidden = position === "hidden";
 
               return (
                 <div
                   key={program.id}
                   className={`absolute top-1/2 left-1/2 transform transition-all duration-700 ease-in-out ${
-                    isHidden ? 'opacity-0 scale-75' : 'opacity-100'
+                    isHidden ? "opacity-0 scale-75" : "opacity-100"
                   } ${
                     isCenter
-                      ? '-translate-x-1/2 -translate-y-1/2 scale-110 z-30'
+                      ? "-translate-x-1/2 -translate-y-1/2 scale-110 z-30"
                       : isLeft
-                      ? '-translate-x-full -translate-y-1/2 scale-90 z-20 -rotate-y-12'
+                      ? "-translate-x-full -translate-y-1/2 scale-90 z-20 -rotate-y-12"
                       : isRight
-                      ? 'translate-x-0 -translate-y-1/2 scale-90 z-20 rotate-y-12'
-                      : '-translate-x-1/2 -translate-y-1/2 scale-75 z-10'
+                      ? "translate-x-0 -translate-y-1/2 scale-90 z-20 rotate-y-12"
+                      : "-translate-x-1/2 -translate-y-1/2 scale-75 z-10"
                   }`}
                   style={{
-                    transformStyle: 'preserve-3d',
-                    filter: isCenter ? 'none' : 'brightness(0.7)',
+                    transformStyle: "preserve-3d",
+                    filter: isCenter ? "none" : "brightness(0.7)",
                   }}
                 >
-                  <div className={`w-80 h-96 bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 ${
-                    isCenter ? 'hover:scale-105' : ''
-                  }`}>
+                  <div
+                    className={`w-80 h-96 bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 ${
+                      isCenter ? "hover:scale-105" : ""
+                    }`}
+                  >
                     {/* Card Header */}
                     <div className="relative h-32 bg-gradient-to-br from-green-400 to-blue-500 p-6">
                       <div className="absolute top-4 right-4">
@@ -248,162 +252,161 @@ export default function InternshipProgramsSection() {
                       <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
                         {program.title}
                       </h3>
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">{program.description}</p>
-
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center text-gray-600">
-                      <Clock className="h-5 w-5 mr-3 text-green-600" />
-                      <span>{program.duration}</span>
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <Users className="h-5 w-5 mr-3 text-green-600" />
-                      <span>{program.seats} seats available</span>
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <Calendar className="h-5 w-5 mr-3 text-green-600" />
-                      <span>Starts {program.startDate}</span>
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <Award className="h-5 w-5 mr-3 text-green-600" />
-                      <span>{program.level}</span>
-                    </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-3">
-                      Skills You&apos;ll Learn:
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {program.skills.map((skill, skillIndex) => (
-                        <span
-                          key={skillIndex}
-                          className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-3">
-                      Program Features:
-                    </h4>
-                    <ul className="space-y-2">
-                      {program.features.map((feature, featureIndex) => (
-                        <li
-                          key={featureIndex}
-                          className="flex items-center text-gray-700"
-                        >
-                          <BookOpen className="h-4 w-4 mr-2 text-green-600" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 font-semibold">
-                    Apply for this Program
-                  </Button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Mobile Slider */}
-        <div className="md:hidden mb-8">
-          <div className="relative overflow-hidden">
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-            >
-              {internshipPrograms.map((program) => (
-                <div key={program.id} className="w-full flex-shrink-0 px-4">
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div className="p-6">
-                      <div className="text-center mb-4">
-                        <div className="text-4xl mb-2">{program.icon}</div>
-                        <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium">
-                          {program.type}
-                        </span>
-                      </div>
-
-                      <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
-                        {program.title}
-                      </h3>
-                      <p className="text-gray-600 mb-4 text-center text-sm">
+                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
                         {program.description}
                       </p>
 
-                      <div className="space-y-2 mb-4">
-                        <div className="flex items-center justify-center text-gray-600 text-sm">
-                          <Clock className="h-4 w-4 mr-2 text-green-600" />
+                      {/* Quick Info */}
+                      <div className="grid grid-cols-2 gap-3 mb-4">
+                        <div className="flex items-center text-gray-600 text-xs">
+                          <Clock className="h-3 w-3 mr-1 text-green-600" />
                           <span>{program.duration}</span>
                         </div>
-                        <div className="flex items-center justify-center text-gray-600 text-sm">
-                          <Calendar className="h-4 w-4 mr-2 text-green-600" />
-                          <span>Starts {program.startDate}</span>
+                        <div className="flex items-center text-gray-600 text-xs">
+                          <Users className="h-3 w-3 mr-1 text-green-600" />
+                          <span>{program.seats} seats</span>
+                        </div>
+                        <div className="flex items-center text-gray-600 text-xs">
+                          <Calendar className="h-3 w-3 mr-1 text-green-600" />
+                          <span>{program.startDate}</span>
+                        </div>
+                        <div className="flex items-center text-gray-600 text-xs">
+                          <Award className="h-3 w-3 mr-1 text-green-600" />
+                          <span>{program.level}</span>
                         </div>
                       </div>
 
+                      {/* Skills */}
                       <div className="mb-4">
-                        <div className="flex flex-wrap gap-1 justify-center">
+                        <div className="flex flex-wrap gap-1">
                           {program.skills
                             .slice(0, 3)
                             .map((skill, skillIndex) => (
                               <span
                                 key={skillIndex}
-                                className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs"
+                                className="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium"
                               >
                                 {skill}
                               </span>
                             ))}
+                          {program.skills.length > 3 && (
+                            <span className="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-xs">
+                              +{program.skills.length - 3} more
+                            </span>
+                          )}
                         </div>
                       </div>
 
-                      <div className="text-center mb-4">
-                        <span className="text-2xl font-bold text-green-600">
+                      {/* Price and Button */}
+                      <div className="flex items-center justify-between">
+                        <div className="text-2xl font-bold text-green-600">
                           {program.fee}
-                        </span>
+                        </div>
+                        <Button
+                          className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 ${
+                            isCenter
+                              ? "bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl"
+                              : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                          }`}
+                          disabled={!isCenter}
+                          onClick={() =>
+                            isCenter && console.log("Apply for", program.title)
+                          }
+                        >
+                          {isCenter ? "Apply Now" : "Select"}
+                        </Button>
                       </div>
-
-                      <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 font-semibold">
-                        Apply for this Program
-                      </Button>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
+              );
+            })}
 
-            {/* Navigation Buttons */}
+            {/* Navigation Controls */}
             <button
               onClick={prevSlide}
-              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-2 hover:bg-gray-50 transition-colors z-10"
+              disabled={isAnimating}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-xl rounded-full p-4 hover:bg-gray-50 transition-all duration-300 hover:scale-110 disabled:opacity-50 z-40"
             >
-              <ChevronLeft className="h-5 w-5 text-gray-600" />
+              <ChevronLeft className="h-6 w-6 text-gray-700" />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-2 hover:bg-gray-50 transition-colors z-10"
+              disabled={isAnimating}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-xl rounded-full p-4 hover:bg-gray-50 transition-all duration-300 hover:scale-110 disabled:opacity-50 z-40"
             >
-              <ChevronRight className="h-5 w-5 text-gray-600" />
+              <ChevronRight className="h-6 w-6 text-gray-700" />
             </button>
-
-            {/* Dots Indicator */}
-            <div className="flex justify-center mt-6 space-x-2">
-              {internshipPrograms.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentSlide ? "bg-green-600" : "bg-gray-300"
-                  }`}
-                />
-              ))}
-            </div>
           </div>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center mt-8 space-x-3">
+            {internshipPrograms.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => !isAnimating && setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? "bg-green-600 scale-125"
+                    : "bg-gray-300 hover:bg-gray-400"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Features Section */}
+        <div className="mt-20 grid md:grid-cols-3 gap-8">
+          <div className="text-center p-6 bg-white rounded-2xl shadow-lg">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Star className="h-8 w-8 text-green-600" />
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">
+              Industry Expert Mentors
+            </h3>
+            <p className="text-gray-600">
+              Learn from professionals with years of industry experience
+            </p>
+          </div>
+
+          <div className="text-center p-6 bg-white rounded-2xl shadow-lg">
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Award className="h-8 w-8 text-blue-600" />
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">
+              Certification
+            </h3>
+            <p className="text-gray-600">
+              Get industry-recognized certificates upon completion
+            </p>
+          </div>
+
+          <div className="text-center p-6 bg-white rounded-2xl shadow-lg">
+            <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Users className="h-8 w-8 text-purple-600" />
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">
+              Placement Support
+            </h3>
+            <p className="text-gray-600">
+              Get assistance with job placements and career guidance
+            </p>
+          </div>
+        </div>
+
+        {/* Hidden developer signature */}
+        <div
+          className="absolute bottom-0 right-0 opacity-0 text-xs"
+          style={{
+            fontSize: "1px",
+            color: "transparent",
+            userSelect: "none",
+            pointerEvents: "none",
+          }}
+          title="Crafted with passion by Kush Vardhan"
+        >
+          {/* Developed by Kush Vardhan (kushvardhan39797@gmail.com) */}
+          <span>KV</span>
         </div>
       </div>
     </section>
