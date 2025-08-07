@@ -10,7 +10,7 @@ import {
   Clock,
   Users,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const internshipPrograms = [
   {
@@ -125,17 +125,45 @@ const internshipPrograms = [
 ];
 
 export default function InternshipProgramsSection() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % internshipPrograms.length);
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrentIndex((prev) => (prev + 1) % internshipPrograms.length);
+    setTimeout(() => setIsAnimating(false), 600);
   };
 
   const prevSlide = () => {
-    setCurrentSlide(
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrentIndex(
       (prev) =>
         (prev - 1 + internshipPrograms.length) % internshipPrograms.length
     );
+    setTimeout(() => setIsAnimating(false), 600);
+  };
+
+  // Auto-rotate carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isAnimating) {
+        nextSlide();
+      }
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isAnimating]);
+
+  const getCardPosition = (index: number) => {
+    const diff =
+      (index - currentIndex + internshipPrograms.length) %
+      internshipPrograms.length;
+
+    if (diff === 0) return "center";
+    if (diff === 1 || diff === internshipPrograms.length - 1)
+      return diff === 1 ? "right" : "left";
+    return "hidden";
   };
 
   return (

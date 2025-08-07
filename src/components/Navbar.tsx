@@ -27,10 +27,12 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Logo size="md" />
+          <div className="flex-shrink-0">
+            <Logo size="md" />
+          </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8 ml-12">
             <Link
               href="/"
               className="text-gray-700 hover:text-green-600 transition-colors"
