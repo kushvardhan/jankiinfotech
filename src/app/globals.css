@@ -96,6 +96,40 @@
   animation-delay: 2s;
 }
 
+/* Responsive padding utilities */
+.responsive-padding {
+  @apply px-4 sm:px-6 lg:px-8;
+}
+
+.responsive-container {
+  @apply container mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Ensure minimum padding on all screen sizes */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+
+  body {
+    @apply px-2;
+  }
+
+  section {
+    @apply px-4;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .container {
+    @apply px-6;
+  }
+
+  section {
+    @apply px-6;
+  }
+}
+
 :root {
   --primary: #22c55e;
   --primary-dark: #16a34a;

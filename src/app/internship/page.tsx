@@ -9,6 +9,7 @@ import {
   Sparkles,
   Star,
   Target,
+  TrendingUp,
   Users,
   Zap,
 } from "lucide-react";
@@ -57,7 +58,7 @@ export default function InternshipPage() {
           </div>
         </div>
 
-        <div className="container mx-auto max-w-7xl px-4 relative z-10 flex items-center min-h-screen">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 flex items-center min-h-screen">
           <div className="text-center w-full">
             {/* Badge */}
             <div className="inline-flex items-center bg-white bg-opacity-10 backdrop-blur-sm border border-white border-opacity-20 rounded-full px-6 py-3 mb-8">
@@ -144,7 +145,7 @@ export default function InternshipPage() {
 
       {/* Why Choose Us Section */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto max-w-7xl px-4">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Why Choose Our Internship Programs?
@@ -222,7 +223,7 @@ export default function InternshipPage() {
           <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
         </div>
 
-        <div className="container mx-auto max-w-7xl px-4 relative z-10">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             {/* Badge */}
             <div className="inline-flex items-center bg-gradient-to-r from-blue-500 to-purple-600 rounded-full px-6 py-3 mb-8">
