@@ -113,7 +113,7 @@ export default function Footer() {
       */}
       <footer className="bg-gradient-to-br from-white via-green-50 to-green-100 text-gray-800 border-t border-green-200">
         {/* Main Footer Content */}
-        <div className="container mx-auto px-4 py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
             {/* Company Info */}
             <div className="lg:col-span-1">
@@ -359,7 +359,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-green-300">
-          <div className="container mx-auto px-4 py-6">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="text-center md:text-left">
                 <p className="text-gray-600">
