@@ -194,8 +194,8 @@ export default function InternshipProgramsSection() {
         </div>
 
         {/* 3D Carousel */}
-        <div className="relative h-[700px] flex items-center justify-center">
-          <div className="relative w-full max-w-7xl h-full overflow-hidden">
+        <div className="relative h-[600px] md:h-[700px] flex items-center justify-center">
+          <div className="relative w-full max-w-7xl h-full overflow-visible">
             <div className="flex items-center justify-center h-full perspective-1000">
               {internshipPrograms.map((program, index) => {
                 const position = getCardPosition(index);
@@ -211,11 +211,11 @@ export default function InternshipProgramsSection() {
                       isHidden ? "opacity-0 pointer-events-none" : "opacity-100"
                     } ${
                       isCenter
-                        ? "z-30 scale-100"
+                        ? "z-30 scale-100 translate-x-0"
                         : isLeft
-                        ? "z-20 scale-75 -translate-x-80"
+                        ? "z-20 scale-75 -translate-x-64 md:-translate-x-80"
                         : isRight
-                        ? "z-20 scale-75 translate-x-80"
+                        ? "z-20 scale-75 translate-x-64 md:translate-x-80"
                         : "z-10 scale-50"
                     }`}
                     style={{
@@ -224,9 +224,9 @@ export default function InternshipProgramsSection() {
                     }}
                   >
                     <div
-                      className={`w-96 bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 ${
-                        isCenter ? "hover:scale-105 h-auto" : "h-96"
-                      } ${isCenter ? "max-h-none" : "max-h-96"}`}
+                      className={`w-80 md:w-96 bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 ${
+                        isCenter ? "hover:scale-105 h-auto" : "h-80 md:h-96"
+                      } ${isCenter ? "max-h-none" : "max-h-80 md:max-h-96"}`}
                     >
                       {/* Card Header */}
                       <div className="relative h-32 bg-gradient-to-br from-green-400 to-blue-500 p-6">
@@ -390,19 +390,11 @@ export default function InternshipProgramsSection() {
             </button>
           </div>
 
-          {/* Dots Indicator */}
-          <div className="flex justify-center mt-8 space-x-3">
-            {internshipPrograms.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => !isAnimating && setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? "bg-green-600 scale-125"
-                    : "bg-gray-300 hover:bg-gray-400"
-                }`}
-              />
-            ))}
+          {/* Progress Indicator */}
+          <div className="flex justify-center mt-8">
+            <div className="text-sm text-gray-600 bg-white px-4 py-2 rounded-full shadow-md">
+              {currentIndex + 1} of {internshipPrograms.length}
+            </div>
           </div>
         </div>
 

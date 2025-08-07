@@ -34,52 +34,54 @@ export default function InternshipPage() {
   return (
     <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white overflow-hidden">
+      <section className="relative min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 text-gray-800 overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-          <div className="absolute top-40 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+          <div className="absolute top-40 right-10 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-green-400 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
         </div>
 
         {/* Floating Icons */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-20 animate-float">
-            <Code className="h-8 w-8 text-blue-300 opacity-60" />
+            <Code className="h-8 w-8 text-green-600 opacity-60" />
           </div>
           <div className="absolute top-40 right-32 animate-float-delayed">
-            <Rocket className="h-10 w-10 text-purple-300 opacity-60" />
+            <Rocket className="h-10 w-10 text-green-700 opacity-60" />
           </div>
           <div className="absolute bottom-40 left-32 animate-float">
-            <Star className="h-6 w-6 text-pink-300 opacity-60" />
+            <Star className="h-6 w-6 text-green-500 opacity-60" />
           </div>
           <div className="absolute bottom-60 right-20 animate-float-delayed">
-            <Zap className="h-8 w-8 text-yellow-300 opacity-60" />
+            <Zap className="h-8 w-8 text-green-600 opacity-60" />
           </div>
         </div>
 
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 flex items-center min-h-screen">
           <div className="text-center w-full">
             {/* Badge */}
-            <div className="inline-flex items-center bg-white bg-opacity-10 backdrop-blur-sm border border-white border-opacity-20 rounded-full px-6 py-3 mb-8">
-              <Sparkles className="h-5 w-5 mr-2 text-yellow-300" />
-              <span className="text-sm font-medium">Transform Your Future</span>
+            <div className="inline-flex items-center bg-green-100 border border-green-200 rounded-full px-6 py-3 mb-8">
+              <Sparkles className="h-5 w-5 mr-2 text-green-600" />
+              <span className="text-sm font-medium text-green-800">
+                Transform Your Future
+              </span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-6xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
+            <h1 className="text-6xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-gray-800 via-green-700 to-green-600 bg-clip-text text-transparent">
               Launch Your
               <br />
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-green-600 via-green-500 to-green-400 bg-clip-text text-transparent">
                 Tech Career
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto text-gray-200 leading-relaxed">
+            <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
               Join our elite internship programs and transform from a student to
               a
-              <span className="text-blue-300 font-semibold">
+              <span className="text-green-600 font-semibold">
                 {" "}
                 professional developer
               </span>
@@ -90,40 +92,40 @@ export default function InternshipPage() {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 max-w-4xl mx-auto">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-300 mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">
                   500+
                 </div>
-                <div className="text-sm text-gray-300">Students Placed</div>
+                <div className="text-sm text-gray-600">Students Placed</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-purple-300 mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-green-700 mb-2">
                   95%
                 </div>
-                <div className="text-sm text-gray-300">Success Rate</div>
+                <div className="text-sm text-gray-600">Success Rate</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-pink-300 mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-green-500 mb-2">
                   50+
                 </div>
-                <div className="text-sm text-gray-300">Partner Companies</div>
+                <div className="text-sm text-gray-600">Partner Companies</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-yellow-300 mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">
                   6
                 </div>
-                <div className="text-sm text-gray-300">Months Training</div>
+                <div className="text-sm text-gray-600">Months Training</div>
               </div>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-10 py-4 text-lg font-semibold rounded-full shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105">
+              <Button className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-10 py-4 text-lg font-semibold rounded-full shadow-2xl hover:shadow-green-500/25 transition-all duration-300 hover:scale-105">
                 <Rocket className="h-5 w-5 mr-2" />
                 Start Your Journey
               </Button>
               <Button
                 variant="outline"
-                className="border-2 border-white border-opacity-30 text-white hover:bg-white hover:text-purple-900 px-10 py-4 text-lg font-semibold rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-105"
+                className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-10 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105"
               >
                 <Target className="h-5 w-5 mr-2" />
                 View Programs
@@ -205,7 +207,7 @@ export default function InternshipPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-32 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white overflow-hidden">
+      <section className="relative py-32 bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -219,14 +221,14 @@ export default function InternshipPage() {
 
         {/* Floating Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-32 h-32 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
+          <div className="absolute top-20 left-20 w-32 h-32 bg-green-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-40 h-40 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
         </div>
 
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             {/* Badge */}
-            <div className="inline-flex items-center bg-gradient-to-r from-blue-500 to-purple-600 rounded-full px-6 py-3 mb-8">
+            <div className="inline-flex items-center bg-gradient-to-r from-green-500 to-green-600 rounded-full px-6 py-3 mb-8">
               <TrendingUp className="h-5 w-5 mr-2" />
               <span className="text-sm font-semibold">
                 Your Success Story Starts Here
@@ -235,7 +237,7 @@ export default function InternshipPage() {
 
             {/* Main Heading */}
             <h2 className="text-5xl md:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-green-300 via-green-200 to-white bg-clip-text text-transparent">
                 Ready to Dominate
               </span>
               <br />
@@ -245,13 +247,13 @@ export default function InternshipPage() {
             {/* Subtitle */}
             <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto text-gray-200 leading-relaxed">
               Join the elite circle of
-              <span className="text-blue-300 font-bold">
+              <span className="text-green-300 font-bold">
                 {" "}
                 500+ successful developers
               </span>{" "}
               who transformed their careers through our revolutionary internship
               programs.
-              <span className="text-purple-300 font-bold">
+              <span className="text-green-200 font-bold">
                 {" "}
                 Your dream job is just 6 months away!
               </span>
@@ -260,19 +262,19 @@ export default function InternshipPage() {
             {/* Success Metrics */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 max-w-4xl mx-auto">
               <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 border border-white border-opacity-20">
-                <div className="text-4xl font-bold text-blue-300 mb-2">
+                <div className="text-4xl font-bold text-green-300 mb-2">
                   ₹8.5L
                 </div>
                 <div className="text-sm text-gray-300">Average Package</div>
               </div>
               <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 border border-white border-opacity-20">
-                <div className="text-4xl font-bold text-purple-300 mb-2">
+                <div className="text-4xl font-bold text-green-200 mb-2">
                   100%
                 </div>
                 <div className="text-sm text-gray-300">Placement Guarantee</div>
               </div>
               <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 border border-white border-opacity-20">
-                <div className="text-4xl font-bold text-pink-300 mb-2">
+                <div className="text-4xl font-bold text-green-400 mb-2">
                   30 Days
                 </div>
                 <div className="text-sm text-gray-300">Job Guarantee</div>
@@ -281,14 +283,14 @@ export default function InternshipPage() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 text-white px-12 py-5 text-xl font-bold rounded-full shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-110 transform">
+              <Button className="bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:via-green-700 hover:to-green-800 text-white px-12 py-5 text-xl font-bold rounded-full shadow-2xl hover:shadow-green-500/25 transition-all duration-300 hover:scale-110 transform">
                 <Rocket className="h-6 w-6 mr-3" />
                 Secure Your Spot Now
               </Button>
               <Link href="/contact">
                 <Button
                   variant="outline"
-                  className="border-2 border-white border-opacity-50 text-white hover:bg-white hover:text-purple-900 px-12 py-5 text-xl font-bold rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110 transform"
+                  className="border-2 border-white border-opacity-50 text-white hover:bg-white hover:text-green-800 px-12 py-5 text-xl font-bold rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110 transform"
                 >
                   <Star className="h-6 w-6 mr-3" />
                   Get Free Consultation
