@@ -54,7 +54,7 @@ export default function TechnologiesSection() {
 
   return (
     <section className="py-20 bg-gray-50">
-      <div className="container mx-auto max-w-7xl px-4">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -102,7 +102,7 @@ export default function TechnologiesSection() {
 
         {/* Technology Icons - Scrolling Animation */}
         <div className="relative overflow-hidden">
-          <div className="flex animate-scroll space-x-8">
+          <div className="flex animate-scroll hover:animate-pause space-x-8">
             {/* First set */}
             {technologies.map((tech, index) => (
               <div
@@ -145,7 +145,10 @@ export default function TechnologiesSection() {
           }
         }
         .animate-scroll {
-          animation: scroll 30s linear infinite;
+          animation: scroll 15s linear infinite;
+        }
+        .animate-pause:hover {
+          animation-play-state: paused;
         }
       `}</style>
     </section>

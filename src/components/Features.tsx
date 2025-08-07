@@ -29,7 +29,7 @@ export default function Features() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Scrolling Features */}
         <div className="relative overflow-hidden">
-          <div className="flex animate-scroll space-x-8">
+          <div className="flex animate-scroll hover:animate-pause space-x-8">
             {/* First set */}
             {features.map(({ title, icon: Icon, desc }, index) => (
               <div
@@ -87,7 +87,11 @@ export default function Features() {
         }
 
         .animate-scroll {
-          animation: scroll 30s linear infinite;
+          animation: scroll 15s linear infinite;
+        }
+
+        .animate-pause:hover {
+          animation-play-state: paused;
         }
       `}</style>
     </section>

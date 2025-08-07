@@ -112,13 +112,14 @@ export default function FloatingButtons() {
         {/* Phone Button */}
         <button
           onClick={makePhoneCall}
-          className="w-14 h-14 bg-blue-500 hover:bg-blue-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110"
+          className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center group transform hover:translate-y-[-2px] active:translate-y-0"
+          style={{
+            boxShadow:
+              "0 4px 15px rgba(59, 130, 246, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset",
+          }}
           aria-label="Call us"
         >
-          <Phone className="w-7 h-7 text-white" />
-
-          {/* Pulse animation */}
-          <div className="absolute inset-0 rounded-full bg-blue-500 animate-pulse opacity-10"></div>
+          <Phone className="w-7 h-7 text-white drop-shadow-sm" />
 
           {/* Tooltip */}
           <div className="absolute bottom-16 right-0 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
@@ -130,18 +131,17 @@ export default function FloatingButtons() {
         {/* WhatsApp Button */}
         <button
           onClick={() => setIsWhatsAppOpen(!isWhatsAppOpen)}
-          className="w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110"
+          className="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center group transform hover:translate-y-[-2px] active:translate-y-0"
+          style={{
+            boxShadow:
+              "0 4px 15px rgba(34, 197, 94, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset",
+          }}
           aria-label="Chat on WhatsApp"
         >
           {isWhatsAppOpen ? (
-            <X className="w-7 h-7 text-white" />
+            <X className="w-7 h-7 text-white drop-shadow-sm" />
           ) : (
-            <MessageCircle className="w-7 h-7 text-white" />
-          )}
-
-          {/* Pulse animation when closed */}
-          {!isWhatsAppOpen && (
-            <div className="absolute inset-0 rounded-full bg-green-500 animate-pulse opacity-10"></div>
+            <MessageCircle className="w-7 h-7 text-white drop-shadow-sm" />
           )}
 
           {/* Tooltip */}

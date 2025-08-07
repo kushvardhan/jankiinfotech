@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import PhoneInput from "@/components/ui/phone-input";
 import { submitContactForm } from "@/lib/actions/contact";
 import { useState } from "react";
+import { useFormValidation, ValidationRules, ValidationMessage } from './FormValidation';
+import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -80,7 +82,7 @@ export default function ContactSection() {
 
   return (
     <section className="py-20 bg-gray-50">
-      <div className="container mx-auto max-w-7xl px-4">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -306,7 +308,7 @@ export default function ContactSection() {
             {/* Quote */}
             <div className="bg-blue-50 rounded-xl p-6">
               <blockquote className="text-gray-700 italic">
-                "                &ldquo;If anyone envisions the growth of IT and ITES culture,
+                " &ldquo;If anyone envisions the growth of IT and ITES culture,
                 JankiInfotech manifests first to bring this vision to
                 life&rdquo;"
               </blockquote>
