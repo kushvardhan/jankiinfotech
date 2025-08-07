@@ -21,6 +21,11 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import {
+  useFormValidation,
+  ValidationMessage,
+  ValidationRules,
+} from "./FormValidation";
 import Logo from "./Logo";
 
 export default function Footer() {
@@ -28,9 +33,23 @@ export default function Footer() {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
+  const { handleFieldChange, getFieldValidation, isFormValid } =
+    useFormValidation();
+
+  const handleEmailChange = (value: string) => {
+    setEmail(value);
+    handleFieldChange("newsletter_email", value, ValidationRules.email);
+  };
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate email before submission
+    if (!isFormValid() || !email) {
+      setMessage("Please enter a valid email address.");
+      return;
+    }
+
     setIsSubmitting(true);
     setMessage("");
 
@@ -295,7 +314,7 @@ export default function Footer() {
                     <input
                       type="email"
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => handleEmailChange(e.target.value)}
                       placeholder="Enter your email"
                       required
                       disabled={isSubmitting}
@@ -313,6 +332,14 @@ export default function Footer() {
                       )}
                     </button>
                   </div>
+
+                  {/* Real-time validation message */}
+                  <ValidationMessage
+                    result={getFieldValidation("newsletter_email").result}
+                    show={getFieldValidation("newsletter_email").showMessage}
+                  />
+
+                  {/* Form submission message */}
                   {message && (
                     <p
                       className={`text-sm ${
@@ -342,10 +369,21 @@ export default function Footer() {
                   </span>
                   . All rights reserved.
                 </p>
-                <p title="kushvardhan39797@gmail.com" className="text-sm text-gray-500 mt-1">
-  Crafted with <Heart  className="h-5 w-5 inline text-red-600 cursor-pointer" />{" "}by{" "}
-  <span className='text-regular text-gray-800 font-mono'>kushvardhan<span className='text-sm text-gray-800 font-mono'>39797</span>@gmail.com</span>
-</p>
+                <p
+                  title="kushvardhan39797@gmail.com"
+                  className="text-sm text-gray-500 mt-1"
+                >
+                  Crafted with{" "}
+                  <Heart className="h-5 w-5 inline text-red-600 cursor-pointer" />{" "}
+                  by{" "}
+                  <span className="text-regular text-gray-800 font-mono">
+                    kushvardhan
+                    <span className="text-sm text-gray-800 font-mono">
+                      39797
+                    </span>
+                    @gmail.com
+                  </span>
+                </p>
 
                 {/* Developer signature - hidden but accessible */}
                 <div className="opacity-0 hover:opacity-100 transition-opacity duration-1000 text-xs text-gray-400 mt-2">
