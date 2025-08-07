@@ -194,133 +194,184 @@ export default function InternshipProgramsSection() {
         </div>
 
         {/* 3D Carousel */}
-        <div className="relative h-[600px] flex items-center justify-center perspective-1000">
-          <div className="relative w-full max-w-6xl h-full">
-            {internshipPrograms.map((program, index) => {
-              const position = getCardPosition(index);
-              const isCenter = position === "center";
-              const isLeft = position === "left";
-              const isRight = position === "right";
-              const isHidden = position === "hidden";
+        <div className="relative h-[700px] flex items-center justify-center">
+          <div className="relative w-full max-w-7xl h-full overflow-hidden">
+            <div className="flex items-center justify-center h-full perspective-1000">
+              {internshipPrograms.map((program, index) => {
+                const position = getCardPosition(index);
+                const isCenter = position === "center";
+                const isLeft = position === "left";
+                const isRight = position === "right";
+                const isHidden = position === "hidden";
 
-              return (
-                <div
-                  key={program.id}
-                  className={`absolute top-1/2 left-1/2 transform transition-all duration-700 ease-in-out ${
-                    isHidden ? "opacity-0 scale-75" : "opacity-100"
-                  } ${
-                    isCenter
-                      ? "-translate-x-1/2 -translate-y-1/2 scale-110 z-30"
-                      : isLeft
-                      ? "-translate-x-full -translate-y-1/2 scale-90 z-20 -rotate-y-12"
-                      : isRight
-                      ? "translate-x-0 -translate-y-1/2 scale-90 z-20 rotate-y-12"
-                      : "-translate-x-1/2 -translate-y-1/2 scale-75 z-10"
-                  }`}
-                  style={{
-                    transformStyle: "preserve-3d",
-                    filter: isCenter ? "none" : "brightness(0.7)",
-                  }}
-                >
+                return (
                   <div
-                    className={`w-80 h-96 bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 ${
-                      isCenter ? "hover:scale-105" : ""
+                    key={program.id}
+                    className={`absolute transition-all duration-700 ease-out ${
+                      isHidden ? "opacity-0 pointer-events-none" : "opacity-100"
+                    } ${
+                      isCenter
+                        ? "z-30 scale-100"
+                        : isLeft
+                        ? "z-20 scale-75 -translate-x-80"
+                        : isRight
+                        ? "z-20 scale-75 translate-x-80"
+                        : "z-10 scale-50"
                     }`}
+                    style={{
+                      transformStyle: "preserve-3d",
+                      filter: isCenter ? "none" : "brightness(0.8) blur(1px)",
+                    }}
                   >
-                    {/* Card Header */}
-                    <div className="relative h-32 bg-gradient-to-br from-green-400 to-blue-500 p-6">
-                      <div className="absolute top-4 right-4">
-                        <div className="text-3xl">{program.icon}</div>
+                    <div
+                      className={`w-96 bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 ${
+                        isCenter ? "hover:scale-105 h-auto" : "h-96"
+                      } ${isCenter ? "max-h-none" : "max-h-96"}`}
+                    >
+                      {/* Card Header */}
+                      <div className="relative h-32 bg-gradient-to-br from-green-400 to-blue-500 p-6">
+                        <div className="absolute top-4 right-4">
+                          <div className="text-3xl">{program.icon}</div>
+                        </div>
+                        <div className="absolute bottom-4 left-6">
+                          <span className="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
+                            {program.type}
+                          </span>
+                        </div>
+                        {program.popular && (
+                          <div className="absolute -top-2 -right-2">
+                            <div className="bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-xs font-bold flex items-center">
+                              <Star className="h-3 w-3 mr-1" />
+                              Popular
+                            </div>
+                          </div>
+                        )}
                       </div>
-                      <div className="absolute bottom-4 left-6">
-                        <span className="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
-                          {program.type}
-                        </span>
-                      </div>
-                      {program.popular && (
-                        <div className="absolute -top-2 -right-2">
-                          <div className="bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-xs font-bold flex items-center">
-                            <Star className="h-3 w-3 mr-1" />
-                            Popular
+
+                      {/* Card Content */}
+                      <div className="p-6">
+                        <h3 className="text-xl font-bold text-gray-900 mb-2">
+                          {program.title}
+                        </h3>
+                        <p
+                          className={`text-gray-600 text-sm mb-4 ${
+                            isCenter ? "" : "line-clamp-2"
+                          }`}
+                        >
+                          {program.description}
+                        </p>
+
+                        {/* Quick Info */}
+                        <div className="grid grid-cols-2 gap-3 mb-4">
+                          <div className="flex items-center text-gray-600 text-xs">
+                            <Clock className="h-3 w-3 mr-1 text-green-600" />
+                            <span>{program.duration}</span>
+                          </div>
+                          <div className="flex items-center text-gray-600 text-xs">
+                            <Users className="h-3 w-3 mr-1 text-green-600" />
+                            <span>{program.seats} seats</span>
+                          </div>
+                          <div className="flex items-center text-gray-600 text-xs">
+                            <Calendar className="h-3 w-3 mr-1 text-green-600" />
+                            <span>{program.startDate}</span>
+                          </div>
+                          <div className="flex items-center text-gray-600 text-xs">
+                            <Award className="h-3 w-3 mr-1 text-green-600" />
+                            <span>{program.level}</span>
                           </div>
                         </div>
-                      )}
-                    </div>
 
-                    {/* Card Content */}
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
-                        {program.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                        {program.description}
-                      </p>
+                        {/* Full Details for Center Card */}
+                        {isCenter && (
+                          <div className="mb-4 space-y-4">
+                            {/* Skills Section */}
+                            <div>
+                              <h4 className="font-semibold text-gray-900 mb-2 text-sm">
+                                Skills You&apos;ll Master:
+                              </h4>
+                              <div className="flex flex-wrap gap-1">
+                                {program.skills.map((skill, skillIndex) => (
+                                  <span
+                                    key={skillIndex}
+                                    className="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium"
+                                  >
+                                    {skill}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
 
-                      {/* Quick Info */}
-                      <div className="grid grid-cols-2 gap-3 mb-4">
-                        <div className="flex items-center text-gray-600 text-xs">
-                          <Clock className="h-3 w-3 mr-1 text-green-600" />
-                          <span>{program.duration}</span>
-                        </div>
-                        <div className="flex items-center text-gray-600 text-xs">
-                          <Users className="h-3 w-3 mr-1 text-green-600" />
-                          <span>{program.seats} seats</span>
-                        </div>
-                        <div className="flex items-center text-gray-600 text-xs">
-                          <Calendar className="h-3 w-3 mr-1 text-green-600" />
-                          <span>{program.startDate}</span>
-                        </div>
-                        <div className="flex items-center text-gray-600 text-xs">
-                          <Award className="h-3 w-3 mr-1 text-green-600" />
-                          <span>{program.level}</span>
-                        </div>
-                      </div>
+                            {/* Features Section */}
+                            <div>
+                              <h4 className="font-semibold text-gray-900 mb-2 text-sm">
+                                Program Highlights:
+                              </h4>
+                              <ul className="space-y-1">
+                                {program.features.map(
+                                  (feature, featureIndex) => (
+                                    <li
+                                      key={featureIndex}
+                                      className="flex items-center text-gray-600 text-xs"
+                                    >
+                                      <div className="w-1 h-1 bg-green-600 rounded-full mr-2"></div>
+                                      {feature}
+                                    </li>
+                                  )
+                                )}
+                              </ul>
+                            </div>
+                          </div>
+                        )}
 
-                      {/* Skills */}
-                      <div className="mb-4">
-                        <div className="flex flex-wrap gap-1">
-                          {program.skills
-                            .slice(0, 3)
-                            .map((skill, skillIndex) => (
-                              <span
-                                key={skillIndex}
-                                className="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium"
-                              >
-                                {skill}
-                              </span>
-                            ))}
-                          {program.skills.length > 3 && (
-                            <span className="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-xs">
-                              +{program.skills.length - 3} more
-                            </span>
-                          )}
-                        </div>
-                      </div>
+                        {/* Skills for non-center cards */}
+                        {!isCenter && (
+                          <div className="mb-4">
+                            <div className="flex flex-wrap gap-1">
+                              {program.skills
+                                .slice(0, 3)
+                                .map((skill, skillIndex) => (
+                                  <span
+                                    key={skillIndex}
+                                    className="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium"
+                                  >
+                                    {skill}
+                                  </span>
+                                ))}
+                              {program.skills.length > 3 && (
+                                <span className="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-xs">
+                                  +{program.skills.length - 3} more
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        )}
 
-                      {/* Price and Button */}
-                      <div className="flex items-center justify-between">
-                        <div className="text-2xl font-bold text-green-600">
-                          {program.fee}
+                        {/* Price and Button */}
+                        <div className="flex items-center justify-between">
+                          <div className="text-2xl font-bold text-green-600">
+                            {program.fee}
+                          </div>
+                          <Button
+                            className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 ${
+                              isCenter
+                                ? "bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl"
+                                : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                            }`}
+                            disabled={!isCenter}
+                            onClick={() =>
+                              isCenter &&
+                              console.log("Apply for", program.title)
+                            }
+                          >
+                            {isCenter ? "Apply Now" : "Select"}
+                          </Button>
                         </div>
-                        <Button
-                          className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 ${
-                            isCenter
-                              ? "bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl"
-                              : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                          }`}
-                          disabled={!isCenter}
-                          onClick={() =>
-                            isCenter && console.log("Apply for", program.title)
-                          }
-                        >
-                          {isCenter ? "Apply Now" : "Select"}
-                        </Button>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
 
             {/* Navigation Controls */}
             <button
