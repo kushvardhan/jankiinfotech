@@ -75,8 +75,8 @@ export default function AboutSection() {
               </h4>
               <p className="text-gray-600 leading-relaxed mb-6">
                 To create a world-class tech hub, combining traditional values
-                with modern innovation. We're building more than just a company
-                - we're nurturing a tech ecosystem that empowers local talent
+                with modern innovation. We&apos;re building more than just a company
+                - we&apos;re nurturing a tech ecosystem that empowers local talent
                 and serves global clients.
               </p>
             </div>
@@ -114,7 +114,7 @@ export default function AboutSection() {
             Join Our Journey
           </h3>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Be part of a transformative movement that's putting innovation on
+            Be part of a transformative movement that&apos;s putting innovation on
             the global tech map. Together, we can build something extraordinary.
           </p>
           <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 font-semibold">

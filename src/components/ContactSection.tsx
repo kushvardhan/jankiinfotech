@@ -4,8 +4,6 @@ import { Button } from "@/components/ui/button";
 import PhoneInput from "@/components/ui/phone-input";
 import { submitContactForm } from "@/lib/actions/contact";
 import { useState } from "react";
-import { useFormValidation, ValidationRules, ValidationMessage } from './FormValidation';
-import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -16,7 +14,7 @@ export default function ContactSection() {
     email: "",
     projectDetails: "",
   });
-  const [phoneValid, setPhoneValid] = useState(false);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
 
@@ -89,8 +87,8 @@ export default function ContactSection() {
             Get in Touch
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We&apos;d love to hear from you! Whether you have questions, feedback, or
-            business inquiries, feel free to get in touch with us.
+            We&apos;d love to hear from you! Whether you have questions,
+            feedback, or business inquiries, feel free to get in touch with us.
           </p>
         </div>
 
