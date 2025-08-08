@@ -11,7 +11,7 @@ import {
   Star,
   Users,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
 
 const internshipPrograms = [
   {
@@ -128,6 +128,9 @@ const internshipPrograms = [
 export default function InternshipProgramsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   const nextSlide = () => {
     if (isAnimating) return;
@@ -167,6 +170,31 @@ export default function InternshipProgramsSection() {
     return "hidden";
   };
 
+  // Touch handling functions
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe && !isAnimating) {
+      nextSlide();
+    }
+    if (isRightSwipe && !isAnimating) {
+      prevSlide();
+    }
+  };
+
   return (
     <section className="relative py-20 bg-gradient-to-br from-green-50 via-white to-blue-50 overflow-hidden">
       {/* Background Elements */}
@@ -194,8 +222,14 @@ export default function InternshipProgramsSection() {
         </div>
 
         {/* 3D Carousel */}
-        <div className="relative h-[600px] md:h-[700px] flex items-center justify-center">
-          <div className="relative w-full max-w-7xl h-full overflow-visible">
+        <div className="relative h-[600px] md:h-[700px] flex items-center justify-center px-4">
+          <div
+            ref={carouselRef}
+            className="relative w-full max-w-7xl h-full overflow-visible"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div className="flex items-center justify-center h-full perspective-1000">
               {internshipPrograms.map((program, index) => {
                 const position = getCardPosition(index);
@@ -207,16 +241,16 @@ export default function InternshipProgramsSection() {
                 return (
                   <div
                     key={program.id}
-                    className={`absolute transition-all duration-700 ease-out ${
+                    className={`absolute left-1/2 top-1/2 transform -translate-y-1/2 transition-all duration-700 ease-out ${
                       isHidden ? "opacity-0 pointer-events-none" : "opacity-100"
                     } ${
                       isCenter
-                        ? "z-30 scale-100 translate-x-0"
+                        ? "z-30 scale-100 -translate-x-1/2"
                         : isLeft
-                        ? "z-20 scale-75 -translate-x-64 md:-translate-x-80"
+                        ? "z-20 scale-75 -translate-x-full sm:-translate-x-[120%] md:-translate-x-[140%]"
                         : isRight
-                        ? "z-20 scale-75 translate-x-64 md:translate-x-80"
-                        : "z-10 scale-50"
+                        ? "z-20 scale-75 translate-x-0 sm:translate-x-[20%] md:translate-x-[40%]"
+                        : "z-10 scale-50 -translate-x-1/2"
                     }`}
                     style={{
                       transformStyle: "preserve-3d",
@@ -372,25 +406,31 @@ export default function InternshipProgramsSection() {
                 );
               })}
             </div>
+          </div>
 
-            {/* Navigation Controls */}
+          {/* Navigation Controls - Below Cards */}
+          <div className="flex justify-center items-center gap-4 mt-8">
             <button
               onClick={prevSlide}
               disabled={isAnimating}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-xl rounded-full p-4 hover:bg-gray-50 transition-all duration-300 hover:scale-110 disabled:opacity-50 z-40"
+              className="bg-white shadow-xl rounded-full p-3 hover:bg-gray-50 transition-all duration-300 hover:scale-110 disabled:opacity-50 border border-gray-200"
             >
-              <ChevronLeft className="h-6 w-6 text-gray-700" />
+              <ChevronLeft className="h-5 w-5 text-gray-700" />
             </button>
+
+            {/* Progress Indicator */}
+            <div className="text-sm text-gray-600 bg-white px-4 py-2 rounded-full shadow-md border border-gray-200">
+              {currentIndex + 1} of {internshipPrograms.length}
+            </div>
+
             <button
               onClick={nextSlide}
               disabled={isAnimating}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-xl rounded-full p-4 hover:bg-gray-50 transition-all duration-300 hover:scale-110 disabled:opacity-50 z-40"
+              className="bg-white shadow-xl rounded-full p-3 hover:bg-gray-50 transition-all duration-300 hover:scale-110 disabled:opacity-50 border border-gray-200"
             >
-              <ChevronRight className="h-6 w-6 text-gray-700" />
+              <ChevronRight className="h-5 w-5 text-gray-700" />
             </button>
           </div>
-
-          
         </div>
 
         {/* Features Section */}
