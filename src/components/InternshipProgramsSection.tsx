@@ -390,12 +390,7 @@ export default function InternshipProgramsSection() {
             </button>
           </div>
 
-          {/* Progress Indicator */}
-          <div className="flex justify-center mt-8">
-            <div className="text-sm text-gray-600 bg-white px-4 py-2 rounded-full shadow-md">
-              {currentIndex + 1} of {internshipPrograms.length}
-            </div>
-          </div>
+          
         </div>
 
         {/* Features Section */}
