@@ -89,7 +89,7 @@ export default function ContactSection() {
             Get in Touch
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We'd love to hear from you! Whether you have questions, feedback, or
+            We&apos;d love to hear from you! Whether you have questions, feedback, or
             business inquiries, feel free to get in touch with us.
           </p>
         </div>
@@ -308,9 +308,9 @@ export default function ContactSection() {
             {/* Quote */}
             <div className="bg-blue-50 rounded-xl p-6">
               <blockquote className="text-gray-700 italic">
-                " &ldquo;If anyone envisions the growth of IT and ITES culture,
+                &ldquo;If anyone envisions the growth of IT and ITES culture,
                 JankiInfotech manifests first to bring this vision to
-                life&rdquo;"
+                life&rdquo;
               </blockquote>
               <p className="text-sm text-gray-600 mt-4">
                 We benefit from strong technical skills, linguistic diversity,
