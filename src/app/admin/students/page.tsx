@@ -1,85 +1,105 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { Button } from '@/components/ui/button'
-import QRCodeGenerator from '@/components/QRCodeGenerator'
-import { User, Mail, Calendar, Building, QrCode, Plus, Search } from 'lucide-react'
+import QRCodeGenerator from "@/components/QRCodeGenerator";
+import { Button } from "@/components/ui/button";
+import {
+  Building,
+  Calendar,
+  Mail,
+  Plus,
+  QrCode,
+  Search,
+  User,
+} from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface Student {
-  _id: string
-  name: string
-  email: string
-  domain: string
-  duration: string
-  company: string
+  _id: string;
+  name: string;
+  email: string;
+  domain: string;
+  duration: string;
+  company: string;
 }
 
 export default function StudentsAdminPage() {
-  const [students, setStudents] = useState<Student[]>([])
-  const [loading, setLoading] = useState(true)
-  const [selectedStudent, setSelectedStudent] = useState<Student | null>(null)
-  const [searchTerm, setSearchTerm] = useState('')
-  const [showAddForm, setShowAddForm] = useState(false)
+  const [students, setStudents] = useState<Student[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   // Mock data for demonstration - replace with actual API call
   useEffect(() => {
     // Simulate API call
     const mockStudents: Student[] = [
       {
-        _id: '6891f5bf7e098522238cdcf1',
-        name: 'Puneet Agrawal',
-        email: 'apuneet596@gmail.com',
-        domain: 'Python Development',
-        duration: '2 months',
-        company: 'Janki'
+        _id: "6891f5bf7e098522238cdcf1",
+        name: "Puneet Agrawal",
+        email: "apuneet596@gmail.com",
+        domain: "Python Development",
+        duration: "2 months",
+        company: "Janki",
       },
       {
-        _id: '6891f5bf7e098522238cdcf2',
-        name: 'Rahul Sharma',
-        email: 'rahul.sharma@gmail.com',
-        domain: 'Web Development',
-        duration: '3 months',
-        company: 'Janki'
+        _id: "6891f5bf7e098522238cdcf2",
+        name: "Rahul Sharma",
+        email: "rahul.sharma@gmail.com",
+        domain: "Web Development",
+        duration: "3 months",
+        company: "Janki",
       },
       {
-        _id: '6891f5bf7e098522238cdcf3',
-        name: 'Priya Singh',
-        email: 'priya.singh@gmail.com',
-        domain: 'UI/UX Design',
-        duration: '2 months',
-        company: 'Janki'
-      }
-    ]
-    
-    setTimeout(() => {
-      setStudents(mockStudents)
-      setLoading(false)
-    }, 1000)
-  }, [])
+        _id: "6891f5bf7e098522238cdcf3",
+        name: "Priya Singh",
+        email: "priya.singh@gmail.com",
+        domain: "UI/UX Design",
+        duration: "2 months",
+        company: "Janki",
+      },
+    ];
 
-  const filteredStudents = students.filter(student =>
-    student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    student.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    student.domain.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+    setTimeout(() => {
+      setStudents(mockStudents);
+      setLoading(false);
+    }, 1000);
+  }, []);
+
+  const filteredStudents = students.filter(
+    (student) =>
+      student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      student.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      student.domain.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const getDomainIcon = (domain: string) => {
-    if (domain.toLowerCase().includes('python')) return '🐍'
-    if (domain.toLowerCase().includes('web')) return '🌐'
-    if (domain.toLowerCase().includes('mobile')) return '📱'
-    if (domain.toLowerCase().includes('ui') || domain.toLowerCase().includes('ux')) return '🎨'
-    if (domain.toLowerCase().includes('data')) return '📊'
-    return '💻'
-  }
+    if (domain.toLowerCase().includes("python")) return "🐍";
+    if (domain.toLowerCase().includes("web")) return "🌐";
+    if (domain.toLowerCase().includes("mobile")) return "📱";
+    if (
+      domain.toLowerCase().includes("ui") ||
+      domain.toLowerCase().includes("ux")
+    )
+      return "🎨";
+    if (domain.toLowerCase().includes("data")) return "📊";
+    return "💻";
+  };
 
   const getDomainColor = (domain: string) => {
-    if (domain.toLowerCase().includes('python')) return 'bg-yellow-100 text-yellow-800'
-    if (domain.toLowerCase().includes('web')) return 'bg-blue-100 text-blue-800'
-    if (domain.toLowerCase().includes('mobile')) return 'bg-green-100 text-green-800'
-    if (domain.toLowerCase().includes('ui') || domain.toLowerCase().includes('ux')) return 'bg-pink-100 text-pink-800'
-    if (domain.toLowerCase().includes('data')) return 'bg-purple-100 text-purple-800'
-    return 'bg-gray-100 text-gray-800'
-  }
+    if (domain.toLowerCase().includes("python"))
+      return "bg-yellow-100 text-yellow-800";
+    if (domain.toLowerCase().includes("web"))
+      return "bg-blue-100 text-blue-800";
+    if (domain.toLowerCase().includes("mobile"))
+      return "bg-green-100 text-green-800";
+    if (
+      domain.toLowerCase().includes("ui") ||
+      domain.toLowerCase().includes("ux")
+    )
+      return "bg-pink-100 text-pink-800";
+    if (domain.toLowerCase().includes("data"))
+      return "bg-purple-100 text-purple-800";
+    return "bg-gray-100 text-gray-800";
+  };
 
   if (loading) {
     return (
@@ -89,7 +109,7 @@ export default function StudentsAdminPage() {
           <p className="text-gray-600">Loading students...</p>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -97,8 +117,12 @@ export default function StudentsAdminPage() {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">Student Management</h1>
-          <p className="text-gray-600">Manage student certificates and generate QR codes</p>
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+            Student Management
+          </h1>
+          <p className="text-gray-600">
+            Manage student certificates and generate QR codes
+          </p>
         </div>
 
         {/* Search and Add */}
@@ -133,31 +157,41 @@ export default function StudentsAdminPage() {
                   Students ({filteredStudents.length})
                 </h2>
               </div>
-              
+
               <div className="divide-y divide-gray-200">
                 {filteredStudents.map((student) => (
                   <div
                     key={student._id}
                     className={`p-6 hover:bg-gray-50 cursor-pointer transition-colors ${
-                      selectedStudent?._id === student._id ? 'bg-green-50 border-l-4 border-green-500' : ''
+                      selectedStudent?._id === student._id
+                        ? "bg-green-50 border-l-4 border-green-500"
+                        : ""
                     }`}
                     onClick={() => setSelectedStudent(student)}
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center mb-2">
-                          <div className="text-2xl mr-3">{getDomainIcon(student.domain)}</div>
+                          <div className="text-2xl mr-3">
+                            {getDomainIcon(student.domain)}
+                          </div>
                           <div>
-                            <h3 className="text-lg font-semibold text-gray-800">{student.name}</h3>
+                            <h3 className="text-lg font-semibold text-gray-800">
+                              {student.name}
+                            </h3>
                             <p className="text-sm text-gray-600 flex items-center">
                               <Mail className="h-4 w-4 mr-1" />
                               {student.email}
                             </p>
                           </div>
                         </div>
-                        
+
                         <div className="flex flex-wrap gap-2 mt-3">
-                          <span className={`px-3 py-1 rounded-full text-xs font-medium ${getDomainColor(student.domain)}`}>
+                          <span
+                            className={`px-3 py-1 rounded-full text-xs font-medium ${getDomainColor(
+                              student.domain
+                            )}`}
+                          >
                             {student.domain}
                           </span>
                           <span className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 flex items-center">
@@ -170,11 +204,11 @@ export default function StudentsAdminPage() {
                           </span>
                         </div>
                       </div>
-                      
+
                       <Button
                         onClick={(e) => {
-                          e.stopPropagation()
-                          setSelectedStudent(student)
+                          e.stopPropagation();
+                          setSelectedStudent(student);
                         }}
                         size="sm"
                         variant="outline"
@@ -186,7 +220,7 @@ export default function StudentsAdminPage() {
                   </div>
                 ))}
               </div>
-              
+
               {filteredStudents.length === 0 && (
                 <div className="p-8 text-center text-gray-500">
                   <User className="h-12 w-12 mx-auto mb-4 opacity-50" />
@@ -206,13 +240,17 @@ export default function StudentsAdminPage() {
             ) : (
               <div className="bg-white rounded-lg shadow-md p-8 text-center">
                 <QrCode className="h-16 w-16 mx-auto mb-4 text-gray-300" />
-                <h3 className="text-lg font-semibold text-gray-600 mb-2">Generate QR Code</h3>
-                <p className="text-gray-500">Select a student to generate their certificate QR code</p>
+                <h3 className="text-lg font-semibold text-gray-600 mb-2">
+                  Generate QR Code
+                </h3>
+                <p className="text-gray-500">
+                  Select a student to generate their certificate QR code
+                </p>
               </div>
             )}
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
