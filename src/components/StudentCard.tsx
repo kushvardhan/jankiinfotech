@@ -1,51 +1,76 @@
-'use client'
+"use client";
 
-import { Award, Calendar, Mail, User, Building, GraduationCap, CheckCircle, Star } from 'lucide-react'
-import { useState, useEffect } from 'react'
-import Logo from './Logo'
+import {
+  Award,
+  Building,
+  Calendar,
+  CheckCircle,
+  GraduationCap,
+  Mail,
+  Star,
+  User,
+} from "lucide-react";
+import { useEffect, useState } from "react";
+import Logo from "./Logo";
 
 interface Student {
-  _id: string
-  name: string
-  email: string
-  domain: string
-  duration: string
-  company: string
+  _id: string;
+  name: string;
+  email: string;
+  domain: string;
+  duration: string;
+  company: string;
 }
 
 interface StudentCardProps {
-  student: Student
+  student: Student;
 }
 
 export default function StudentCard({ student }: StudentCardProps) {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true)
-  }, [])
+    setIsVisible(true);
+  }, []);
 
-  const getDomainIcon = (domain: string) => {
-    if (domain.toLowerCase().includes('python')) return '🐍'
-    if (domain.toLowerCase().includes('web')) return '🌐'
-    if (domain.toLowerCase().includes('mobile')) return '📱'
-    if (domain.toLowerCase().includes('ui') || domain.toLowerCase().includes('ux')) return '🎨'
-    if (domain.toLowerCase().includes('data')) return '📊'
-    if (domain.toLowerCase().includes('ai') || domain.toLowerCase().includes('ml')) return '🤖'
-    return '💻'
-  }
+  // const getDomainIcon = (domain: string) => {
+  //   if (domain.toLowerCase().includes('python')) return '🐍'
+  //   if (domain.toLowerCase().includes('web')) return '🌐'
+  //   if (domain.toLowerCase().includes('mobile')) return '📱'
+  //   if (domain.toLowerCase().includes('ui') || domain.toLowerCase().includes('ux')) return '🎨'
+  //   if (domain.toLowerCase().includes('data')) return '📊'
+  //   if (domain.toLowerCase().includes('ai') || domain.toLowerCase().includes('ml')) return '🤖'
+  //   return '💻'
+  // }
 
   const getDomainColor = (domain: string) => {
-    if (domain.toLowerCase().includes('python')) return 'from-yellow-400 to-green-500'
-    if (domain.toLowerCase().includes('web')) return 'from-blue-400 to-purple-500'
-    if (domain.toLowerCase().includes('mobile')) return 'from-green-400 to-blue-500'
-    if (domain.toLowerCase().includes('ui') || domain.toLowerCase().includes('ux')) return 'from-pink-400 to-red-500'
-    if (domain.toLowerCase().includes('data')) return 'from-indigo-400 to-purple-500'
-    if (domain.toLowerCase().includes('ai') || domain.toLowerCase().includes('ml')) return 'from-gray-400 to-blue-500'
-    return 'from-green-400 to-blue-500'
-  }
+    if (domain.toLowerCase().includes("python"))
+      return "from-yellow-400 to-green-500";
+    if (domain.toLowerCase().includes("web"))
+      return "from-blue-400 to-purple-500";
+    if (domain.toLowerCase().includes("mobile"))
+      return "from-green-400 to-blue-500";
+    if (
+      domain.toLowerCase().includes("ui") ||
+      domain.toLowerCase().includes("ux")
+    )
+      return "from-pink-400 to-red-500";
+    if (domain.toLowerCase().includes("data"))
+      return "from-indigo-400 to-purple-500";
+    if (
+      domain.toLowerCase().includes("ai") ||
+      domain.toLowerCase().includes("ml")
+    )
+      return "from-gray-400 to-blue-500";
+    return "from-green-400 to-blue-500";
+  };
 
   return (
-    <div className={`max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+    <div
+      className={`max-w-4xl mx-auto transition-all duration-1000 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+    >
       {/* Header */}
       <div className="text-center mb-8">
         <div className="flex justify-center mb-4">
@@ -61,7 +86,7 @@ export default function StudentCard({ student }: StudentCardProps) {
       <div className="relative">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-green-100 to-blue-100 rounded-3xl opacity-50"></div>
-        
+
         {/* Certificate Border */}
         <div className="relative bg-white rounded-3xl shadow-2xl border-8 border-gradient-to-r from-green-400 to-blue-500 p-8 md:p-12">
           {/* Decorative Elements */}
@@ -89,10 +114,16 @@ export default function StudentCard({ student }: StudentCardProps) {
 
           {/* Student Name */}
           <div className="text-center mb-8">
-            <h3 className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${getDomainColor(student.domain)} bg-clip-text text-transparent mb-2`}>
+            <h3
+              className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${getDomainColor(
+                student.domain
+              )} bg-clip-text text-transparent mb-2`}
+            >
               {student.name}
             </h3>
-            <p className="text-lg text-gray-600">has successfully completed the internship program</p>
+            <p className="text-lg text-gray-600">
+              has successfully completed the internship program
+            </p>
           </div>
 
           {/* Program Details */}
@@ -102,7 +133,9 @@ export default function StudentCard({ student }: StudentCardProps) {
                 <GraduationCap className="h-6 w-6 text-green-600 mr-3" />
                 <h4 className="font-semibold text-gray-800">Program</h4>
               </div>
-              <p className="text-lg font-medium text-gray-700">{student.domain}</p>
+              <p className="text-lg font-medium text-gray-700">
+                {student.domain}
+              </p>
             </div>
 
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6">
@@ -110,7 +143,9 @@ export default function StudentCard({ student }: StudentCardProps) {
                 <Calendar className="h-6 w-6 text-blue-600 mr-3" />
                 <h4 className="font-semibold text-gray-800">Duration</h4>
               </div>
-              <p className="text-lg font-medium text-gray-700">{student.duration}</p>
+              <p className="text-lg font-medium text-gray-700">
+                {student.duration}
+              </p>
             </div>
           </div>
 
@@ -118,7 +153,9 @@ export default function StudentCard({ student }: StudentCardProps) {
           <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 mb-8">
             <div className="flex items-center mb-4">
               <User className="h-6 w-6 text-gray-600 mr-3" />
-              <h4 className="font-semibold text-gray-800">Contact Information</h4>
+              <h4 className="font-semibold text-gray-800">
+                Contact Information
+              </h4>
             </div>
             <div className="flex items-center text-gray-700">
               <Mail className="h-5 w-5 text-gray-500 mr-3" />
@@ -132,9 +169,11 @@ export default function StudentCard({ student }: StudentCardProps) {
               <Building className="h-6 w-6 text-green-600 mr-3" />
               <h4 className="font-semibold text-gray-800">Authorized by</h4>
             </div>
-            <p className="text-2xl font-bold text-green-600 mb-2">{student.company}Infotech</p>
+            <p className="text-2xl font-bold text-green-600 mb-2">
+              {student.company}Infotech
+            </p>
             <p className="text-gray-600">Professional Development & Training</p>
-            
+
             {/* Verification Badge */}
             <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full mt-4">
               <CheckCircle className="h-5 w-5 mr-2" />
@@ -145,13 +184,15 @@ export default function StudentCard({ student }: StudentCardProps) {
           {/* Certificate ID */}
           <div className="text-center mt-6 pt-6 border-t border-gray-200">
             <p className="text-sm text-gray-500">
-              Certificate ID: <span className="font-mono font-medium">{student._id}</span>
+              Certificate ID:{" "}
+              <span className="font-mono font-medium">{student._id}</span>
             </p>
             <p className="text-xs text-gray-400 mt-1">
-              Issued on {new Date().toLocaleDateString('en-US', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
+              Issued on{" "}
+              {new Date().toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
               })}
             </p>
           </div>
@@ -165,5 +206,5 @@ export default function StudentCard({ student }: StudentCardProps) {
         </p>
       </div>
     </div>
-  )
+  );
 }
