@@ -25,7 +25,7 @@ export default function ScheduleConsultationForm() {
     preferredTime: "",
     message: "",
   });
-  const [phoneValid, setPhoneValid] = useState(false);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null;
@@ -183,8 +183,8 @@ Message: ${formData.message}
             <PhoneInput
               value={formData.phone}
               onChange={(value, isValid) => {
-                setFormData(prev => ({ ...prev, phone: value }))
-                setPhoneValid(isValid)
+                setFormData((prev) => ({ ...prev, phone: value }));
+                setPhoneValid(isValid);
               }}
               placeholder="Enter your phone number"
             />
