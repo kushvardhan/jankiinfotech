@@ -11,7 +11,7 @@ import {
   Star,
   Users,
 } from "lucide-react";
-import { useEffect, useState,useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const internshipPrograms = [
   {
@@ -222,15 +222,230 @@ export default function InternshipProgramsSection() {
         </div>
 
         {/* 3D Carousel */}
-        <div className="relative h-[600px] md:h-[700px] flex items-center justify-center px-4">
-          <div
-            ref={carouselRef}
-            className="relative w-full max-w-7xl h-full overflow-visible"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
-            <div className="flex items-center justify-center h-full perspective-1000">
+        <div className="relative">
+          {/* Mobile/Tablet View */}
+          <div className="block lg:hidden">
+            <div className="relative h-[500px] sm:h-[550px] md:h-[600px] flex items-center justify-center px-4">
+              <div
+                ref={carouselRef}
+                className="relative w-full max-w-md sm:max-w-lg h-full overflow-visible"
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+              >
+                <div className="flex items-center justify-center h-full">
+                  {internshipPrograms.map((program, index) => {
+                    const position = getCardPosition(index);
+                    const isCenter = position === "center";
+                    const isHidden = position === "hidden";
+
+                    return (
+                      <div
+                        key={program.id}
+                        className={`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-out ${
+                          isHidden ? "opacity-0 pointer-events-none scale-75" : "opacity-100"
+                        } ${
+                          isCenter
+                            ? "z-30 scale-100"
+                            : "z-10 scale-90 opacity-50"
+                        }`}
+                      >
+                        <div className="w-72 sm:w-80 bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:scale-105">
+                          {/* Card content for mobile */}
+                          <div className="relative h-48 bg-gradient-to-br from-green-400 to-green-600">
+                            <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+                            <div className="relative z-10 p-6 text-white">
+                              <div className="text-4xl mb-2">{program.icon}</div>
+                              <h3 className="text-xl font-bold mb-2">{program.title}</h3>
+                              <p className="text-sm opacity-90">{program.duration}</p>
+                            </div>
+                          </div>
+
+                          <div className="p-6">
+                            <div className="flex justify-between items-center mb-4">
+                              <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                                {program.level}
+                              </span>
+                              <span className="text-2xl font-bold text-green-600">{program.price}</span>
+                            </div>
+
+                            <p className="text-gray-600 mb-4 text-sm line-clamp-3">{program.description}</p>
+
+                            <div className="space-y-2 mb-4">
+                              <div className="flex items-center text-sm text-gray-600">
+                                <Users className="h-4 w-4 mr-2 text-green-600" />
+                                <span>{program.students} students</span>
+                              </div>
+                              <div className="flex items-center text-sm text-gray-600">
+                                <Star className="h-4 w-4 mr-2 text-green-600" />
+                                <span>{program.rating} rating</span>
+                              </div>
+                            </div>
+
+                            <div className="flex flex-wrap gap-1 mb-4">
+                              {program.skills.slice(0, 3).map((skill, skillIndex) => (
+                                <span
+                                  key={skillIndex}
+                                  className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs"
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
+
+                            <button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-semibold transition-colors">
+                              Learn More
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Navigation - Below Cards */}
+            <div className="flex justify-center items-center gap-3 mt-6 px-4">
+              <button
+                onClick={prevSlide}
+                disabled={isAnimating}
+                className="bg-white shadow-lg rounded-full p-2.5 hover:bg-gray-50 transition-all duration-300 hover:scale-110 disabled:opacity-50 border border-gray-200"
+              >
+                <ChevronLeft className="h-4 w-4 text-gray-700" />
+              </button>
+
+              {/* Responsive Progress Indicator */}
+              <div className="bg-white px-3 py-1.5 rounded-full shadow-md border border-gray-200">
+                <span className="text-xs sm:text-sm text-gray-600 font-medium">
+                  {currentIndex + 1} of {internshipPrograms.length}
+                </span>
+              </div>
+
+              <button
+                onClick={nextSlide}
+                disabled={isAnimating}
+                className="bg-white shadow-lg rounded-full p-2.5 hover:bg-gray-50 transition-all duration-300 hover:scale-110 disabled:opacity-50 border border-gray-200"
+              >
+                <ChevronRight className="h-4 w-4 text-gray-700" />
+              </button>
+            </div>
+          </div>
+
+          {/* Desktop View */}
+          <div className="hidden lg:block">
+            <div className="relative h-[700px] flex items-center justify-center">
+              <div
+                className="relative w-full max-w-7xl h-full overflow-visible"
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+              >
+                <div className="flex items-center justify-center h-full perspective-1000">
+                  {internshipPrograms.map((program, index) => {
+                    const position = getCardPosition(index);
+                    const isCenter = position === "center";
+                    const isLeft = position === "left";
+                    const isRight = position === "right";
+                    const isHidden = position === "hidden";
+
+                    return (
+                      <div
+                        key={program.id}
+                        className={`absolute left-1/2 top-1/2 transform -translate-y-1/2 transition-all duration-700 ease-out ${
+                          isHidden ? "opacity-0 pointer-events-none" : "opacity-100"
+                        } ${
+                          isCenter
+                            ? "z-30 scale-100 -translate-x-1/2"
+                            : isLeft
+                            ? "z-20 scale-75 -translate-x-full"
+                            : isRight
+                            ? "z-20 scale-75 translate-x-0"
+                            : "z-10 scale-50 -translate-x-1/2"
+                        }`}
+                      >
+                        <div className="w-96 bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:scale-105">
+                          {/* Desktop card content */}
+                          <div className="relative h-64 bg-gradient-to-br from-green-400 to-green-600">
+                            <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+                            <div className="relative z-10 p-8 text-white">
+                              <div className="text-6xl mb-4">{program.icon}</div>
+                              <h3 className="text-2xl font-bold mb-2">{program.title}</h3>
+                              <p className="opacity-90">{program.duration}</p>
+                            </div>
+                          </div>
+
+                          <div className="p-8">
+                            <div className="flex justify-between items-center mb-6">
+                              <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
+                                {program.level}
+                              </span>
+                              <span className="text-3xl font-bold text-green-600">{program.price}</span>
+                            </div>
+
+                            <p className="text-gray-600 mb-6 leading-relaxed">{program.description}</p>
+
+                            <div className="grid grid-cols-2 gap-4 mb-6">
+                              <div className="flex items-center text-gray-600">
+                                <Users className="h-5 w-5 mr-3 text-green-600" />
+                                <span>{program.students} students</span>
+                              </div>
+                              <div className="flex items-center text-gray-600">
+                                <Star className="h-5 w-5 mr-3 text-green-600" />
+                                <span>{program.rating} rating</span>
+                              </div>
+                            </div>
+
+                            <div className="flex flex-wrap gap-2 mb-6">
+                              {program.skills.map((skill, skillIndex) => (
+                                <span
+                                  key={skillIndex}
+                                  className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
+
+                            <button className="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-xl font-semibold transition-colors text-lg">
+                              Learn More
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop Navigation - Below Cards */}
+            <div className="flex justify-center items-center gap-6 mt-8">
+              <button
+                onClick={prevSlide}
+                disabled={isAnimating}
+                className="bg-white shadow-xl rounded-full p-4 hover:bg-gray-50 transition-all duration-300 hover:scale-110 disabled:opacity-50 border border-gray-200"
+              >
+                <ChevronLeft className="h-6 w-6 text-gray-700" />
+              </button>
+
+              {/* Desktop Progress Indicator */}
+              <div className="bg-white px-6 py-3 rounded-full shadow-lg border border-gray-200">
+                <span className="text-sm text-gray-600 font-medium">
+                  {currentIndex + 1} of {internshipPrograms.length}
+                </span>
+              </div>
+
+              <button
+                onClick={nextSlide}
+                disabled={isAnimating}
+                className="bg-white shadow-xl rounded-full p-4 hover:bg-gray-50 transition-all duration-300 hover:scale-110 disabled:opacity-50 border border-gray-200"
+              >
+                <ChevronRight className="h-6 w-6 text-gray-700" />
+              </button>
+            </div>
+          </div>
+        </div>
               {internshipPrograms.map((program, index) => {
                 const position = getCardPosition(index);
                 const isCenter = position === "center";
@@ -408,32 +623,10 @@ export default function InternshipProgramsSection() {
             </div>
           </div>
 
-          {/* Navigation Controls - Below Cards */}
-          <div className="flex justify-center items-center gap-4 mt-8">
-            <button
-              onClick={prevSlide}
-              disabled={isAnimating}
-              className="bg-white shadow-xl rounded-full p-3 hover:bg-gray-50 transition-all duration-300 hover:scale-110 disabled:opacity-50 border border-gray-200"
-            >
-              <ChevronLeft className="h-5 w-5 text-gray-700" />
-            </button>
 
-            {/* Progress Indicator */}
-            <div className="text-sm text-gray-600 bg-white px-4 py-2 rounded-full shadow-md border border-gray-200">
-              {currentIndex + 1} of {internshipPrograms.length}
-            </div>
-
-            <button
-              onClick={nextSlide}
-              disabled={isAnimating}
-              className="bg-white shadow-xl rounded-full p-3 hover:bg-gray-50 transition-all duration-300 hover:scale-110 disabled:opacity-50 border border-gray-200"
-            >
-              <ChevronRight className="h-5 w-5 text-gray-700" />
-            </button>
-          </div>
-        </div>
 
         {/* Features Section */}
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mt-20 grid md:grid-cols-3 gap-8">
           <div className="text-center p-6 bg-white rounded-2xl shadow-lg">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -485,6 +678,7 @@ export default function InternshipProgramsSection() {
         >
           {/* Developed by Kush Vardhan (kushvardhan39797@gmail.com) */}
           <span>KV</span>
+        </div>
         </div>
       </div>
     </section>

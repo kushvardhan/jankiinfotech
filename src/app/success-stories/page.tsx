@@ -163,7 +163,7 @@ export default function SuccessStoriesPage() {
               <span className="text-green-600 block">That Inspire</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover how we've helped businesses across Bihar and beyond
+              Discover how we&apos;ve helped businesses across Bihar and beyond
               transform their digital presence and achieve remarkable growth.
             </p>
           </div>
@@ -249,7 +249,7 @@ export default function SuccessStoriesPage() {
 
                     <div className="border-t pt-6">
                       <blockquote className="text-gray-700 italic mb-4">
-                        " &ldquo;{story.testimonial}&rdquo;"
+                        "                        &ldquo;{story.testimonial}&rdquo;"
                       </blockquote>
                       <div className="flex items-center">
                         <div>
