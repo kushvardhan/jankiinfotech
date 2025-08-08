@@ -1,70 +1,75 @@
-'use client'
+"use client";
 
-import { useState, useRef } from 'react'
-import { Button } from '@/components/ui/button'
-import { Download, QrCode, Copy, Check } from 'lucide-react'
+import { Button } from "@/components/ui/button";
+import { Check, Copy, Download, QrCode } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
 
 interface QRCodeGeneratorProps {
-  studentId: string
-  studentName: string
+  studentId: string;
+  studentName: string;
 }
 
-export default function QRCodeGenerator({ studentId, studentName }: QRCodeGeneratorProps) {
-  const [qrCodeUrl, setQrCodeUrl] = useState('')
-  const [isGenerating, setIsGenerating] = useState(false)
-  const [copied, setCopied] = useState(false)
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+export default function QRCodeGenerator({
+  studentId,
+  studentName,
+}: QRCodeGeneratorProps) {
+  const [qrCodeUrl, setQrCodeUrl] = useState("");
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const generateQRCode = async () => {
-    setIsGenerating(true)
-    
+    setIsGenerating(true);
+
     try {
       // Create the URL that the QR code will point to
-      const studentUrl = `${window.location.origin}/student/${studentId}`
-      
+      const studentUrl = `${window.location.origin}/student/${studentId}`;
+
       // Use QR Server API to generate QR code
-      const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(studentUrl)}&format=png&bgcolor=ffffff&color=000000&qzone=2&margin=10`
-      
-      setQrCodeUrl(qrApiUrl)
+      const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(
+        studentUrl
+      )}&format=png&bgcolor=ffffff&color=000000&qzone=2&margin=10`;
+
+      setQrCodeUrl(qrApiUrl);
     } catch (error) {
-      console.error('Error generating QR code:', error)
+      console.error("Error generating QR code:", error);
     } finally {
-      setIsGenerating(false)
+      setIsGenerating(false);
     }
-  }
+  };
 
   const downloadQRCode = async () => {
-    if (!qrCodeUrl) return
+    if (!qrCodeUrl) return;
 
     try {
-      const response = await fetch(qrCodeUrl)
-      const blob = await response.blob()
-      const url = window.URL.createObjectURL(blob)
-      
-      const link = document.createElement('a')
-      link.href = url
-      link.download = `${studentName.replace(/\s+/g, '_')}_QR_Code.png`
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-      
-      window.URL.revokeObjectURL(url)
+      const response = await fetch(qrCodeUrl);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${studentName.replace(/\s+/g, "_")}_QR_Code.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      window.URL.revokeObjectURL(url);
     } catch (error) {
-      console.error('Error downloading QR code:', error)
+      console.error("Error downloading QR code:", error);
     }
-  }
+  };
 
   const copyStudentUrl = async () => {
-    const studentUrl = `${window.location.origin}/student/${studentId}`
-    
+    const studentUrl = `${window.location.origin}/student/${studentId}`;
+
     try {
-      await navigator.clipboard.writeText(studentUrl)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      await navigator.clipboard.writeText(studentUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     } catch (error) {
-      console.error('Error copying URL:', error)
+      console.error("Error copying URL:", error);
     }
-  }
+  };
 
   return (
     <div className="bg-white rounded-2xl shadow-lg p-6 max-w-md mx-auto">
@@ -72,8 +77,12 @@ export default function QRCodeGenerator({ studentId, studentName }: QRCodeGenera
         <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
           <QrCode className="h-8 w-8 text-green-600" />
         </div>
-        <h3 className="text-xl font-bold text-gray-800 mb-2">Generate QR Code</h3>
-        <p className="text-gray-600 text-sm">Create a QR code for {studentName}&apos;s certificate</p>
+        <h3 className="text-xl font-bold text-gray-800 mb-2">
+          Generate QR Code
+        </h3>
+        <p className="text-gray-600 text-sm">
+          Create a QR code for {studentName}&apos;s certificate
+        </p>
       </div>
 
       {!qrCodeUrl ? (
@@ -82,17 +91,18 @@ export default function QRCodeGenerator({ studentId, studentName }: QRCodeGenera
           disabled={isGenerating}
           className="w-full bg-green-600 hover:bg-green-700 text-white py-3 font-semibold"
         >
-          {isGenerating ? 'Generating...' : 'Generate QR Code'}
+          {isGenerating ? "Generating..." : "Generate QR Code"}
         </Button>
       ) : (
         <div className="space-y-4">
           {/* QR Code Display */}
           <div className="bg-gray-50 rounded-lg p-4 text-center">
-            <img 
-              src={qrCodeUrl} 
+            <Image
+              src={qrCodeUrl}
               alt={`QR Code for ${studentName}`}
+              width={200}
+              height={200}
               className="mx-auto rounded-lg shadow-md"
-              style={{ maxWidth: '200px', height: 'auto' }}
             />
           </div>
 
@@ -109,7 +119,11 @@ export default function QRCodeGenerator({ studentId, studentName }: QRCodeGenera
                 variant="outline"
                 className="flex-shrink-0"
               >
-                {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                {copied ? (
+                  <Check className="h-4 w-4" />
+                ) : (
+                  <Copy className="h-4 w-4" />
+                )}
               </Button>
             </div>
           </div>
@@ -124,7 +138,7 @@ export default function QRCodeGenerator({ studentId, studentName }: QRCodeGenera
               Download
             </Button>
             <Button
-              onClick={() => setQrCodeUrl('')}
+              onClick={() => setQrCodeUrl("")}
               variant="outline"
               className="border-gray-300"
             >
@@ -145,5 +159,5 @@ export default function QRCodeGenerator({ studentId, studentName }: QRCodeGenera
         </ul>
       </div>
     </div>
-  )
+  );
 }
