@@ -1,12 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import {
   Award,
-  Calendar,
   ChevronLeft,
   ChevronRight,
-  Clock,
   Sparkles,
   Star,
   Users,
@@ -195,7 +192,7 @@ export default function InternshipProgramsSection() {
     }
   };
 
-   return (
+  return (
     <section className="relative py-20 bg-gradient-to-br from-green-50 via-white to-blue-50 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
@@ -215,7 +212,9 @@ export default function InternshipProgramsSection() {
             Internship Programs
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Embark on a transformative journey with our industry-leading programs designed to shape the next generation of tech professionals.
+            Embark on a transformative journey with our industry-leading
+            programs designed to shape the next generation of tech
+            professionals.
           </p>
         </div>
 
@@ -240,17 +239,29 @@ export default function InternshipProgramsSection() {
                     return (
                       <div
                         key={program.id}
-                        className={`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-out ${
-                          isHidden ? "opacity-0 pointer-events-none scale-75" : "opacity-100"
-                        } ${isCenter ? "z-30 scale-100" : "z-10 scale-90 opacity-50"}`}
+                        className={`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-1000 ease-in-out ${
+                          isHidden
+                            ? "opacity-0 pointer-events-none scale-75"
+                            : "opacity-100"
+                        } ${
+                          isCenter
+                            ? "z-30 scale-100"
+                            : "z-10 scale-85 opacity-60"
+                        }`}
                       >
                         <div className="w-72 sm:w-80 bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:scale-105">
                           <div className="relative h-48 bg-gradient-to-br from-green-400 to-green-600">
                             <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                             <div className="relative z-10 p-6 text-white">
-                              <div className="text-4xl mb-2">{program.icon}</div>
-                              <h3 className="text-xl font-bold mb-2">{program.title}</h3>
-                              <p className="text-sm opacity-90">{program.duration}</p>
+                              <div className="text-4xl mb-2">
+                                {program.icon}
+                              </div>
+                              <h3 className="text-xl font-bold mb-2">
+                                {program.title}
+                              </h3>
+                              <p className="text-sm opacity-90">
+                                {program.duration}
+                              </p>
                             </div>
                           </div>
 
@@ -259,19 +270,23 @@ export default function InternshipProgramsSection() {
                               <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
                                 {program.level}
                               </span>
-                              <span className="text-2xl font-bold text-green-600">{program.price}</span>
+                              <span className="text-2xl font-bold text-green-600">
+                                {program.fee}
+                              </span>
                             </div>
 
-                            <p className="text-gray-600 mb-4 text-sm line-clamp-3">{program.description}</p>
+                            <p className="text-gray-600 mb-4 text-sm line-clamp-3">
+                              {program.description}
+                            </p>
 
                             <div className="space-y-2 mb-4">
                               <div className="flex items-center text-sm text-gray-600">
                                 <Users className="h-4 w-4 mr-2 text-green-600" />
-                                <span>{program.students} students</span>
+                                <span>{program.seats} seats available</span>
                               </div>
                               <div className="flex items-center text-sm text-gray-600">
-                                <Star className="h-4 w-4 mr-2 text-green-600" />
-                                <span>{program.rating} rating</span>
+                                <Calendar className="h-4 w-4 mr-2 text-green-600" />
+                                <span>Starts {program.startDate}</span>
                               </div>
                             </div>
 
@@ -343,7 +358,9 @@ export default function InternshipProgramsSection() {
                       <div
                         key={program.id}
                         className={`absolute left-1/2 top-1/2 transform -translate-y-1/2 transition-all duration-700 ease-out ${
-                          isHidden ? "opacity-0 pointer-events-none" : "opacity-100"
+                          isHidden
+                            ? "opacity-0 pointer-events-none"
+                            : "opacity-100"
                         } ${
                           isCenter
                             ? "z-30 scale-100 -translate-x-1/2"
@@ -358,8 +375,12 @@ export default function InternshipProgramsSection() {
                           <div className="relative h-64 bg-gradient-to-br from-green-400 to-green-600">
                             <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                             <div className="relative z-10 p-8 text-white">
-                              <div className="text-6xl mb-4">{program.icon}</div>
-                              <h3 className="text-2xl font-bold mb-2">{program.title}</h3>
+                              <div className="text-6xl mb-4">
+                                {program.icon}
+                              </div>
+                              <h3 className="text-2xl font-bold mb-2">
+                                {program.title}
+                              </h3>
                               <p className="opacity-90">{program.duration}</p>
                             </div>
                           </div>
@@ -369,10 +390,14 @@ export default function InternshipProgramsSection() {
                               <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
                                 {program.level}
                               </span>
-                              <span className="text-3xl font-bold text-green-600">{program.price}</span>
+                              <span className="text-3xl font-bold text-green-600">
+                                {program.price}
+                              </span>
                             </div>
 
-                            <p className="text-gray-600 mb-6 leading-relaxed">{program.description}</p>
+                            <p className="text-gray-600 mb-6 leading-relaxed">
+                              {program.description}
+                            </p>
 
                             <div className="grid grid-cols-2 gap-4 mb-6">
                               <div className="flex items-center text-gray-600">
@@ -439,28 +464,39 @@ export default function InternshipProgramsSection() {
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Star className="h-8 w-8 text-green-600" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Industry Expert Mentors</h3>
-            <p className="text-gray-600">Learn from professionals with years of industry experience</p>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">
+              Industry Expert Mentors
+            </h3>
+            <p className="text-gray-600">
+              Learn from professionals with years of industry experience
+            </p>
           </div>
 
           <div className="text-center p-6 bg-white rounded-2xl shadow-lg">
             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Award className="h-8 w-8 text-blue-600" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Certification</h3>
-            <p className="text-gray-600">Get industry-recognized certificates upon completion</p>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">
+              Certification
+            </h3>
+            <p className="text-gray-600">
+              Get industry-recognized certificates upon completion
+            </p>
           </div>
 
           <div className="text-center p-6 bg-white rounded-2xl shadow-lg">
             <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Users className="h-8 w-8 text-purple-600" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Placement Support</h3>
-            <p className="text-gray-600">Get assistance with job placements and career guidance</p>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">
+              Placement Support
+            </h3>
+            <p className="text-gray-600">
+              Get assistance with job placements and career guidance
+            </p>
           </div>
         </div>
       </div>
     </section>
-
   );
 }
