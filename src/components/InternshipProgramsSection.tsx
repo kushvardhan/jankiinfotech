@@ -461,5 +461,6 @@ export default function InternshipProgramsSection() {
         </div>
       </div>
     </section>
+
   );
 }
