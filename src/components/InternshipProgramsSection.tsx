@@ -2,12 +2,12 @@
 
 import {
   Award,
+  Calendar,
   ChevronLeft,
   ChevronRight,
   Sparkles,
   Star,
   Users,
-  Calender
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
@@ -392,7 +392,7 @@ export default function InternshipProgramsSection() {
                                 {program.level}
                               </span>
                               <span className="text-3xl font-bold text-green-600">
-                                {program.price}
+                                {program.fee}
                               </span>
                             </div>
 
@@ -403,11 +403,11 @@ export default function InternshipProgramsSection() {
                             <div className="grid grid-cols-2 gap-4 mb-6">
                               <div className="flex items-center text-gray-600">
                                 <Users className="h-5 w-5 mr-3 text-green-600" />
-                                <span>{program.students} students</span>
+                                <span>{program.seats} seats</span>
                               </div>
                               <div className="flex items-center text-gray-600">
-                                <Star className="h-5 w-5 mr-3 text-green-600" />
-                                <span>{program.rating} rating</span>
+                                <Calendar className="h-5 w-5 mr-3 text-green-600" />
+                                <span>{program.startDate}</span>
                               </div>
                             </div>
 
