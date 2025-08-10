@@ -208,7 +208,7 @@ export default function InternshipSection() {
                   <div
                     className="relative bg-white rounded-2xl shadow-lg overflow-hidden"
                     style={{
-                      background: `linear-gradient(135deg, ${program.gradient.split(' ')[0].replace('from-', '')} 0%, ${program.gradient.split(' ')[2].replace('to-', '')} 100%)`,
+                      background: `linear-gradient(135deg, ${program.gradient.split(' ')[0].replace('from-', '')} 0%, ${program.gradient.split(' ')[2].replace('to-', '')} 100%)`
                     }}
                   >
                     <div className="absolute inset-0 bg-white bg-opacity-95"></div>
