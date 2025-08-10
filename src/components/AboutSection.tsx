@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function AboutSection() {
   const teamImages = [
@@ -75,9 +76,9 @@ export default function AboutSection() {
               </h4>
               <p className="text-gray-600 leading-relaxed mb-6">
                 To create a world-class tech hub, combining traditional values
-                with modern innovation. We&apos;re building more than just a company
-                - we&apos;re nurturing a tech ecosystem that empowers local talent
-                and serves global clients.
+                with modern innovation. We&apos;re building more than just a
+                company - we&apos;re nurturing a tech ecosystem that empowers
+                local talent and serves global clients.
               </p>
             </div>
 
@@ -114,12 +115,15 @@ export default function AboutSection() {
             Join Our Journey
           </h3>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Be part of a transformative movement that&apos;s putting innovation on
-            the global tech map. Together, we can build something extraordinary.
+            Be part of a transformative movement that&apos;s putting innovation
+            on the global tech map. Together, we can build something
+            extraordinary.
           </p>
-          <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 font-semibold">
-            Start Your Journey
-          </Button>
+          <Link href="/about">
+            <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 font-semibold">
+              Learn About Us
+            </Button>
+          </Link>
         </div>
 
         {/* Stats Grid */}
