@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -47,15 +48,19 @@ export default function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg rounded-lg font-semibold">
-              Schedule Consultation
-            </Button>
-            <Button
-              variant="outline"
-              className="border-green-600 text-green-600 hover:bg-green-50 px-8 py-4 text-lg rounded-lg font-semibold"
-            >
-              View Success Stories
-            </Button>
+            <Link href="/schedule-consultation">
+              <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg rounded-lg font-semibold">
+                Schedule Consultation
+              </Button>
+            </Link>
+            <Link href="/careers">
+              <Button
+                variant="outline"
+                className="border-green-600 text-green-600 hover:bg-green-50 px-8 py-4 text-lg rounded-lg font-semibold"
+              >
+                Join Our Team
+              </Button>
+            </Link>
           </div>
 
           {/* Client Logos */}
