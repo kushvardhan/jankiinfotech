@@ -96,7 +96,7 @@ export default function AboutPage() {
   ];
 
   const milestones = [
-    { year: "2019", title: "Company Founded", description: "Started with a vision to transform Bihar&apos;s tech landscape" },
+    { year: "2019", title: "Company Founded", description: "Started with a vision to transform Bihar's tech landscape" },
     { year: "2020", title: "First 100 Clients", description: "Reached our first major milestone during challenging times" },
     { year: "2021", title: "Training Programs Launch", description: "Launched comprehensive internship and training programs" },
     { year: "2022", title: "National Recognition", description: "Received awards for innovation and social impact" },
@@ -107,7 +107,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative pb-20 overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
