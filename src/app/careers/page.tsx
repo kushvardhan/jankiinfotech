@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import {
   Briefcase,
-  Calendar,
   CheckCircle,
   Clock,
   Coffee,
@@ -18,9 +17,7 @@ import {
   Star,
   TrendingUp,
   Users,
-  Zap,
 } from "lucide-react";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function CareersPage() {
