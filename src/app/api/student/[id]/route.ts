@@ -4,12 +4,13 @@ import { NextResponse } from "next/server";
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     await connectDB();
 
-    const student = await Student.findById(params.id);
+    const resolvedParams = await params;
+    const student = await Student.findById(resolvedParams.id);
 
     if (!student) {
       return NextResponse.json({ error: "Student not found" }, { status: 404 });
