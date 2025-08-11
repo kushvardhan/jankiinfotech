@@ -1,5 +1,6 @@
 "use client";
 
+import JobApplicationForm from "@/components/JobApplicationForm";
 import { Button } from "@/components/ui/button";
 import {
   Briefcase,
@@ -198,9 +199,9 @@ export default function CareersPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100">
+    <main className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100">
       {/* Hero Section */}
-      <section className="relative pb-20 overflow-hidden">
+      <section className="relative py-20 overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
@@ -484,6 +485,13 @@ export default function CareersPage() {
         </div>
       </section>
 
+      {/* Job Application Form */}
+      <JobApplicationForm
+        isOpen={showApplicationForm}
+        onClose={() => setShowApplicationForm(false)}
+        jobTitle={selectedJobTitle}
+      />
+
       {/* Hidden Developer Signature */}
       <div
         className="absolute bottom-0 right-0 opacity-0 text-xs"
@@ -498,6 +506,6 @@ export default function CareersPage() {
         {/* Developed by Kush Vardhan (kushvardhan39797@gmail.com) */}
         <span>KV</span>
       </div>
-    </div>
+    </main>
   );
 }
