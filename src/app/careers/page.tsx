@@ -23,6 +23,8 @@ import { useEffect, useState } from "react";
 export default function CareersPage() {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedDepartment, setSelectedDepartment] = useState("all");
+  const [showApplicationForm, setShowApplicationForm] = useState(false);
+  const [selectedJobTitle, setSelectedJobTitle] = useState("");
 
   useEffect(() => {
     setIsVisible(true);
@@ -178,7 +180,7 @@ export default function CareersPage() {
       icon: Users,
       value: "50+",
       label: "Team Members",
-      color: "text-blue-600",
+      color: "text-green-600",
     },
     {
       icon: TrendingUp,
@@ -186,12 +188,12 @@ export default function CareersPage() {
       label: "Employee Satisfaction",
       color: "text-green-600",
     },
-    { icon: Globe, value: "15+", label: "Countries", color: "text-purple-600" },
+    { icon: Globe, value: "15+", label: "Countries", color: "text-green-500" },
     {
       icon: Star,
       value: "4.8/5",
       label: "Glassdoor Rating",
-      color: "text-yellow-600",
+      color: "text-green-700",
     },
   ];
 
@@ -306,7 +308,7 @@ export default function CareersPage() {
                 onClick={() => setSelectedDepartment(dept)}
                 className={`px-4 py-2 rounded-full font-medium transition-all duration-300 ${
                   selectedDepartment === dept
-                    ? "bg-blue-600 text-white shadow-lg"
+                    ? "bg-green-600 text-white shadow-lg"
                     : "bg-white text-gray-600 hover:text-gray-900 hover:shadow-md"
                 }`}
               >
@@ -369,12 +371,18 @@ export default function CareersPage() {
                 </div>
 
                 <div className="flex gap-3">
-                  <Button className="flex-1 bg-blue-600 hover:bg-blue-700">
+                  <Button
+                    className="flex-1 bg-green-600 hover:bg-green-700"
+                    onClick={() => {
+                      setSelectedJobTitle(position.title);
+                      setShowApplicationForm(true);
+                    }}
+                  >
                     Apply Now
                   </Button>
                   <Button
                     variant="outline"
-                    className="border-blue-600 text-blue-600 hover:bg-blue-50"
+                    className="border-green-600 text-green-600 hover:bg-green-50"
                   >
                     Learn More
                   </Button>
@@ -437,7 +445,7 @@ export default function CareersPage() {
               },
             ].map((process, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                   {process.step}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
@@ -451,23 +459,23 @@ export default function CareersPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-700">
+      <section className="py-20 bg-gradient-to-r from-green-600 to-green-700">
         <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Don&apos;t See Your Role?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-green-100 mb-8">
             We&apos;re always looking for talented individuals. Send us your
             resume and we&apos;ll keep you in mind for future opportunities.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3">
+            <Button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3">
               <Lightbulb className="w-5 h-5 mr-2" />
               Send Resume
             </Button>
             <Button
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3"
+              className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
             >
               <Users className="w-5 h-5 mr-2" />
               Contact HR
