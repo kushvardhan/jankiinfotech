@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function SmallFooter() {
   return (
-    <footer className="bg-gradient-to-r from-green-600 to-green-700 text-white py-8">
+    <footer className="bg-gradient-to-r from-green-100 to-green-300 text-green-700 py-8">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8">
           {/* Company Info */}
