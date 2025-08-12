@@ -2,8 +2,15 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function HeroSection() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-green-50 to-white flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20">
       {/* Background Pattern */}
@@ -32,21 +39,63 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Main Heading */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
-            <span className="block">Delivering secure</span>
-            <span className="block text-green-600">digital solutions</span>
-            <span className="block">and scalable cloud</span>
-            <span className="block">infrastructure</span>
-          </h1>
+          {/* Main Heading with Beautiful Animations */}
+          <div
+            className={`transition-all duration-1000 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
+              <span
+                className="block animate-fadeInUp"
+                style={{ animationDelay: "0.2s" }}
+              >
+                Delivering secure
+              </span>
+              <span
+                className="block text-green-600 animate-fadeInUp"
+                style={{ animationDelay: "0.4s" }}
+              >
+                digital solutions
+              </span>
+              <span
+                className="block animate-fadeInUp"
+                style={{ animationDelay: "0.6s" }}
+              >
+                and scalable cloud
+              </span>
+              <span
+                className="block animate-fadeInUp"
+                style={{ animationDelay: "0.8s" }}
+              >
+                infrastructure
+              </span>
+            </h1>
+          </div>
 
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Tailored to power innovation and startup success.
-          </p>
+          {/* Subtitle with Animation */}
+          <div
+            className={`transition-all duration-1000 delay-500 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Tailored to power innovation and startup success.
+            </p>
+          </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          {/* CTA Buttons with Animation */}
+          <div
+            className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-1000 delay-700 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
             <Link href="/schedule-consultation">
               <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg rounded-lg font-semibold">
                 Schedule Consultation
