@@ -1,17 +1,16 @@
 "use client";
 
 import {
+  Briefcase,
+  Calendar,
   ChevronDown,
-  Menu,
-  X,
+  GraduationCap,
   Home,
   Info,
-  Briefcase,
-  GraduationCap,
-  Users,
+  Menu,
   Star,
-  Calendar,
-  Sparkles
+  Users,
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -65,12 +64,53 @@ export function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8 ml-12">
+          <nav className="hidden lg:flex items-center space-x-1 ml-8">
             <Link
               href="/"
-              className="text-gray-700 hover:text-green-600 transition-colors"
+              className="flex items-center space-x-2 px-4 py-2 rounded-xl text-gray-700 hover:text-green-600 hover:bg-green-50/50 transition-all duration-300 font-medium group"
             >
-              Home
+              <Home className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
+              <span>Home</span>
+            </Link>
+
+            <Link
+              href="/about"
+              className="flex items-center space-x-2 px-4 py-2 rounded-xl text-gray-700 hover:text-green-600 hover:bg-green-50/50 transition-all duration-300 font-medium group"
+            >
+              <Info className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
+              <span>About</span>
+            </Link>
+
+            <Link
+              href="/internship"
+              className="flex items-center space-x-2 px-4 py-2 rounded-xl text-gray-700 hover:text-green-600 hover:bg-green-50/50 transition-all duration-300 font-medium group"
+            >
+              <GraduationCap className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
+              <span>Internships</span>
+            </Link>
+
+            <Link
+              href="/careers"
+              className="flex items-center space-x-2 px-4 py-2 rounded-xl text-gray-700 hover:text-green-600 hover:bg-green-50/50 transition-all duration-300 font-medium group"
+            >
+              <Briefcase className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
+              <span>Careers</span>
+            </Link>
+
+            <Link
+              href="/community"
+              className="flex items-center space-x-2 px-4 py-2 rounded-xl text-gray-700 hover:text-green-600 hover:bg-green-50/50 transition-all duration-300 font-medium group"
+            >
+              <Users className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
+              <span>Community</span>
+            </Link>
+
+            <Link
+              href="/success-stories"
+              className="flex items-center space-x-2 px-4 py-2 rounded-xl text-gray-700 hover:text-green-600 hover:bg-green-50/50 transition-all duration-300 font-medium group"
+            >
+              <Star className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
+              <span>Success Stories</span>
             </Link>
 
             {/* Services Dropdown */}
@@ -209,9 +249,10 @@ export function Navbar() {
             </Link>
             <Link
               href="/schedule-consultation"
-              className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105"
+              className="flex items-center space-x-2 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6 py-2.5 rounded-xl transition-all duration-300 hover:shadow-xl hover:scale-105 font-medium group"
             >
-              Schedule Consultation
+              <Calendar className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
+              <span>Schedule Consultation</span>
             </Link>
           </nav>
 
@@ -249,49 +290,55 @@ export function Navbar() {
             <div className="flex flex-col space-y-3">
               <Link
                 href="/"
-                className="text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium"
+                className="flex items-center space-x-3 text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium group"
                 onClick={() => setIsOpen(false)}
               >
-                🏠 Home
+                <Home className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                <span>Home</span>
               </Link>
               <Link
                 href="/about"
-                className="text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium"
+                className="flex items-center space-x-3 text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium group"
                 onClick={() => setIsOpen(false)}
               >
-                ℹ️ About
+                <Info className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                <span>About</span>
               </Link>
 
               <Link
                 href="/internship"
-                className="text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium"
+                className="flex items-center space-x-3 text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium group"
                 onClick={() => setIsOpen(false)}
               >
-                🎓 Internships
+                <GraduationCap className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                <span>Internships</span>
               </Link>
 
               <Link
                 href="/careers"
-                className="text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium"
+                className="flex items-center space-x-3 text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium group"
                 onClick={() => setIsOpen(false)}
               >
-                💼 Careers
+                <Briefcase className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                <span>Careers</span>
               </Link>
 
               <Link
                 href="/success-stories"
-                className="text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium"
+                className="flex items-center space-x-3 text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium group"
                 onClick={() => setIsOpen(false)}
               >
-                ⭐ Success Stories
+                <Star className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                <span>Success Stories</span>
               </Link>
 
               <Link
                 href="/community"
-                className="text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium"
+                className="flex items-center space-x-3 text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium group"
                 onClick={() => setIsOpen(false)}
               >
-                🌟 Community
+                <Users className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                <span>Community</span>
               </Link>
 
               <div className="pt-4 border-t border-green-200">
@@ -300,7 +347,8 @@ export function Navbar() {
                   className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 block text-center font-semibold transform hover:translate-y-[-2px]"
                   onClick={() => setIsOpen(false)}
                 >
-                  🚀 Schedule Consultation
+                  <Sparkles className="h-5 w-5 mr-2" />
+                  Schedule Consultation
                 </Link>
               </div>
             </div>
