@@ -127,7 +127,19 @@ export default function JobApplicationForm({
       submitData.append("phone", formData.phone);
       submitData.append("experience", formData.experience);
       submitData.append("position", jobTitle);
-      submitData.append("department", "Engineering"); // You can make this dynamic
+
+      // Map job titles to departments dynamically
+      const departmentMapping: Record<string, string> = {
+        "Senior Full Stack Developer": "Engineering",
+        "UI/UX Designer": "Design",
+        "Digital Marketing Specialist": "Marketing",
+        "Training Coordinator": "Education",
+        "Business Development Executive": "Sales",
+        "DevOps Engineer": "Engineering",
+      };
+
+      const department = departmentMapping[jobTitle] || "Engineering";
+      submitData.append("department", department);
       submitData.append("coverLetter", formData.coverLetter);
       submitData.append("portfolio", formData.portfolio);
       submitData.append("linkedIn", formData.linkedIn);
