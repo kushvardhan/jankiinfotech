@@ -1,6 +1,18 @@
 "use client";
 
-import { ChevronDown, Menu, X } from "lucide-react";
+import {
+  ChevronDown,
+  Menu,
+  X,
+  Home,
+  Info,
+  Briefcase,
+  GraduationCap,
+  Users,
+  Star,
+  Calendar,
+  Sparkles
+} from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
@@ -35,15 +47,15 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-xl shadow-xl border-b border-green-100"
-          : "bg-gradient-to-r from-white/90 via-green-50/80 to-white/90 backdrop-blur-md border-b border-green-200/30 shadow-lg"
+          ? "bg-gradient-to-b from-white/95 via-white/90 to-transparent backdrop-blur-2xl shadow-2xl border-b border-green-100/50"
+          : "bg-gradient-to-b from-white/80 via-white/60 to-transparent backdrop-blur-xl border-b border-white/20"
       }`}
     >
       <div
-        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ${
-          isScrolled ? "py-2" : "py-4"
+        className={`max-w-7xl mx-auto px-6 lg:px-8 transition-all duration-500 ${
+          isScrolled ? "py-3" : "py-5"
         }`}
       >
         <div className="flex items-center justify-between h-16">

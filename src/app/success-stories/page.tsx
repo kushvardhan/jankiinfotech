@@ -253,7 +253,7 @@ export default function SuccessStoriesPage() {
 
                     <div className="border-t pt-6">
                       <blockquote className="text-gray-700 italic mb-4">
-                        " &ldquo;{story.testimonial}&rdquo;"
+                         &ldquo;{story.testimonial}&rdquo;
                       </blockquote>
                       <div className="flex items-center">
                         <div>
@@ -304,7 +304,7 @@ export default function SuccessStoriesPage() {
                   ))}
                 </div>
                 <p className="text-gray-700 italic">
-                  " &ldquo;{testimonial.testimonial}&rdquo;"
+                  &ldquo;{testimonial.testimonial}&rdquo;
                 </p>
               </div>
             ))}
