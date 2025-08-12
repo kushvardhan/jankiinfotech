@@ -9,6 +9,17 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [serviceDropdown, setServiceDropdown] = useState(false);
   const [productDropdown, setProductDropdown] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Handle scroll effect for beautiful navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -23,8 +34,18 @@ export function Navbar() {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-white via-green-50 to-white backdrop-blur-md border-b border-green-200/30 shadow-lg">
-      <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
+        isScrolled
+          ? "bg-white/95 backdrop-blur-xl shadow-xl border-b border-green-100"
+          : "bg-gradient-to-r from-white/90 via-green-50/80 to-white/90 backdrop-blur-md border-b border-green-200/30 shadow-lg"
+      }`}
+    >
+      <div
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ${
+          isScrolled ? "py-2" : "py-4"
+        }`}
+      >
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -184,115 +205,92 @@ export function Navbar() {
 
           {/* Mobile menu button */}
           <button
-            className="lg:hidden p-2 rounded-md text-gray-700 hover:text-green-600 hover:bg-gray-100"
+            className="lg:hidden p-3 rounded-xl text-gray-700 hover:text-green-600 hover:bg-green-50 transition-all duration-300 hover:scale-110 active:scale-95"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <div className="relative w-6 h-6">
+              <span
+                className={`absolute inset-0 transition-all duration-300 ${
+                  isOpen ? "rotate-180 opacity-0" : "rotate-0 opacity-100"
+                }`}
+              >
+                <Menu className="h-6 w-6" />
+              </span>
+              <span
+                className={`absolute inset-0 transition-all duration-300 ${
+                  isOpen ? "rotate-0 opacity-100" : "rotate-180 opacity-0"
+                }`}
+              >
+                <X className="h-6 w-6" />
+              </span>
+            </div>
           </button>
         </div>
 
         {/* Mobile Navigation */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
+          className={`lg:hidden overflow-hidden transition-all duration-700 ease-in-out ${
             isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="py-4 border-t border-gray-200 bg-gradient-to-b from-white to-gray-50">
-            <div className="flex flex-col space-y-2">
+          <div className="py-6 border-t border-green-100 bg-gradient-to-b from-green-50/50 to-white backdrop-blur-sm">
+            <div className="flex flex-col space-y-3">
               <Link
                 href="/"
-                className="text-gray-700 hover:text-green-600 transition-all duration-300 py-2 px-4 rounded-lg hover:bg-green-50 hover:scale-105 animate-in slide-in-from-left-2"
-                style={{ animationDelay: "0.1s" }}
+                className="text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium"
+                onClick={() => setIsOpen(false)}
               >
-                Home
+                🏠 Home
               </Link>
-              <div
-                className="space-y-2 animate-in slide-in-from-left-2"
-                style={{ animationDelay: "0.2s" }}
-              >
-                <div className="text-gray-700 font-medium py-2 px-4">
-                  Services
-                </div>
-                <div className="pl-4 space-y-2">
-                  <Link
-                    href="/service/application-development"
-                    className="block text-sm text-gray-600 hover:text-green-600"
-                  >
-                    Application Development
-                  </Link>
-                  <Link
-                    href="/service/web-development"
-                    className="block text-sm text-gray-600 hover:text-green-600"
-                  >
-                    Web Development
-                  </Link>
-                  <Link
-                    href="/service/cloud-optimization"
-                    className="block text-sm text-gray-600 hover:text-green-600"
-                  >
-                    Cloud Optimization
-                  </Link>
-                  <Link
-                    href="/service/devops-solution"
-                    className="block text-sm text-gray-600 hover:text-green-600"
-                  >
-                    DevOps Solution
-                  </Link>
-                  <Link
-                    href="/service/project-consultation"
-                    className="block text-sm text-gray-600 hover:text-green-600"
-                  >
-                    Project Consultation
-                  </Link>
-                </div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-gray-700 font-medium">Products</div>
-                <div className="pl-4">
-                  <Link
-                    href="/product/janki-hrms"
-                    className="block text-sm text-gray-600 hover:text-green-600"
-                  >
-                    Janki HRMS
-                  </Link>
-                </div>
-              </div>
               <Link
                 href="/about"
-                className="text-gray-700 hover:text-green-600 transition-colors"
+                className="text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium"
+                onClick={() => setIsOpen(false)}
               >
-                About
+                ℹ️ About
               </Link>
-              <Link
-                href="/community"
-                className="text-gray-700 hover:text-green-600 transition-colors"
-              >
-                Community
-              </Link>
-              <Link
-                href="/careers"
-                className="text-gray-700 hover:text-green-600 transition-colors"
-              >
-                Career
-              </Link>
+
               <Link
                 href="/internship"
-                className="text-gray-700 hover:text-green-600 transition-colors"
+                className="text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium"
+                onClick={() => setIsOpen(false)}
               >
-                Program
+                🎓 Internships
               </Link>
+
+              <Link
+                href="/careers"
+                className="text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                💼 Careers
+              </Link>
+
               <Link
                 href="/success-stories"
-                className="text-gray-700 hover:text-green-600 transition-colors"
+                className="text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium"
+                onClick={() => setIsOpen(false)}
               >
-                Success Stories
+                ⭐ Success Stories
               </Link>
+
               <Link
-                href="/schedule-consultation"
-                className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105 block text-center"
+                href="/community"
+                className="text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium"
+                onClick={() => setIsOpen(false)}
               >
-                Schedule Consultation
+                🌟 Community
               </Link>
+
+              <div className="pt-4 border-t border-green-200">
+                <Link
+                  href="/schedule-consultation"
+                  className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 block text-center font-semibold transform hover:translate-y-[-2px]"
+                  onClick={() => setIsOpen(false)}
+                >
+                  🚀 Schedule Consultation
+                </Link>
+              </div>
             </div>
           </div>
         </div>
