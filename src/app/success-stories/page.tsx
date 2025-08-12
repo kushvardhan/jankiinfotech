@@ -155,7 +155,9 @@ export default function SuccessStoriesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-white">
+    <>
+      <Navbar />
+      <main className="min-h-screen bg-gradient-to-br from-green-50 to-white">
       {/* Hero Section */}
       <section className="pt-24 pb-12">
         <div className="container mx-auto max-w-7xl px-4">
@@ -335,6 +337,8 @@ export default function SuccessStoriesPage() {
           </div>
         </div>
       </section>
-    </div>
+      </main>
+      <SmallFooter />
+    </>
   );
 }
