@@ -1,6 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Navbar } from "@/components/Navbar";
+import SmallFooter from "@/components/SmallFooter";
 import {
   Award,
   Building,
@@ -150,7 +152,9 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50">
+    <>
+      <Navbar />
+      <main className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         {/* Animated Background */}
@@ -425,6 +429,8 @@ export default function AboutPage() {
         {/* Developed by Kush Vardhan (kushvardhan39797@gmail.com) */}
         <span>KV</span>
       </div>
-    </main>
+      </main>
+      <SmallFooter />
+    </>
   );
 }
