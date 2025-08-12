@@ -89,35 +89,7 @@ export default function SmallFooter() {
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-green-500 mt-6 pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-green-200 text-sm mb-4 md:mb-0">
-              © 2025 JankiInfotech. All rights reserved.
-            </div>
-
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/privacy"
-                className="text-green-200 hover:text-white text-sm transition-colors duration-300"
-              >
-                Privacy Policy
-              </Link>
-              <span className="text-green-400">•</span>
-              <Link
-                href="/terms"
-                className="text-green-200 hover:text-white text-sm transition-colors duration-300"
-              >
-                Terms of Service
-              </Link>
-              <span className="text-green-400">•</span>
-              <div className="flex items-center text-green-200 text-sm">
-                Made with <Heart className="h-4 w-4 mx-1 text-red-400" /> in
-                Bihar
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
 
         {/* Social Links */}
         <div className="flex justify-center space-x-6 mt-6">
