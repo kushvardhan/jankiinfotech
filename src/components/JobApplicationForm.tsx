@@ -1,15 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-  CheckCircle,
-  FileText,
-  Mail,
-  Phone,
-  Upload,
-  User,
-  X,
-} from "lucide-react";
+import { CheckCircle, FileText, Upload, User, X } from "lucide-react";
 import { useState } from "react";
 
 interface JobApplicationFormProps {
@@ -60,7 +52,9 @@ export default function JobApplicationForm({
     // Phone validation
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
-    } else if (!/^[\+]?[1-9][\d]{0,15}$/.test(formData.phone.replace(/\s/g, ""))) {
+    } else if (
+      !/^[\+]?[1-9][\d]{0,15}$/.test(formData.phone.replace(/\s/g, ""))
+    ) {
       newErrors.phone = "Please enter a valid phone number";
     }
 
@@ -94,9 +88,12 @@ export default function JobApplicationForm({
         "application/msword",
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       ];
-      
+
       if (!allowedTypes.includes(file.type)) {
-        setErrors({ ...errors, resume: "Please upload a PDF or Word document" });
+        setErrors({
+          ...errors,
+          resume: "Please upload a PDF or Word document",
+        });
         return;
       }
 
@@ -113,7 +110,7 @@ export default function JobApplicationForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -121,11 +118,41 @@ export default function JobApplicationForm({
     setIsSubmitting(true);
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      
+      // Create FormData for file upload
+      const submitData = new FormData();
+
+      // Add all form fields
+      submitData.append("fullName", formData.fullName);
+      submitData.append("email", formData.email);
+      submitData.append("phone", formData.phone);
+      submitData.append("experience", formData.experience);
+      submitData.append("position", jobTitle);
+      submitData.append("department", "Engineering"); // You can make this dynamic
+      submitData.append("coverLetter", formData.coverLetter);
+      submitData.append("portfolio", formData.portfolio);
+      submitData.append("linkedIn", formData.linkedIn);
+      submitData.append("dataProcessingConsent", "true");
+
+      // Add resume file
+      if (resume) {
+        submitData.append("resume", resume);
+      }
+
+      // Submit to secure API
+      const response = await fetch("/api/job-application", {
+        method: "POST",
+        body: submitData,
+        // Don't set Content-Type header - let browser set it with boundary
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to submit application");
+      }
+
       setIsSubmitted(true);
-      
+
       // Reset form after 3 seconds
       setTimeout(() => {
         setIsSubmitted(false);
@@ -144,17 +171,25 @@ export default function JobApplicationForm({
       }, 3000);
     } catch (error) {
       console.error("Error submitting application:", error);
+      setErrors({
+        submit:
+          error instanceof Error
+            ? error.message
+            : "Failed to submit application. Please try again.",
+      });
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    
+
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors({ ...errors, [name]: "" });
@@ -170,7 +205,9 @@ export default function JobApplicationForm({
         <div className="sticky top-0 bg-white border-b border-gray-200 p-6 rounded-t-2xl">
           <div className="flex justify-between items-center">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">Apply for Position</h2>
+              <h2 className="text-2xl font-bold text-gray-900">
+                Apply for Position
+              </h2>
               <p className="text-green-600 font-medium">{jobTitle}</p>
             </div>
             <button
@@ -188,9 +225,12 @@ export default function JobApplicationForm({
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <CheckCircle className="h-8 w-8 text-green-600" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Application Submitted!</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">
+              Application Submitted!
+            </h3>
             <p className="text-gray-600">
-              Thank you for your interest. We&apos;ll review your application and get back to you soon.
+              Thank you for your interest. We&apos;ll review your application
+              and get back to you soon.
             </p>
           </div>
         )}
@@ -204,7 +244,7 @@ export default function JobApplicationForm({
                 <User className="h-5 w-5 mr-2 text-green-600" />
                 Personal Information
               </h3>
-              
+
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -221,7 +261,9 @@ export default function JobApplicationForm({
                     placeholder="Enter your full name"
                   />
                   {errors.fullName && (
-                    <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.fullName}
+                    </p>
                   )}
                 </div>
 
@@ -285,7 +327,9 @@ export default function JobApplicationForm({
                     <option value="10+">10+ years</option>
                   </select>
                   {errors.experience && (
-                    <p className="text-red-500 text-sm mt-1">{errors.experience}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.experience}
+                    </p>
                   )}
                 </div>
               </div>
@@ -297,7 +341,7 @@ export default function JobApplicationForm({
                 <FileText className="h-5 w-5 mr-2 text-green-600" />
                 Resume & Documents
               </h3>
-              
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Upload Resume * (PDF, DOC, DOCX - Max 5MB)
@@ -324,15 +368,21 @@ export default function JobApplicationForm({
                       <Upload className="h-8 w-8 mx-auto mb-2 text-gray-400" />
                       {resume ? (
                         <div>
-                          <p className="text-green-600 font-medium">{resume.name}</p>
+                          <p className="text-green-600 font-medium">
+                            {resume.name}
+                          </p>
                           <p className="text-sm text-gray-500">
                             {(resume.size / 1024 / 1024).toFixed(2)} MB
                           </p>
                         </div>
                       ) : (
                         <div>
-                          <p className="text-gray-600">Click to upload your resume</p>
-                          <p className="text-sm text-gray-500">PDF, DOC, DOCX up to 5MB</p>
+                          <p className="text-gray-600">
+                            Click to upload your resume
+                          </p>
+                          <p className="text-sm text-gray-500">
+                            PDF, DOC, DOCX up to 5MB
+                          </p>
                         </div>
                       )}
                     </div>
@@ -371,8 +421,10 @@ export default function JobApplicationForm({
 
             {/* Optional Fields */}
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-900">Additional Information (Optional)</h3>
-              
+              <h3 className="text-lg font-semibold text-gray-900">
+                Additional Information (Optional)
+              </h3>
+
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -403,6 +455,13 @@ export default function JobApplicationForm({
                 </div>
               </div>
             </div>
+
+            {/* Submit Error Display */}
+            {errors.submit && (
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                <p className="text-red-600 text-sm">{errors.submit}</p>
+              </div>
+            )}
 
             {/* Submit Button */}
             <div className="flex gap-4 pt-6 border-t border-gray-200">
