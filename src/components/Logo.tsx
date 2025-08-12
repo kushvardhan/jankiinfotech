@@ -18,7 +18,7 @@ export default function Logo({ className = "", size = "md" }: LogoProps) {
       <div className="">
         <div className={`font-bold ${textSizeClasses[size]}`}>
           <span className="text-green-600">janki</span>
-          <span className="text-gray-800">infotech</span>
+          <span className="text-gray-800">Infotech</span>
         </div>
         <div className="text-xs text-gray-600 -mt-1">From Ideas To Reality</div>
 
