@@ -8,6 +8,7 @@ import {
   Home,
   Info,
   Menu,
+  Sparkles,
   Star,
   Users,
   X,

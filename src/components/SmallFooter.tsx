@@ -85,11 +85,11 @@ export default function SmallFooter() {
               <span className="font-semibold text-green-600 ml-1">JankiInfotech</span>
             </p>
             <div className="flex items-center gap-1 text-xs">
-              Made with <Heart className="h-3 w-3 text-red-500 animate-pulse" /> in Bihar
+              Made with <Heart className="h-3 w-3 text-red-500 animate-pulse" /> 
             </div>
             <div className="text-xs opacity-75 flex items-center gap-1">
               <Code className="h-3 w-3" />
-              Crafted by Kush Vardhan
+              Crafted by kushvardhan39797@gmail.com
             </div>
           </div>
         </aside>
