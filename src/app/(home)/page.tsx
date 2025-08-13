@@ -10,7 +10,6 @@ import ScrollAnimation, { ParallaxScroll } from "@/components/ScrollAnimations";
 import ServicesSection from "@/components/ServicesSection";
 import TechnologiesSection from "@/components/TechnologiesSection";
 import WorkflowSection from "@/components/WorkflowSection";
-import ScrollAnimation, { ParallaxScroll } from "@/components/ScrollAnimations";
 
 export default function Home() {
   return (
