@@ -2,20 +2,96 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const heroRef = useRef<HTMLElement>(null);
+
+  const dynamicWords = [
+    "innovative",
+    "secure",
+    "scalable",
+    "cutting-edge",
+    "revolutionary",
+  ];
 
   useEffect(() => {
     setIsVisible(true);
+
+    // Mouse tracking for cursor effects
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    // Scroll tracking for parallax effects
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    // Word rotation animation
+    const wordInterval = setInterval(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % dynamicWords.length);
+    }, 3000);
+
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("scroll", handleScroll);
+      clearInterval(wordInterval);
+    };
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-green-50 to-white flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(34,197,94,0.15)_1px,transparent_0)] bg-[size:20px_20px]"></div>
+    <section
+      ref={heroRef}
+      className="relative min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 flex items-center justify-center overflow-hidden"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      style={{
+        transform: `translateY(${scrollY * 0.5}px)`,
+      }}
+    >
+      {/* Dynamic Cursor Effect */}
+      <div
+        className="fixed w-6 h-6 bg-green-400 rounded-full pointer-events-none z-50 mix-blend-difference transition-all duration-300"
+        style={{
+          left: mousePosition.x - 12,
+          top: mousePosition.y - 12,
+          transform: `scale(${isHovering ? 2 : 1})`,
+          opacity: isHovering ? 0.8 : 0.4,
+        }}
+      />
+
+      {/* Animated Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(34,197,94,0.3)_1px,transparent_0)] bg-[size:30px_30px] animate-pulse"></div>
+        <div
+          className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(34,197,94,0.2)_1px,transparent_0)] bg-[size:50px_50px] animate-pulse"
+          style={{ animationDelay: "1s" }}
+        ></div>
+      </div>
+
+      {/* Floating Particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-float"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${3 + Math.random() * 4}s`,
+            }}
+          />
+        ))}
       </div>
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
