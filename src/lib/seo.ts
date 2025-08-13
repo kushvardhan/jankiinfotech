@@ -41,6 +41,7 @@ export function generateMetadata({
   const seoUrl = url || defaultSEO.url;
 
   return {
+    metadataBase: new URL("https://jankiinfotech.com"),
     title: seoTitle,
     description: seoDescription,
     keywords: seoKeywords,
