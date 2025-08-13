@@ -1,3 +1,4 @@
+import CustomCursor from "@/components/CustomCursor";
 import FloatingButtons from "@/components/FloatingButtons";
 import { generateMetadata, generateStructuredData } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -42,7 +43,9 @@ export default function RootLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{ cursor: "none" }}
       >
+        <CustomCursor />
         {children}
         <FloatingButtons />
 
