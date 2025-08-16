@@ -3,132 +3,40 @@
 import { Button } from "@/components/ui/button";
 import { Rocket, Sparkles, Star, Zap } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const heroRef = useRef<HTMLElement>(null);
-
-  const dynamicWords = [
-    "innovative",
-    "secure",
-    "scalable",
-    "cutting-edge",
-    "revolutionary",
-  ];
 
   useEffect(() => {
     setIsVisible(true);
-
-    // Mouse tracking for cursor effects
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    // Scroll tracking for parallax effects
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    // Word rotation animation
-    const wordInterval = setInterval(() => {
-      setCurrentWordIndex((prev) => (prev + 1) % dynamicWords.length);
-    }, 3000);
-
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("scroll", handleScroll);
-      clearInterval(wordInterval);
-    };
   }, []);
 
   return (
-    <section
-      ref={heroRef}
-      className="relative min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 flex items-center justify-center overflow-hidden"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-      style={{
-        transform: `translateY(${scrollY * 0.5}px)`,
-      }}
-    >
-      {/* Dynamic Cursor Effect */}
-      <div
-        className="fixed w-6 h-6 bg-green-400 rounded-full pointer-events-none z-50 mix-blend-difference transition-all duration-300"
-        style={{
-          left: mousePosition.x - 12,
-          top: mousePosition.y - 12,
-          transform: `scale(${isHovering ? 2 : 1})`,
-          opacity: isHovering ? 0.8 : 0.4,
-        }}
-      />
-
-      {/* Animated Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(34,197,94,0.3)_1px,transparent_0)] bg-[size:30px_30px] animate-pulse"></div>
-        <div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(34,197,94,0.2)_1px,transparent_0)] bg-[size:50px_50px] animate-pulse"
-          style={{ animationDelay: "1s" }}
-        ></div>
-      </div>
-
-      {/* Floating Particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-green-400 rounded-full opacity-20 animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`,
-            }}
-          />
-        ))}
+    <section className="relative min-h-screen bg-gradient-to-br from-green-50 to-white flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(34,197,94,0.15)_1px,transparent_0)] bg-[size:20px_20px]"></div>
       </div>
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-12">
-          {/* Animated Badge with Sparkles */}
-          <div className="relative">
-            <Link
-              href="/internship"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-100 to-green-200 text-green-800 rounded-full text-sm font-medium hover:from-green-200 hover:to-green-300 transition-all duration-500 transform hover:scale-105 shadow-lg hover:shadow-xl group"
-            >
-              <Sparkles className="mr-3 h-5 w-5 text-green-600 group-hover:animate-spin" />
-              <span className="font-semibold">
-                Summer Training Program - Limited Seats!
-              </span>
-              <Zap className="ml-3 h-5 w-5 text-green-600 group-hover:animate-bounce" />
-            </Link>
+          {/* Badge */}
+          <Link
+            href="/internship"
+            className="inline-flex items-center px-6 py-3 bg-green-100 text-green-800 rounded-full text-sm font-medium hover:bg-green-200 transition-colors"
+          >
+            <span className="mr-2">🎓</span>
+            Summer Training Program
+          </Link>
 
-            {/* Floating icons around badge */}
-            <Star className="absolute -top-2 -left-2 h-4 w-4 text-green-400 animate-pulse" />
-            <Star
-              className="absolute -top-2 -right-2 h-4 w-4 text-green-400 animate-pulse"
-              style={{ animationDelay: "0.5s" }}
-            />
-          </div>
-
-          {/* Enhanced Scripting Badge */}
-          <div className="flex justify-center items-center space-x-6 mb-12">
-            <div className="bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-xl text-sm font-bold shadow-lg transform hover:scale-105 transition-all duration-300 animate-pulse">
-              <Rocket className="inline mr-2 h-4 w-4" />
-              Scripting Excellence
+          {/* Scripting Badge */}
+          <div className="flex justify-center items-center space-x-4 mb-8">
+            <div className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-semibold">
+              Scripting
             </div>
-            <div className="bg-gradient-to-r from-green-700 to-green-800 text-white px-8 py-3 rounded-xl text-xl font-bold shadow-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
-              <span className="bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">
-                New
-              </span>{" "}
-              JankiInfotech
+            <div className="bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-2 rounded-lg text-lg font-bold">
+              New JankiInfotech
             </div>
           </div>
 
