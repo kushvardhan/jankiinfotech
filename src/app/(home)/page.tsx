@@ -2,6 +2,7 @@
 
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
+import FadeInSection from "@/components/FadeInSection";
 import Features from "@/components/Features";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
@@ -15,12 +16,31 @@ export default function Home() {
     <main className="min-h-screen bg-white overflow-x-hidden">
       <Navbar />
       <HeroSection />
-      <Features />
-      <TechnologiesSection />
-      <WorkflowSection />
-      <ServicesSection />
-      <AboutSection />
-      <ContactSection />
+
+      <FadeInSection delay={100}>
+        <Features />
+      </FadeInSection>
+
+      <FadeInSection delay={200}>
+        <TechnologiesSection />
+      </FadeInSection>
+
+      <FadeInSection delay={100}>
+        <WorkflowSection />
+      </FadeInSection>
+
+      <FadeInSection delay={200}>
+        <ServicesSection />
+      </FadeInSection>
+
+      <FadeInSection delay={100}>
+        <AboutSection />
+      </FadeInSection>
+
+      <FadeInSection delay={200}>
+        <ContactSection />
+      </FadeInSection>
+
       <Footer />
     </main>
   );
