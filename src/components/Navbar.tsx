@@ -2,7 +2,6 @@
 
 import {
   Briefcase,
-  Calendar,
   ChevronDown,
   GraduationCap,
   Home,
@@ -65,54 +64,61 @@ export function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1 ml-8">
+          <nav className="hidden lg:flex items-center space-x-1 ml-4">
             <Link
               href="/"
-              className="flex items-center space-x-2 px-4 py-2 rounded-xl text-gray-700 hover:text-green-600 hover:bg-green-50/50 transition-all duration-300 font-medium group"
+              className="px-3 py-2 text-gray-700 hover:text-green-600 transition-colors duration-200 font-medium"
             >
-              <Home className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
-              <span>Home</span>
+              Home
             </Link>
 
             <Link
               href="/about"
-              className="flex items-center space-x-2 px-4 py-2 rounded-xl text-gray-700 hover:text-green-600 hover:bg-green-50/50 transition-all duration-300 font-medium group"
+              className="px-3 py-2 text-gray-700 hover:text-green-600 transition-colors duration-200 font-medium"
             >
-              <Info className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
-              <span>About</span>
+              About
             </Link>
 
-            <Link
-              href="/internship"
-              className="flex items-center space-x-2 px-4 py-2 rounded-xl text-gray-700 hover:text-green-600 hover:bg-green-50/50 transition-all duration-300 font-medium group"
+            {/* Services Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setServiceDropdown(true)}
+              onMouseLeave={() => setServiceDropdown(false)}
             >
-              <GraduationCap className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
-              <span>Internships</span>
-            </Link>
+              <button className="flex items-center px-3 py-2 text-gray-700 hover:text-green-600 transition-colors duration-200 font-medium">
+                Services
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
 
-            <Link
-              href="/careers"
-              className="flex items-center space-x-2 px-4 py-2 rounded-xl text-gray-700 hover:text-green-600 hover:bg-green-50/50 transition-all duration-300 font-medium group"
-            >
-              <Briefcase className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
-              <span>Careers</span>
-            </Link>
-
-            <Link
-              href="/community"
-              className="flex items-center space-x-2 px-4 py-2 rounded-xl text-gray-700 hover:text-green-600 hover:bg-green-50/50 transition-all duration-300 font-medium group"
-            >
-              <Users className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
-              <span>Community</span>
-            </Link>
-
-            <Link
-              href="/success-stories"
-              className="flex items-center space-x-2 px-4 py-2 rounded-xl text-gray-700 hover:text-green-600 hover:bg-green-50/50 transition-all duration-300 font-medium group"
-            >
-              <Star className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
-              <span>Success Stories</span>
-            </Link>
+              {serviceDropdown && (
+                <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-100 py-2">
+                  <Link
+                    href="/internship"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                  >
+                    Internships
+                  </Link>
+                  <Link
+                    href="/careers"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                  >
+                    Careers
+                  </Link>
+                  <Link
+                    href="/community"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                  >
+                    Community
+                  </Link>
+                  <Link
+                    href="/success-stories"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                  >
+                    Success Stories
+                  </Link>
+                </div>
+              )}
+            </div>
 
             {/* Services Dropdown */}
             <div className="relative group">
@@ -250,10 +256,9 @@ export function Navbar() {
             </Link>
             <Link
               href="/schedule-consultation"
-              className="flex items-center space-x-2 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6 py-2.5 rounded-xl transition-all duration-300 hover:shadow-xl hover:scale-105 font-medium group"
+              className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm"
             >
-              <Calendar className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
-              <span>Schedule Consultation</span>
+              Contact
             </Link>
           </nav>
 
@@ -287,59 +292,49 @@ export function Navbar() {
             isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="py-6 border-t border-green-100 bg-gradient-to-b from-green-50/50 to-white backdrop-blur-sm">
-            <div className="flex flex-col space-y-3">
+          <div className="py-4 border-t border-gray-200 bg-white">
+            <div className="flex flex-col space-y-1">
               <Link
                 href="/"
-                className="flex items-center space-x-3 text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium group"
+                className="text-gray-700 hover:text-green-600 transition-colors py-2 px-4 font-medium"
                 onClick={() => setIsOpen(false)}
               >
-                <Home className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                <span>Home</span>
+                Home
               </Link>
               <Link
                 href="/about"
-                className="flex items-center space-x-3 text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium group"
+                className="text-gray-700 hover:text-green-600 transition-colors py-2 px-4 font-medium"
                 onClick={() => setIsOpen(false)}
               >
-                <Info className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                <span>About</span>
+                About
               </Link>
-
               <Link
                 href="/internship"
-                className="flex items-center space-x-3 text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium group"
+                className="text-gray-700 hover:text-green-600 transition-colors py-2 px-4 font-medium"
                 onClick={() => setIsOpen(false)}
               >
-                <GraduationCap className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                <span>Internships</span>
+                Internships
               </Link>
-
               <Link
                 href="/careers"
-                className="flex items-center space-x-3 text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium group"
+                className="text-gray-700 hover:text-green-600 transition-colors py-2 px-4 font-medium"
                 onClick={() => setIsOpen(false)}
               >
-                <Briefcase className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                <span>Careers</span>
+                Careers
               </Link>
-
-              <Link
-                href="/success-stories"
-                className="flex items-center space-x-3 text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium group"
-                onClick={() => setIsOpen(false)}
-              >
-                <Star className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                <span>Success Stories</span>
-              </Link>
-
               <Link
                 href="/community"
-                className="flex items-center space-x-3 text-gray-700 hover:text-green-600 transition-all duration-300 py-3 px-6 rounded-xl hover:bg-green-100 hover:scale-105 transform hover:translate-x-2 font-medium group"
+                className="text-gray-700 hover:text-green-600 transition-colors py-2 px-4 font-medium"
                 onClick={() => setIsOpen(false)}
               >
-                <Users className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                <span>Community</span>
+                Community
+              </Link>
+              <Link
+                href="/success-stories"
+                className="text-gray-700 hover:text-green-600 transition-colors py-2 px-4 font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                Success Stories
               </Link>
 
               <div className="pt-4 border-t border-green-200">
