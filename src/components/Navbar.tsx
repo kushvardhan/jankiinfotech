@@ -1,17 +1,6 @@
 "use client";
 
-import {
-  Briefcase,
-  ChevronDown,
-  GraduationCap,
-  Home,
-  Info,
-  Menu,
-  Sparkles,
-  Star,
-  Users,
-  X,
-} from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
@@ -46,15 +35,15 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-gradient-to-b from-white/95 via-white/90 to-transparent backdrop-blur-2xl shadow-2xl border-b border-green-100/50"
-          : "bg-gradient-to-b from-white/80 via-white/60 to-transparent backdrop-blur-xl border-b border-white/20"
+          ? "bg-white/95 backdrop-blur-sm shadow-md border-b border-gray-200"
+          : "bg-white/90 backdrop-blur-sm border-b border-gray-100"
       }`}
     >
       <div
-        className={`max-w-7xl mx-auto px-6 lg:px-8 transition-all duration-500 ${
-          isScrolled ? "py-3" : "py-5"
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ${
+          isScrolled ? "py-2" : "py-4"
         }`}
       >
         <div className="flex items-center justify-between h-16">
@@ -337,14 +326,13 @@ export function Navbar() {
                 Success Stories
               </Link>
 
-              <div className="pt-4 border-t border-green-200">
+              <div className="pt-4 border-t border-gray-200">
                 <Link
                   href="/schedule-consultation"
-                  className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 block text-center font-semibold transform hover:translate-y-[-2px]"
+                  className="bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg transition-colors block text-center font-medium"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Sparkles className="h-5 w-5 mr-2" />
-                  Schedule Consultation
+                  Contact
                 </Link>
               </div>
             </div>
