@@ -100,57 +100,23 @@ export default function TechnologiesSection() {
           </h3>
         </div>
 
-        {/* Technology Icons - Scrolling Animation */}
-        <div className="relative overflow-hidden">
-          <div className="flex animate-scroll hover:animate-pause space-x-8">
-            {/* First set */}
-            {technologies.map((tech, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 min-w-[120px]"
-              >
-                <div className="text-center">
-                  <div className="text-3xl mb-2">{tech.icon}</div>
-                  <p className="text-sm font-medium text-gray-700">
-                    {tech.name}
-                  </p>
-                </div>
+        {/* Technology Icons Grid */}
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 sm:gap-6">
+          {technologies.map((tech, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-lg p-3 sm:p-4 shadow-md hover:shadow-lg transition-shadow duration-300"
+            >
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl mb-2">{tech.icon}</div>
+                <p className="text-xs sm:text-sm font-medium text-gray-700 break-words">
+                  {tech.name}
+                </p>
               </div>
-            ))}
-            {/* Duplicate set for seamless scrolling */}
-            {technologies.map((tech, index) => (
-              <div
-                key={`duplicate-${index}`}
-                className="flex-shrink-0 bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 min-w-[120px]"
-              >
-                <div className="text-center">
-                  <div className="text-3xl mb-2">{tech.icon}</div>
-                  <p className="text-sm font-medium text-gray-700">
-                    {tech.name}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-scroll {
-          animation: scroll 15s linear infinite;
-        }
-        .animate-pause:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   );
 }

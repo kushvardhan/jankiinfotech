@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Rocket, Sparkles, Star, Zap } from "lucide-react";
+import { Star } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -13,7 +13,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-green-50 to-white flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20">
+    <section className="relative min-h-screen bg-gradient-to-br from-green-50 to-white flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-20">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(34,197,94,0.15)_1px,transparent_0)] bg-[size:20px_20px]"></div>
@@ -30,124 +30,46 @@ export default function HeroSection() {
             Summer Training Program
           </Link>
 
-          {/* Scripting Badge */}
-          <div className="flex justify-center items-center space-x-4 mb-8">
-            <div className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-semibold">
-              Scripting
-            </div>
-            <div className="bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-2 rounded-lg text-lg font-bold">
-              New JankiInfotech
-            </div>
-          </div>
-
-          {/* Stunning Main Heading with Dynamic Word Animation */}
-          <div
-            className={`transition-all duration-1500 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-20"
-            }`}
-          >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-gray-900 leading-tight tracking-tight">
-              <span
-                className="block animate-fadeInUp transform hover:scale-105 transition-transform duration-300"
-                style={{ animationDelay: "0.2s" }}
-              >
-                Delivering{" "}
-                <span className="relative inline-block">
-                  <span className="text-green-600 bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent animate-pulse">
-                    {dynamicWords[currentWordIndex]}
-                  </span>
-                  <span className="absolute -inset-1 bg-green-100 rounded-lg -z-10 opacity-30 animate-pulse"></span>
-                </span>
+          {/* Main Heading */}
+          <div className="mb-8">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
+              <span className="block mb-2">
+                Delivering <span className="text-green-600">innovative</span>
               </span>
-              <span
-                className="block text-transparent bg-gradient-to-r from-green-600 via-green-500 to-green-700 bg-clip-text animate-fadeInUp transform hover:scale-105 transition-transform duration-300"
-                style={{ animationDelay: "0.4s" }}
-              >
+              <span className="block text-green-600 mb-2">
                 digital solutions
               </span>
-              <span
-                className="block animate-fadeInUp transform hover:scale-105 transition-transform duration-300"
-                style={{ animationDelay: "0.6s" }}
-              >
-                and{" "}
-                <span className="relative">
-                  <span className="text-green-600">scalable</span>
-                  <span className="absolute inset-0 bg-green-200 rounded-lg -z-10 opacity-20 animate-pulse"></span>
-                </span>{" "}
-                cloud
-              </span>
-              <span
-                className="block animate-fadeInUp transform hover:scale-105 transition-transform duration-300"
-                style={{ animationDelay: "0.8s" }}
-              >
-                <span className="relative">
-                  infrastructure
-                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-green-400 to-green-600 rounded-full animate-scaleX"></div>
-                </span>
-              </span>
+              <span className="block text-gray-700">that drive success</span>
             </h1>
           </div>
 
-          {/* Enhanced Subtitle with Typewriter Effect */}
-          <div
-            className={`transition-all duration-1500 delay-1000 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-15"
-            }`}
-          >
-            <p className="text-2xl md:text-3xl text-gray-700 max-w-5xl mx-auto leading-relaxed font-medium">
-              <span className="relative">
-                Tailored to power{" "}
-                <span className="text-green-600 font-bold relative">
-                  innovation
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-green-400 animate-scaleX"></span>
-                </span>{" "}
-                and{" "}
-                <span className="text-green-600 font-bold relative">
-                  startup success
-                  <span
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-green-400 animate-scaleX"
-                    style={{ animationDelay: "0.5s" }}
-                  ></span>
-                </span>
-                .
+          {/* Subtitle */}
+          <div className="mb-8">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Tailored to power{" "}
+              <span className="text-green-600 font-semibold">innovation</span>{" "}
+              and{" "}
+              <span className="text-green-600 font-semibold">
+                startup success
               </span>
+              .
             </p>
           </div>
 
-          {/* Stunning CTA Buttons with 3D Effects */}
-          <div
-            className={`flex flex-col sm:flex-row gap-6 justify-center items-center transition-all duration-1500 delay-1200 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-20"
-            }`}
-          >
-            <Link href="/schedule-consultation" className="group">
-              <Button className="relative bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-10 py-5 text-xl rounded-2xl font-bold shadow-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-green-500/25 overflow-hidden">
-                <span className="relative z-10 flex items-center">
-                  <Sparkles className="mr-3 h-6 w-6 group-hover:animate-spin" />
-                  Schedule Consultation
-                  <Rocket className="ml-3 h-6 w-6 group-hover:animate-bounce" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link href="/schedule-consultation">
+              <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg font-semibold rounded-lg transition-colors">
+                Schedule Consultation
               </Button>
             </Link>
 
-            <Link href="/careers" className="group">
+            <Link href="/careers">
               <Button
                 variant="outline"
-                className="relative border-2 border-green-600 text-green-600 hover:bg-green-50 px-10 py-5 text-xl rounded-2xl font-bold shadow-xl transform hover:scale-105 transition-all duration-300 hover:shadow-green-500/25 overflow-hidden"
+                className="border-2 border-green-600 text-green-600 hover:bg-green-50 px-8 py-3 text-lg font-semibold rounded-lg transition-colors"
               >
-                <span className="relative z-10 flex items-center">
-                  <Star className="mr-3 h-6 w-6 group-hover:animate-pulse" />
-                  Join Our Team
-                  <Zap className="ml-3 h-6 w-6 group-hover:animate-bounce" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-green-100 to-green-200 opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                Join Our Team
               </Button>
             </Link>
           </div>
