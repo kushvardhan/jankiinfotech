@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, Menu, X, Phone } from "lucide-react";
+import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
@@ -8,7 +8,6 @@ import Logo from "./Logo";
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [serviceDropdown, setServiceDropdown] = useState(false);
-  const [productDropdown, setProductDropdown] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   // Handle scroll effect for beautiful navbar
@@ -109,12 +108,9 @@ export function Navbar() {
               )}
             </div>
 
-          
-
-           
             <Link
               href="/schedule-consultation"
-              className="bg-green-600 hover:bg-green-700 flex items-center gap-2 text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm"
+              className="bg-green-600 hover:bg-green-700 flex items-center gap-2 text-white px-4 py-2 rounded-lg transition-colors duration-200 font-semibold text-md"
             >
               <Phone className="ml-1 h-4 w-4" />
               Consultaion
