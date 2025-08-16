@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function SmallFooter() {
   return (
-    <footer className="relative bg-gradient-to-r from-white via-green-50 to-green-100 text-gray-800 border-t border-green-200/30 py-6 overflow-hidden">
+    <footer className="relative bg-gradient-to-r from-white via-green-50 to-green-100 text-gray-800 border-t border-green-300/30 py-6 overflow-hidden">
       {/* Subtle animated background */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-2 left-8 w-16 h-16 bg-green-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
@@ -48,32 +48,32 @@ export default function SmallFooter() {
         {/* Social Links */}
         <nav className="mb-4">
           <div className="flex justify-center items-center gap-4">
-            <a 
+            <Link 
               href="https://twitter.com/jankiinfotech" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-green-600 transition-all duration-300 hover:scale-110 transform group"
             >
               <Twitter className="h-6 w-6 group-hover:animate-bounce" />
-            </a>
+            </Link>
             
-            <a 
+            <Link 
               href="https://youtube.com/@jankiinfotech" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-green-600 transition-all duration-300 hover:scale-110 transform group"
             >
               <Youtube className="h-6 w-6 group-hover:animate-pulse" />
-            </a>
+            </Link>
             
-            <a 
+            <Link 
               href="https://facebook.com/jankiinfotech" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-green-600 transition-all duration-300 hover:scale-110 transform group"
             >
               <Facebook className="h-6 w-6 group-hover:animate-bounce" />
-            </a>
+            </Link>
           </div>
         </nav>
 
@@ -85,12 +85,13 @@ export default function SmallFooter() {
               <span className="font-semibold text-green-600 ml-1">JankiInfotech</span>
             </p>
             <div className="flex items-center gap-1 text-xs">
-              Made with <Heart className="h-3 w-3 text-red-500 animate-pulse" /> 
+              Made with <Heart className="h-4 w-4 text-red-500 animate-pulse" /> 
             </div>
-            <div className="text-xs opacity-75 flex items-center gap-1">
-              <Code className="h-3 w-3" />
-              Crafted by kushvardhan39797@gmail.com
-            </div>
+            <div title="kushvardhan39797@gmail.com" className="text-xs text-zinc-500 flex items-center gap-1">
+  <Code className="h-3 w-3" />
+  Crafted by <span className="text-zinc-600 font-mono text-sm">kushvardhan39797@gmail.com</span>
+</div>
+
           </div>
         </aside>
       </div>
