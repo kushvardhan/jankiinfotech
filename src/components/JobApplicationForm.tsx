@@ -154,7 +154,6 @@ export default function JobApplicationForm({
       const response = await fetch("/api/job-application", {
         method: "POST",
         body: submitData,
-        // Don't set Content-Type header - let browser set it with boundary
       });
 
       const result = await response.json();
