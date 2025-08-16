@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import {
   Award,
   BookOpen,
-  Code,
   MapPin,
   Rocket,
   Sparkles,
@@ -13,7 +12,6 @@ import {
   Target,
   TrendingUp,
   Users,
-  Zap,
 } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -44,22 +42,6 @@ export default function InternshipPage() {
             <div className="absolute top-20 left-10 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
             <div className="absolute top-40 right-10 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
             <div className="absolute -bottom-8 left-20 w-72 h-72 bg-green-400 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
-          </div>
-
-          {/* Floating Icons */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-20 left-20 animate-float">
-              <Code className="h-8 w-8 text-green-600 opacity-60" />
-            </div>
-            <div className="absolute top-40 right-32 animate-float-delayed">
-              <Rocket className="h-10 w-10 text-green-700 opacity-60" />
-            </div>
-            <div className="absolute bottom-40 left-32 animate-float">
-              <Star className="h-6 w-6 text-green-500 opacity-60" />
-            </div>
-            <div className="absolute bottom-60 right-20 animate-float-delayed">
-              <Zap className="h-8 w-8 text-green-600 opacity-60" />
-            </div>
           </div>
 
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 flex items-center min-h-screen">
