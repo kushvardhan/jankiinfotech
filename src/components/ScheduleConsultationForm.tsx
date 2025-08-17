@@ -81,7 +81,7 @@ Message: ${formData.message}
         setSubmitStatus({
           type: "success",
           message:
-            "Consultation request submitted successfully! We&apos;ll contact you within 24 hours to confirm your appointment.",
+            "Consultation request submitted successfully! We'll contact you within 24 hours to confirm your appointment.",
         });
         setFormData({
           name: "",
