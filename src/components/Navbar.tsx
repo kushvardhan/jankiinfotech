@@ -198,7 +198,8 @@ export function Navbar() {
                   className="bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg transition-colors block text-center font-medium"
                   onClick={() => setIsOpen(false)}
                 >
-                  Contact
+                  <Phone className="ml-1 h-4 w-4" />
+                  Consultaion
                 </Link>
               </div>
             </div>
