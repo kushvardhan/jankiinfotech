@@ -219,7 +219,7 @@ export default function ScheduleConsultationPage() {
               Frequently Asked Questions
             </h2>
             <div className="space-y-6">
-              <div className="bg-white rounded-lg p-6">
+              <div className="bg-white rounded-lg p-6 hover:cursor-pointer hover:shadow-md hover:shadow-zinc-300 transition-shadow duration-300">
                 <h3 className="font-semibold text-gray-900 mb-2">
                   How long does a consultation take?
                 </h3>
@@ -229,7 +229,7 @@ export default function ScheduleConsultationPage() {
                   choose.
                 </p>
               </div>
-              <div className="bg-white rounded-lg p-6">
+              <div className="bg-white rounded-lg p-6 hover:cursor-pointer hover:shadow-md hover:shadow-zinc-300 transition-shadow duration-300">
                 <h3 className="font-semibold text-gray-900 mb-2">
                   Is the consultation really free?
                 </h3>
@@ -239,7 +239,7 @@ export default function ScheduleConsultationPage() {
                   achieve your goals.
                 </p>
               </div>
-              <div className="bg-white rounded-lg p-6">
+              <div className="bg-white rounded-lg p-6 hover:cursor-pointer hover:shadow-md hover:shadow-zinc-300 transition-shadow duration-300">
                 <h3 className="font-semibold text-gray-900 mb-2">
                   What should I prepare for the consultation?
                 </h3>
@@ -249,7 +249,7 @@ export default function ScheduleConsultationPage() {
                   requirements.
                 </p>
               </div>
-              <div className="bg-white rounded-lg p-6">
+              <div className="bg-white rounded-lg p-6 hover:cursor-pointer hover:shadow-lg hover:shadow-t-lg hover:shadow-zinc-300 transition-shadow duration-300">
                 <h3 className="font-semibold text-gray-900 mb-2">
                   Can I reschedule my consultation?
                 </h3>
