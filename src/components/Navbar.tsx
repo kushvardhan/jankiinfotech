@@ -195,7 +195,7 @@ export function Navbar() {
               <div className="pt-4 border-t border-gray-200">
                 <Link
                   href="/schedule-consultation"
-                  className="bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg transition-colors block text-center font-medium"
+                  className="bg-green-600 hover:bg-green-700 text-white text-center flex items-center justify-center gap-4 px-4 py-3 rounded-lg transition-colors block text-center font-medium"
                   onClick={() => setIsOpen(false)}
                 >
                   <Phone className="ml-1 h-4 w-4" />
