@@ -126,6 +126,10 @@ Message: ${formData.message}
   tomorrow.setDate(tomorrow.getDate() + 1);
   const minDate = tomorrow.toISOString().split("T")[0];
 
+  function setPhoneValid(isValid: boolean) {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <div className="bg-white rounded-2xl shadow-lg p-8">
       <form onSubmit={handleSubmit} className="space-y-6">
