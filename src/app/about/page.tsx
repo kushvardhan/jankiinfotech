@@ -91,7 +91,7 @@ export default function AboutPage() {
     {
       name: "Harshjeet Pandey",
       role: "Co-founder",
-      image: "/members/harshjeet.jpg",
+      image: "/public/members/harshjeet.jpg",
       description:
         "Visionary co-founder driving innovation and strategic growth",
       linkedin: "https://www.linkedin.com/in/harshjeet-pandey-506592298/",
@@ -99,14 +99,14 @@ export default function AboutPage() {
     {
       name: "Chandar Prakash",
       role: "Designer",
-      image: "/members/chandar.jpg",
+      image: "/public/members/chandar.jpg",
       description: "Creative designer crafting exceptional visual experiences",
       linkedin: "https://www.instagram.com/cp_xgraphics?igsh=eWR5amxuaWNvN2ph",
     },
     {
       name: "Sunidhi Singh",
       role: "Social Media Manager",
-      image: "/members/sunidhi.jpg",
+      image: "/public/members/sunidhi.jpg",
       description: "Digital marketing expert managing our online presence",
       linkedin: "https://www.linkedin.com/in/sunidhi-singh-b3624a243",
     },
@@ -329,8 +329,8 @@ export default function AboutPage() {
     <Image
       src={member.image}
       alt={member.name}
-      width={96} // matches w-24 (24 * 4 = 96px)
-      height={96} // matches h-24
+      width={96}
+      height={96} 
       className="w-24 h-24 rounded-full object-cover"
     />
   ) : (
@@ -347,12 +347,15 @@ export default function AboutPage() {
                   <p className="text-gray-600 text-xs sm:text-sm mb-4 leading-relaxed break-words">
                     {member.description}
                   </p>
-                  <Link
-                    href={member.linkedin}
-                    className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm"
-                  >
-                    Connect <Star className="w-4 h-4 ml-1" />
-                  </Link>
+<Link
+  href={member.linkedin}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm"
+>
+  Connect <Star className="w-4 h-4 ml-1" />
+</Link>
+
                 </div>
               ))}
             </div>
