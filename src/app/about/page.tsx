@@ -88,32 +88,33 @@ export default function AboutPage() {
 
   const team = [
     {
-      name: "Rajesh Kumar",
-      role: "Founder & CEO",
-      image: "👨‍💼",
-      description: "Visionary leader with 15+ years in tech industry",
-      linkedin: "#",
+      name: "Harshjeet Pandey",
+      role: "Co-founder",
+      image: "../../../public/images/harshjeet.jpg",
+      description:
+        "Visionary co-founder driving innovation and strategic growth",
+      linkedin: "https://www.linkedin.com/in/harshjeet-pandey-506592298/",
     },
     {
-      name: "Priya Sharma",
-      role: "CTO",
-      image: "👩‍💻",
-      description: "Tech expert specializing in cloud architecture",
-      linkedin: "#",
+      name: "Chandar Prakash",
+      role: "Designer",
+      image: "../../../public/images/chandar.jpg",
+      description: "Creative designer crafting exceptional visual experiences",
+      linkedin: "https://www.instagram.com/cp_xgraphics?igsh=eWR5amxuaWNvN2ph",
     },
     {
-      name: "Amit Singh",
-      role: "Head of Development",
+      name: "Sunidhi Singh",
+      role: "Social Media Manager",
+      image: "../../../public/images/sunidhi.jpg",
+      description: "Digital marketing expert managing our online presence",
+      linkedin: "https://www.linkedin.com/in/sunidhi-singh-b3624a243",
+    },
+    {
+      name: "Kush Vardhan",
+      role: "Developer",
       image: "👨‍💻",
-      description: "Full-stack developer with expertise in modern frameworks",
-      linkedin: "#",
-    },
-    {
-      name: "Sunita Devi",
-      role: "Head of Training",
-      image: "👩‍🏫",
-      description: "Education specialist with passion for skill development",
-      linkedin: "#",
+      description: "Full-stack developer building innovative web solutions",
+      linkedin: "https://www.linkedin.com/in/kush-vardhan-48996a251/",
     },
   ];
 
@@ -323,7 +324,7 @@ export default function AboutPage() {
                   className="bg-white rounded-2xl p-4 sm:p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
                   <div className="text-4xl sm:text-6xl mb-4">
-                    {member.image}
+                    {member.image || "👤"}
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 break-words">
                     {member.name}
