@@ -79,15 +79,14 @@ export default function CareersPage() {
   const openPositions = [
     {
       id: 1,
-      title: "Senior Full Stack Developer",
+      title: "Full Stack Developer",
       department: "Engineering",
       location: "Patna / Remote",
-      type: "Full-time",
-      experience: "3-5 years",
-      salary: "₹8-15 LPA",
+      type: "Internship",
+      experience: "Fresher",
       skills: ["React", "Node.js", "TypeScript", "AWS"],
       description:
-        "Lead development of scalable web applications and mentor junior developers.",
+        "Learn and develop scalable web applications under senior developer guidance.",
       urgent: true,
     },
     {
@@ -95,9 +94,8 @@ export default function CareersPage() {
       title: "UI/UX Designer",
       department: "Design",
       location: "Patna / Hybrid",
-      type: "Full-time",
-      experience: "2-4 years",
-      salary: "₹6-12 LPA",
+      type: "Internship",
+      experience: "Fresher",
       skills: ["Figma", "Adobe Creative Suite", "Prototyping", "User Research"],
       description:
         "Create beautiful and intuitive user experiences for our digital products.",
@@ -108,9 +106,8 @@ export default function CareersPage() {
       title: "Digital Marketing Specialist",
       department: "Marketing",
       location: "Patna",
-      type: "Full-time",
-      experience: "1-3 years",
-      salary: "₹4-8 LPA",
+      type: "Internship",
+      experience: "Fresher",
       skills: ["SEO", "Social Media", "Content Marketing", "Analytics"],
       description:
         "Drive digital marketing campaigns and grow our online presence.",
@@ -121,9 +118,8 @@ export default function CareersPage() {
       title: "Training Coordinator",
       department: "Education",
       location: "Patna",
-      type: "Full-time",
-      experience: "2-4 years",
-      salary: "₹5-10 LPA",
+      type: "Internship",
+      experience: "Fresher",
       skills: [
         "Training",
         "Curriculum Design",
@@ -139,9 +135,8 @@ export default function CareersPage() {
       title: "Business Development Executive",
       department: "Sales",
       location: "Patna / Field",
-      type: "Full-time",
-      experience: "1-3 years",
-      salary: "₹3-6 LPA + Incentives",
+      type: "Internship",
+      experience: "Fresher",
       skills: ["Sales", "Communication", "Relationship Building", "CRM"],
       description:
         "Identify new business opportunities and build client relationships.",
@@ -152,12 +147,11 @@ export default function CareersPage() {
       title: "DevOps Engineer",
       department: "Engineering",
       location: "Remote",
-      type: "Full-time",
-      experience: "2-5 years",
-      salary: "₹7-14 LPA",
+      type: "Internship",
+      experience: "Fresher",
       skills: ["AWS", "Docker", "Kubernetes", "CI/CD"],
       description:
-        "Manage infrastructure and deployment pipelines for our applications.",
+        "Learn infrastructure management and deployment pipelines for our applications.",
       urgent: false,
     },
   ];
@@ -351,10 +345,10 @@ export default function CareersPage() {
                     </div>
                     <div className="text-right">
                       <div className="text-lg font-bold text-green-600">
-                        {position.salary}
+                        {position.type}
                       </div>
                       <div className="text-sm text-gray-500">
-                        {position.type}
+                        {position.experience}
                       </div>
                     </div>
                   </div>
