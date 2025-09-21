@@ -2,6 +2,7 @@
 
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
+import CTASection from "@/components/CTASection";
 import FadeInSection from "@/components/FadeInSection";
 import Features from "@/components/Features";
 import Footer from "@/components/Footer";
@@ -9,6 +10,7 @@ import HeroSection from "@/components/HeroSection";
 import { Navbar } from "@/components/Navbar";
 import ServicesSection from "@/components/ServicesSection";
 import TechnologiesSection from "@/components/TechnologiesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import WorkflowSection from "@/components/WorkflowSection";
 
 export default function Home() {
@@ -35,6 +37,14 @@ export default function Home() {
 
       <FadeInSection delay={100}>
         <AboutSection />
+      </FadeInSection>
+
+      <FadeInSection delay={200}>
+        <TestimonialsSection />
+      </FadeInSection>
+
+      <FadeInSection delay={100}>
+        <CTASection />
       </FadeInSection>
 
       <FadeInSection delay={200}>
