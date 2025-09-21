@@ -17,6 +17,7 @@ import {
   Users,
   Zap,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -90,7 +91,7 @@ export default function AboutPage() {
     {
       name: "Harshjeet Pandey",
       role: "Co-founder",
-      image: "../../../public/images/harshjeet.jpg",
+      image: "/members/harshjeet.jpg",
       description:
         "Visionary co-founder driving innovation and strategic growth",
       linkedin: "https://www.linkedin.com/in/harshjeet-pandey-506592298/",
@@ -98,21 +99,21 @@ export default function AboutPage() {
     {
       name: "Chandar Prakash",
       role: "Designer",
-      image: "../../../public/images/chandar.jpg",
+      image: "/members/chandar.jpg",
       description: "Creative designer crafting exceptional visual experiences",
       linkedin: "https://www.instagram.com/cp_xgraphics?igsh=eWR5amxuaWNvN2ph",
     },
     {
       name: "Sunidhi Singh",
       role: "Social Media Manager",
-      image: "../../../public/images/sunidhi.jpg",
+      image: "/members/sunidhi.jpg",
       description: "Digital marketing expert managing our online presence",
       linkedin: "https://www.linkedin.com/in/sunidhi-singh-b3624a243",
     },
     {
       name: "Kush Vardhan",
       role: "Developer",
-      image: "👨‍💻",
+      icon: "👨‍💻",
       description: "Full-stack developer building innovative web solutions",
       linkedin: "https://www.linkedin.com/in/kush-vardhan-48996a251/",
     },
@@ -324,7 +325,18 @@ export default function AboutPage() {
                   className="bg-white rounded-2xl p-4 sm:p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
                   <div className="text-4xl sm:text-6xl mb-4">
-                    {member.image || "👤"}
+                     {member.image ? (
+    <Image
+      src={member.image}
+      alt={member.name}
+      width={96} // matches w-24 (24 * 4 = 96px)
+      height={96} // matches h-24
+      className="w-24 h-24 rounded-full object-cover"
+    />
+  ) : (
+    member.icon || "👤"
+  )}
+                    
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 break-words">
                     {member.name}
