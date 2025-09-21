@@ -93,12 +93,6 @@ export function Navbar() {
                     Careers
                   </Link>
                   <Link
-                    href="/community"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
-                  >
-                    Community
-                  </Link>
-                  <Link
                     href="/success-stories"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
                   >
@@ -178,13 +172,6 @@ export function Navbar() {
                 Careers
               </Link>
               <Link
-                href="/community"
-                className="text-gray-700 hover:text-green-600 transition-colors py-2 px-4 font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                Community
-              </Link>
-              <Link
                 href="/success-stories"
                 className="text-gray-700 hover:text-green-600 transition-colors py-2 px-4 font-medium"
                 onClick={() => setIsOpen(false)}
@@ -195,7 +182,7 @@ export function Navbar() {
               <div className="pt-4 border-t border-gray-200">
                 <Link
                   href="/schedule-consultation"
-                  className="bg-green-600 hover:bg-green-700 text-white text-center flex items-center justify-center gap-4 px-4 py-3 rounded-lg transition-colors block text-center font-medium"
+                  className="bg-green-600 hover:bg-green-700 text-white flex items-center justify-center gap-2 px-4 py-3 rounded-lg transition-colors font-medium"
                   onClick={() => setIsOpen(false)}
                 >
                   <Phone className="ml-1 h-4 w-4" />
