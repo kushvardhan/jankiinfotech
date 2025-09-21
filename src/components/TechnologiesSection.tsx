@@ -6,14 +6,10 @@ export default function TechnologiesSection() {
     { name: "Next.js", icon: "▲" },
     { name: "Node.js", icon: "🟢" },
     { name: "MongoDB", icon: "🍃" },
-    { name: "AWS", icon: "☁️" },
     { name: "Docker", icon: "🐳" },
-    { name: "Jenkins", icon: "🔧" },
-    { name: "Microsoft Azure", icon: "🔷" },
-    { name: "Redis", icon: "🔴" },
     { name: "TypeScript", icon: "📘" },
     { name: "Python", icon: "🐍" },
-    { name: "Kubernetes", icon: "⚙️" },
+    { name: "PHP", icon: "🐘" },
   ];
 
   const services = [
