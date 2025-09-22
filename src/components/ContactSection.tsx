@@ -258,12 +258,24 @@ export default function ContactSection() {
                   <h4 className="text-lg font-semibold text-gray-900 mb-2">
                     Phone
                   </h4>
-                  <a
-                    href="tel:+918228800345"
-                    className="text-blue-600 hover:text-blue-700"
-                  >
-                    +91 822‑8800‑345
-                  </a>
+                  <div className="space-y-2">
+                    <div>
+                      <a
+                        href="tel:+918228800345"
+                        className="text-blue-600 hover:text-blue-700"
+                      >
+                        +91 822‑8800‑345
+                      </a>
+                    </div>
+                    <div>
+                      <a
+                        href="tel:+917632966717"
+                        className="text-blue-600 hover:text-blue-700"
+                      >
+                        +91 763‑2966‑717
+                      </a>
+                    </div>
+                  </div>
                 </div>
 
                 <div>
