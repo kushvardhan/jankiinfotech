@@ -79,28 +79,60 @@ export function Navbar() {
               </button>
 
               {serviceDropdown && (
-                <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-100 py-2">
+                <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2">
                   <Link
-                    href="/internship"
+                    href="#services"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
                   >
-                    Internships
+                    Website Development
                   </Link>
                   <Link
-                    href="/careers"
+                    href="#services"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
                   >
-                    Careers
+                    App Development
                   </Link>
                   <Link
-                    href="/success-stories"
+                    href="#services"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
                   >
-                    Success Stories
+                    Software Development
+                  </Link>
+                  <Link
+                    href="#services"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                  >
+                    Digital Marketing
+                  </Link>
+                  <Link
+                    href="#services"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                  >
+                    Influencer Marketing
+                  </Link>
+                  <Link
+                    href="#services"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                  >
+                    Email/WhatsApp/SMS Marketing
                   </Link>
                 </div>
               )}
             </div>
+
+            <Link
+              href="/internship"
+              className="px-3 py-2 text-gray-700 hover:text-green-600 transition-colors duration-200 font-medium"
+            >
+              Internship
+            </Link>
+
+            <Link
+              href="/careers"
+              className="px-3 py-2 text-gray-700 hover:text-green-600 transition-colors duration-200 font-medium"
+            >
+              Careers
+            </Link>
 
             <Link
               href="/schedule-consultation"
@@ -162,7 +194,7 @@ export function Navbar() {
                 className="text-gray-700 hover:text-green-600 transition-colors py-2 px-4 font-medium"
                 onClick={() => setIsOpen(false)}
               >
-                Internships
+                Internship
               </Link>
               <Link
                 href="/careers"
