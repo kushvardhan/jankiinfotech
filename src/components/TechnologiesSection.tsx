@@ -14,19 +14,19 @@ export default function TechnologiesSection() {
 
   const services = [
     {
-      title: "Cloud Infrastructure",
-      description: "Multi-cloud solutions with AWS, Azure, and GCP integration",
+      title: "Website Development",
+      description: "Modern, responsive websites that drive business growth",
       features: [
-        "Auto-scaling",
-        "Load Balancing",
-        "Serverless Computing",
-        "Hybrid Cloud Solutions",
+        "Responsive Design",
+        "E-commerce Solutions",
+        "CMS Development",
+        "SEO Optimization",
       ],
-      icon: "☁️",
+      icon: "🌐",
     },
     {
-      title: "Mobile App Development",
-      description: "Cross-platform and native mobile solutions for all devices",
+      title: "App Development",
+      description: "Cross-platform mobile applications for iOS and Android",
       features: [
         "React Native & Flutter",
         "iOS/Swift & Android/Kotlin",
@@ -36,8 +36,8 @@ export default function TechnologiesSection() {
       icon: "📱",
     },
     {
-      title: "Full Stack Development",
-      description: "End-to-end web application development solutions",
+      title: "Software Development",
+      description: "Custom software solutions tailored to your business needs",
       features: [
         "Frontend (React, Next.js, Angular)",
         "Backend (Node.js, Django, Laravel)",
@@ -45,6 +45,40 @@ export default function TechnologiesSection() {
         "RESTful & GraphQL APIs",
       ],
       icon: "💻",
+    },
+    {
+      title: "Digital Marketing",
+      description:
+        "Comprehensive digital marketing strategies to boost your online presence",
+      features: [
+        "SEO & SEM",
+        "Social Media Marketing",
+        "Content Marketing",
+        "Analytics & Reporting",
+      ],
+      icon: "📈",
+    },
+    {
+      title: "Influencer Marketing",
+      description: "Connect with your audience through trusted influencers",
+      features: [
+        "Influencer Partnerships",
+        "Campaign Management",
+        "Brand Collaborations",
+        "Performance Tracking",
+      ],
+      icon: "👥",
+    },
+    {
+      title: "Email/WhatsApp/SMS Marketing",
+      description: "Direct communication channels to reach your customers",
+      features: [
+        "Email Campaigns",
+        "WhatsApp Business API",
+        "SMS Marketing",
+        "Automation & Segmentation",
+      ],
+      icon: "📧",
     },
   ];
 
@@ -63,7 +97,7 @@ export default function TechnologiesSection() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
           {services.map((service, index) => (
             <div
               key={index}
