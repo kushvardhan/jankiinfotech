@@ -146,7 +146,7 @@ export default function InternshipPage() {
                   <Users className="h-8 w-8 text-green-600" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  Expert Guidance
+                  Expert Mentors
                 </h3>
                 <p className="text-gray-600">
                   Learn from industry professionals with years of experience
@@ -182,7 +182,7 @@ export default function InternshipPage() {
                   <MapPin className="h-8 w-8 text-green-600" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  Career Support
+                  Job Guarantee
                 </h3>
                 <p className="text-gray-600">
                   Get assistance with career development and professional
@@ -246,29 +246,7 @@ export default function InternshipPage() {
                 </span>
               </p>
 
-              {/* Success Metrics */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 max-w-4xl mx-auto">
-                <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 border border-white border-opacity-20">
-                  <div className="text-4xl font-bold text-green-300 mb-2">
-                    100%
-                  </div>
-                  <div className="text-sm text-gray-300">Success Rate</div>
-                </div>
-                <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 border border-white border-opacity-20">
-                  <div className="text-4xl font-bold text-green-200 mb-2">
-                    100%
-                  </div>
-                  <div className="text-sm text-gray-300">
-                    Placement Guarantee
-                  </div>
-                </div>
-                <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 border border-white border-opacity-20">
-                  <div className="text-4xl font-bold text-green-400 mb-2">
-                    30 Days
-                  </div>
-                  <div className="text-sm text-gray-300">Career Support</div>
-                </div>
-              </div>
+
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-6 justify-center">

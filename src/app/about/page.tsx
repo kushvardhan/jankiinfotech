@@ -17,7 +17,7 @@ export default function AboutPage() {
   const stats = [
     {
       icon: Users,
-      value: "500+",
+      value: "10+",
       label: "Happy Clients",
       color: "text-blue-600",
     },
@@ -45,7 +45,7 @@ export default function AboutPage() {
     {
       name: "Harshjeet Pandey",
       role: "Co-founder",
-      image: "/members/harshjeet.jpg",
+      image: "/members/Harshjeet.jpg",
       description:
         "Visionary co-founder driving innovation and strategic growth",
       linkedin: "https://www.linkedin.com/in/harshjeet-pandey-506592298/",
@@ -53,14 +53,14 @@ export default function AboutPage() {
     {
       name: "Chandar Prakash",
       role: "Designer",
-      image: "/members/chandar.jpg",
+      image: "/members/Chandar.jpg",
       description: "Creative designer crafting exceptional visual experiences",
       linkedin: "https://www.instagram.com/cp_xgraphics?igsh=eWR5amxuaWNvN2ph",
     },
     {
       name: "Sunidhi Singh",
       role: "Social Media Manager",
-      image: "/members/sunidhi.jpg",
+      image: "/members/Sunidhi.jpg",
       description: "Digital marketing expert managing our online presence",
       linkedin: "https://www.linkedin.com/in/sunidhi-singh-b3624a243",
     },
