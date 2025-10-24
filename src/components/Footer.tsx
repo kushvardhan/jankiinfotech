@@ -54,24 +54,19 @@ export default function Footer() {
     setMessage("");
 
     try {
-      const response = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
+      // Frontend-only submission
+      console.log("📧 Newsletter subscription (frontend only):", { email });
 
-      const data = await response.json();
+      setMessage("Thank you for subscribing! We'll keep you updated.");
+      setEmail("");
 
-      if (response.ok) {
-        setMessage("Thank you! Check your email for confirmation.");
-        setEmail("");
-      } else {
-        setMessage(data.error || "Something went wrong. Please try again.");
-      }
-    } catch {
-      setMessage("Network error. Please try again.");
+      // Clear message after 5 seconds
+      setTimeout(() => {
+        setMessage("");
+      }, 5000);
+    } catch (error) {
+      console.error("Error:", error);
+      setMessage("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
