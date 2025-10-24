@@ -127,10 +127,10 @@ export default function Footer() {
                 <div className="flex items-center text-gray-600">
                   <Phone className="h-4 w-4 mr-3 text-green-600" />
                   <a
-                    href="tel:+918228800345"
+                    href="tel:+91 76329 66717"
                     className="hover:text-green-700 transition-colors"
                   >
-                    +91 822-8800-345
+                    +91 76329 66717
                   </a>
                 </div>
                 <div className="flex items-center text-gray-600">
@@ -260,28 +260,28 @@ export default function Footer() {
                 <h4 className="font-semibold text-gray-800 mb-4">Follow Us</h4>
                 <div className="flex space-x-4">
                   <Link
-                    href="https://www.linkedin.com/company/janki-infotech"
+                    href="https://www.linkedin.com/company/jankiinfotech/?viewAsMember=true"
                     target="_blank"
                     className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
                   >
                     <Linkedin className="h-5 w-5 text-blue-400" />
                   </Link>
                   <Link
-                    href="https://www.instagram.com/jankiinfotech"
+                    href="https://www.instagram.com/_jankiinfotech_/"
                     target="_blank"
                     className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
                   >
                     <Instagram className="h-5 w-5 text-pink-400" />
                   </Link>
                   <Link
-                    href="https://www.facebook.com/jankiinfotech"
+                    href="https://www.facebook.com/profile.php?id=61581206342758"
                     target="_blank"
                     className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
                   >
                     <Facebook className="h-5 w-5 text-blue-500" />
                   </Link>
                   <Link
-                    href="https://twitter.com/jankiinfotech"
+                    href="https://x.com/Jankiinfotech_"
                     target="_blank"
                     className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
                   >
