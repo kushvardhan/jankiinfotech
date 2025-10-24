@@ -54,6 +54,9 @@ export default function ContactSection() {
     setIsSubmitting(true);
 
     try {
+      // Simulate 2-second backend submission delay
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       // Clear form data
       setFormData({
         fullName: "",
@@ -67,10 +70,10 @@ export default function ContactSection() {
       // Show thank you popup
       setShowThankYou(true);
 
-      // Auto-hide thank you message after 5 seconds
+      // Auto-hide thank you message after 7 seconds
       setTimeout(() => {
         setShowThankYou(false);
-      }, 5000);
+      }, 7000);
     } catch (error) {
       console.error("❌ Error:", error);
       alert("Something went wrong. Please try again.");
@@ -228,8 +231,9 @@ export default function ContactSection() {
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
               <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl animate-in fade-in zoom-in duration-300">
                 <div className="text-center">
-                  <div className="mb-4 flex justify-center">
-                    <div className="bg-green-100 rounded-full p-4">
+                  {/* Success Icon */}
+                  <div className="mb-6 flex justify-center">
+                    <div className="bg-green-100 rounded-full p-4 animate-bounce">
                       <svg
                         className="w-8 h-8 text-green-600"
                         fill="none"
@@ -245,16 +249,45 @@ export default function ContactSection() {
                       </svg>
                     </div>
                   </div>
+
+                  {/* Main Message */}
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    Thank You!
+                    Thank You! 🎉
                   </h3>
                   <p className="text-gray-600 mb-6">
                     Your message has been received successfully. We appreciate
                     your interest and will get back to you soon!
                   </p>
+
+                  {/* WhatsApp CTA Section */}
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 mb-6 border-2 border-green-200">
+                    <p className="text-sm text-gray-700 mb-3 font-medium">
+                      💬 Want a quicker response?
+                    </p>
+                    <a
+                      href="https://wa.me/918228800345?text=Hi%20JankiInfotech%2C%20I%20just%20submitted%20a%20contact%20form%20and%20would%20like%20to%20discuss%20my%20project%20requirements."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+                    >
+                      <svg
+                        className="w-5 h-5 mr-2"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.255.949c-1.238.503-2.335 1.236-3.356 2.259-1.02 1.02-1.756 2.119-2.259 3.357-.533 1.305-.805 2.756-.949 4.255-.12 1.34-.082 2.857.191 4.288.27 1.432.795 2.716 1.487 3.852.691 1.135 1.565 2.064 2.605 2.814 1.04.75 2.189 1.237 3.397 1.554 1.208.317 2.557.317 3.765 0 1.208-.317 2.357-.804 3.397-1.554 1.04-.75 1.914-1.679 2.605-2.814.692-1.136 1.217-2.42 1.487-3.852.273-1.431.311-2.948.191-4.288-.144-1.499-.416-2.95-.949-4.255-.503-1.238-1.239-2.335-2.259-3.356-1.02-1.02-2.119-1.756-3.357-2.259-1.305-.533-2.756-.805-4.255-.949zm0 0" />
+                      </svg>
+                      Message on WhatsApp
+                    </a>
+                    <p className="text-xs text-gray-500 mt-2">
+                      Get instant support & quick replies!
+                    </p>
+                  </div>
+
+                  {/* Close Button */}
                   <Button
                     onClick={() => setShowThankYou(false)}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white py-2 font-semibold"
+                    className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 font-semibold transition-all duration-300"
                   >
                     Close
                   </Button>

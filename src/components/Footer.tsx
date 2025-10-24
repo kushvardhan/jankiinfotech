@@ -305,7 +305,7 @@ export default function Footer() {
                   inbox.
                 </p>
                 <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-                  <div className="flex">
+                  <div className="flex flex-col sm:flex-row gap-2 w-full">
                     <input
                       type="email"
                       value={email}
@@ -313,12 +313,12 @@ export default function Footer() {
                       placeholder="Enter your email"
                       required
                       disabled={isSubmitting}
-                      className="flex-1 px-3 py-2 text-sm bg-white bg-opacity-20 border border-white border-opacity-30 rounded-l-lg placeholder-white placeholder-opacity-70 text-zinc-700 text-md font-semibold font-mono focus:outline-none focus:bg-opacity-30 disabled:opacity-50"
+                      className="flex-1 min-w-0 px-3 py-2 text-sm bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg sm:rounded-l-lg sm:rounded-r-none placeholder-white placeholder-opacity-70 text-zinc-700 text-md font-semibold font-mono focus:outline-none focus:bg-opacity-30 disabled:opacity-50"
                     />
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="px-4 py-2 bg-white bg-opacity-20 border border-white border-opacity-30 border-l-0 rounded-r-lg hover:bg-opacity-30 transition-colors disabled:opacity-50"
+                      className="px-4 py-2 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg sm:rounded-l-none sm:rounded-r-lg hover:bg-opacity-30 transition-colors disabled:opacity-50 flex-shrink-0"
                     >
                       {isSubmitting ? (
                         <div className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
