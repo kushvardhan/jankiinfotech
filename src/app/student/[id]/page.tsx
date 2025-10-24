@@ -1,6 +1,4 @@
 import StudentCard from "@/components/StudentCard";
-import connectDB from "@/lib/mongodb";
-import StudentModel from "@/models/Student";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -19,23 +17,23 @@ interface PageProps {
   };
 }
 
+// Frontend-only: Mock student data
+// In production, this would be replaced with actual data from a backend or CMS
+const mockStudents: Record<string, Student> = {
+  "demo-001": {
+    _id: "demo-001",
+    name: "Demo Student",
+    email: "student@example.com",
+    domain: "Web Development",
+    duration: "6 Months",
+    company: "JankiInfotech",
+  },
+};
+
 async function getStudent(id: string): Promise<Student | null> {
   try {
-    await connectDB();
-    const student = await StudentModel.findById(id);
-
-    if (!student) {
-      return null;
-    }
-
-    return {
-      _id: student._id.toString(),
-      name: student.name,
-      email: student.email,
-      domain: student.domain,
-      duration: student.duration,
-      company: student.company,
-    };
+    // Return mock student data
+    return mockStudents[id] || null;
   } catch (error) {
     console.error("Error fetching student:", error);
     return null;
