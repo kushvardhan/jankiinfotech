@@ -58,6 +58,9 @@ export default function ScheduleConsultationForm() {
     setSubmitStatus({ type: null, message: "" });
 
     try {
+      // Simulate 2-second backend submission delay
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       const consultationMessage = `
 Consultation Request:
 - Type: ${formData.consultationType}
@@ -126,10 +129,6 @@ Message: ${formData.message}
   tomorrow.setDate(tomorrow.getDate() + 1);
   const minDate = tomorrow.toISOString().split("T")[0];
 
-  function setPhoneValid(isValid: boolean) {
-    throw new Error("Function not implemented.");
-  }
-
   return (
     <div className="bg-white rounded-2xl shadow-lg p-8">
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -186,9 +185,8 @@ Message: ${formData.message}
             </label>
             <PhoneInput
               value={formData.phone}
-              onChange={(value, isValid) => {
+              onChange={(value) => {
                 setFormData((prev) => ({ ...prev, phone: value }));
-                setPhoneValid(isValid);
               }}
               placeholder="Enter your phone number"
             />
