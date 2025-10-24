@@ -19,7 +19,6 @@ const defaultSEO = {
     "JankiInfotech provides world-class web development, mobile apps, software development, digital marketing, and professional training programs across Bihar, Uttar Pradesh, Jharkhand, and Eastern India. Empowering local talent with global technology standards in Darbhanga, Patna, Muzaffarpur, and beyond.",
   keywords:
     "JankiInfotech, web development Bihar, mobile app development Darbhanga, software development Patna, digital marketing Bihar, IT company Darbhanga, web development UP, mobile app development Jharkhand, training programs Bihar, internship Darbhanga, IT solutions Eastern India, website development Muzaffarpur, app development Bhagalpur, software company Bihar, digital marketing UP, influencer marketing Bihar, email marketing Jharkhand, WhatsApp marketing Bihar, SMS marketing Darbhanga, tech company Eastern India, programming training Bihar, coding bootcamp Darbhanga, web design Patna, mobile development Muzaffarpur, IT services Bihar UP Jharkhand",
-  image: "/images/og-image.jpg",
   url: "https://jankiinfotech.com",
   type: "website" as const,
 };
@@ -38,7 +37,7 @@ export function generateMetadata({
   const seoTitle = title ? `${title} | JankiInfotech` : defaultSEO.title;
   const seoDescription = description || defaultSEO.description;
   const seoKeywords = keywords || defaultSEO.keywords;
-  const seoImage = image || defaultSEO.image;
+  const seoImage = image ;
   const seoUrl = url || defaultSEO.url;
 
   return {
