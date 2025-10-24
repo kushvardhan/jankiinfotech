@@ -388,7 +388,7 @@ export default function ContactSection() {
             </div>
 
             {/* Map Placeholder */}
-            <div className="bg-gray-200 rounded-xl h-64 flex items-center justify-center">
+            {/* <div className="bg-gray-200 rounded-xl h-64 flex items-center justify-center">
               <div className="text-center">
                 <div className="text-4xl mb-2">🗺️</div>
                 <p className="text-gray-600">Office Location Map</p>
@@ -396,7 +396,7 @@ export default function ContactSection() {
                   Interactive map coming soon
                 </p>
               </div>
-            </div>
+            </div> */}
 
             {/* Quote */}
             <div className="bg-blue-50 rounded-xl p-6">
