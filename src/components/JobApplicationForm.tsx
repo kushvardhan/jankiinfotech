@@ -118,49 +118,13 @@ export default function JobApplicationForm({
     setIsSubmitting(true);
 
     try {
-      // Create FormData for file upload
-      const submitData = new FormData();
-
-      // Add all form fields
-      submitData.append("fullName", formData.fullName);
-      submitData.append("email", formData.email);
-      submitData.append("phone", formData.phone);
-      submitData.append("experience", formData.experience);
-      submitData.append("position", jobTitle);
-
-      // Map job titles to departments dynamically
-      const departmentMapping: Record<string, string> = {
-        "Senior Full Stack Developer": "Engineering",
-        "UI/UX Designer": "Design",
-        "Digital Marketing Specialist": "Marketing",
-        "Training Coordinator": "Education",
-        "Business Development Executive": "Sales",
-        "DevOps Engineer": "Engineering",
-      };
-
-      const department = departmentMapping[jobTitle] || "Engineering";
-      submitData.append("department", department);
-      submitData.append("coverLetter", formData.coverLetter);
-      submitData.append("portfolio", formData.portfolio);
-      submitData.append("linkedIn", formData.linkedIn);
-      submitData.append("dataProcessingConsent", "true");
-
-      // Add resume file
-      if (resume) {
-        submitData.append("resume", resume);
-      }
-
-      // Submit to secure API
-      const response = await fetch("/api/job-application", {
-        method: "POST",
-        body: submitData,
+      // Frontend-only submission: Clear form and show success message
+      console.log("📝 Job application submitted (frontend only):", {
+        fullName: formData.fullName,
+        email: formData.email,
+        position: jobTitle,
+        resume: resume?.name,
       });
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || "Failed to submit application");
-      }
 
       setIsSubmitted(true);
 
