@@ -287,13 +287,13 @@ export default function Footer() {
                   >
                     <Twitter className="h-5 w-5 text-blue-400" />
                   </Link>
-                  <Link
+                  {/* <Link
                     href="https://youtube.com/@jankiinfotech"
                     target="_blank"
                     className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
                   >
                     <Youtube className="h-5 w-5 text-red-500" />
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
 

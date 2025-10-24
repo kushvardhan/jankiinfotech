@@ -1,6 +1,6 @@
 "use client";
 
-import { Heart, Twitter, Youtube, Facebook, Sparkles, Code, MapPin } from "lucide-react";
+import { Heart, Twitter, Youtube, Facebook, Sparkles, Code, MapPin, Instagram, Linkedin } from "lucide-react";
 import Link from "next/link";
 
 export default function SmallFooter() {
@@ -49,7 +49,7 @@ export default function SmallFooter() {
         <nav className="mb-4">
           <div className="flex justify-center items-center gap-4">
             <Link 
-              href="https://twitter.com/jankiinfotech" 
+              href="https://x.com/Jankiinfotech_" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-green-600 transition-all duration-300 hover:scale-110 transform group"
@@ -67,13 +67,27 @@ export default function SmallFooter() {
             </Link>
             
             <Link 
-              href="https://facebook.com/jankiinfotech" 
+              href="https://www.facebook.com/profile.php?id=61581206342758" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-green-600 transition-all duration-300 hover:scale-110 transform group"
             >
               <Facebook className="h-6 w-6 group-hover:animate-bounce" />
             </Link>
+            <Link
+                    href="https://www.instagram.com/_jankiinfotech_/"
+                    target="_blank"
+                    className="text-gray-600 hover:text-green-600 transition-all duration-300 hover:scale-110 transform group"
+                  >
+                    <Instagram className="h-6 w-6 group-hover:animate-bounce" />
+                  </Link>
+                  <Link
+                    href="https://www.instagram.com/_jankiinfotech_/"
+                    target="_blank"
+                    className="text-gray-600 hover:text-green-600 transition-all duration-300 hover:scale-110 transform group"
+                  >
+                    <Linkedin className="h-6 w-6 group-hover:animate-bounce" />
+                  </Link>
           </div>
         </nav>
 
