@@ -303,7 +303,7 @@ export default function JobApplicationForm({
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors ${
                       errors.phone ? "border-red-500" : "border-gray-300"
                     }`}
-                    placeholder="+91 9876543210"
+                    placeholder="+91 76329 66717"
                   />
                   {errors.phone && (
                     <p className="text-red-500 text-sm mt-1">{errors.phone}</p>

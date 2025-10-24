@@ -16,8 +16,8 @@ export default function FloatingButtons() {
   }
 
   // WhatsApp number (replace with actual JankiInfotech WhatsApp number)
-  const whatsappNumber = "+918228800345";
-  const phoneNumber = "+918228800345";
+  const whatsappNumber = "+91 76329 66717";
+  const phoneNumber = "+91 76329 66717";
 
   const predefinedMessages = [
     {
