@@ -134,15 +134,15 @@ export function generateStructuredData(
         },
         contactPoint: {
           "@type": "ContactPoint",
-          telephone: "+91-9876543210", // Replace with actual phone
+          telephone: "+91 76329 66717", // Replace with actual phone
           contactType: "customer service",
           availableLanguage: ["English", "Hindi"],
         },
         sameAs: [
-          "https://www.linkedin.com/company/jankiinfotech",
-          "https://twitter.com/jankiinfotech",
-          "https://www.facebook.com/jankiinfotech",
-          "https://www.instagram.com/jankiinfotech",
+          "https://x.com/Jankiinfotech_",
+          "https://www.instagram.com/_jankiinfotech_/",
+          "https://www.facebook.com/profile.php?id=61581206342758",
+          "https://www.linkedin.com/company/jankiinfotech/?viewAsMember=true",
         ],
         foundingDate: "2019",
         numberOfEmployees: "20-50",

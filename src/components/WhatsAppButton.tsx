@@ -7,7 +7,7 @@ export default function WhatsAppButton() {
   const [isOpen, setIsOpen] = useState(false);
 
   // WhatsApp number (replace with actual JankiInfotech WhatsApp number)
-  const whatsappNumber = "+919876543210"; // Replace with actual number
+  const whatsappNumber = "+91 76329 66717"; // Replace with actual number
 
   const predefinedMessages = [
     {
