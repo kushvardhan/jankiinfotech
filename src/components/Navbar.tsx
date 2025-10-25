@@ -104,18 +104,6 @@ export function Navbar() {
                   >
                     Digital Marketing
                   </Link>
-                  <Link
-                    href="#services"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
-                  >
-                    Influencer Marketing
-                  </Link>
-                  <Link
-                    href="#services"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
-                  >
-                    Email/WhatsApp/SMS Marketing
-                  </Link>
                 </div>
               )}
             </div>

@@ -3,60 +3,62 @@
 import { Button } from "@/components/ui/button";
 
 export default function ServicesSection() {
-  const services = [
-    {
-      title: "Startup Cloud Solutions",
-      description:
-        "Secure, scalable, and reliable cloud infrastructure tailored for Startup needs. Includes migration, optimization, and 24/7 support.",
-      features: [
-        "Multi-cloud Strategy",
-        "Cost Optimization",
-        "High Availability",
-        "Disaster Recovery",
-      ],
-      icon: "☁️",
-      link: "/service/cloud",
-    },
-    {
-      title: "DevOps as a Service",
-      description:
-        "End-to-end DevOps implementation with CI/CD pipelines, automation, and infrastructure as code.",
-      features: [
-        "CI/CD Implementation",
-        "Infrastructure as Code",
-        "Microservices",
-        "Container Orchestration",
-      ],
-      icon: "⚙️",
-      link: "/service/devops",
-    },
-    {
-      title: "Full Stack Development",
-      description:
-        "End-to-end development solutions that seamlessly integrate engaging front-end interfaces with robust back-end systems.",
-      features: [
-        "Responsive Web Design",
-        "API Integration",
-        "Robust Back-end Architecture",
-        "Continuous Deployment",
-      ],
-      icon: "💻",
-      link: "/service/webdevelopment",
-    },
-    {
-      title: "Google My Business (GMB)",
-      description:
-        "Optimize your online presence with professional Google My Business setup, management, and optimization to boost local visibility and customer engagement.",
-      features: [
-        "GMB Profile Setup & Optimization",
-        "Local SEO Enhancement",
-        "Review Management",
-        "Business Insights & Analytics",
-      ],
-      icon: "📍",
-      link: "/service/gmb",
-    },
-  ];
+ const services = [
+  {
+    title: "Website Development",
+    description:
+      "Modern, responsive, and SEO-friendly websites built for performance and conversion.",
+    features: [
+      "Responsive Design",
+      "Custom UI/UX",
+      "SEO Optimization",
+      "Fast Loading Speed",
+    ],
+    icon: "💻",
+    link: "/service/website-development",
+  },
+  {
+    title: "Software Development",
+    description:
+      "Tailored software solutions designed to optimize business operations and scalability.",
+    features: [
+      "Custom Software Design",
+      "API Integrations",
+      "Database Management",
+      "Performance Optimization",
+    ],
+    icon: "🧠",
+    link: "/service/software-development",
+  },
+  {
+    title: "Digital Marketing",
+    description:
+      "Comprehensive digital marketing strategies to grow your brand’s online presence.",
+    features: [
+      "Social Media Marketing",
+      "Email Campaigns",
+      "Content Strategy",
+      "Ad Management",
+    ],
+    icon: "📈",
+    link: "/service/digital-marketing",
+  },
+  {
+    title: "Google My Business (GMB)",
+    description:
+      "Optimize and manage your GMB profile to increase local visibility and engagement.",
+    features: [
+      "Profile Setup & Optimization",
+      "Local SEO",
+      "Review Management",
+      "Business Insights",
+    ],
+    icon: "📍",
+    link: "/service/gmb",
+  },
+];
+
+
 
   return (
     <section className="py-20 bg-gray-50">
