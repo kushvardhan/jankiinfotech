@@ -25,17 +25,6 @@ export default function TechnologiesSection() {
       icon: "🌐",
     },
     {
-      title: "App Development",
-      description: "Cross-platform mobile applications for iOS and Android",
-      features: [
-        "React Native & Flutter",
-        "iOS/Swift & Android/Kotlin",
-        "Progressive Web Apps",
-        "Mobile-first UX/UI Design",
-      ],
-      icon: "📱",
-    },
-    {
       title: "Software Development",
       description: "Custom software solutions tailored to your business needs",
       features: [
@@ -57,28 +46,6 @@ export default function TechnologiesSection() {
         "Analytics & Reporting",
       ],
       icon: "📈",
-    },
-    {
-      title: "Influencer Marketing",
-      description: "Connect with your audience through trusted influencers",
-      features: [
-        "Influencer Partnerships",
-        "Campaign Management",
-        "Brand Collaborations",
-        "Performance Tracking",
-      ],
-      icon: "👥",
-    },
-    {
-      title: "Email/WhatsApp/SMS Marketing",
-      description: "Direct communication channels to reach your customers",
-      features: [
-        "Email Campaigns",
-        "WhatsApp Business API",
-        "SMS Marketing",
-        "Automation & Segmentation",
-      ],
-      icon: "📧",
     },
   ];
 
