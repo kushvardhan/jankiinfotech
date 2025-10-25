@@ -16,7 +16,6 @@ import {
   Smartphone,
   Twitter,
   Users,
-  Youtube,
   Zap,
 } from "lucide-react";
 import Link from "next/link";
