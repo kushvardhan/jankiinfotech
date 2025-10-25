@@ -71,11 +71,11 @@ export default function AboutPage() {
   "linkedin": "https://www.linkedin.com/in/abhishek#"
 },
 {
-      name: "Kush Vardhan",
+      name: "Kush",
       role: "Developer",
       icon: "👨‍💻",
       description: "Full-stack developer building innovative web solutions",
-      linkedin: "#",
+      linkedin: "https://kush-personal-portfolio-my-portfolio.vercel.app/",
     },
   ];
 
