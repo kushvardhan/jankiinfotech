@@ -43,6 +43,19 @@ export default function ServicesSection() {
       icon: "💻",
       link: "/service/webdevelopment",
     },
+    {
+      title: "Google My Business (GMB)",
+      description:
+        "Optimize your online presence with professional Google My Business setup, management, and optimization to boost local visibility and customer engagement.",
+      features: [
+        "GMB Profile Setup & Optimization",
+        "Local SEO Enhancement",
+        "Review Management",
+        "Business Insights & Analytics",
+      ],
+      icon: "📍",
+      link: "/service/gmb",
+    },
   ];
 
   return (
