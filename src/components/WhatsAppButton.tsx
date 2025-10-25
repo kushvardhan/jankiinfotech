@@ -20,10 +20,6 @@ export default function WhatsAppButton() {
         "Hi! I&apos;m interested in web development services. Can you provide more details?",
     },
     {
-      title: "Mobile App Development",
-      message: "Hi! I need help with mobile app development. Can we discuss?",
-    },
-    {
       title: "Training Programs",
       message:
         "Hi! I&apos;m interested in your training programs. Can you share more information?",

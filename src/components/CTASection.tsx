@@ -25,7 +25,7 @@ export default function CTASection() {
           <Link href="/careers">
             <Button
               variant="outline"
-              className="border-white text-green-400 hover:bg-white hover:text-green-600 px-8 py-3"
+              className="border-white text-green-500 hover:bg-white hover:text-green-600 px-8 py-3"
             >
               <Users className="w-5 h-5 mr-2" />
               Join Our Team
