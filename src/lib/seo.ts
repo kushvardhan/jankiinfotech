@@ -152,8 +152,10 @@ export function generateStructuredData(
           "Mobile App Development",
           "Cloud Solutions",
           "DevOps Services",
+          "Google My Business (GMB) Optimization",
           "IT Training",
           "Software Consulting",
+          "Digital Marketing",
         ],
       };
 

@@ -603,3 +603,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Hidden Developer Credits - Kush Vardhan */
+.dev-signature::before {
+  content: "Developed by Kush Vardhan (kushvardhan39797@gmail.com)";
+  position: fixed;
+  bottom: -9999px;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+  font-size: 0;
+  color: transparent;
+}
+
+/* Additional hidden metadata for developer credit */
+html::before {
+  content: "Website developed and maintained by Kush Vardhan - kushvardhan39797@gmail.com";
+  display: none;
+}
