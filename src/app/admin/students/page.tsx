@@ -27,6 +27,8 @@ export default function StudentsAdminPage() {
   const [loading, setLoading] = useState(true);
   const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [showAddForm, setShowAddForm] = useState(false);
 
   // Mock data for demonstration - replace with actual API call
   useEffect(() => {
