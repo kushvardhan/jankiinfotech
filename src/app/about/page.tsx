@@ -63,13 +63,19 @@ export default function AboutPage() {
       image: "/members/Sunidhi.jpg",
       description: "Digital marketing expert managing our online presence",
       linkedin: "https://www.linkedin.com/in/sunidhi-singh-b3624a243",
-    },
-    {
+    },{
+  "name": "Abhishek",
+  "role": "General Manager",
+  "icon": "🧑",
+  "description": "Strategic leader and sales expert driving business growth through effective client pitching and management",
+  "linkedin": "https://www.linkedin.com/in/abhishek#"
+},
+{
       name: "Kush Vardhan",
       role: "Developer",
       icon: "👨‍💻",
       description: "Full-stack developer building innovative web solutions",
-      linkedin: "https://www.linkedin.com/in/kush-vardhan-48996a251/",
+      linkedin: "#",
     },
   ];
 
