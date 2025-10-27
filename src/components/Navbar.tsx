@@ -109,6 +109,13 @@ export function Navbar() {
             </div>
 
             <Link
+              href="/our-work"
+              className="px-3 py-2 text-gray-700 hover:text-green-600 transition-colors duration-200 font-medium"
+            >
+              Our Work
+            </Link>
+
+            <Link
               href="/internship"
               className="px-3 py-2 text-gray-700 hover:text-green-600 transition-colors duration-200 font-medium"
             >
@@ -176,6 +183,13 @@ export function Navbar() {
                 onClick={() => setIsOpen(false)}
               >
                 About
+              </Link>
+              <Link
+                href="/our-work"
+                className="text-gray-700 hover:text-green-600 transition-colors py-2 px-4 font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                Our Work
               </Link>
               <Link
                 href="/internship"
