@@ -8,10 +8,8 @@ import Features from "@/components/Features";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import { Navbar } from "@/components/Navbar";
+import OurWorkPreview from "@/components/OurWorkPreview";
 import ServicesSection from "@/components/ServicesSection";
-import TechnologiesSection from "@/components/TechnologiesSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import WorkflowSection from "@/components/WorkflowSection";
 
 export default function Home() {
   return (
@@ -24,23 +22,15 @@ export default function Home() {
       </FadeInSection>
 
       <FadeInSection delay={200}>
-        <TechnologiesSection />
-      </FadeInSection>
-
-      <FadeInSection delay={100}>
-        <WorkflowSection />
-      </FadeInSection>
-
-      <FadeInSection delay={200}>
         <ServicesSection />
       </FadeInSection>
 
       <FadeInSection delay={100}>
-        <AboutSection />
+        <OurWorkPreview />
       </FadeInSection>
 
       <FadeInSection delay={200}>
-        <TestimonialsSection />
+        <AboutSection />
       </FadeInSection>
 
       <FadeInSection delay={100}>
