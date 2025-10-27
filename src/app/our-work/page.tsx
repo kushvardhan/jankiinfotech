@@ -187,9 +187,9 @@ export default function OurWorkPage() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 md:p-8 flex flex-col flex-grow">
+                <div className="p-5 md:p-7 flex flex-col flex-grow">
                   {/* Title with Link */}
-                  <div className="flex items-start justify-between gap-3 mb-3">
+                  <div className="flex items-start justify-between gap-2 mb-3">
                     <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
                       {project.title}
                     </h3>
@@ -206,13 +206,13 @@ export default function OurWorkPage() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-gray-600 mb-3 leading-relaxed">
                     {project.description}
                   </p>
 
                   {/* Impact Badge */}
                   {project.impact && (
-                    <div className="mb-4 p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200">
+                    <div className="mb-3 p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200">
                       <p className="text-sm font-semibold text-green-700">
                         ✨ {project.impact}
                       </p>
@@ -220,13 +220,13 @@ export default function OurWorkPage() {
                   )}
 
                   {/* Duration */}
-                  <div className="flex items-center gap-2 text-gray-600 mb-6 text-sm">
+                  <div className="flex items-center gap-2 text-gray-600 mb-5 text-sm">
                     <Calendar className="h-4 w-4 text-green-600" />
                     <span className="font-medium">{project.duration}</span>
                   </div>
 
                   {/* Developer Credit - Subtle */}
-                  <div className="mb-6 pb-6 border-b border-gray-200">
+                  <div className="mb-5 pb-6 border-b border-gray-200">
                     <div className="flex items-center gap-2 text-xs text-gray-500">
                       <span>Crafted by</span>
                       <Link
@@ -243,7 +243,7 @@ export default function OurWorkPage() {
                   {/* Action Button */}
                   <button
                     onClick={() => setSelectedProject(project)}
-                    className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+                    className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group/btn"
                   >
                     <span>Explore Project</span>
                     <ExternalLink className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
@@ -261,8 +261,8 @@ export default function OurWorkPage() {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-green-200 to-emerald-200 rounded-3xl blur-2xl opacity-20"></div>
             <div className="relative bg-white rounded-3xl p-8 md:p-12 border border-green-200 shadow-xl text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full mb-6">
-                <Sparkles className="h-8 w-8 text-green-600 animate-spin" />
+              <div className="cursor-pointer inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full mb-6">
+                <Sparkles className=" h-8 w-8 text-green-600 hover:animate-spin" />
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 More Magic in the Making ✨
@@ -416,9 +416,9 @@ export default function OurWorkPage() {
                 </p>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-xl font-bold text-gray-900">
+                    <Link href="https://kush-personal-portfolio-my-portfolio.vercel.app/" className="cursor-pointer text-lg font-bold text-gray-900 hover:text-green-800 ">
                       Kush Vardhan
-                    </p>
+                    </Link>
                     <p className="text-sm text-gray-600">
                       Full Stack Developer & Creative Technologist
                     </p>
