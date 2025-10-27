@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Project {
   id: string;
@@ -121,6 +121,20 @@ const projects: Project[] = [
 export default function OurWorkPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
+  // Handle ESC key to close modal
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedProject(null);
+      }
+    };
+
+    if (selectedProject) {
+      document.addEventListener("keydown", handleEscape);
+      return () => document.removeEventListener("keydown", handleEscape);
+    }
+  }, [selectedProject]);
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-white via-green-50/30 to-white overflow-x-hidden">
       <Navbar />
@@ -146,8 +160,8 @@ export default function OurWorkPage() {
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Every project tells a story of innovation, dedication, and
-            transformative impact. Explore the digital solutions we&apos;ve built
-            with passion and precision.
+            transformative impact. Explore the digital solutions we&apos;ve
+            built with passion and precision.
           </p>
         </div>
       </section>
@@ -280,18 +294,24 @@ export default function OurWorkPage() {
 
       {/* Modal - Premium */}
       {selectedProject && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-3xl w-full my-8 shadow-2xl relative">
-            {/* Close Button - Positioned */}
+        <div
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div
+            className="bg-white rounded-3xl max-w-3xl w-full shadow-2xl relative my-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button - Sticky */}
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-6 right-6 z-10 p-2 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full transition-colors"
-              title="Close"
+              className="sticky top-0 right-0 float-right z-20 p-3 m-4 bg-red-100 hover:bg-red-200 text-red-600 rounded-full transition-all duration-200 hover:scale-110 flex-shrink-0"
+              title="Close (ESC)"
             >
               <X className="h-6 w-6" />
             </button>
 
-            <div className="p-6 md:p-10">
+            <div className="p-6 md:p-10 pt-0">
               {/* Image - Larger */}
               <div className="relative h-72 md:h-96 mb-8 rounded-2xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                 <Image
@@ -429,54 +449,34 @@ export default function OurWorkPage() {
         </div>
       )}
 
-      {/* Developer Credit Section - Premium */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-green-50">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Crafted with Passion & Precision
-            </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Every line of code, every design decision, and every interaction
-              has been thoughtfully created to deliver exceptional digital
-              experiences. These projects represent our commitment to excellence
-              and innovation.
-            </p>
-          </div>
+      {/* Developer Credit Section - Minimal & Elegant */}
+      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 md:gap-8">
+            {/* Left: Warm Message */}
+            <div className="flex-1 text-center sm:text-left">
+              <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                Every project is crafted with passion, precision, and a
+                commitment to excellence.
+                <span className="block mt-2 text-gray-500 text-xs md:text-sm">
+                  Transforming ideas into impactful digital experiences.
+                </span>
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="p-6 bg-white rounded-xl border border-gray-200 text-center">
-              <p className="text-3xl font-bold text-green-600 mb-2">4+</p>
-              <p className="text-gray-600 font-medium">Projects Delivered</p>
-            </div>
-            <div className="p-6 bg-white rounded-xl border border-gray-200 text-center">
-              <p className="text-3xl font-bold text-green-600 mb-2">10K+</p>
-              <p className="text-gray-600 font-medium">Lives Impacted</p>
-            </div>
-            <div className="p-6 bg-white rounded-xl border border-gray-200 text-center">
-              <p className="text-3xl font-bold text-green-600 mb-2">100%</p>
-              <p className="text-gray-600 font-medium">Dedication</p>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl p-8 md:p-10 text-white text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest mb-3 opacity-90">
-              Lead Developer
-            </p>
-            <h3 className="text-3xl md:text-4xl font-bold mb-2">
-              Kush Vardhan
-            </h3>
-            <p className="text-green-100 mb-4">
-              Full Stack Developer & Digital Innovator
-            </p>
-            <p className="text-green-50 mb-6">kushvardhan39797@gmail.com</p>
+            {/* Right: Developer Credit - Minimal */}
             <Link
               href="https://kush-personal-portfolio-my-portfolio.vercel.app/"
               target="_blank"
-              className="inline-flex items-center gap-2 bg-white text-green-600 hover:bg-green-50 font-bold py-3 px-6 rounded-lg transition-colors"
+              className="group flex items-center gap-3 px-5 py-3 rounded-full border border-gray-200 hover:border-green-400 bg-white hover:bg-green-50 transition-all duration-300 hover:shadow-md flex-shrink-0"
             >
-              <Globe className="h-5 w-5" />
-              View Full Portfolio
+              <div className="flex flex-col items-end">
+                <p className="text-xs text-gray-500 font-medium">Crafted by</p>
+                <p className="text-sm md:text-base font-bold text-gray-900 group-hover:text-green-600 transition-colors">
+                  Kush Vardhan
+                </p>
+              </div>
+              <Globe className="h-5 w-5 text-green-600 group-hover:scale-110 transition-transform" />
             </Link>
           </div>
         </div>
