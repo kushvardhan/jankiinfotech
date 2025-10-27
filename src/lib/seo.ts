@@ -157,6 +157,13 @@ export function generateStructuredData(
           "Software Consulting",
           "Digital Marketing",
         ],
+        developer: {
+          "@type": "Person",
+          name: "Kush Vardhan",
+          email: "kushvardhan39797@gmail.com",
+          url: "https://kush-personal-portfolio-my-portfolio.vercel.app/",
+          jobTitle: "Full Stack Developer",
+        },
       };
 
     case "website":
