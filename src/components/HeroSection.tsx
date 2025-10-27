@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const [showClientsModal, setShowClientsModal] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -79,34 +80,39 @@ export default function HeroSection() {
             <p className="text-gray-500 text-sm mb-8">
               Trusted by startups worldwide
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60 mb-8">
-              {/* Client logos with green theme */}
-              <div className="w-20 h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200">
-                <span className="text-xs text-green-600 font-semibold">
-                  Client 1
-                </span>
+            <button
+              onClick={() => setShowClientsModal(true)}
+              className="w-full group"
+            >
+              <div className="flex flex-wrap justify-center items-center gap-8 opacity-60 mb-8 group-hover:opacity-100 transition-opacity duration-300">
+                {/* Client logos with green theme */}
+                <div className="w-20 h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 group-hover:border-green-400 group-hover:shadow-lg transition-all duration-300 cursor-pointer">
+                  <span className="text-xs text-green-600 font-semibold">
+                    Client 1
+                  </span>
+                </div>
+                <div className="w-20 h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 group-hover:border-green-400 group-hover:shadow-lg transition-all duration-300 cursor-pointer">
+                  <span className="text-xs text-green-600 font-semibold">
+                    Client 3
+                  </span>
+                </div>
+                <div className="w-20 h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 group-hover:border-green-400 group-hover:shadow-lg transition-all duration-300 cursor-pointer">
+                  <span className="text-xs text-green-600 font-semibold">
+                    Client 4
+                  </span>
+                </div>
+                <div className="w-20 h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 group-hover:border-green-400 group-hover:shadow-lg transition-all duration-300 cursor-pointer">
+                  <span className="text-xs text-green-600 font-semibold">
+                    Client 5
+                  </span>
+                </div>
+                <div className="w-20 h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 group-hover:border-green-400 group-hover:shadow-lg transition-all duration-300 cursor-pointer">
+                  <span className="text-xs text-green-600 font-semibold">
+                    Client 6
+                  </span>
+                </div>
               </div>
-              <div className="w-20 h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200">
-                <span className="text-xs text-green-600 font-semibold">
-                  Client 3
-                </span>
-              </div>
-              <div className="w-20 h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200">
-                <span className="text-xs text-green-600 font-semibold">
-                  Client 4
-                </span>
-              </div>
-              <div className="w-20 h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200">
-                <span className="text-xs text-green-600 font-semibold">
-                  Client 5
-                </span>
-              </div>
-              <div className="w-20 h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200">
-                <span className="text-xs text-green-600 font-semibold">
-                  Client 6
-                </span>
-              </div>
-            </div>
+            </button>
             <div className="mt-12">
               <div
                 className={`transition-all duration-1500 delay-1700 ${
@@ -125,6 +131,46 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
+
+          {/* Clients Modal */}
+          {showClientsModal && (
+            <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+              <div className="bg-white rounded-xl max-w-2xl w-full p-8 max-h-[90vh] overflow-y-auto">
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-3xl font-bold text-gray-900">
+                    Our Trusted Clients
+                  </h2>
+                  <button
+                    onClick={() => setShowClientsModal(false)}
+                    className="text-gray-500 hover:text-gray-700 text-2xl"
+                  >
+                    <X className="h-6 w-6" />
+                  </button>
+                </div>
+                <p className="text-gray-600 mb-6">
+                  We have successfully served 500+ startup clients worldwide,
+                  helping them transform their digital presence and achieve
+                  their business goals.
+                </p>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                  {[1, 2, 3, 4, 5, 6].map((i) => (
+                    <div
+                      key={i}
+                      className="h-24 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 hover:border-green-400 hover:shadow-lg transition-all duration-300"
+                    >
+                      <span className="text-sm text-green-600 font-semibold">
+                        Client {i}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-sm text-gray-500 text-center">
+                  Each client represents our commitment to excellence and
+                  innovation
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>
