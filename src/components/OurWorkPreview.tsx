@@ -75,10 +75,10 @@ export default function OurWorkPreview() {
         <div className="text-center">
           <Link
             href="/our-work"
-            className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-7 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 text-sm md:text-base"
+            className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 md:px-7 rounded-lg transition-colors duration-300 text-sm md:text-base"
           >
             <span>Explore All Projects</span>
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4 flex-shrink-0" />
           </Link>
         </div>
       </div>
