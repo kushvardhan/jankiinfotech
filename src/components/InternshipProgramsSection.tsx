@@ -43,28 +43,6 @@ const internshipPrograms = [
   },
   {
     id: 2,
-    title: "Mobile App Development",
-    duration: "4 Months",
-    type: "Online",
-    description:
-      "Build cross-platform mobile applications using React Native and Flutter.",
-    skills: ["React Native", "Flutter", "Dart", "Firebase", "API Integration"],
-    level: "Intermediate",
-    seats: 15,
-    startDate: "April 2025",
-    fee: "₹20,000",
-    icon: "📱",
-    gradient: "from-green-500 to-teal-600",
-    popular: false,
-    features: [
-      "Real App Development",
-      "Play Store Publishing",
-      "UI/UX Design Training",
-      "Portfolio Building",
-    ],
-  },
-  {
-    id: 3,
     title: "UI/UX Design",
     duration: "3 Months",
     type: "Online",
@@ -93,7 +71,7 @@ const internshipPrograms = [
     ],
   },
   {
-    id: 4,
+    id: 3,
     title: "Digital Marketing",
     duration: "3 Months",
     type: "Hybrid",
