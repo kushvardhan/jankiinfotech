@@ -35,8 +35,13 @@ export default function ScheduleConsultationForm() {
     message: "",
   });
 
+  const [showWhatsAppPopup, setShowWhatsAppPopup] = useState(false);
+
   const consultationTypes = [
-    "Web Development",
+    "Website Development",
+    "Software Development",
+    "Digital Marketing",
+    "Google My Business (GMB)",
     "Mobile App Development",
     "Cloud & DevOps",
     "Training Programs",
@@ -86,6 +91,7 @@ Message: ${formData.message}
           message:
             "Consultation request submitted successfully! We'll contact you within 24 hours to confirm your appointment.",
         });
+        setShowWhatsAppPopup(true);
         setFormData({
           name: "",
           email: "",
@@ -330,6 +336,49 @@ Message: ${formData.message}
           consultation appointment.
         </p>
       </form>
+
+      {/* WhatsApp Popup */}
+      {showWhatsAppPopup && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              ✅ Request Submitted!
+            </h3>
+            <p className="text-gray-700 mb-6">
+              Thank you for submitting your consultation request for{" "}
+              <span className="font-semibold text-green-600">
+                {formData.consultationType}
+              </span>
+              . We&apos;ll review your details and contact you soon.
+            </p>
+
+            {/* WhatsApp CTA Section */}
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 mb-6 border-2 border-green-200">
+              <p className="text-sm text-gray-700 mb-3 font-medium">
+                💬 Want a quicker response?
+              </p>
+              <a
+                href={`https://wa.me/918228800345?text=${encodeURIComponent(
+                  `Hi JankiInfotech, I just submitted a consultation request for ${formData.consultationType} and would like to discuss further.`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+              >
+                <MessageSquare className="w-5 h-5 mr-2" />
+                Chat on WhatsApp
+              </a>
+            </div>
+
+            <button
+              onClick={() => setShowWhatsAppPopup(false)}
+              className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-3 px-4 rounded-lg font-semibold transition-all duration-300"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
