@@ -35,12 +35,14 @@ export default function AboutSection() {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             Building a vibrant tech ecosystem with innovation and excellence
           </p>
+          <Link href='/about' >
           <Button
             variant="outline"
             className="border-green-600 text-green-600 hover:bg-green-600 hover:text-white"
           >
             Explore More About Us
           </Button>
+          </Link>
         </div>
 
         {/* Main Content */}
@@ -158,9 +160,11 @@ export default function AboutSection() {
             ))}
           </div>
           <div className="text-center mt-8">
+            <Link href='/internship' >
             <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3">
               Explore All
             </Button>
+            </Link>
           </div>
         </div>
       </div>

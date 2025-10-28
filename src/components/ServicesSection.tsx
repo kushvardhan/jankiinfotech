@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function ServicesSection() {
@@ -134,12 +134,14 @@ export default function ServicesSection() {
               <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 font-semibold">
                 Schedule Consultation
               </Button>
-              <Button
-                variant="outline"
-                className="border-white text-green-400 hover:bg-white hover:text-green-600 px-8 py-3 font-semibold"
-              >
-                View Portfolio
-              </Button>
+              <Link href="/our-work">
+  <Button
+    variant="outline"
+    className="border-white text-green-400 hover:bg-white hover:text-green-600 px-8 py-3 font-semibold"
+  >
+    View Portfolio
+  </Button>
+</Link>
             </div>
           </div>
         </div>
