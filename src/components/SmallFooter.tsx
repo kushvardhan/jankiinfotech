@@ -126,7 +126,7 @@ export default function SmallFooter() {
               <Code className="h-3 w-3 flex-shrink-0" />
               <span className="hidden sm:inline">Crafted by</span>
               <Link target="_blank" href='https://kush-personal-portfolio-my-portfolio.vercel.app/' >
-                <span  className="cursor-pointer text-zinc-600 hover:text-blue-600 font-mono text-sm md:text-md">
+                <span  className="cursor-pointer text-zinc-600 hover:text-blue-700 font-mono text-sm md:text-md">
                 Kush
               </span>
               </Link>

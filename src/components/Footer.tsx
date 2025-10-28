@@ -72,14 +72,14 @@ export default function Footer() {
   };
 
   const services = [
-    { name: "Web Development", icon: Globe, href: "/service/web-development" },
+    { name: "Web Development", icon: Globe, href: "/#services" },
     {
       name: "Mobile Apps",
       icon: Smartphone,
-      href: "/service/application-development",
+      href: "/#services",
     },
-    { name: "Cloud Solutions", icon: Zap, href: "/service/cloud-optimization" },
-    { name: "DevOps", icon: Code, href: "/service/devops-solution" },
+    { name: "Cloud Solutions", icon: Zap, href: "/#services" },
+    { name: "DevOps", icon: Code, href: "/#services" },
   ];
 
   const quickLinks = [
@@ -87,7 +87,7 @@ export default function Footer() {
     { name: "Internships", href: "/internship" },
     { name: "Success Stories", href: "/success-stories" },
     { name: "Schedule Consultation", href: "/schedule-consultation" },
-    { name: "Contact", href: "/contact" },
+    { name: "Our Work", href: "/our-work" },
   ];
 
   const stats = [
@@ -370,13 +370,11 @@ export default function Footer() {
                   Crafted with{" "}
                   <Heart className="h-5 w-5 inline text-red-600 cursor-pointer" />{" "}
                   by{" "}
-                  <span className="text-regular text-gray-800 font-mono">
-                    kushvardhan
-                    <span className="text-sm text-gray-800 font-mono">
-                      39797
-                    </span>
-                    @gmail.com
+                  <Link target="_blank" href='https://kush-personal-portfolio-my-portfolio.vercel.app/' >
+                  <span className="cursor-pointer hover:text-blue-700 text-regular text-gray-800 font-mono text-md">
+                    Kush
                   </span>
+                  </Link>
                 </p>
 
                 {/* Developer signature - hidden but accessible */}
