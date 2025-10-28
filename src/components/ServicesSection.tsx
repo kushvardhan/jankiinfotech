@@ -56,6 +56,21 @@ export default function ServicesSection() {
       icon: "📍",
       link: "/service/gmb",
     },
+    {
+  title: "Internship Programs",
+  description:
+    "Hands-on internship opportunities in frontend, backend, full-stack development, UI/UX design, and digital marketing to build real-world skills.",
+  features: [
+    "Frontend Development",
+    "Backend Development",
+    "Full-Stack Development",
+    "UI/UX Design",
+    "Digital Marketing",
+  ],
+  icon: "🎓",
+  link: "/service/internships",
+}
+
   ];
 
   return (
