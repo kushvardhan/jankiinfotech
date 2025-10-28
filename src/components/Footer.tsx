@@ -383,7 +383,7 @@ export default function Footer() {
                 <div className="opacity-0 hover:opacity-100 transition-opacity duration-1000 text-xs text-gray-400 mt-2">
                   <span
                     className="cursor-default"
-                    title="Developer: Kush Vardhan - kushvardhan39797@gmail.com"
+                    title="Developer & Designer: Kush Vardhan - kushvardhan39797@gmail.com"
                   >
                     ⚡ Powered by innovation
                   </span>

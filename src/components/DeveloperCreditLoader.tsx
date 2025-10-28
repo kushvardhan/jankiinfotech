@@ -46,7 +46,7 @@ export default function DeveloperCreditLoader() {
 
           {/* Developer Credit */}
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 max-w-md mx-auto">
-            <p className="text-white/80 text-sm mb-3">Developed by</p>
+            <p className="text-white/80 text-sm mb-3">Developed & Designed by</p>
             <h3 className="text-3xl font-bold text-white mb-2">Kush Vardhan</h3>
             <p className="text-white/70 text-sm mb-4">Full Stack Developer</p>
             <a
