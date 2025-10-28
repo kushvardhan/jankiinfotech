@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { AlertCircle, Home, Search } from 'lucide-react'
-import Logo from '@/components/Logo'
+import Logo from "@/components/Logo";
+import { Button } from "@/components/ui/button";
+import { AlertCircle, Home, Search } from "lucide-react";
+import Link from "next/link";
 
 export default function StudentNotFound() {
   return (
@@ -22,8 +22,8 @@ export default function StudentNotFound() {
           Student Not Found
         </h1>
         <p className="text-gray-600 mb-8">
-          The student certificate you&apos;re looking for doesn&apos;t exist or may have been removed.
-          Please check the QR code or URL and try again.
+          The student certificate you&apos;re looking for doesn&apos;t exist or
+          may have been removed. Please check the QR code or URL and try again.
         </p>
 
         {/* Action Buttons */}
@@ -34,8 +34,8 @@ export default function StudentNotFound() {
               Go to Homepage
             </Button>
           </Link>
-          
-          <Link href="/contact">
+
+          <Link href="/schedule-consultation">
             <Button variant="outline" className="w-full border-gray-300">
               <Search className="h-4 w-4 mr-2" />
               Contact Support
@@ -47,11 +47,11 @@ export default function StudentNotFound() {
         <div className="mt-8 p-4 bg-blue-50 rounded-lg">
           <h3 className="font-semibold text-blue-800 mb-2">Need Help?</h3>
           <p className="text-sm text-blue-700">
-            If you believe this is an error, please contact our support team with the 
-            certificate ID or QR code you&apos;re trying to access.
+            If you believe this is an error, please contact our support team
+            with the certificate ID or QR code you&apos;re trying to access.
           </p>
         </div>
       </div>
     </div>
-  )
+  );
 }
