@@ -57,16 +57,15 @@ export default function ScheduleConsultationForm() {
     "4:00 PM - 5:00 PM",
   ];
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus({ type: null, message: "" });
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+  setSubmitStatus({ type: null, message: "" });
 
-    try {
-      // Simulate 2-second backend submission delay
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+  try {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
-      const consultationMessage = `
+    const consultationMessage = `
 Consultation Request:
 - Type: ${formData.consultationType}
 - Preferred Date: ${formData.preferredDate}
@@ -74,50 +73,55 @@ Consultation Request:
 - Company: ${formData.company || "Not specified"}
 
 Message: ${formData.message}
-      `.trim();
+    `.trim();
 
-      const result = await submitContactForm({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        message: consultationMessage,
-        service: "consulting",
+    const result = await submitContactForm({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      company: formData.company,
+      message: consultationMessage,
+      service: "consulting",
+    });
+
+    if (result.success) {
+      setSubmitStatus({
+        type: "success",
+        message:
+          "Consultation request submitted successfully! We'll contact you within 24 hours to confirm your appointment.",
       });
+      setShowWhatsAppPopup(true);
 
-      if (result.success) {
-        setSubmitStatus({
-          type: "success",
-          message:
-            "Consultation request submitted successfully! We'll contact you within 24 hours to confirm your appointment.",
-        });
-        setShowWhatsAppPopup(true);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          company: "",
-          consultationType: "",
-          preferredDate: "",
-          preferredTime: "",
-          message: "",
-        });
-      } else {
-        setSubmitStatus({
-          type: "error",
-          message: result.message || "Something went wrong. Please try again.",
-        });
-      }
-    } catch (error) {
-      console.error("Form submission error:", error);
+      // Auto-close popup after 4 seconds
+      setTimeout(() => setShowWhatsAppPopup(false), 4000);
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        consultationType: "",
+        preferredDate: "",
+        preferredTime: "",
+        message: "",
+      });
+    } else {
       setSubmitStatus({
         type: "error",
-        message: "Something went wrong. Please try again.",
+        message: result.message || "Something went wrong. Please try again.",
       });
-    } finally {
-      setIsSubmitting(false);
     }
-  };
+  } catch (error) {
+    console.error("Form submission error:", error);
+    setSubmitStatus({
+      type: "error",
+      message: "Something went wrong. Please try again.",
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -342,7 +346,7 @@ Message: ${formData.message}
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              ✅ Request Submitted!
+               Request Submitted!
             </h3>
             <p className="text-gray-700 mb-6">
               Thank you for submitting your consultation request for{" "}
