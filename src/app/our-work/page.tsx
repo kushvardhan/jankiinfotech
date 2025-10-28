@@ -257,40 +257,38 @@ export default function OurWorkPage() {
 
       {/* Coming Soon Section - Creative */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-green-50 via-emerald-50 to-green-50">
-        <div className="container mx-auto max-w-4xl">
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-green-200 to-emerald-200 rounded-3xl blur-2xl opacity-20"></div>
-            <div className="relative bg-white rounded-3xl p-8 md:p-12 border border-green-200 shadow-xl text-center">
-              <div className="cursor-pointer inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full mb-6">
-                <Sparkles className=" h-8 w-8 text-green-600 hover:animate-spin" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                More Magic in the Making ✨
-              </h2>
-              <p className="text-lg text-gray-600 mb-2 leading-relaxed">
-                Our creative studio is constantly brewing new ideas and crafting
-                innovative digital experiences.
-              </p>
-              <p className="text-gray-500 mb-8">
-                Several exciting projects are in development. We&apos;re pushing
-                boundaries and exploring new possibilities to bring you even
-                more remarkable solutions.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <div className="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">
-                  🎨 Design Phase
-                </div>
-                <div className="px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium">
-                  ⚙️ Development
-                </div>
-                <div className="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">
-                  🚀 Coming Soon
-                </div>
-              </div>
-            </div>
+  <div className="container mx-auto max-w-4xl">
+    <div className="relative">
+      <div className="absolute inset-0 bg-gradient-to-r from-green-200 to-emerald-200 rounded-3xl blur-2xl opacity-20"></div>
+      <div className="relative bg-white rounded-3xl p-8 md:p-12 border border-green-200 shadow-xl text-center">
+        <div className="cursor-pointer inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full mb-6">
+          <Sparkles className="h-8 w-8 text-green-600 hover:animate-spin" />
+        </div>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          More Projects in Progress ✨
+        </h2>
+        <p className="text-lg text-gray-600 mb-2 leading-relaxed">
+          Our team is actively working on new and exciting projects, bringing fresh ideas and powerful solutions to life.
+        </p>
+        <p className="text-gray-500 mb-8">
+          Stay tuned — several innovative experiences are currently in design and development, soon to be launched for our clients and community.
+        </p>
+        <div className="flex flex-wrap justify-center gap-3">
+          <div className="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+            🎨 Design Phase
+          </div>
+          <div className="px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium">
+            ⚙️ Development
+          </div>
+          <div className="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+            🚀 Coming Soon
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Modal - Premium */}
       {selectedProject && (
@@ -410,13 +408,13 @@ export default function OurWorkPage() {
               </div>
 
               {/* Developer Credit - Premium */}
-              <div className="mb-8 p-6 bg-gradient-to-br from-green-50 via-emerald-50 to-green-50 rounded-2xl border border-green-200">
-                <p className="text-xs text-gray-600 mb-3 font-semibold uppercase tracking-wide">
+              <div className="mb-8 p-5 bg-gradient-to-br from-green-50 via-emerald-50 to-green-50 rounded-2xl border border-green-200">
+                <p className="text-xs text-gray-600 mb-2 font-semibold uppercase tracking-wide">
                   Crafted with ❤️ by
                 </p>
                 <div className="flex items-center justify-between">
                   <div>
-                    <Link href="https://kush-personal-portfolio-my-portfolio.vercel.app/" className="cursor-pointer text-lg font-bold text-gray-900 hover:text-green-800 ">
+                    <Link href="https://kush-personal-portfolio-my-portfolio.vercel.app/" className="cursor-pointer text-md font-semibold text-gray-900 hover:text-green-800 ">
                       Kush Vardhan
                     </Link>
                     <p className="text-sm text-gray-600">
@@ -450,10 +448,10 @@ export default function OurWorkPage() {
       )}
 
       {/* Developer Credit Section - Minimal & Elegant */}
-      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      {/* <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 md:gap-8">
-            {/* Left: Warm Message */}
+         
             <div className="flex-1 text-center sm:text-left">
               <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                 Every project is crafted with passion, precision, and a
@@ -464,7 +462,6 @@ export default function OurWorkPage() {
               </p>
             </div>
 
-            {/* Right: Developer Credit - Minimal */}
             <Link
               href="https://kush-personal-portfolio-my-portfolio.vercel.app/"
               target="_blank"
@@ -480,7 +477,7 @@ export default function OurWorkPage() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <SmallFooter />
     </main>
