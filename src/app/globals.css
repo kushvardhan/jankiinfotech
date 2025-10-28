@@ -110,7 +110,7 @@
 }
 
 .dev-signature::before {
-  content: "Developed by Kush Vardhan - kushvardhan39797@gmail.com";
+  content: "Developed & Designed by Kush Vardhan - kushvardhan39797@gmail.com";
 }
 
 /* Advanced Floating animations */
@@ -606,7 +606,7 @@
 
 /* Hidden Developer Credits - Kush Vardhan */
 .dev-signature::before {
-  content: "Developed by Kush Vardhan (kushvardhan39797@gmail.com)";
+  content: "Developed & Designed by Kush Vardhan (kushvardhan39797@gmail.com)";
   position: fixed;
   bottom: -9999px;
   left: -9999px;
@@ -618,6 +618,6 @@
 
 /* Additional hidden metadata for developer credit */
 html::before {
-  content: "Website developed and maintained by Kush Vardhan - kushvardhan39797@gmail.com";
+  content: "Website developed, designed and maintained by Kush Vardhan - kushvardhan39797@gmail.com";
   display: none;
 }

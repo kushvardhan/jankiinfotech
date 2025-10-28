@@ -64,7 +64,7 @@ export default function AboutPage() {
       description: "Digital marketing expert managing our online presence",
       linkedin: "https://www.linkedin.com/in/sunidhi-singh-b3624a243",
     },{
-  "name": "Abhishek",
+  "name": "Abhishek Narayan",
   "role": "General Manager",
   "icon": "🧑",
   "description": "Strategic leader and sales expert driving business growth through effective client pitching and management",
@@ -72,9 +72,9 @@ export default function AboutPage() {
 },
 {
       name: "Kush",
-      role: "Developer",
+      role: "Full Stack Developer & Web Designer",
       icon: "👨‍💻",
-      description: "Full-stack developer building innovative web solutions",
+      description: "Full-Stack Developer & Web Designer building fast, modern, and engaging websites.",
       linkedin: "https://kush-personal-portfolio-my-portfolio.vercel.app/",
     },
   ];
