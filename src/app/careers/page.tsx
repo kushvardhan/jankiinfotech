@@ -10,6 +10,8 @@ import {
   Clock,
   Coffee,
   DollarSign,
+  Download,
+  FileText,
   Globe,
   GraduationCap,
   Heart,
@@ -481,6 +483,33 @@ export default function CareersPage() {
                 <Users className="w-5 h-5 mr-2" />
                 Contact HR
               </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Brochure Download CTA */}
+        <section className="py-16 bg-gradient-to-br from-green-50 to-blue-50">
+          <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-3xl p-8 md:p-10 text-white text-center shadow-2xl">
+              <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <FileText className="h-8 w-8 text-white" />
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                Learn More About JankiInfotech
+              </h2>
+              <p className="text-base md:text-lg mb-6 opacity-95 max-w-2xl mx-auto">
+                Download our brochure to discover more about our company
+                culture, values, and the exciting opportunities we offer.
+              </p>
+              <a
+                href="/brochure.jpeg"
+                download="JankiInfotech-Brochure.jpeg"
+                className="inline-flex items-center gap-3 bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+              >
+                <FileText className="h-5 w-5" />
+                Download Brochure
+                <Download className="h-5 w-5 animate-bounce" />
+              </a>
             </div>
           </div>
         </section>

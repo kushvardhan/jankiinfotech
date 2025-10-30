@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import {
   Award,
   BookOpen,
+  Download,
+  FileText,
   MapPin,
   Rocket,
   Sparkles,
@@ -193,6 +195,33 @@ export default function InternshipPage() {
           </div>
         </section>
 
+        {/* Brochure Download Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-3xl p-8 md:p-10 text-white text-center shadow-2xl">
+              <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <FileText className="h-8 w-8 text-white" />
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                Get Complete Program Details
+              </h2>
+              <p className="text-base md:text-lg mb-6 opacity-95 max-w-2xl mx-auto">
+                Download our brochure to explore all internship programs,
+                curriculum details, and success stories from our alumni.
+              </p>
+              <a
+                href="/brochure.jpeg"
+                download="JankiInfotech-Brochure.jpeg"
+                className="inline-flex items-center gap-3 bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+              >
+                <FileText className="h-5 w-5" />
+                Download Brochure
+                <Download className="h-5 w-5 animate-bounce" />
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="relative py-32 bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white overflow-hidden">
           {/* Background Pattern */}
@@ -245,8 +274,6 @@ export default function InternshipPage() {
                   Your dream job is just 6 months away!
                 </span>
               </p>
-
-
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-6 justify-center">

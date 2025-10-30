@@ -5,7 +5,9 @@ import SmallFooter from "@/components/SmallFooter";
 import {
   ArrowUpRight,
   Calendar,
+  Download,
   ExternalLink,
+  FileText,
   Globe,
   Sparkles,
   X,
@@ -445,6 +447,32 @@ export default function OurWorkPage() {
           </div>
         </div>
       )}
+
+      {/* Brochure Download CTA */}
+      <section className="py-16 bg-gradient-to-br from-green-50 to-blue-50">
+        <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-3xl p-8 md:p-10 text-white text-center shadow-2xl">
+            <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <FileText className="h-8 w-8 text-white" />
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Discover All Our Services
+            </h2>
+            <p className="text-base md:text-lg mb-6 opacity-95 max-w-2xl mx-auto">
+              Download our comprehensive brochure to explore our full range of services and see how we can help bring your vision to life.
+            </p>
+            <a
+              href="/brochure.jpeg"
+              download="JankiInfotech-Brochure.jpeg"
+              className="inline-flex items-center gap-3 bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+            >
+              <FileText className="h-5 w-5" />
+              Download Brochure
+              <Download className="h-5 w-5 animate-bounce" />
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* Developer Credit Section - Minimal & Elegant */}
       {/* <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white">
