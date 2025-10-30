@@ -136,75 +136,72 @@ export default function ServicesSection() {
     },
   ];
 
+  // Prevent background scroll when modal is open
+  useEffect(() => {
+    if (selectedService !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedService]);
+
   // Handle ESC key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setSelectedService(null);
-      }
+      if (e.key === "Escape") setSelectedService(null);
     };
-
-    if (selectedService !== null) {
-      document.addEventListener("keydown", handleEscape);
-      return () => document.removeEventListener("keydown", handleEscape);
-    }
-  }, [selectedService]);
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, []);
 
   return (
-    <section
-      id="services"
-      className="py-16 md:py-20 bg-gray-50 overflow-x-hidden"
-    >
+    <section id="services" className="py-16 md:py-20 bg-gray-50 overflow-x-hidden">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-xs md:text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3 md:mb-4">
+          <h2 className="text-xs md:text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
             Our Services
           </h2>
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Startup Solutions Portfolio
           </h3>
-          <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto px-2">
-            Comprehensive technology solutions designed to drive Startup growth,
-            efficiency, and innovation
+          <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto">
+            Comprehensive technology solutions designed to drive startup growth,
+            efficiency, and innovation.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
             <div
               key={index}
               className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
             >
-              {/* Icon */}
-              <div className="w-14 md:w-16 h-14 md:h-16 bg-blue-100 rounded-xl flex items-center justify-center text-2xl md:text-3xl mb-4 md:mb-6 flex-shrink-0">
+              <div className="w-14 md:w-16 h-14 md:h-16 bg-blue-100 rounded-xl flex items-center justify-center text-2xl md:text-3xl mb-4 md:mb-6">
                 {service.icon}
               </div>
 
-              {/* Content */}
-              <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4">
+              <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
                 {service.title}
               </h4>
 
-              <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-6 leading-relaxed">
+              <p className="text-sm md:text-base text-gray-600 mb-4 leading-relaxed">
                 {service.description}
               </p>
 
-              {/* Features */}
-              <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8 flex-grow">
-                {service.features.map((feature, featureIndex) => (
-                  <li
-                    key={featureIndex}
-                    className="flex items-start text-gray-700 text-sm md:text-base"
-                  >
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0 mt-1.5"></div>
+              <ul className="space-y-2 mb-6 flex-grow">
+                {service.features.map((feature, i) => (
+                  <li key={i} className="flex items-start text-gray-700 text-sm md:text-base">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mr-3 mt-1.5"></div>
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              {/* CTA Button */}
               <Button
                 onClick={() => setSelectedService(index)}
                 variant="outline"
@@ -216,61 +213,51 @@ export default function ServicesSection() {
           ))}
         </div>
 
-        {/* Service Modal */}
+        {/* Modal */}
         {selectedService !== null && (
           <div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
             onClick={() => setSelectedService(null)}
           >
             <div
-              className="bg-white rounded-3xl max-w-3xl w-full shadow-2xl relative my-auto"
               onClick={(e) => e.stopPropagation()}
+              className="bg-white rounded-3xl max-w-3xl w-full shadow-2xl relative flex flex-col max-h-[90vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent"
             >
-              {/* Close Button */}
               <button
                 onClick={() => setSelectedService(null)}
-                className="sticky top-0 right-0 float-right z-20 p-3 m-4 bg-red-100 hover:bg-red-200 text-red-600 rounded-full transition-all duration-200 hover:scale-110 flex-shrink-0"
+                className="sticky top-0 right-0 self-end z-20 p-3 m-4 bg-red-100 hover:bg-red-200 text-red-600 rounded-full transition-all duration-200 hover:scale-110"
                 title="Close (ESC)"
               >
                 <X className="h-6 w-6" />
               </button>
 
-              {/* Modal Content */}
               <div className="p-6 md:p-8 space-y-6">
-                {/* Header */}
                 <div>
-                  <div className="text-4xl mb-4">
-                    {services[selectedService].icon}
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                  <div className="text-4xl mb-4">{services[selectedService].icon}</div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
                     {services[selectedService].title}
                   </h2>
-                  <p className="text-lg text-gray-600">
+                  <p className="text-base md:text-lg text-gray-600">
                     {services[selectedService].detailedDescription}
                   </p>
                 </div>
 
-                {/* Benefits */}
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
                     Key Benefits
                   </h3>
                   <div className="grid md:grid-cols-2 gap-3">
-                    {services[selectedService].benefits.map((benefit, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                        <p className="text-gray-700">{benefit}</p>
+                    {services[selectedService].benefits.map((benefit, i) => (
+                      <div key={i} className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
+                        <p className="text-gray-700 text-sm md:text-base">{benefit}</p>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <Link
-                    href={services[selectedService].ctaLink}
-                    className="flex-1"
-                  >
+                  <Link href={services[selectedService].ctaLink} className="flex-1">
                     <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2">
                       <span>{services[selectedService].cta}</span>
                       <ArrowRight className="h-4 w-4" />
@@ -288,54 +275,6 @@ export default function ServicesSection() {
             </div>
           </div>
         )}
-
-        {/* Additional Services */}
-        <div className="mt-20 text-center">
-          <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-12 text-white">
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">
-              Need a Custom Solution?
-            </h3>
-            <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-              We specialize in creating tailored technology solutions that
-              perfectly fit your unique business requirements.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/schedule-consultation">
-                <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 font-semibold">
-                  Schedule Consultation
-                </Button>
-              </Link>
-              <Link href="/our-work">
-                <Button
-                  variant="outline"
-                  className="border-white text-green-400 hover:bg-white hover:text-green-600 px-8 py-3 font-semibold"
-                >
-                  View Portfolio
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Stats Section */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <div className="text-4xl font-bold text-green-600 mb-2">50+</div>
-            <div className="text-gray-600">Projects Completed</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-green-600 mb-2">95%</div>
-            <div className="text-gray-600">Client Satisfaction</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-green-600 mb-2">24/7</div>
-            <div className="text-gray-600">Support Available</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-green-600 mb-2">5+</div>
-            <div className="text-gray-600">Years Experience</div>
-          </div>
-        </div>
       </div>
     </section>
   );
