@@ -218,7 +218,7 @@ export default function InternshipPage() {
                         FREE
                       </div>
                       <div className="absolute -bottom-4 -left-4 bg-blue-500 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
-                        2.5 MB
+                        3+ MB
                       </div>
                     </div>
                   </div>

@@ -620,13 +620,13 @@ export default function AboutPage() {
                           <div className="flex items-center justify-between text-sm mt-2">
                             <span className="text-gray-600">Size:</span>
                             <span className="font-semibold text-gray-900">
-                              2.5 MB
+                              3+ MB
                             </span>
                           </div>
                           <div className="flex items-center justify-between text-sm mt-2">
                             <span className="text-gray-600">Pages:</span>
                             <span className="font-semibold text-gray-900">
-                              12+
+                              2+
                             </span>
                           </div>
                         </div>

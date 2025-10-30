@@ -548,7 +548,7 @@ export default function CareersPage() {
                     Download Company Brochure
                   </a>
                   <p className="text-white/80 text-xs mt-4">
-                    PDF • 2.5 MB • Free Download
+                    PDF • 3+ MB • Free Download
                   </p>
                 </div>
               </div>

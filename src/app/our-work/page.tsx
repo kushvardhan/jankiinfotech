@@ -491,7 +491,7 @@ export default function OurWorkPage() {
                   <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
                     Want to See More Amazing Work?
                   </h2>
-                  <p className="text-base md:text-lg text-gray-300 leading-relaxed">
+                  <p className="text-base md:text-lg text-gray-200 leading-relaxed">
                     Download our brochure to explore our complete portfolio,
                     detailed case studies, client testimonials, and the full
                     spectrum of services we offer.
