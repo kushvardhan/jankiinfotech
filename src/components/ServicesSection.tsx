@@ -145,8 +145,18 @@ export default function ServicesSection() {
     };
 
     if (selectedService !== null) {
+      // Prevent background scroll when modal is open
+      document.body.style.overflow = "hidden";
       document.addEventListener("keydown", handleEscape);
-      return () => document.removeEventListener("keydown", handleEscape);
+
+      return () => {
+        // Re-enable background scroll when modal is closed
+        document.body.style.overflow = "unset";
+        document.removeEventListener("keydown", handleEscape);
+      };
+    } else {
+      // Ensure scroll is re-enabled when modal closes
+      document.body.style.overflow = "unset";
     }
   }, [selectedService]);
 
@@ -219,59 +229,64 @@ export default function ServicesSection() {
         {/* Service Modal */}
         {selectedService !== null && (
           <div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-0 overflow-hidden"
             onClick={() => setSelectedService(null)}
           >
             <div
-              className="bg-white rounded-3xl max-w-3xl w-full shadow-2xl relative my-auto"
+              className="bg-white rounded-none sm:rounded-3xl max-w-3xl w-full h-full sm:h-auto sm:max-h-[90vh] shadow-2xl relative flex flex-col overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
+              {/* Close Button - Fixed at top */}
               <button
                 onClick={() => setSelectedService(null)}
-                className="sticky top-0 right-0 float-right z-20 p-3 m-4 bg-red-100 hover:bg-red-200 text-red-600 rounded-full transition-all duration-200 hover:scale-110 flex-shrink-0"
+                className="absolute top-4 right-4 z-20 p-3 bg-red-100 hover:bg-red-200 text-red-600 rounded-full transition-all duration-200 hover:scale-110 flex-shrink-0 shadow-lg"
                 title="Close (ESC)"
               >
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5 sm:h-6 sm:w-6" />
               </button>
 
-              {/* Modal Content */}
-              <div className="p-6 md:p-8 space-y-6">
+              {/* Modal Content - Scrollable */}
+              <div className="p-6 sm:p-8 md:p-10 space-y-6 overflow-y-auto flex-1">
                 {/* Header */}
-                <div>
-                  <div className="text-4xl mb-4">
+                <div className="pr-12">
+                  <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">
                     {services[selectedService].icon}
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 sm:mb-3">
                     {services[selectedService].title}
                   </h2>
-                  <p className="text-lg text-gray-600">
+                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                     {services[selectedService].detailedDescription}
                   </p>
                 </div>
 
                 {/* Benefits */}
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                     Key Benefits
                   </h3>
-                  <div className="grid md:grid-cols-2 gap-3">
+                  <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                     {services[selectedService].benefits.map((benefit, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
+                      <div
+                        key={idx}
+                        className="flex items-start gap-2 sm:gap-3"
+                      >
                         <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                        <p className="text-gray-700">{benefit}</p>
+                        <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                          {benefit}
+                        </p>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
                   <Link
                     href={services[selectedService].ctaLink}
                     className="flex-1"
                   >
-                    <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2">
+                    <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 sm:py-3.5 px-5 sm:px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base">
                       <span>{services[selectedService].cta}</span>
                       <ArrowRight className="h-4 w-4" />
                     </Button>
@@ -279,7 +294,7 @@ export default function ServicesSection() {
                   <Button
                     onClick={() => setSelectedService(null)}
                     variant="outline"
-                    className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50 py-3 px-6 rounded-lg font-semibold transition-all duration-300"
+                    className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50 py-3 sm:py-3.5 px-5 sm:px-6 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base"
                   >
                     Close
                   </Button>
