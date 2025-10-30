@@ -23,14 +23,7 @@ export default function HeroSection() {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="text-center space-y-8 md:space-y-12">
           {/* Badge */}
-          <Link
-            href="/internship"
-            className="inline-flex items-center px-6 py-3 bg-green-100 text-green-800 rounded-full text-sm font-medium hover:bg-green-200 transition-colors"
-          >
-            <span className="mr-2">🎓</span>
-            Summer Training Program
-          </Link>
-
+          <div className="my-4"></div>
           {/* Main Heading */}
           <div className="mb-8">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
@@ -78,35 +71,35 @@ export default function HeroSection() {
           {/* Client Logos */}
           <div className="pt-12 md:pt-16">
             <p className="text-gray-500 text-sm mb-6 md:mb-8">
-              Trusted by startups worldwide
+              Trusted by startups
             </p>
             <button
               onClick={() => setShowClientsModal(true)}
-              className="w-full group"
+              className="w-full"
             >
-              <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 opacity-60 mb-6 md:mb-8 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 mb-6 md:mb-8 ">
                 {/* Client logos with green theme */}
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 group-hover:border-green-400 group-hover:shadow-lg transition-all duration-300 cursor-pointer flex-shrink-0">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 hover:border-green-400 hover:shadow-lg transition-all duration-300 cursor-pointer flex-shrink-0">
                   <span className="text-xs text-green-600 font-semibold text-center px-1">
                     Client 1
                   </span>
                 </div>
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 group-hover:border-green-400 group-hover:shadow-lg transition-all duration-300 cursor-pointer flex-shrink-0">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 hover:border-green-400 hover:shadow-lg transition-all duration-300 cursor-pointer flex-shrink-0">
                   <span className="text-xs text-green-600 font-semibold text-center px-1">
                     Client 3
                   </span>
                 </div>
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 group-hover:border-green-400 group-hover:shadow-lg transition-all duration-300 cursor-pointer flex-shrink-0">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 hover:border-green-400 hover:shadow-lg transition-all duration-300 cursor-pointer flex-shrink-0">
                   <span className="text-xs text-green-600 font-semibold text-center px-1">
                     Client 4
                   </span>
                 </div>
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 group-hover:border-green-400 group-hover:shadow-lg transition-all duration-300 cursor-pointer flex-shrink-0">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 hover:border-green-400 hover:shadow-lg transition-all duration-300 cursor-pointer flex-shrink-0">
                   <span className="text-xs text-green-600 font-semibold text-center px-1">
                     Client 5
                   </span>
                 </div>
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 group-hover:border-green-400 group-hover:shadow-lg transition-all duration-300 cursor-pointer flex-shrink-0">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 hover:border-green-400 hover:shadow-lg transition-all duration-300 cursor-pointer flex-shrink-0">
                   <span className="text-xs text-green-600 font-semibold text-center px-1">
                     Client 6
                   </span>
@@ -122,10 +115,10 @@ export default function HeroSection() {
                 }`}
               >
                 <span className="text-4xl font-bold text-green-600 animate-pulse">
-                  500+
+                  50+
                 </span>
                 <span className="text-gray-700 ml-3 text-lg font-medium">
-                  Startup Clients Worldwide
+                  Startup Clients
                 </span>
                 <Star className="inline ml-2 h-6 w-6 text-yellow-400 animate-bounce" />
               </div>
@@ -154,7 +147,7 @@ export default function HeroSection() {
                   </button>
                 </div>
                 <p className="text-gray-600 mb-6 text-sm md:text-base">
-                  We have successfully served 500+ startup clients worldwide,
+                  We have successfully served 50+ startup clients,
                   helping them transform their digital presence and achieve
                   their business goals.
                 </p>

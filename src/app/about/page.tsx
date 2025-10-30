@@ -23,21 +23,9 @@ export default function AboutPage() {
     },
     {
       icon: TrendingUp,
-      value: "150+",
+      value: "50+",
       label: "Projects Completed",
       color: "text-green-600",
-    },
-    {
-      icon: Award,
-      value: "50+",
-      label: "Awards Won",
-      color: "text-purple-600",
-    },
-    {
-      icon: Globe,
-      value: "15+",
-      label: "Countries Served",
-      color: "text-orange-600",
     },
   ];
 

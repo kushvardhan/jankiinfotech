@@ -27,25 +27,19 @@ export default function CommunityPage() {
   const communityStats = [
     {
       icon: Users,
-      value: "2,500+",
+      value: "200+",
       label: "Active Members",
       color: "text-green-600",
     },
     {
       icon: Code,
-      value: "150+",
+      value: "50+",
       label: "Projects Built",
       color: "text-blue-600",
     },
     {
-      icon: Calendar,
-      value: "50+",
-      label: "Events Hosted",
-      color: "text-purple-600",
-    },
-    {
       icon: Globe,
-      value: "25+",
+      value: "20+",
       label: "Cities Reached",
       color: "text-orange-600",
     },

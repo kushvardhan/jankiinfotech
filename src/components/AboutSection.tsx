@@ -12,10 +12,10 @@ export default function AboutSection() {
   ];
 
   const stats = [
-    { number: "5+", label: "Years of Excellence" },
+    { number: "2+", label: "Years of Excellence" },
     { number: "20+", label: "Team Members" },
     { number: "95%", label: "Client Retention" },
-    { number: "5+", label: "Countries", sublabel: "Global Reach" },
+    { number: "20+", label: "Cities", sublabel: "Global Reach" },
     { number: "20+", label: "Jobs", sublabel: "Local Impact" },
     { number: "50+", label: "Projects", sublabel: "Innovation" },
     { number: "95%", label: "Success", sublabel: "Excellence" },
