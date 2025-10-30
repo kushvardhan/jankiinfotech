@@ -178,14 +178,14 @@ export function Navbar() {
             </Link>
 
             <a
-              href="/brochure.jpeg"
-              download="JankiInfotech-Brochure.jpeg"
-              className="group relative px-4 py-2 text-gray-700 hover:text-green-600 font-medium transition-all duration-300 flex items-center gap-2 overflow-hidden"
+              href="/brochure.pdf"
+              download="JankiInfotech-Brochure.pdf"
+              className="group relative px-5 py-2.5 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white font-semibold rounded-lg transition-all duration-300 flex items-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105"
+              title="Download our company brochure"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-green-50 to-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-              <FileText className="h-4 w-4 relative z-10 group-hover:scale-110 transition-transform duration-300" />
-              <span className="relative z-10 hidden xl:inline">Brochure</span>
-              <Download className="h-3 w-3 relative z-10 group-hover:animate-bounce" />
+              <FileText className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
+              <span className="hidden lg:inline">Get Brochure</span>
+              <Download className="h-4 w-4 group-hover:animate-bounce" />
             </a>
 
             <Link
@@ -248,14 +248,20 @@ export function Navbar() {
               ))}
               <div className="pt-4 border-t border-gray-200 space-y-3">
                 <a
-                  href="/brochure.jpeg"
-                  download="JankiInfotech-Brochure.jpeg"
-                  className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white flex items-center justify-center gap-2 px-4 py-3 rounded-lg transition-all duration-300 font-medium shadow-md hover:shadow-lg"
+                  href="/brochure.pdf"
+                  download="JankiInfotech-Brochure.pdf"
+                  className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white flex items-center justify-center gap-2 px-4 py-3 rounded-lg transition-all duration-300 font-semibold shadow-md hover:shadow-lg"
                   onClick={() => setIsOpen(false)}
+                  title="Download our company brochure"
                 >
-                  <FileText className="h-4 w-4" />
-                  Download Brochure
-                  <Download className="h-4 w-4 animate-bounce" />
+                  <FileText className="h-5 w-5" />
+                  <div className="flex flex-col items-start">
+                    <span className="text-sm font-bold">Get Our Brochure</span>
+                    <span className="text-xs opacity-90">
+                      Complete service guide
+                    </span>
+                  </div>
+                  <Download className="h-5 w-5 animate-bounce ml-auto" />
                 </a>
                 <Link
                   href="/schedule-consultation"
