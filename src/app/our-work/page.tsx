@@ -147,9 +147,8 @@ export default function OurWorkPage() {
         </div>
 
         <div className="container mx-auto max-w-6xl text-center">
-          <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full mb-6 font-medium text-sm">
-            <Sparkles className="h-4 w-4" />
-            Our Creative Journey
+          <div className="mb-4">
+            
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             Crafting Digital{" "}

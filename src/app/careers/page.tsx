@@ -185,7 +185,7 @@ export default function CareersPage() {
       label: "Employee Satisfaction",
       color: "text-green-600",
     },
-    { icon: Globe, value: "15+", label: "Countries", color: "text-green-500" },
+    { icon: Globe, value: "15+", label: "Cities", color: "text-green-500" },
     {
       icon: Star,
       value: "4.8/5",
