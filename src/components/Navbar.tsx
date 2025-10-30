@@ -3,16 +3,16 @@
 import {
   ChevronDown,
   Code2,
+  GraduationCap,
   MapPin,
   Menu,
   Monitor,
   Phone,
   TrendingUp,
   X,
-  GraduationCap,
 } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 
 export function Navbar() {
@@ -20,6 +20,7 @@ export function Navbar() {
   const [serviceDropdown, setServiceDropdown] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Scroll effect
   useEffect(() => {
@@ -115,11 +116,13 @@ export function Navbar() {
               className="relative"
               ref={dropdownRef}
               onMouseEnter={() => {
-                clearTimeout((window as unknown).dropdownTimeout);
+                if (dropdownTimeoutRef.current) {
+                  clearTimeout(dropdownTimeoutRef.current);
+                }
                 setServiceDropdown(true);
               }}
               onMouseLeave={() => {
-                (window as unknown).dropdownTimeout = setTimeout(() => {
+                dropdownTimeoutRef.current = setTimeout(() => {
                   setServiceDropdown(false);
                 }, 200); // Smooth delay to prevent flickering
               }}
@@ -133,11 +136,13 @@ export function Navbar() {
                 <div
                   className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 py-3 z-50 animate-fadeIn"
                   onMouseEnter={() => {
-                    clearTimeout((window as unknown).dropdownTimeout);
+                    if (dropdownTimeoutRef.current) {
+                      clearTimeout(dropdownTimeoutRef.current);
+                    }
                     setServiceDropdown(true);
                   }}
                   onMouseLeave={() => {
-                    (window as unknown).dropdownTimeout = setTimeout(() => {
+                    dropdownTimeoutRef.current = setTimeout(() => {
                       setServiceDropdown(false);
                     }, 200);
                   }}
