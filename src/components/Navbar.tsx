@@ -3,6 +3,8 @@
 import {
   ChevronDown,
   Code2,
+  Download,
+  FileText,
   GraduationCap,
   MapPin,
   Menu,
@@ -47,25 +49,25 @@ export function Navbar() {
     {
       title: "Website Development",
       icon: <Monitor className="w-5 h-5 text-blue-500" />,
-      link: "#services",
+      link: "/#services",
       hoverColor: "hover:bg-blue-50",
     },
     {
       title: "GMB (Google My Business)",
       icon: <MapPin className="w-5 h-5 text-red-500" />,
-      link: "#services",
+      link: "/#services",
       hoverColor: "hover:bg-red-50",
     },
     {
       title: "Software Development",
       icon: <Code2 className="w-5 h-5 text-purple-500" />,
-      link: "#services",
+      link: "/#services",
       hoverColor: "hover:bg-purple-50",
     },
     {
       title: "Digital Marketing",
       icon: <TrendingUp className="w-5 h-5 text-orange-500" />,
-      link: "#services",
+      link: "/#services",
       hoverColor: "hover:bg-orange-50",
     },
     {
@@ -175,11 +177,22 @@ export function Navbar() {
               Careers
             </Link>
 
+            <a
+              href="/brochure.jpeg"
+              download="JankiInfotech-Brochure.jpeg"
+              className="group relative px-4 py-2 text-gray-700 hover:text-green-600 font-medium transition-all duration-300 flex items-center gap-2 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-green-50 to-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+              <FileText className="h-4 w-4 relative z-10 group-hover:scale-110 transition-transform duration-300" />
+              <span className="relative z-10 hidden xl:inline">Brochure</span>
+              <Download className="h-3 w-3 relative z-10 group-hover:animate-bounce" />
+            </a>
+
             <Link
               href="/schedule-consultation"
               className="bg-green-600 hover:bg-green-700 flex items-center gap-2 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-200 hover:shadow-md"
             >
-              <Phone className="ml-1 h-4 w-4" />
+              <Phone className="h-4 w-4" />
               Consultation
             </Link>
           </nav>
@@ -233,13 +246,23 @@ export function Navbar() {
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-4 border-t border-gray-200">
+              <div className="pt-4 border-t border-gray-200 space-y-3">
+                <a
+                  href="/brochure.jpeg"
+                  download="JankiInfotech-Brochure.jpeg"
+                  className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white flex items-center justify-center gap-2 px-4 py-3 rounded-lg transition-all duration-300 font-medium shadow-md hover:shadow-lg"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <FileText className="h-4 w-4" />
+                  Download Brochure
+                  <Download className="h-4 w-4 animate-bounce" />
+                </a>
                 <Link
                   href="/schedule-consultation"
                   className="bg-green-600 hover:bg-green-700 text-white flex items-center justify-center gap-2 px-4 py-3 rounded-lg transition-colors font-medium"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Phone className="ml-1 h-4 w-4" />
+                  <Phone className="h-4 w-4" />
                   Consultation
                 </Link>
               </div>
