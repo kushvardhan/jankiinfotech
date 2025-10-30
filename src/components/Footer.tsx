@@ -232,7 +232,104 @@ export default function Footer() {
               </div>
             </div>
 
-           
+            {/* Stats & Social */}
+            <div>
+              
+
+              {/* Social Media */}
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-4">Follow Us</h4>
+                <div className="flex space-x-4">
+                  <Link
+                    href="https://www.linkedin.com/company/jankiinfotech/?viewAsMember=true"
+                    target="_blank"
+                    className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
+                  >
+                    <Linkedin className="h-5 w-5 text-blue-400" />
+                  </Link>
+                  <Link
+                    href="https://www.instagram.com/_jankiinfotech_/"
+                    target="_blank"
+                    className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
+                  >
+                    <Instagram className="h-5 w-5 text-pink-400" />
+                  </Link>
+                  <Link
+                    href="https://www.facebook.com/profile.php?id=61581206342758"
+                    target="_blank"
+                    className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
+                  >
+                    <Facebook className="h-5 w-5 text-blue-500" />
+                  </Link>
+                  <Link
+                    href="https://x.com/Jankiinfotech_"
+                    target="_blank"
+                    className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
+                  >
+                    <Twitter className="h-5 w-5 text-blue-400" />
+                  </Link>
+                  {/* <Link
+                    href="https://youtube.com/@jankiinfotech"
+                    target="_blank"
+                    className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
+                  >
+                    <Youtube className="h-5 w-5 text-red-500" />
+                  </Link> */}
+                </div>
+              </div>
+
+              {/* Newsletter */}
+              <div className="mt-8 p-4 bg-gradient-to-r from-green-500 to-green-600 rounded-lg">
+                <h4 className="font-semibold text-white mb-2">Stay Updated</h4>
+                <p className="text-sm text-green-100 mb-3">
+                  Get the latest tech insights and updates delivered to your
+                  inbox.
+                </p>
+                <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+                  <div className="flex flex-col sm:flex-row gap-2 w-full">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => handleEmailChange(e.target.value)}
+                      placeholder="Enter your email"
+                      required
+                      disabled={isSubmitting}
+                      className="flex-1 min-w-0 px-3 py-2 text-sm bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg sm:rounded-l-lg sm:rounded-r-none placeholder-white placeholder-opacity-70 text-zinc-700 text-md font-semibold font-mono focus:outline-none focus:bg-opacity-30 disabled:opacity-50"
+                    />
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="px-4 py-2 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg sm:rounded-l-none sm:rounded-r-lg hover:bg-opacity-30 transition-colors disabled:opacity-50 flex-shrink-0"
+                    >
+                      {isSubmitting ? (
+                        <div className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      ) : (
+                        <ArrowRight className="h-4 w-4 text-white" />
+                      )}
+                    </button>
+                  </div>
+
+                  {/* Real-time validation message */}
+                  <ValidationMessage
+                    result={getFieldValidation("newsletter_email").result}
+                    show={getFieldValidation("newsletter_email").showMessage}
+                  />
+
+                  {/* Form submission message */}
+                  {message && (
+                    <p
+                      className={`text-sm ${
+                        message.includes("Thank you")
+                          ? "text-blue-300"
+                          : "text-red-300"
+                      }`}
+                    >
+                      {message}
+                    </p>
+                  )}
+                </form>
+              </div>
+            </div>
           </div>
         </div>
 

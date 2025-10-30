@@ -65,26 +65,31 @@ export default function AboutSection() {
 
           {/* Content */}
           <div className="space-y-8">
-            <div>
+            {/* <div>
               <div className="text-4xl font-bold text-green-600 mb-2">2+</div>
               <h4 className="text-2xl font-bold text-gray-900 mb-4">
                 Years of Excellence
               </h4>
-            </div>
+            </div> */}
 
             <div>
               <h4 className="text-2xl font-bold text-gray-900 mb-4">
                 Our Vision
               </h4>
               <p className="text-gray-600 leading-relaxed mb-6">
-                To create a world-class tech hub, combining traditional values
-                with modern innovation. We&apos;re building more than just a
-                company - we&apos;re nurturing a tech ecosystem that empowers
-                local talent and serves global clients.
-              </p>
+  At <span className="font-semibold text-emerald-600">Janki Infotech</span>, our vision is to create a 
+  <span className="font-medium text-gray-900"> world-class technology hub </span> 
+  that blends the timeless strength of traditional values with the limitless possibilities of modern innovation.  
+  We’re not just building a company — 
+  <span className="font-semibold text-emerald-700"> we’re shaping a movement </span> 
+  that empowers local talent, nurtures creativity, and delivers global impact.  
+  Through <span className="italic text-gray-800">innovation, integrity, and imagination</span>,  
+  we aim to redefine what it means to grow with technology — together.
+</p>
+
             </div>
 
-            <div className="grid grid-cols-2 gap-8">
+            {/* <div className="grid grid-cols-2 gap-8">
               <div>
                 <div className="text-3xl font-bold text-green-600 mb-2">
                   20+
@@ -97,17 +102,17 @@ export default function AboutSection() {
                 </div>
                 <div className="text-gray-600">Client Retention</div>
               </div>
-            </div>
+            </div> */}
 
             {/* Social Links */}
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white hover:bg-green-700 cursor-pointer transition-colors">
                 <span className="text-sm">Li</span>
               </div>
               <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white hover:bg-green-600 cursor-pointer transition-colors">
                 <span className="text-sm">Ig</span>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
