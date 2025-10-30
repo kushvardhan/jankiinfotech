@@ -487,29 +487,71 @@ export default function CareersPage() {
           </div>
         </section>
 
-        {/* Brochure Download CTA */}
-        <section className="py-16 bg-gradient-to-br from-green-50 to-blue-50">
-          <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-3xl p-8 md:p-10 text-white text-center shadow-2xl">
-              <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <FileText className="h-8 w-8 text-white" />
+        {/* Brochure Download CTA - Careers Themed */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div className="relative bg-gradient-to-br from-purple-600 via-blue-600 to-green-600 rounded-3xl p-8 md:p-12 overflow-hidden shadow-2xl">
+              {/* Animated background pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div
+                  className="absolute top-0 left-0 w-full h-full"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 80%, white 1px, transparent 1px)",
+                    backgroundSize: "50px 50px",
+                  }}
+                ></div>
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                Learn More About JankiInfotech
-              </h2>
-              <p className="text-base md:text-lg mb-6 opacity-95 max-w-2xl mx-auto">
-                Download our brochure to discover more about our company
-                culture, values, and the exciting opportunities we offer.
-              </p>
-              <a
-                href="/brochure.jpeg"
-                download="JankiInfotech-Brochure.jpeg"
-                className="inline-flex items-center gap-3 bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-              >
-                <FileText className="h-5 w-5" />
-                Download Brochure
-                <Download className="h-5 w-5 animate-bounce" />
-              </a>
+
+              <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+                <div className="text-white">
+                  <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
+                    <Briefcase className="h-4 w-4 mr-2" />
+                    <span className="text-sm font-semibold">
+                      Career Resources
+                    </span>
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                    Explore Our Complete Company Profile
+                  </h2>
+                  <p className="text-base md:text-lg opacity-95 leading-relaxed mb-6">
+                    Get insights into our work culture, employee benefits,
+                    growth opportunities, and what makes JankiInfotech the
+                    perfect place to build your career.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-green-300" />
+                      <span className="text-sm">Company culture & values</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-green-300" />
+                      <span className="text-sm">Employee benefits & perks</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-green-300" />
+                      <span className="text-sm">Career growth paths</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="flex flex-col items-center justify-center bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+                  <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-xl">
+                    <FileText className="h-10 w-10 text-purple-600" />
+                  </div>
+                  <a
+                    href="/brochure.pdf"
+                    download="JankiInfotech-Brochure.pdf"
+                    className="group w-full bg-white hover:bg-gray-50 text-purple-600 font-bold py-4 px-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
+                  >
+                    <Download className="h-5 w-5 group-hover:animate-bounce" />
+                    Download Company Brochure
+                  </a>
+                  <p className="text-white/80 text-xs mt-4">
+                    PDF • 2.5 MB • Free Download
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
