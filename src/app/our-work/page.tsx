@@ -149,9 +149,7 @@ export default function OurWorkPage() {
         </div>
 
         <div className="container mx-auto max-w-6xl text-center">
-          <div className="mb-4">
-            
-          </div>
+          <div className="mb-4"></div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             Crafting Digital{" "}
             <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
@@ -258,38 +256,40 @@ export default function OurWorkPage() {
 
       {/* Coming Soon Section - Creative */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-green-50 via-emerald-50 to-green-50">
-  <div className="container mx-auto max-w-4xl">
-    <div className="relative">
-      <div className="absolute inset-0 bg-gradient-to-r from-green-200 to-emerald-200 rounded-3xl blur-2xl opacity-20"></div>
-      <div className="relative bg-white rounded-3xl p-8 md:p-12 border border-green-200 shadow-xl text-center">
-        <div className="cursor-pointer inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full mb-6">
-          <Sparkles className="h-8 w-8 text-green-600 hover:animate-spin" />
+        <div className="container mx-auto max-w-4xl">
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-green-200 to-emerald-200 rounded-3xl blur-2xl opacity-20"></div>
+            <div className="relative bg-white rounded-3xl p-8 md:p-12 border border-green-200 shadow-xl text-center">
+              <div className="cursor-pointer inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full mb-6">
+                <Sparkles className="h-8 w-8 text-green-600 hover:animate-spin" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                More Projects in Progress ✨
+              </h2>
+              <p className="text-lg text-gray-600 mb-2 leading-relaxed">
+                Our team is actively working on new and exciting projects,
+                bringing fresh ideas and powerful solutions to life.
+              </p>
+              <p className="text-gray-500 mb-8">
+                Stay tuned — several innovative experiences are currently in
+                design and development, soon to be launched for our clients and
+                community.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <div className="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                  🎨 Design Phase
+                </div>
+                <div className="px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium">
+                  ⚙️ Development
+                </div>
+                <div className="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                  🚀 Coming Soon
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          More Projects in Progress ✨
-        </h2>
-        <p className="text-lg text-gray-600 mb-2 leading-relaxed">
-          Our team is actively working on new and exciting projects, bringing fresh ideas and powerful solutions to life.
-        </p>
-        <p className="text-gray-500 mb-8">
-          Stay tuned — several innovative experiences are currently in design and development, soon to be launched for our clients and community.
-        </p>
-        <div className="flex flex-wrap justify-center gap-3">
-          <div className="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">
-            🎨 Design Phase
-          </div>
-          <div className="px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium">
-            ⚙️ Development
-          </div>
-          <div className="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">
-            🚀 Coming Soon
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+      </section>
 
       {/* Modal - Premium */}
       {selectedProject && (
@@ -415,7 +415,10 @@ export default function OurWorkPage() {
                 </p>
                 <div className="flex items-center justify-between">
                   <div>
-                    <Link href="https://kush-personal-portfolio-my-portfolio.vercel.app/" className="cursor-pointer text-md font-semibold text-gray-900 hover:text-green-800 ">
+                    <Link
+                      href="https://kush-personal-portfolio-my-portfolio.vercel.app/"
+                      className="cursor-pointer text-md font-semibold text-gray-900 hover:text-green-800 "
+                    >
                       Kush Vardhan
                     </Link>
                     <p className="text-sm text-gray-600">
@@ -448,28 +451,71 @@ export default function OurWorkPage() {
         </div>
       )}
 
-      {/* Brochure Download CTA */}
-      <section className="py-16 bg-gradient-to-br from-green-50 to-blue-50">
-        <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-3xl p-8 md:p-10 text-white text-center shadow-2xl">
-            <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <FileText className="h-8 w-8 text-white" />
+      {/* Brochure Download CTA - Portfolio Themed */}
+      <section className="py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="relative rounded-3xl overflow-hidden">
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-green-600/20 to-blue-600/20"></div>
+
+            {/* Grid pattern */}
+            <div
+              className="absolute inset-0 opacity-5"
+              style={{
+                backgroundImage:
+                  "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+                backgroundSize: "50px 50px",
+              }}
+            ></div>
+
+            <div className="relative z-10 p-8 md:p-12">
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                {/* Left side - Icon and visual */}
+                <div className="flex-shrink-0">
+                  <div className="relative">
+                    <div className="w-32 h-32 bg-gradient-to-br from-green-500 to-blue-500 rounded-3xl flex items-center justify-center shadow-2xl transform rotate-6 hover:rotate-0 transition-transform duration-300">
+                      <FileText className="h-16 w-16 text-white" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-400 rounded-full animate-ping"></div>
+                  </div>
+                </div>
+
+                {/* Middle - Content */}
+                <div className="flex-1 text-white text-center md:text-left">
+                  <div className="inline-flex items-center bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
+                    <Sparkles className="h-4 w-4 mr-2 text-green-400" />
+                    <span className="text-sm font-semibold">
+                      Complete Service Portfolio
+                    </span>
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                    Want to See More Amazing Work?
+                  </h2>
+                  <p className="text-base md:text-lg text-gray-300 leading-relaxed">
+                    Download our brochure to explore our complete portfolio,
+                    detailed case studies, client testimonials, and the full
+                    spectrum of services we offer.
+                  </p>
+                </div>
+
+                {/* Right side - CTA */}
+                <div className="flex-shrink-0">
+                  <a
+                    href="/brochure.pdf"
+                    download="JankiInfotech-Brochure.pdf"
+                    className="group relative bg-white hover:bg-gray-50 text-gray-900 font-bold py-5 px-8 rounded-2xl shadow-2xl hover:shadow-green-500/50 transition-all duration-300 transform hover:scale-105 flex flex-col items-center gap-3 min-w-[200px]"
+                  >
+                    <Download className="h-8 w-8 text-green-600 group-hover:animate-bounce" />
+                    <div className="text-center">
+                      <div className="text-lg font-bold">Get Brochure</div>
+                      <div className="text-xs text-gray-500">
+                        Full Portfolio Inside
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Discover All Our Services
-            </h2>
-            <p className="text-base md:text-lg mb-6 opacity-95 max-w-2xl mx-auto">
-              Download our comprehensive brochure to explore our full range of services and see how we can help bring your vision to life.
-            </p>
-            <a
-              href="/brochure.jpeg"
-              download="JankiInfotech-Brochure.jpeg"
-              className="inline-flex items-center gap-3 bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-            >
-              <FileText className="h-5 w-5" />
-              Download Brochure
-              <Download className="h-5 w-5 animate-bounce" />
-            </a>
           </div>
         </div>
       </section>
