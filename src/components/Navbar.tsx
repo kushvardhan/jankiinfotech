@@ -133,11 +133,11 @@ export function Navbar() {
                 <div
                   className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 py-3 z-50 animate-fadeIn"
                   onMouseEnter={() => {
-                    clearTimeout((window as any).dropdownTimeout);
+                    clearTimeout((window as unknown).dropdownTimeout);
                     setServiceDropdown(true);
                   }}
                   onMouseLeave={() => {
-                    (window as any).dropdownTimeout = setTimeout(() => {
+                    (window as unknown).dropdownTimeout = setTimeout(() => {
                       setServiceDropdown(false);
                     }, 200);
                   }}

@@ -19,6 +19,7 @@ export default function ServicesSection() {
         "Fast Loading Speed",
       ],
       icon: Monitor,
+      color: "text-blue-500",
       link: "/service/website-development",
       detailedDescription:
         "We create stunning, high-performance websites that not only look beautiful but also drive real business results. Our websites are built with the latest technologies, optimized for search engines, and designed to convert visitors into customers.",
@@ -44,6 +45,7 @@ export default function ServicesSection() {
         "Performance Optimization",
       ],
       icon: Code2,
+      color:" text-purple-500",
       link: "/service/software-development",
       detailedDescription:
         "From concept to deployment, we build robust, scalable software solutions tailored to your unique business needs. Our expert team uses cutting-edge technologies and best practices to deliver software that drives efficiency and growth.",
@@ -69,6 +71,7 @@ export default function ServicesSection() {
         "Ad Management",
       ],
       icon: TrendingUp,
+      color:"text-orange-500",
       link: "/service/digital-marketing",
       detailedDescription:
         "Grow your brand's online presence with our comprehensive digital marketing strategies. We combine data-driven insights with creative excellence to help you reach your target audience and achieve measurable results.",
@@ -94,6 +97,7 @@ export default function ServicesSection() {
         "Business Insights",
       ],
       icon: MapPin,
+      color:" text-red-500",
       link: "/service/gmb",
       detailedDescription:
         "Maximize your local visibility with expert Google My Business management. We optimize your profile to ensure your business appears prominently in local searches and Google Maps, driving more foot traffic and inquiries.",
@@ -120,6 +124,7 @@ export default function ServicesSection() {
         "Digital Marketing",
       ],
       icon: GraduationCap,
+      color:"text-green-500",
       link: "/service/internships",
       detailedDescription:
         "Launch your tech career with our comprehensive internship programs. Gain hands-on experience working on real projects, learn from industry experts, and build a portfolio that impresses employers.",
@@ -189,14 +194,20 @@ export default function ServicesSection() {
               className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
             >
               {/* Icon */}
-              <div className="w-14 md:w-16 h-14 md:h-16 bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl flex items-center justify-center mb-4 md:mb-6 flex-shrink-0">
-                {(() => {
-                  const IconComponent = service.icon;
-                  return (
-                    <IconComponent className="w-7 md:w-8 h-7 md:h-8 text-green-600" />
-                  );
-                })()}
-              </div>
+              <div
+  className={`w-14 md:w-16 h-14 md:h-16 bg-gradient-to-br ${
+    service.color
+      .replace("text-", "from-")
+      .replace(/-\d+/, "-100")
+  } ${
+    service.color
+      .replace("text-", "to-")
+      .replace(/-\d+/, "-200")
+  } rounded-xl flex items-center justify-center mb-4 md:mb-6 flex-shrink-0`}
+>
+  <service.icon className={`w-7 md:w-8 h-7 md:h-8 ${service.color}`} />
+</div>
+
 
               {/* Content */}
               <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4">
