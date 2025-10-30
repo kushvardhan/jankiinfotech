@@ -1,6 +1,6 @@
 ﻿"use client";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, X } from "lucide-react";
+import { ArrowRight, Code2, Monitor, TrendingUp,MapPin, GraduationCap, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -18,7 +18,7 @@ export default function ServicesSection() {
         "SEO Optimization",
         "Fast Loading Speed",
       ],
-      icon: "💻",
+      icon: Monitor,
       link: "/service/website-development",
       detailedDescription:
         "We create stunning, high-performance websites that not only look beautiful but also drive real business results. Our websites are built with the latest technologies, optimized for search engines, and designed to convert visitors into customers.",
@@ -43,7 +43,7 @@ export default function ServicesSection() {
         "Database Management",
         "Performance Optimization",
       ],
-      icon: "🧠",
+      icon: Code2,
       link: "/service/software-development",
       detailedDescription:
         "From concept to deployment, we build robust, scalable software solutions tailored to your unique business needs. Our expert team uses cutting-edge technologies and best practices to deliver software that drives efficiency and growth.",
@@ -68,7 +68,7 @@ export default function ServicesSection() {
         "Content Strategy",
         "Ad Management",
       ],
-      icon: "📈",
+      icon: TrendingUp,
       link: "/service/digital-marketing",
       detailedDescription:
         "Grow your brand's online presence with our comprehensive digital marketing strategies. We combine data-driven insights with creative excellence to help you reach your target audience and achieve measurable results.",
@@ -93,7 +93,7 @@ export default function ServicesSection() {
         "Review Management",
         "Business Insights",
       ],
-      icon: "📍",
+      icon: MapPin,
       link: "/service/gmb",
       detailedDescription:
         "Maximize your local visibility with expert Google My Business management. We optimize your profile to ensure your business appears prominently in local searches and Google Maps, driving more foot traffic and inquiries.",
@@ -119,7 +119,7 @@ export default function ServicesSection() {
         "UI/UX Design",
         "Digital Marketing",
       ],
-      icon: "🎓",
+      icon: GraduationCap,
       link: "/service/internships",
       detailedDescription:
         "Launch your tech career with our comprehensive internship programs. Gain hands-on experience working on real projects, learn from industry experts, and build a portfolio that impresses employers.",
@@ -137,6 +137,7 @@ export default function ServicesSection() {
   ];
 
   // Handle ESC key
+  // Handle ESC key and freeze background scroll
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -145,17 +146,17 @@ export default function ServicesSection() {
     };
 
     if (selectedService !== null) {
-      // Prevent background scroll when modal is open
+      // Freeze background scrolling
       document.body.style.overflow = "hidden";
       document.addEventListener("keydown", handleEscape);
 
       return () => {
-        // Re-enable background scroll when modal is closed
+        // Restore scrolling
         document.body.style.overflow = "unset";
         document.removeEventListener("keydown", handleEscape);
       };
     } else {
-      // Ensure scroll is re-enabled when modal closes
+      // Ensure scrolling is restored
       document.body.style.overflow = "unset";
     }
   }, [selectedService]);
@@ -188,8 +189,13 @@ export default function ServicesSection() {
               className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
             >
               {/* Icon */}
-              <div className="w-14 md:w-16 h-14 md:h-16 bg-blue-100 rounded-xl flex items-center justify-center text-2xl md:text-3xl mb-4 md:mb-6 flex-shrink-0">
-                {service.icon}
+              <div className="w-14 md:w-16 h-14 md:h-16 bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl flex items-center justify-center mb-4 md:mb-6 flex-shrink-0">
+                {(() => {
+                  const IconComponent = service.icon;
+                  return (
+                    <IconComponent className="w-7 md:w-8 h-7 md:h-8 text-green-600" />
+                  );
+                })()}
               </div>
 
               {/* Content */}
@@ -229,72 +235,77 @@ export default function ServicesSection() {
         {/* Service Modal */}
         {selectedService !== null && (
           <div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-0 overflow-hidden"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedService(null)}
           >
             <div
-              className="bg-white rounded-none sm:rounded-3xl max-w-3xl w-full h-full sm:h-auto sm:max-h-[90vh] shadow-2xl relative flex flex-col overflow-hidden"
+              className="bg-white rounded-3xl max-w-3xl w-full shadow-2xl relative max-h-[90vh] flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button - Fixed at top */}
+              {/* Close Button - Fixed */}
               <button
                 onClick={() => setSelectedService(null)}
-                className="absolute top-4 right-4 z-20 p-3 bg-red-100 hover:bg-red-200 text-red-600 rounded-full transition-all duration-200 hover:scale-110 flex-shrink-0 shadow-lg"
+                className="absolute top-4 right-4 z-20 p-3 bg-red-100 hover:bg-red-200 text-red-600 rounded-full transition-all duration-200 hover:scale-110 flex-shrink-0"
                 title="Close (ESC)"
               >
-                <X className="h-5 w-5 sm:h-6 sm:w-6" />
+                <X className="h-6 w-6" />
               </button>
 
               {/* Modal Content - Scrollable */}
-              <div className="p-6 sm:p-8 md:p-10 space-y-6 overflow-y-auto flex-1">
+              <div className="p-6 md:p-10 space-y-6 overflow-y-auto">
                 {/* Header */}
-                <div className="pr-12">
-                  <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">
-                    {services[selectedService].icon}
+                <div>
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl flex items-center justify-center mb-4">
+                    {(() => {
+                      const IconComponent = services[selectedService].icon;
+                      return (
+                        <IconComponent className="w-8 h-8 text-green-600" />
+                      );
+                    })()}
                   </div>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 sm:mb-3">
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
                     {services[selectedService].title}
                   </h2>
-                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                  <p className="text-lg text-gray-600 leading-relaxed">
                     {services[selectedService].detailedDescription}
                   </p>
                 </div>
 
                 {/* Benefits */}
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">
                     Key Benefits
                   </h3>
-                  <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {services[selectedService].benefits.map((benefit, idx) => (
                       <div
                         key={idx}
-                        className="flex items-start gap-2 sm:gap-3"
+                        className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg"
                       >
-                        <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                        <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                          {benefit}
-                        </p>
+                        <span className="text-green-600 font-bold text-lg mt-0.5">
+                          ✓
+                        </span>
+                        <span className="text-gray-700">{benefit}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <Link
                     href={services[selectedService].ctaLink}
                     className="flex-1"
                   >
-                    <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 sm:py-3.5 px-5 sm:px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base">
+                    <Button className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 text-lg">
                       <span>{services[selectedService].cta}</span>
-                      <ArrowRight className="h-4 w-4" />
+                      <ArrowRight className="h-5 w-5" />
                     </Button>
                   </Link>
                   <Button
                     onClick={() => setSelectedService(null)}
                     variant="outline"
-                    className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50 py-3 sm:py-3.5 px-5 sm:px-6 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base"
+                    className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50 py-4 px-6 rounded-xl font-bold transition-all duration-300 text-lg"
                   >
                     Close
                   </Button>

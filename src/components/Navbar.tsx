@@ -1,6 +1,15 @@
 "use client";
 
-import { ChevronDown, Menu, Phone, X } from "lucide-react";
+import {
+  ChevronDown,
+  Code2,
+  MapPin,
+  Menu,
+  Monitor,
+  Phone,
+  TrendingUp,
+  X,
+} from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
@@ -79,30 +88,36 @@ export function Navbar() {
               </button>
 
               {serviceDropdown && (
-                <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2">
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 py-3 z-50">
                   <Link
                     href="#services"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    className="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 transition-colors duration-200"
                   >
-                    Website Development
+                    <Monitor className="w-5 h-5 text-green-600 flex-shrink-0" />
+                    <span className="font-medium">Website Development</span>
                   </Link>
                   <Link
                     href="#services"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    className="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 transition-colors duration-200"
                   >
-                    GMB(Google My Business)
+                    <MapPin className="w-5 h-5 text-green-600 flex-shrink-0" />
+                    <span className="font-medium">
+                      GMB (Google My Business)
+                    </span>
                   </Link>
                   <Link
                     href="#services"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    className="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 transition-colors duration-200"
                   >
-                    Software Development
+                    <Code2 className="w-5 h-5 text-green-600 flex-shrink-0" />
+                    <span className="font-medium">Software Development</span>
                   </Link>
                   <Link
                     href="#services"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                    className="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 transition-colors duration-200"
                   >
-                    Digital Marketing
+                    <TrendingUp className="w-5 h-5 text-green-600 flex-shrink-0" />
+                    <span className="font-medium">Digital Marketing</span>
                   </Link>
                 </div>
               )}
