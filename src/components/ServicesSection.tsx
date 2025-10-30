@@ -137,25 +137,30 @@ export default function ServicesSection() {
   ];
 
   // Prevent background scroll when modal is open
-  useEffect(() => {
-    if (selectedService !== null) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [selectedService]);
+ // Prevent background scroll and center popup correctly
+useEffect(() => {
+  if (selectedService !== null) {
+    document.body.style.overflow = "hidden";
+    document.body.style.height = "100vh";
+  } else {
+    document.body.style.overflow = "";
+    document.body.style.height = "";
+  }
+  return () => {
+    document.body.style.overflow = "";
+    document.body.style.height = "";
+  };
+}, [selectedService]);
 
-  // Handle ESC key
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setSelectedService(null);
-    };
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, []);
+// Handle ESC key globally
+useEffect(() => {
+  const handleEscape = (e: KeyboardEvent) => {
+    if (e.key === "Escape") setSelectedService(null);
+  };
+  document.addEventListener("keydown", handleEscape);
+  return () => document.removeEventListener("keydown", handleEscape);
+}, []);
+
 
   return (
     <section id="services" className="py-16 md:py-20 bg-gray-50 overflow-x-hidden">
@@ -215,66 +220,73 @@ export default function ServicesSection() {
 
         {/* Modal */}
         {selectedService !== null && (
-          <div
-            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={() => setSelectedService(null)}
-          >
-            <div
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-3xl max-w-3xl w-full shadow-2xl relative flex flex-col max-h-[90vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent"
-            >
-              <button
-                onClick={() => setSelectedService(null)}
-                className="sticky top-0 right-0 self-end z-20 p-3 m-4 bg-red-100 hover:bg-red-200 text-red-600 rounded-full transition-all duration-200 hover:scale-110"
-                title="Close (ESC)"
-              >
-                <X className="h-6 w-6" />
-              </button>
+  <div
+    className="fixed inset-0 z-[9999] bg-black/70 backdrop-blur-sm flex items-center justify-center px-4 py-6 sm:p-6 md:p-10"
+    onClick={() => setSelectedService(null)}
+  >
+    <div
+      onClick={(e) => e.stopPropagation()}
+      className="relative bg-white rounded-3xl w-full max-w-3xl shadow-2xl max-h-[90vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent"
+    >
+      {/* Close Button */}
+      <button
+        onClick={() => setSelectedService(null)}
+        className="sticky top-0 right-0 float-right z-20 p-3 m-4 bg-red-100 hover:bg-red-200 text-red-600 rounded-full transition-all duration-200 hover:scale-110"
+        title="Close (ESC)"
+      >
+        <X className="h-6 w-6" />
+      </button>
 
-              <div className="p-6 md:p-8 space-y-6">
-                <div>
-                  <div className="text-4xl mb-4">{services[selectedService].icon}</div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-                    {services[selectedService].title}
-                  </h2>
-                  <p className="text-base md:text-lg text-gray-600">
-                    {services[selectedService].detailedDescription}
-                  </p>
-                </div>
+      {/* Modal Content */}
+      <div className="p-6 md:p-8 space-y-6">
+        <div>
+          <div className="text-4xl mb-4">{services[selectedService].icon}</div>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+            {services[selectedService].title}
+          </h2>
+          <p className="text-base md:text-lg text-gray-600">
+            {services[selectedService].detailedDescription}
+          </p>
+        </div>
 
-                <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
-                    Key Benefits
-                  </h3>
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {services[selectedService].benefits.map((benefit, i) => (
-                      <div key={i} className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                        <p className="text-gray-700 text-sm md:text-base">{benefit}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <Link href={services[selectedService].ctaLink} className="flex-1">
-                    <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2">
-                      <span>{services[selectedService].cta}</span>
-                      <ArrowRight className="h-4 w-4" />
-                    </Button>
-                  </Link>
-                  <Button
-                    onClick={() => setSelectedService(null)}
-                    variant="outline"
-                    className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50 py-3 px-6 rounded-lg font-semibold transition-all duration-300"
-                  >
-                    Close
-                  </Button>
-                </div>
+        {/* Benefits */}
+        <div>
+          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+            Key Benefits
+          </h3>
+          <div className="grid sm:grid-cols-2 gap-3">
+            {services[selectedService].benefits.map((benefit, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
+                <p className="text-gray-700 text-sm md:text-base">
+                  {benefit}
+                </p>
               </div>
-            </div>
+            ))}
           </div>
-        )}
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <Link href={services[selectedService].ctaLink} className="flex-1">
+            <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2">
+              <span>{services[selectedService].cta}</span>
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </Link>
+          <Button
+            onClick={() => setSelectedService(null)}
+            variant="outline"
+            className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50 py-3 px-6 rounded-lg font-semibold transition-all duration-300"
+          >
+            Close
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
       </div>
     </section>
   );
