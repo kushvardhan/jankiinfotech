@@ -66,7 +66,7 @@ export default function AboutSection() {
           {/* Content */}
           <div className="space-y-8">
             <div>
-              <div className="text-4xl font-bold text-green-600 mb-2">5+</div>
+              <div className="text-4xl font-bold text-green-600 mb-2">2+</div>
               <h4 className="text-2xl font-bold text-gray-900 mb-4">
                 Years of Excellence
               </h4>
