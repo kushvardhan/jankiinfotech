@@ -90,12 +90,12 @@ export default function Footer() {
     { name: "Our Work", href: "/our-work" },
   ];
 
-  const stats = [
-    { label: "Projects Completed", value: "500+", icon: Award },
-    { label: "Happy Clients", value: "200+", icon: Users },
-    { label: "Years Experience", value: "5+", icon: Clock },
-    { label: "Team Members", value: "25+", icon: Code },
-  ];
+  // const stats = [
+  //   { label: "Projects Completed", value: "500+", icon: Award },
+  //   { label: "Happy Clients", value: "200+", icon: Users },
+  //   { label: "Years Experience", value: "5+", icon: Clock },
+  //   { label: "Team Members", value: "25+", icon: Code },
+  // ];
 
   return (
     <>
