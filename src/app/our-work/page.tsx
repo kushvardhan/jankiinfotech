@@ -409,7 +409,7 @@ export default function OurWorkPage() {
 
               {/* Developer Credit - Premium */}
               <div className="mb-8 p-5 bg-gradient-to-br from-green-50 via-emerald-50 to-green-50 rounded-2xl border border-green-200">
-                <p className="text-xs text-gray-600 mb-2 font-mono tracking-wide">
+                <p className="text-xs text-gray-600 mb-2 font-mono">
                   Crafted with ❤️ by
                 </p>
                 <div className="flex items-center justify-between">
