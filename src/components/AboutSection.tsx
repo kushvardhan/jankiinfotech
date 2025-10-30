@@ -3,8 +3,6 @@
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
-  Download,
-  FileText,
   Heart,
   Rocket,
   Sparkles,
@@ -181,7 +179,7 @@ export default function AboutSection() {
               <h3 className="text-2xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                 Discover Our Full Story
               </h3>
-              <p className="text-base md:text-lg mb-8 text-gray-300 max-w-md mx-auto leading-relaxed">
+              <p className="text-base md:text-lg mb-8 text-gray-200 max-w-md mx-auto leading-relaxed">
                 Dive deeper into our journey, values, and the passionate team
                 that makes innovation happen every day.
               </p>
@@ -197,24 +195,7 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl p-8 text-white text-center shadow-xl hover:shadow-2xl transition-shadow duration-300">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Get Our Brochure
-            </h3>
-            <p className="text-lg mb-6 opacity-90">
-              Download our comprehensive brochure to explore all our services
-              and offerings.
-            </p>
-            <a
-              href="/brochure.pdf"
-              download="JankiInfotech-Brochure.pdf"
-              className="inline-flex items-center gap-3 bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <FileText className="h-5 w-5" />
-              Download Brochure
-              <Download className="h-5 w-5 animate-bounce" />
-            </a>
-          </div>
+         
         </div>
       </div>
 
