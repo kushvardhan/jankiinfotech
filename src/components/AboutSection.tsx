@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import {
+  ArrowRight,
   Download,
   FileText,
   Heart,
@@ -78,9 +79,9 @@ export default function AboutSection() {
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-            We&apos;re not just another tech company. We&apos;re dreamers, builders, and
-            innovators on a mission to transform Bihar into a global tech
-            powerhouse—one brilliant idea at a time.
+            We&apos;re not just another tech company. We&apos;re dreamers,
+            builders, and innovators on a mission to transform Bihar into a
+            global tech powerhouse—one brilliant idea at a time.
           </p>
         </div>
 
@@ -105,13 +106,14 @@ export default function AboutSection() {
                   talent knows no geography
                 </span>
                 . What began as a small team of passionate developers has
-                blossomed into a thriving tech ecosystem that&apos;s rewriting the
-                rules of innovation.
+                blossomed into a thriving tech ecosystem that&apos;s rewriting
+                the rules of innovation.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Today, we&apos;re not just building websites and apps—we&apos;re building
-                futures. We&apos;re empowering local talent, creating opportunities,
-                and proving that world-class technology can come from anywhere.
+                Today, we&apos;re not just building websites and apps—we&apos;re
+                building futures. We&apos;re empowering local talent, creating
+                opportunities, and proving that world-class technology can come
+                from anywhere.
               </p>
             </div>
 
@@ -160,19 +162,39 @@ export default function AboutSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 text-white text-center shadow-xl hover:shadow-2xl transition-shadow duration-300">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Discover Our Full Story
-            </h3>
-            <p className="text-lg mb-6 opacity-90">
-              Dive deeper into our journey, values, and the team that makes it
-              all happen.
-            </p>
-            <Link href="/about">
-              <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
-                Learn More About Us
-              </Button>
-            </Link>
+          <div className="group relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl p-8 md:p-10 text-white text-center shadow-2xl hover:shadow-green-500/20 transition-all duration-500 overflow-hidden border border-gray-700 hover:border-green-500/50">
+            {/* Animated background effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-green-600/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+            {/* Floating particles effect */}
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+              <div className="absolute top-10 left-10 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <div className="absolute top-20 right-20 w-2 h-2 bg-blue-400 rounded-full animate-pulse animation-delay-2000"></div>
+              <div className="absolute bottom-10 left-1/3 w-2 h-2 bg-green-300 rounded-full animate-pulse animation-delay-4000"></div>
+            </div>
+
+            <div className="relative z-10">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Sparkles className="h-8 w-8 text-white" />
+              </div>
+
+              <h3 className="text-2xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                Discover Our Full Story
+              </h3>
+              <p className="text-base md:text-lg mb-8 text-gray-300 max-w-md mx-auto leading-relaxed">
+                Dive deeper into our journey, values, and the passionate team
+                that makes innovation happen every day.
+              </p>
+              <Link href="/about">
+                <Button className="group/btn relative bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-500 hover:to-blue-500 text-white px-10 py-4 text-lg font-bold rounded-xl shadow-2xl hover:shadow-green-500/50 transition-all duration-300 transform hover:scale-110 overflow-hidden">
+                  <span className="relative z-10 flex items-center gap-3">
+                    Learn More About Us
+                    <ArrowRight className="h-5 w-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-green-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                </Button>
+              </Link>
+            </div>
           </div>
 
           <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl p-8 text-white text-center shadow-xl hover:shadow-2xl transition-shadow duration-300">
@@ -184,8 +206,8 @@ export default function AboutSection() {
               and offerings.
             </p>
             <a
-              href="/brochure.jpeg"
-              download="JankiInfotech-Brochure.jpeg"
+              href="/brochure.pdf"
+              download="JankiInfotech-Brochure.pdf"
               className="inline-flex items-center gap-3 bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <FileText className="h-5 w-5" />

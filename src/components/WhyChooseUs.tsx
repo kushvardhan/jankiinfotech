@@ -107,9 +107,7 @@ export default function WhyChooseUs() {
         {/* Header */}
         <div
           className={`text-center mb-16 transition-all duration-1000 ${
-            isVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-10"
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
           <div className="inline-flex items-center bg-gradient-to-r from-green-100 to-blue-100 text-green-800 px-6 py-2 rounded-full text-sm font-semibold mb-6 shadow-md">
@@ -137,7 +135,7 @@ export default function WhyChooseUs() {
           {reasons.map((reason, index) => (
             <div
               key={index}
-              className={`group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 ${
+              className={`group relative bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 hover:border-gray-200 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -146,28 +144,28 @@ export default function WhyChooseUs() {
                 transitionDelay: `${index * 100}ms`,
               }}
             >
-              {/* Gradient Border Effect */}
+              {/* Subtle Gradient Border Effect - Much lighter */}
               <div
-                className={`absolute inset-0 bg-gradient-to-r ${reason.color} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl`}
+                className={`absolute -inset-0.5 bg-gradient-to-r ${reason.color} rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 -z-10`}
               ></div>
 
               {/* Icon */}
               <div
-                className={`w-14 h-14 ${reason.bgColor} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                className={`w-14 h-14 ${reason.bgColor} rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300`}
               >
                 <reason.icon className={`w-7 h-7 ${reason.iconColor}`} />
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors duration-300">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 transition-colors duration-300">
                 {reason.title}
               </h3>
               <p className="text-gray-600 leading-relaxed text-sm">
                 {reason.description}
               </p>
 
-              {/* Decorative Element */}
-              <div className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-green-100 to-blue-100 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10"></div>
+              {/* Subtle Decorative Element */}
+              <div className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-br from-green-50 to-blue-50 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-300 -z-10"></div>
             </div>
           ))}
         </div>
@@ -175,9 +173,7 @@ export default function WhyChooseUs() {
         {/* Trust Indicators */}
         <div
           className={`bg-gradient-to-r from-green-600 to-blue-600 rounded-3xl p-8 md:p-12 text-white text-center shadow-2xl transition-all duration-1000 ${
-            isVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-10"
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
           style={{ transitionDelay: "800ms" }}
         >
@@ -210,9 +206,7 @@ export default function WhyChooseUs() {
             </div>
             <div className="flex-1 min-w-[150px]">
               <div className="text-4xl md:text-5xl font-bold mb-2">100%</div>
-              <div className="text-sm md:text-base opacity-90">
-                Commitment
-              </div>
+              <div className="text-sm md:text-base opacity-90">Commitment</div>
             </div>
           </div>
         </div>
@@ -244,4 +238,3 @@ export default function WhyChooseUs() {
     </section>
   );
 }
-
