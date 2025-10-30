@@ -10,6 +10,7 @@ import HeroSection from "@/components/HeroSection";
 import { Navbar } from "@/components/Navbar";
 import OurWorkPreview from "@/components/OurWorkPreview";
 import ServicesSection from "@/components/ServicesSection";
+import WhyChooseUs from "@/components/WhyChooseUs";
 
 export default function Home() {
   return (
@@ -23,6 +24,10 @@ export default function Home() {
 
       <FadeInSection delay={200}>
         <ServicesSection />
+      </FadeInSection>
+
+      <FadeInSection delay={100}>
+        <WhyChooseUs />
       </FadeInSection>
 
       <FadeInSection delay={100}>
