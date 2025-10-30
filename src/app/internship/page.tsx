@@ -6,7 +6,6 @@ import {
   Award,
   BookOpen,
   Download,
-  FileText,
   MapPin,
   Rocket,
   Sparkles,
@@ -14,6 +13,8 @@ import {
   Target,
   TrendingUp,
   Users,
+  GraduationCap,
+  ArrowRight
 } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -195,29 +196,97 @@ export default function InternshipPage() {
           </div>
         </section>
 
-        {/* Brochure Download Section */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-3xl p-8 md:p-10 text-white text-center shadow-2xl">
-              <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <FileText className="h-8 w-8 text-white" />
+        {/* Brochure Download Section - Internship Themed */}
+        <section className="py-16 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50">
+          <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border-2 border-green-100">
+              {/* Decorative elements */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-green-200 to-blue-200 rounded-full blur-3xl opacity-20 -mr-32 -mt-32"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-purple-200 to-green-200 rounded-full blur-3xl opacity-20 -ml-32 -mb-32"></div>
+
+              <div className="relative z-10 p-8 md:p-12">
+                <div className="grid md:grid-cols-5 gap-8 items-center">
+                  {/* Left - Visual element */}
+                  <div className="md:col-span-2 flex justify-center">
+                    <div className="relative">
+                      {/* Main icon */}
+                      <div className="w-40 h-40 bg-gradient-to-br from-green-500 via-blue-500 to-purple-500 rounded-3xl flex items-center justify-center shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                        <GraduationCap className="h-20 w-20 text-white" />
+                      </div>
+                      {/* Floating badges */}
+                      <div className="absolute -top-4 -right-4 bg-green-500 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg animate-bounce">
+                        FREE
+                      </div>
+                      <div className="absolute -bottom-4 -left-4 bg-blue-500 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg">
+                        2.5 MB
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right - Content */}
+                  <div className="md:col-span-3">
+                    <div className="inline-flex items-center bg-gradient-to-r from-green-100 to-blue-100 px-4 py-2 rounded-full mb-4">
+                      <Sparkles className="h-4 w-4 mr-2 text-green-600" />
+                      <span className="text-sm font-semibold text-green-800">
+                        Complete Program Guide
+                      </span>
+                    </div>
+
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                      Get Your{" "}
+                      <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                        Free
+                      </span>{" "}
+                      Internship Brochure
+                    </h2>
+
+                    <p className="text-gray-600 text-base md:text-lg mb-6 leading-relaxed">
+                      Discover detailed curriculum, success stories, placement
+                      records, and everything you need to know about our
+                      transformative internship programs.
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-4 mb-6">
+                      <div className="flex items-start gap-2">
+                        <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Award className="h-4 w-4 text-green-600" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-gray-900 text-sm">
+                            Program Details
+                          </div>
+                          <div className="text-xs text-gray-500">
+                            Full curriculum
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Users className="h-4 w-4 text-blue-600" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-gray-900 text-sm">
+                            Success Stories
+                          </div>
+                          <div className="text-xs text-gray-500">
+                            Alumni testimonials
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <a
+                      href="/brochure.pdf"
+                      download="JankiInfotech-Brochure.pdf"
+                      className="group inline-flex items-center gap-3 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white font-bold py-4 px-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                    >
+                      <Download className="h-5 w-5 group-hover:animate-bounce" />
+                      Download Free Brochure
+                      <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </div>
+                </div>
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                Get Complete Program Details
-              </h2>
-              <p className="text-base md:text-lg mb-6 opacity-95 max-w-2xl mx-auto">
-                Download our brochure to explore all internship programs,
-                curriculum details, and success stories from our alumni.
-              </p>
-              <a
-                href="/brochure.jpeg"
-                download="JankiInfotech-Brochure.jpeg"
-                className="inline-flex items-center gap-3 bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-              >
-                <FileText className="h-5 w-5" />
-                Download Brochure
-                <Download className="h-5 w-5 animate-bounce" />
-              </a>
             </div>
           </div>
         </section>
