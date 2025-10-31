@@ -23,7 +23,7 @@ export default function HeroSection() {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="text-center space-y-8 md:space-y-12">
           {/* Badge */}
-          <div className="my-4"></div>
+          <div className="my-1"></div>
           {/* Main Heading */}
           <div className="mb-8">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">

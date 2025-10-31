@@ -215,7 +215,6 @@ export default function OurWorkPage() {
         </div>
 
         <div className="container mx-auto max-w-6xl text-center">
-          <div className="mb-4"></div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             Crafting Digital{" "}
             <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
