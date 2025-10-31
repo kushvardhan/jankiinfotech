@@ -118,6 +118,72 @@ const projects: Project[] = [
     technologies: ["Next.js", "React", "Tailwind CSS", "Vercel", "TypeScript"],
     impact: "2000+ happy clients | 12+ years experience | 100% natural henna",
   },
+
+  {
+    "id": "5",
+    "title": "Shine It Cleaning (ShineItCleaning)",
+    "image": "/our-projects/ShineItCleaning.png",
+    "duration": "Active local cleaning business (established — ongoing operations)",
+    "liveLink": "https://shineitcleaning.com",
+    "description": "Commercial & residential cleaning services (local/regional provider with online booking / contact presence).",
+    "fullDescription": "Shine It Cleaning is a professional cleaning services brand that advertises home and commercial cleaning, sofa and mattress cleaning, kitchen degreasing, and move-in/move-out cleaning. The business maintains local social listings (Instagram / Facebook) and a booking/contact page. The site positions itself as an eco/quality-focused local cleaning provider.",
+    "features": [
+      "Home & commercial cleaning packages",
+      "Sofa/mattress deep-cleaning",
+      "Kitchen degreasing & bathroom deep clean",
+      "Online contact / quote form and local booking info",
+      "Social proof via Instagram/Facebook listings"
+    ],
+    "technologies": [
+      "Static site / CMS (could not definitively fingerprint; public listings and social pages observed)",
+      "HTML / CSS / JavaScript"
+    ],
+    "impact": "Local cleaning coverage with client testimonials and social presence (Instagram / Facebook listings and local directory entries)"
+  },
+
+  {
+    "id": "6",
+    "title": "Delhi Public School — Thalwara (DPS Thalwara)",
+    "image": "/our-projects/DPS.png",
+    "duration": "Operational (school ongoing; admissions open notices on social pages)",
+    "liveLink": "https://dpsthalwara.com",
+    "description": "CBSE-affiliated local school serving Thalwara / Darbhanga region with standard K–12 curriculum and community outreach.",
+    "fullDescription": "Delhi Public School Thalwara (DPS Thalwara) runs standard school operations for the Thalwara / Darbhanga area. The website provides about, contact and admission/enquiry details. School contact number and email are publicly listed and the school posts inspection/announcement updates on social pages.",
+    "features": [
+      "CBSE-aligned curriculum & standard K–12 academics",
+      "Admissions & contact pages",
+      "Announcements / inspection / community updates (social posts)",
+      "Contact phone and email publicly listed"
+    ],
+    "technologies": [
+      "Simple static site (HTML pages like about.html observed)",
+      "HTML / CSS / JavaScript (likely built as a small static or PHP-backed site)"
+    ],
+    "impact": "Serving families in the Thalwara / Darbhanga region — active enrollment / announcements shown on the site and social pages"
+  },
+  {
+  "id": "7",
+  "title": "Mission Education Consultancy",
+  "image": "/our-projects/MissionEducation.png",
+  "duration": "Operational (active consultancy / course listings)",
+  "liveLink": "https://missioneducation.info",
+  "description": "Local education consultancy and admission counselling service offering guidance and direct-admission support for professional & higher education courses.",
+  "fullDescription": "Mission Education is an education consultancy and admission counselling service based in Laheriasarai, Darbhanga. The website lists course pages (B.Ed, Polytechnic, Engineering, Medical, Management and other professional/technical courses), contact details (phone and email), and course-specific pages designed to help students with admissions and course selection. The site presents itself as a local consultancy offering affordable professional course admissions and counselling services.",
+  "features": [
+    "Course listings & course-detail pages (B.Ed, Polytechnic, Engineering, etc.)",
+    "Contact & enquiry page with phone numbers and email",
+    "Local office address listed (Laheriasarai, G.N. Ganj / Gudri Bazar)",
+    "Admission counselling and direct-admission assistance",
+    "Course detail pages (duration, overview) for prospective students"
+  ],
+  "technologies": [
+    "Vite + React (site indicates Vite + React in page metadata / build info)",
+    "HTML / CSS / JavaScript",
+    "Static SPA style routing (course pages under /course and /course_details paths)"
+  ],
+  "impact": "Local admission counselling for students in Darbhanga region — course pages and contact listings indicate active local operations and student outreach."
+}
+
 ];
 
 export default function OurWorkPage() {
