@@ -1,6 +1,8 @@
 "use client";
 
 import AboutSection from "@/components/AboutSection";
+import ClientLogos from "@/components/ClientLogos";
+// import ClientLogosMarquee from "@/components/ClientLogosMarquee";
 import ContactSection from "@/components/ContactSection";
 import CTASection from "@/components/CTASection";
 import FadeInSection from "@/components/FadeInSection";
@@ -22,12 +24,22 @@ export default function Home() {
         <Features />
       </FadeInSection>
 
-      <FadeInSection delay={200}>
+      {/* Client Logos - Marquee Style */}
+      {/* <FadeInSection delay={100}>
+        <ClientLogosMarquee />
+      </FadeInSection> */}
+
+      <FadeInSection delay={100}>
         <ServicesSection />
       </FadeInSection>
 
       <FadeInSection delay={100}>
         <WhyChooseUs />
+      </FadeInSection>
+
+      {/* Client Logos - Grid Style */}
+      <FadeInSection delay={100}>
+        <ClientLogos />
       </FadeInSection>
 
       <FadeInSection delay={100}>
