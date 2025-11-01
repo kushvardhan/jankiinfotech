@@ -135,7 +135,7 @@ const projects: Project[] = [
       "Social proof via Instagram/Facebook listings"
     ],
     "technologies": [
-      "Static site / CMS (could not definitively fingerprint; public listings and social pages observed)",
+      "Static site / CMS",
       "HTML / CSS / JavaScript"
     ],
     "impact": "Local cleaning coverage with client testimonials and social presence (Instagram / Facebook listings and local directory entries)"
@@ -156,8 +156,8 @@ const projects: Project[] = [
       "Contact phone and email publicly listed"
     ],
     "technologies": [
-      "Simple static site (HTML pages like about.html observed)",
-      "HTML / CSS / JavaScript (likely built as a small static or PHP-backed site)"
+      "Simple static site",
+      "HTML / CSS / JavaScript"
     ],
     "impact": "Serving families in the Thalwara / Darbhanga region — active enrollment / announcements shown on the site and social pages"
   },
@@ -177,9 +177,9 @@ const projects: Project[] = [
     "Course detail pages (duration, overview) for prospective students"
   ],
   "technologies": [
-    "Vite + React (site indicates Vite + React in page metadata / build info)",
+    "React",
     "HTML / CSS / JavaScript",
-    "Static SPA style routing (course pages under /course and /course_details paths)"
+    "Static SPA style routing"
   ],
   "impact": "Local admission counselling for students in Darbhanga region — course pages and contact listings indicate active local operations and student outreach."
 }
