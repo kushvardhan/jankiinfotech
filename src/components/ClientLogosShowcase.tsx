@@ -2,104 +2,44 @@
 
 import { Building2, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function ClientLogosShowcase() {
   const [isVisible, setIsVisible] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
   const clients = [
-    { 
-      name: "Ayurakshak", 
-      logo: "/Client-logo/Ayurakshaklogo.png",
-      industry: "Healthcare",
-      color: "from-teal-500 to-cyan-500"
-    },
-    { 
-      name: "Cambridge", 
-      logo: "/Client-logo/cambridgelogo.png",
-      industry: "Education",
-      color: "from-blue-500 to-indigo-500"
-    },
-    { 
-      name: "Delhi Public School", 
-      logo: "/Client-logo/delhipublicschool.png",
-      industry: "Education",
-      color: "from-indigo-500 to-purple-500"
-    },
-    { 
-      name: "Krishna Mehandi", 
-      logo: "/Client-logo/krishnamehandilogo.png",
-      industry: "Beauty & Wellness",
-      color: "from-pink-500 to-rose-500"
-    },
-    { 
-      name: "Mission Education", 
-      logo: "/Client-logo/missioneducation.png",
-      industry: "Education",
-      color: "from-orange-500 to-amber-500"
-    },
-    { 
-      name: "Rental Fashion", 
-      logo: "/Client-logo/rentalfashionlogo.png",
-      industry: "Fashion & Retail",
-      color: "from-purple-500 to-pink-500"
-    },
-    { 
-      name: "Shienitu", 
-      logo: "/Client-logo/shienitupdatedlogo.png",
-      industry: "Technology",
-      color: "from-green-500 to-emerald-500"
-    },
-    { 
-      name: "Shine It Laundry", 
-      logo: "/Client-logo/shineitlaundry.png",
-      industry: "Services",
-      color: "from-cyan-500 to-blue-500"
-    },
-    { 
-      name: "Shyam Mehandi", 
-      logo: "/Client-logo/shyammehandilogo.png",
-      industry: "Beauty & Wellness",
-      color: "from-rose-500 to-red-500"
-    },
-    { 
-      name: "Vinay Mehandi", 
-      logo: "/Client-logo/vinaymehandilogo.png",
-      industry: "Beauty & Wellness",
-      color: "from-amber-500 to-orange-500"
-    },
+    { name: "Ayurakshak", logo: "/Client-logo/Ayurakshaklogo.png", industry: "Healthcare" },
+    { name: "Cambridge", logo: "/Client-logo/cambridgelogo.png", industry: "Education" },
+    { name: "Delhi Public School", logo: "/Client-logo/delhipublicschool.png", industry: "Education" },
+    { name: "Krishna Mehandi", logo: "/Client-logo/krishnamehandilogo.png", industry: "Beauty & Wellness" },
+    { name: "Mission Education", logo: "/Client-logo/missioneducation.png", industry: "Education" },
+    { name: "Rental Fashion", logo: "/Client-logo/rentalfashionlogo.png", industry: "Fashion & Retail" },
+    { name: "Shienitu", logo: "/Client-logo/shienitupdatedlogo.png", industry: "Technology" },
+    { name: "Shine It Laundry", logo: "/Client-logo/shineitlaundry.png", industry: "Services" },
+    { name: "Shyam Mehandi", logo: "/Client-logo/shyammehandilogo.png", industry: "Beauty & Wellness" },
+    { name: "Vinay Mehandi", logo: "/Client-logo/vinaymehandilogo.png", industry: "Beauty & Wellness" },
   ];
 
-  const itemsPerPage = {
-    mobile: 2,
-    tablet: 3,
-    desktop: 4,
+  const scroll = (direction: "left" | "right") => {
+    if (!scrollRef.current) return;
+    const { scrollLeft, clientWidth } = scrollRef.current;
+    const scrollAmount = clientWidth * 0.8;
+    scrollRef.current.scrollTo({
+      left: direction === "left" ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
+      behavior: "smooth",
+    });
   };
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % clients.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + clients.length) % clients.length);
-  };
-
-  // Auto-advance
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 4000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section className="relative py-20 bg-gradient-to-br from-slate-50 via-gray-50 to-zinc-50 overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-500 via-blue-500 to-purple-500"></div>
-      
+      {/* Top border accent */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-500 via-blue-500 to-purple-500" />
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div
@@ -122,99 +62,84 @@ export default function ClientLogosShowcase() {
           </h2>
 
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            From education to healthcare, fashion to technology - we empower businesses across sectors
+            From education to healthcare, fashion to technology — empowering brands that inspire.
           </p>
         </div>
 
         {/* Carousel */}
-        <div className="relative max-w-6xl mx-auto">
-          {/* Navigation buttons */}
+        <div className="relative">
+          {/* Left and Right buttons */}
           <button
-            onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-20 bg-white hover:bg-gray-50 p-3 md:p-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-110 border border-gray-200"
-            aria-label="Previous"
+            onClick={() => scroll("left")}
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-sm p-3 md:p-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 hover:scale-110"
           >
-            <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 text-gray-700" />
+            <ChevronLeft className="h-5 w-5 text-gray-700" />
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-sm p-3 md:p-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 hover:scale-110"
+          >
+            <ChevronRight className="h-5 w-5 text-gray-700" />
           </button>
 
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-20 bg-white hover:bg-gray-50 p-3 md:p-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-110 border border-gray-200"
-            aria-label="Next"
+          {/* Scrollable container */}
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth px-4 md:px-12 pb-4"
           >
-            <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-gray-700" />
-          </button>
-
-          {/* Logos grid */}
-          <div className="overflow-hidden px-2">
-            <div
-              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 transition-all duration-500"
-              style={{
-                transform: `translateX(-${(currentIndex % clients.length) * (100 / 4)}%)`,
-              }}
-            >
-              {[...clients, ...clients].map((client, index) => (
-                <div
-                  key={index}
-                  className={`transition-all duration-1000 ${
-                    isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
-                  }`}
-                  style={{ transitionDelay: `${(index % 10) * 100}ms` }}
-                >
-                  <div className="group relative bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
-                    {/* Gradient background */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${client.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
-
-                    {/* Logo */}
-                    <div className="relative z-10 aspect-square flex items-center justify-center mb-4">
-                      <Image
-                        src={client.logo}
-                        alt={`${client.name} logo`}
-                        width={120}
-                        height={120}
-                        className="object-contain w-full h-full transition-all duration-500 transform group-hover:scale-110"
-                      />
-                    </div>
-
-                    {/* Info */}
-                    <div className="relative z-10 text-center">
-                      <h3 className="font-bold text-gray-900 mb-1 text-sm md:text-base">{client.name}</h3>
-                      <p className="text-xs text-gray-500">{client.industry}</p>
-                    </div>
-
-                    {/* Star rating */}
-                    <div className="relative z-10 flex justify-center gap-1 mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-
-                    {/* Corner accent */}
-                    <div className={`absolute top-0 right-0 w-16 h-16 bg-gradient-to-br ${client.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-bl-full`}></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Dots indicator */}
-          <div className="flex justify-center gap-2 mt-8">
-            {clients.map((_, index) => (
-              <button
+            {clients.map((client, index) => (
+              <div
                 key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex % clients.length
-                    ? "w-8 bg-gradient-to-r from-teal-600 to-blue-600"
-                    : "w-2 bg-gray-300 hover:bg-gray-400"
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
+                className="flex-shrink-0 w-40 sm:w-52 md:w-56 lg:w-64 bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl border border-gray-100 transition-all duration-500 transform hover:-translate-y-2 group"
+              >
+                <div className="relative aspect-square flex items-center justify-center mb-4">
+                  <Image
+                    src={client.logo}
+                    alt={client.name}
+                    width={120}
+                    height={120}
+                    className="object-contain w-full h-full transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <div className="text-center">
+                  <h3 className="font-bold text-gray-900 text-sm sm:text-base">{client.name}</h3>
+                  <p className="text-xs text-gray-500 mt-1">{client.industry}</p>
+                </div>
+                <div className="flex justify-center gap-1 mt-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
+
+          {/* Edge gradients for fade effect */}
+          <div className="absolute top-0 left-0 h-full w-12 bg-gradient-to-r from-slate-50 via-slate-50/90 to-transparent pointer-events-none" />
+          <div className="absolute top-0 right-0 h-full w-12 bg-gradient-to-l from-slate-50 via-slate-50/90 to-transparent pointer-events-none" />
+        </div>
+
+        {/* “More” indicator */}
+        <div className="flex items-center justify-center gap-3 text-gray-600 text-sm font-medium mt-10">
+          <span className="block h-[1px] w-12 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
+          <span className="relative uppercase tracking-[0.25em] bg-white/70 backdrop-blur-sm px-6 py-2 rounded-full border border-gray-200 shadow-sm hover:shadow-md transition-all duration-500 ease-out group">
+            <span className="text-gray-700">More</span>
+            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-teal-500/10 via-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          </span>
+          <span className="block h-[1px] w-12 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
         </div>
       </div>
+
+      {/* Hide scrollbar globally */}
+      <style jsx global>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </section>
   );
 }
-
