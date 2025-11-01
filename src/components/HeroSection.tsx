@@ -26,12 +26,12 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 pb-20 overflow-x-hidden">
+    <section className="relative  bg-gradient-to-br from-white via-green-50/30 to-blue-50/40 md:from-blue-50 md:via-purple-50 md:to-pink-50 flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-10 md:pt-14 pb-20 overflow-hidden">
       {/* Enhanced Animated Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Animated gradient blobs */}
-        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-blue-300 to-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-green-200 to-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-6000"></div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Animated gradient blobs - more subtle on mobile */}
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-blue-300/20 to-cyan-200/20 md:from-blue-300 md:to-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 md:opacity-40 animate-blob"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-green-200/20 to-teal-200/20 md:from-green-200 md:to-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-15 md:opacity-30 animate-blob animation-delay-6000"></div>
       </div>
 
       {/* Animated grid pattern */}
@@ -50,9 +50,9 @@ export default function HeroSection() {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="text-center space-y-8 md:space-y-12">
           {/* Badge */}
-          <div className="my-1"></div>
+          <div className="my-2"></div>
           {/* Main Heading */}
-          <div className="mb-8">
+          <div className="mb-8 ">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
               <span className="block mb-2">
                 Delivering <span className="text-green-600">innovative</span>
@@ -105,13 +105,13 @@ export default function HeroSection() {
 
             {/* Infinite Scrolling Container */}
             <div className="relative w-full mb-6 md:mb-8">
-              {/* Blur gradient overlays */}
-              <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-blue-50 via-purple-50/80 to-transparent z-10 pointer-events-none"></div>
-              <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-pink-50 via-purple-50/80 to-transparent z-10 pointer-events-none"></div>
+              {/* Blur gradient overlays - subtle on mobile, more visible on desktop */}
+              <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white via-green-50/50 to-transparent md:from-blue-50 md:via-purple-50/80 md:to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white via-blue-50/50 to-transparent md:from-pink-50 md:via-purple-50/80 md:to-transparent z-10 pointer-events-none"></div>
 
               {/* Scrolling logos wrapper */}
               <div className="overflow-hidden py-4">
-                <div className="flex gap-6 md:gap-8 animate-scroll-seamless hover:animation-pause">
+                <div className="flex gap-6 md:gap-8 items-center animate-scroll-seamless hover:animation-pause">
                   {/* Duplicate array 3 times for seamless infinite scroll */}
                   {[...clients, ...clients, ...clients].map((client, index) => (
                     <div
@@ -119,20 +119,17 @@ export default function HeroSection() {
                       title={client.name}
                       className="group flex-shrink-0 w-20 h-20 md:w-24 md:h-24 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center border-2 border-gray-200 hover:border-green-400 hover:shadow-xl hover:shadow-purple-200/50 transition-all duration-500 cursor-pointer p-3 md:p-4 relative overflow-hidden"
                     >
-                      {/* Gradient background on hover */}
-
                       {/* Logo */}
                       <Image
                         src={client.logo}
                         alt={`${client.name} logo`}
                         width={80}
                         height={80}
-                        className="object-contain w-full h-full relative z-10 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3"
+                        className="object-contain w-full h-full relative z-10 transition-all duration-500 transform group-hover:scale-110"
                       />
 
                       {/* Shine effect on hover */}
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
-
                     </div>
                   ))}
                 </div>
@@ -153,7 +150,7 @@ export default function HeroSection() {
                 <span className="text-gray-700 ml-3 text-lg font-medium">
                   Startup Clients
                 </span>
-                <Star className="inline ml-2 h-6 w-6 text-yellow-400 animate-bounce" />
+                <Star className="inline ml-2 h-6 w-6 text-yellow-500 animate-bounce" />
               </div>
             </div>
           </div>
@@ -209,46 +206,52 @@ export default function HeroSection() {
       <style jsx>{`
         @keyframes scroll-seamless {
           0% {
-            transform: translateX(0);
+            transform: translateX(0) translateY(0);
           }
           100% {
-            transform: translateX(calc(-100% / 3));
+            transform: translateX(calc(-100% / 3)) translateY(0);
           }
         }
 
         @keyframes float-slow {
           0%,
           100% {
-            transform: translateY(0) translateX(0);
+            transform: translateY(0);
           }
           50% {
-            transform: translateY(-20px) translateX(10px);
+            transform: translateY(-20px);
           }
         }
 
         @keyframes float-medium {
           0%,
           100% {
-            transform: translateY(0) translateX(0);
+            transform: translateY(0);
           }
           50% {
-            transform: translateY(-30px) translateX(-15px);
+            transform: translateY(-30px);
           }
         }
 
         @keyframes float-fast {
           0%,
           100% {
-            transform: translateY(0) translateX(0);
+            transform: translateY(0);
           }
           50% {
-            transform: translateY(-25px) translateX(20px);
+            transform: translateY(-25px);
           }
         }
 
         .animate-scroll-seamless {
-          animation: scroll-seamless 40s linear infinite;
+          animation: scroll-seamless 22s linear infinite;
           will-change: transform;
+        }
+
+        @media (max-width: 768px) {
+          .animate-scroll-seamless {
+            animation: scroll-seamless 10s linear infinite;
+          }
         }
 
         .animation-pause:hover {

@@ -80,14 +80,21 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-sm shadow-md border-b border-gray-200"
-          : "bg-white/90 backdrop-blur-sm border-b border-gray-100"
+          ? "bg-gradient-to-r from-white/98 via-green-50/95 to-blue-50/95 backdrop-blur-md shadow-lg"
+          : "bg-gradient-to-r from-white/95 via-purple-50/90 to-pink-50/90 backdrop-blur-md"
       }`}
     >
+      {/* Subtle bottom border with gradient */}
       <div
-        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ${
+        className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent transition-opacity duration-500 ${
+          isScrolled ? "opacity-100" : "opacity-50"
+        }`}
+      ></div>
+
+      <div
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${
           isScrolled ? "py-2" : "py-4"
         }`}
       >
@@ -101,16 +108,18 @@ export function Navbar() {
           <nav className="hidden lg:flex items-center space-x-1 ml-4">
             <Link
               href="/"
-              className="px-3 py-2 text-gray-700 hover:text-green-600 font-medium transition-colors"
+              className="relative px-4 py-2 text-gray-800 hover:text-green-700 font-medium transition-all duration-300 group"
             >
               Home
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-green-400 to-emerald-500 group-hover:w-3/4 transition-all duration-300 rounded-full"></span>
             </Link>
 
             <Link
               href="/about"
-              className="px-3 py-2 text-gray-700 hover:text-green-600 font-medium transition-colors"
+              className="relative px-4 py-2 text-gray-800 hover:text-green-700 font-medium transition-all duration-300 group"
             >
               About
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-green-400 to-emerald-500 group-hover:w-3/4 transition-all duration-300 rounded-full"></span>
             </Link>
 
             {/* Services Dropdown */}
@@ -129,9 +138,14 @@ export function Navbar() {
                 }, 200); // Smooth delay to prevent flickering
               }}
             >
-              <button className="flex items-center px-3 py-2 text-gray-700 hover:text-green-600 font-medium transition-colors">
+              <button className="relative flex items-center px-4 py-2 text-gray-800 hover:text-green-700 font-medium transition-all duration-300 group">
                 Services
-                <ChevronDown className="ml-1 h-4 w-4" />
+                <ChevronDown
+                  className={`ml-1 h-4 w-4 transition-transform duration-300 ${
+                    serviceDropdown ? "rotate-180" : ""
+                  }`}
+                />
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-green-400 to-emerald-500 group-hover:w-3/4 transition-all duration-300 rounded-full"></span>
               </button>
 
               {serviceDropdown && (
@@ -165,35 +179,43 @@ export function Navbar() {
 
             <Link
               href="/our-work"
-              className="px-3 py-2 text-gray-700 hover:text-green-600 font-medium transition-colors"
+              className="relative px-4 py-2 text-gray-800 hover:text-green-700 font-medium transition-all duration-300 group"
             >
               Our Work
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-green-400 to-emerald-500 group-hover:w-3/4 transition-all duration-300 rounded-full"></span>
             </Link>
 
             <Link
               href="/careers"
-              className="px-3 py-2 text-gray-700 hover:text-green-600 font-medium transition-colors"
+              className="relative px-4 py-2 text-gray-800 hover:text-green-700 font-medium transition-all duration-300 group"
             >
               Careers
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-green-400 to-emerald-500 group-hover:w-3/4 transition-all duration-300 rounded-full"></span>
             </Link>
 
             <a
               href="/brochure.pdf"
               download="JankiInfotech-Brochure.pdf"
-              className="group relative px-5 py-2.5 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white font-semibold rounded-lg transition-all duration-300 flex items-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105"
+              className="group relative px-5 py-2.5 bg-gradient-to-r from-green-600 via-emerald-600 to-blue-600 hover:from-green-700 hover:via-emerald-700 hover:to-blue-700 text-white font-semibold rounded-xl transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105 overflow-hidden"
               title="Download our company brochure"
             >
-              <FileText className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
-              <span className="hidden lg:inline">Get Brochure</span>
-              <Download className="h-4 w-4 group-hover:animate-bounce" />
+              {/* Shine effect */}
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+              <FileText className="h-4 w-4 group-hover:scale-110 transition-transform duration-300 relative z-10" />
+              <span className="hidden lg:inline relative z-10">
+                Get Brochure
+              </span>
+              <Download className="h-4 w-4 group-hover:animate-bounce relative z-10" />
             </a>
 
             <Link
               href="/schedule-consultation"
-              className="bg-green-600 hover:bg-green-700 flex items-center gap-2 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-200 hover:shadow-md"
+              className="group relative bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 flex items-center gap-2 text-white px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 overflow-hidden"
             >
-              <Phone className="h-4 w-4" />
-              Consultation
+              {/* Shine effect */}
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+              <Phone className="h-4 w-4 relative z-10" />
+              <span className="relative z-10">Consultation</span>
             </Link>
           </nav>
 
