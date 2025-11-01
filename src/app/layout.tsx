@@ -14,7 +14,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = generateMetadata();
+export const metadata: Metadata = {
+  ...generateMetadata(),
+  icons: {
+    icon: [
+      { url: "/browsericon.png", type: "image/png" },
+      { url: "/browsericon.png", sizes: "32x32", type: "image/png" },
+      { url: "/browsericon.png", sizes: "16x16", type: "image/png" },
+    ],
+    shortcut: "/browsericon.png",
+    apple: [
+      { url: "/browsericon.png" },
+      { url: "/browsericon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+};
 
 export default function RootLayout({
   children,
@@ -27,6 +41,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* ✅ Browser Icons - Multiple formats for better compatibility */}
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/browsericon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/browsericon.png"
+        />
+        <link rel="apple-touch-icon" sizes="180x180" href="/browsericon.png" />
+        <link rel="shortcut icon" href="/browsericon.png" />
+
+        {/* ✅ Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -40,6 +71,7 @@ export default function RootLayout({
           }}
         />
       </head>
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

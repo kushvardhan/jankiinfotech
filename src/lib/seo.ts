@@ -121,7 +121,7 @@ export function generateStructuredData(
         name: "JankiInfotech",
         alternateName: "Janki Infotech",
         url: baseUrl,
-        logo: `${baseUrl}/images/logo.png`,
+        logo: `/public/browsericon.png`,
         description:
           "Leading IT solutions and training company in Bihar, India. Specializing in web development, mobile apps, cloud solutions, and professional training programs.",
         address: {
