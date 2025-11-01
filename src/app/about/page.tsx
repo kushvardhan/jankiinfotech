@@ -1,5 +1,6 @@
 "use client";
 
+import ClientLogosShowcase from "@/components/ClientLogosShowcase";
 import { Navbar } from "@/components/Navbar";
 import SmallFooter from "@/components/SmallFooter";
 import {
@@ -365,6 +366,9 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Client Logos Showcase */}
+        <ClientLogosShowcase />
+
         {/* Team Section */}
         <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -562,8 +566,8 @@ export default function AboutPage() {
 
                     <p className="text-lg md:text-xl mb-8 text-white/90 leading-relaxed">
                       Get the complete picture of JankiInfotech - our services,
-                      values, team, success stories, and how we&apos;re transforming
-                      businesses across Bihar and beyond.
+                      values, team, success stories, and how we&apos;re
+                      transforming businesses across Bihar and beyond.
                     </p>
 
                     <div className="space-y-3 mb-8">
