@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Star, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -13,11 +14,37 @@ export default function HeroSection() {
     setIsVisible(true);
   }, []);
 
+  const clients = [
+    { name: "Ayurakshak", logo: "/Client-logo/Ayurakshaklogo.png" },
+    { name: "Cambridge", logo: "/Client-logo/cambridgelogo.png" },
+    { name: "Delhi Public School", logo: "/Client-logo/delhipublicschool.png" },
+    { name: "Krishna Mehandi", logo: "/Client-logo/krishnamehandilogo.png" },
+    { name: "Mission Education", logo: "/Client-logo/missioneducation.png" },
+    { name: "Rental Fashion", logo: "/Client-logo/rentalfashionlogo.png" },
+    { name: "Shien It", logo: "/Client-logo/shienitupdatedlogo.png" },
+    { name: "Shine It Laundry", logo: "/Client-logo/shineitlaundry.png" },
+  ];
+
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-green-50 to-white flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 pb-20 overflow-x-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(34,197,94,0.15)_1px,transparent_0)] bg-[size:20px_20px]"></div>
+    <section className="relative min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 pb-20 overflow-x-hidden">
+      {/* Enhanced Animated Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Animated gradient blobs */}
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-blue-300 to-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-green-200 to-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-6000"></div>
+      </div>
+
+      {/* Animated grid pattern */}
+      <div className="absolute inset-0 opacity-10 overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#3b82f6_1px,transparent_1px),linear-gradient(to_bottom,#3b82f6_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_110%)]"></div>
+      </div>
+
+      {/* Floating particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-300 rounded-full animate-float-slow opacity-60"></div>
+        <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-purple-300 rounded-full animate-float-medium opacity-60"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-pink-300 rounded-full animate-float-fast opacity-60"></div>
+        <div className="absolute top-2/3 right-1/3 w-2 h-2 bg-green-300 rounded-full animate-float-slow opacity-60"></div>
       </div>
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -41,9 +68,11 @@ export default function HeroSection() {
           <div className="mb-8">
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Tailored to power{" "}
-              <span className="text-green-600 font-semibold">innovation</span>{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">
+                innovation
+              </span>{" "}
               and{" "}
-              <span className="text-green-600 font-semibold">
+              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-semibold">
                 startup success
               </span>
               .
@@ -53,7 +82,7 @@ export default function HeroSection() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center w-full">
             <Link href="/schedule-consultation" className="w-full sm:w-auto">
-              <Button className="w-full bg-green-600 hover:bg-green-700 text-white px-6 md:px-8 py-3 text-base md:text-lg font-semibold rounded-lg transition-colors">
+              <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 md:px-8 py-3 text-base md:text-lg font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                 Schedule Consultation
               </Button>
             </Link>
@@ -68,44 +97,48 @@ export default function HeroSection() {
             </Link>
           </div>
 
-          {/* Client Logos */}
+          {/* Client Logos - Infinite Scrolling Marquee */}
           <div className="pt-12 md:pt-16">
             <p className="text-gray-500 text-sm mb-6 md:mb-8">
               Trusted by startups
             </p>
-            <button
-              onClick={() => setShowClientsModal(true)}
-              className="w-full"
-            >
-              <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 mb-6 md:mb-8 ">
-                {/* Client logos with green theme */}
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 hover:border-green-400 hover:shadow-lg transition-all duration-300 cursor-pointer flex-shrink-0">
-                  <span className="text-xs text-green-600 font-semibold text-center px-1">
-                    Client 1
-                  </span>
-                </div>
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 hover:border-green-400 hover:shadow-lg transition-all duration-300 cursor-pointer flex-shrink-0">
-                  <span className="text-xs text-green-600 font-semibold text-center px-1">
-                    Client 3
-                  </span>
-                </div>
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 hover:border-green-400 hover:shadow-lg transition-all duration-300 cursor-pointer flex-shrink-0">
-                  <span className="text-xs text-green-600 font-semibold text-center px-1">
-                    Client 4
-                  </span>
-                </div>
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 hover:border-green-400 hover:shadow-lg transition-all duration-300 cursor-pointer flex-shrink-0">
-                  <span className="text-xs text-green-600 font-semibold text-center px-1">
-                    Client 5
-                  </span>
-                </div>
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-lg flex items-center justify-center border border-green-200 hover:border-green-400 hover:shadow-lg transition-all duration-300 cursor-pointer flex-shrink-0">
-                  <span className="text-xs text-green-600 font-semibold text-center px-1">
-                    Client 6
-                  </span>
+
+            {/* Infinite Scrolling Container */}
+            <div className="relative w-full mb-6 md:mb-8">
+              {/* Blur gradient overlays */}
+              <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-blue-50 via-purple-50/80 to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-pink-50 via-purple-50/80 to-transparent z-10 pointer-events-none"></div>
+
+              {/* Scrolling logos wrapper */}
+              <div className="overflow-hidden py-4">
+                <div className="flex gap-6 md:gap-8 animate-scroll-seamless hover:animation-pause">
+                  {/* Duplicate array 3 times for seamless infinite scroll */}
+                  {[...clients, ...clients, ...clients].map((client, index) => (
+                    <div
+                      key={index}
+                      title={client.name}
+                      className="group flex-shrink-0 w-20 h-20 md:w-24 md:h-24 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center border-2 border-gray-200 hover:border-green-400 hover:shadow-xl hover:shadow-purple-200/50 transition-all duration-500 cursor-pointer p-3 md:p-4 relative overflow-hidden"
+                    >
+                      {/* Gradient background on hover */}
+
+                      {/* Logo */}
+                      <Image
+                        src={client.logo}
+                        alt={`${client.name} logo`}
+                        width={80}
+                        height={80}
+                        className="object-contain w-full h-full relative z-10 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3"
+                      />
+
+                      {/* Shine effect on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+
+                    </div>
+                  ))}
                 </div>
               </div>
-            </button>
+            </div>
+
             <div className="mt-12">
               <div
                 className={`transition-all duration-1500 delay-1700 ${
@@ -114,7 +147,7 @@ export default function HeroSection() {
                     : "opacity-0 translate-y-10"
                 }`}
               >
-                <span className="text-4xl font-bold text-green-600 animate-pulse">
+                <span className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent animate-pulse">
                   50+
                 </span>
                 <span className="text-gray-700 ml-3 text-lg font-medium">
@@ -147,9 +180,9 @@ export default function HeroSection() {
                   </button>
                 </div>
                 <p className="text-gray-600 mb-6 text-sm md:text-base">
-                  We have successfully served 50+ startup clients,
-                  helping them transform their digital presence and achieve
-                  their business goals.
+                  We have successfully served 50+ startup clients, helping them
+                  transform their digital presence and achieve their business
+                  goals.
                 </p>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-6">
                   {[1, 2, 3, 4, 5, 6].map((i) => (
@@ -172,6 +205,68 @@ export default function HeroSection() {
           )}
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes scroll-seamless {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-100% / 3));
+          }
+        }
+
+        @keyframes float-slow {
+          0%,
+          100% {
+            transform: translateY(0) translateX(0);
+          }
+          50% {
+            transform: translateY(-20px) translateX(10px);
+          }
+        }
+
+        @keyframes float-medium {
+          0%,
+          100% {
+            transform: translateY(0) translateX(0);
+          }
+          50% {
+            transform: translateY(-30px) translateX(-15px);
+          }
+        }
+
+        @keyframes float-fast {
+          0%,
+          100% {
+            transform: translateY(0) translateX(0);
+          }
+          50% {
+            transform: translateY(-25px) translateX(20px);
+          }
+        }
+
+        .animate-scroll-seamless {
+          animation: scroll-seamless 40s linear infinite;
+          will-change: transform;
+        }
+
+        .animation-pause:hover {
+          animation-play-state: paused;
+        }
+
+        .animate-float-slow {
+          animation: float-slow 8s ease-in-out infinite;
+        }
+
+        .animate-float-medium {
+          animation: float-medium 6s ease-in-out infinite;
+        }
+
+        .animate-float-fast {
+          animation: float-fast 4s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 }
