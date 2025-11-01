@@ -2,7 +2,6 @@
 
 import {
   ArrowRight,
-  Award,
   Clock,
   Code,
   Facebook,
@@ -15,7 +14,6 @@ import {
   Phone,
   Smartphone,
   Twitter,
-  Users,
   Zap,
 } from "lucide-react";
 import Link from "next/link";
@@ -42,8 +40,6 @@ export default function Footer() {
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Validate email before submission
     if (!isFormValid() || !email) {
       setMessage("Please enter a valid email address.");
       return;
@@ -53,16 +49,11 @@ export default function Footer() {
     setMessage("");
 
     try {
-      // Frontend-only submission
       console.log("📧 Newsletter subscription (frontend only):", { email });
 
       setMessage("Thank you for subscribing! We'll keep you updated.");
       setEmail("");
-
-      // Clear message after 5 seconds
-      setTimeout(() => {
-        setMessage("");
-      }, 5000);
+      setTimeout(() => setMessage(""), 5000);
     } catch (error) {
       console.error("Error:", error);
       setMessage("Something went wrong. Please try again.");
@@ -71,15 +62,35 @@ export default function Footer() {
     }
   };
 
+  const colorClasses = {
+    blue: {
+      text: "text-blue-600",
+      hover: "hover:text-blue-700",
+    },
+    purple: {
+      text: "text-purple-600",
+      hover: "hover:text-purple-700",
+    },
+    green: {
+      text: "text-green-600",
+      hover: "hover:text-green-700",
+    },
+    red: {
+      text: "text-red-600",
+      hover: "hover:text-red-700",
+    },
+  };
+
   const services = [
-    { name: "Web Development", icon: Globe, href: "/#services" },
+    { name: "Web Development", icon: Globe, href: "/#services", color: "blue" },
     {
       name: "Mobile Apps",
       icon: Smartphone,
       href: "/#services",
+      color: "purple",
     },
-    { name: "Cloud Solutions", icon: Zap, href: "/#services" },
-    { name: "DevOps", icon: Code, href: "/#services" },
+    { name: "Cloud Solutions", icon: Zap, href: "/#services", color: "green" },
+    { name: "DevOps", icon: Code, href: "/#services", color: "red" },
   ];
 
   const quickLinks = [
@@ -90,23 +101,9 @@ export default function Footer() {
     { name: "Our Work", href: "/our-work" },
   ];
 
-  // const stats = [
-  //   { label: "Projects Completed", value: "500+", icon: Award },
-  //   { label: "Happy Clients", value: "200+", icon: Users },
-  //   { label: "Years Experience", value: "5+", icon: Clock },
-  //   { label: "Team Members", value: "25+", icon: Code },
-  // ];
-
   return (
     <>
-      {/*
-        Website developed by Kush Vardhan
-        Email: kushvardhan39797@gmail.com
-        GitHub: kushvardhan
-        Crafted with passion and precision
-      */}
       <footer className="bg-gradient-to-br from-white via-green-50 to-green-100 text-gray-800 border-t border-green-200">
-        {/* Main Footer Content */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
             {/* Company Info */}
@@ -115,13 +112,17 @@ export default function Footer() {
                 <Logo className="text-green-800" />
               </div>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Empowering businesses with cutting-edge technology solutions. We
-                specialize in web development, mobile applications, cloud
-                solutions, and professional training programs that drive digital
-                transformation.
+                Empowering businesses with{" "}
+                <span className="text-green-700 font-semibold">
+                  cutting-edge technology
+                </span>{" "}
+                solutions. We specialize in{" "}
+                <span className="text-blue-600 font-medium">web</span> and{" "}
+                <span className="text-purple-600 font-medium">mobile</span>{" "}
+                development, <span className="text-green-600">cloud</span>{" "}
+                solutions, and professional training programs.
               </p>
 
-              {/* Contact Info */}
               <div className="space-y-3">
                 <div className="flex items-center text-gray-600">
                   <Phone className="h-4 w-4 mr-3 text-green-600" />
@@ -146,7 +147,7 @@ export default function Footer() {
                   <span>
                     Bihar, India
                     <br />
-                    Serving clients globally
+                    Serving clients globally 🌍
                   </span>
                 </div>
               </div>
@@ -162,9 +163,15 @@ export default function Footer() {
                   <li key={index}>
                     <Link
                       href={service.href}
-                      className="flex items-center text-gray-600 hover:text-green-700 transition-colors group"
+                      className={`flex items-center text-gray-600 ${
+                        colorClasses[service.color].hover
+                      } transition-colors group`}
                     >
-                      <service.icon className="h-4 w-4 mr-3 text-green-600" />
+                      <service.icon
+                        className={`h-4 w-4 mr-3 ${
+                          colorClasses[service.color].text
+                        }`}
+                      />
                       <span className="group-hover:translate-x-1 transition-transform">
                         {service.name}
                       </span>
@@ -184,7 +191,7 @@ export default function Footer() {
                 </p>
                 <Link
                   href="/schedule-consultation"
-                  className="inline-flex items-center text-sm font-medium text-green-700 hover:text-green-800 transition-colors"
+                  className="inline-flex items-center text-sm font-medium text-purple-700 hover:text-purple-800 transition-colors"
                 >
                   Schedule Now <ArrowRight className="h-3 w-3 ml-1" />
                 </Link>
@@ -217,76 +224,63 @@ export default function Footer() {
                 </h4>
                 <div className="space-y-2 text-sm text-gray-600">
                   <div className="flex justify-between">
-                    <span>Monday - Friday</span>
-                    <span>9:00 AM - 6:00 PM</span>
+                    <span>Mon - Fri</span>
+                    <span className="text-green-700">9:00 AM - 6:00 PM</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Saturday</span>
-                    <span>10:00 AM - 4:00 PM</span>
+                    <span className="text-purple-700">10:00 AM - 4:00 PM</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Sunday</span>
-                    <span>AnyTime</span>
+                    <span className="text-red-600 font-medium">Anytime</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Stats & Social */}
+            {/* Newsletter & Social */}
             <div>
-              
-
-              {/* Social Media */}
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-4">Follow Us</h4>
-                <div className="flex space-x-4">
-                  <Link
-                    href="https://www.linkedin.com/company/jankiinfotech/?viewAsMember=true"
-                    target="_blank"
-                    className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
-                  >
-                    <Linkedin className="h-5 w-5 text-blue-400" />
-                  </Link>
-                  <Link
-                    href="https://www.instagram.com/_jankiinfotech_/"
-                    target="_blank"
-                    className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
-                  >
-                    <Instagram className="h-5 w-5 text-pink-400" />
-                  </Link>
-                  <Link
-                    href="https://www.facebook.com/profile.php?id=61581206342758"
-                    target="_blank"
-                    className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
-                  >
-                    <Facebook className="h-5 w-5 text-blue-500" />
-                  </Link>
-                  <Link
-                    href="https://x.com/Jankiinfotech_"
-                    target="_blank"
-                    className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
-                  >
-                    <Twitter className="h-5 w-5 text-blue-400" />
-                  </Link>
-                  {/* <Link
-                    href="https://youtube.com/@jankiinfotech"
-                    target="_blank"
-                    className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
-                  >
-                    <Youtube className="h-5 w-5 text-red-500" />
-                  </Link> */}
-                </div>
+              <h4 className="font-semibold text-gray-800 mb-4">Follow Us</h4>
+              <div className="flex space-x-4 mb-6">
+                <Link
+                  href="https://www.linkedin.com/company/jankiinfotech/?viewAsMember=true"
+                  target="_blank"
+                  className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
+                >
+                  <Linkedin className="h-5 w-5 text-blue-500" />
+                </Link>
+                <Link
+                  href="https://www.instagram.com/_jankiinfotech_/"
+                  target="_blank"
+                  className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
+                >
+                  <Instagram className="h-5 w-5 text-pink-500" />
+                </Link>
+                <Link
+                  href="https://www.facebook.com/profile.php?id=61581206342758"
+                  target="_blank"
+                  className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
+                >
+                  <Facebook className="h-5 w-5 text-blue-600" />
+                </Link>
+                <Link
+                  href="https://x.com/Jankiinfotech_"
+                  target="_blank"
+                  className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-all hover:scale-110"
+                >
+                  <Twitter className="h-5 w-5 text-blue-400" />
+                </Link>
               </div>
 
               {/* Newsletter */}
-              <div className="mt-8 p-4 bg-gradient-to-r from-green-500 to-green-600 rounded-lg">
+              <div className="p-4 bg-gradient-to-r from-green-500 to-green-600 rounded-lg">
                 <h4 className="font-semibold text-white mb-2">Stay Updated</h4>
                 <p className="text-sm text-green-100 mb-3">
-                  Get the latest tech insights and updates delivered to your
-                  inbox.
+                  Get the latest tech insights delivered to your inbox.
                 </p>
                 <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-                  <div className="flex flex-col sm:flex-row gap-2 w-full">
+                  <div className="flex flex-col sm:flex-row gap-2 w-full max-w-md">
                     <input
                       type="email"
                       value={email}
@@ -294,12 +288,12 @@ export default function Footer() {
                       placeholder="Enter your email"
                       required
                       disabled={isSubmitting}
-                      className="flex-1 min-w-0 px-3 py-2 text-sm bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg sm:rounded-l-lg sm:rounded-r-none placeholder-white placeholder-opacity-70 text-zinc-700 text-md font-semibold font-mono focus:outline-none focus:bg-opacity-30 disabled:opacity-50"
+                      className="flex-1 min-w-0 px-3 py-2 text-sm bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg sm:rounded-l-lg sm:rounded-r-none placeholder-white placeholder-opacity-70 text-zinc-700 font-semibold focus:outline-none focus:bg-opacity-30 disabled:opacity-50"
                     />
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="px-4 py-2 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg sm:rounded-l-none sm:rounded-r-lg hover:bg-opacity-30 transition-colors disabled:opacity-50 flex-shrink-0"
+                      className="w-full sm:w-auto px-4 py-2 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg sm:rounded-l-none sm:rounded-r-lg hover:bg-opacity-30 transition-colors disabled:opacity-50 flex items-center justify-center flex-shrink-0"
                     >
                       {isSubmitting ? (
                         <div className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -309,19 +303,17 @@ export default function Footer() {
                     </button>
                   </div>
 
-                  {/* Real-time validation message */}
                   <ValidationMessage
                     result={getFieldValidation("newsletter_email").result}
                     show={getFieldValidation("newsletter_email").showMessage}
                   />
 
-                  {/* Form submission message */}
                   {message && (
                     <p
                       className={`text-sm ${
                         message.includes("Thank you")
-                          ? "text-blue-300"
-                          : "text-red-300"
+                          ? "text-blue-200"
+                          : "text-red-200"
                       }`}
                     >
                       {message}
@@ -340,10 +332,10 @@ export default function Footer() {
               <div className="text-center md:text-left">
                 <p className="text-gray-600">
                   © {currentYear}{" "}
-                  <span className="font-semibold text-gray-800">
+                  <span className="font-semibold text-green-700">
                     JankiInfotech
-                  </span>
-                  . All rights reserved.
+                  </span>{" "}
+                  — All rights reserved.
                 </p>
                 <p
                   title="kushvardhan39797@gmail.com"
@@ -352,22 +344,15 @@ export default function Footer() {
                   Crafted with{" "}
                   <Heart className="h-5 w-5 inline text-red-600 cursor-pointer" />{" "}
                   by{" "}
-                  <Link target="_blank" href='https://kush-personal-portfolio-my-portfolio.vercel.app/' >
-                  <span className="cursor-pointer hover:text-blue-700 text-regular text-gray-800 font-mono text-md">
-                    Kush
-                  </span>
+                  <Link
+                    target="_blank"
+                    href="https://kush-personal-portfolio-my-portfolio.vercel.app/"
+                  >
+                    <span className="cursor-pointer hover:text-blue-700 text-gray-800 font-mono">
+                      Kush
+                    </span>
                   </Link>
                 </p>
-
-                {/* Developer signature - hidden but accessible */}
-                <div className="opacity-0 hover:opacity-100 transition-opacity duration-1000 text-xs text-gray-400 mt-2">
-                  <span
-                    className="cursor-default"
-                    title="Developer & Designer: Kush Vardhan - kushvardhan39797@gmail.com"
-                  >
-                    ⚡ Powered by innovation
-                  </span>
-                </div>
               </div>
 
               <div className="flex items-center space-x-6 text-sm text-gray-600">

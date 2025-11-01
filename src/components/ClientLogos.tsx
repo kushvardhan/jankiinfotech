@@ -16,16 +16,66 @@ export default function ClientLogos() {
   }, []);
 
   const clients = [
-    { name: "Ayurakshak", logo: "/Client-logo/Ayurakshaklogo.png" },
-    { name: "Cambridge", logo: "/Client-logo/cambridgelogo.png" },
-    { name: "Delhi Public School", logo: "/Client-logo/delhipublicschool.png" },
-    { name: "Krishna Mehandi", logo: "/Client-logo/krishnamehandilogo.png" },
-    { name: "Mission Education", logo: "/Client-logo/missioneducation.png" },
-    { name: "Rental Fashion", logo: "/Client-logo/rentalfashionlogo.png" },
-    { name: "Shienitu", logo: "/Client-logo/shienitupdatedlogo.png" },
-    { name: "Shine It Laundry", logo: "/Client-logo/shineitlaundry.png" },
-    { name: "Shyam Mehandi", logo: "/Client-logo/shyammehandilogo.png" },
-    { name: "Vinay Mehandi", logo: "/Client-logo/vinaymehandilogo.png" },
+    {
+      name: "Ayurakshak",
+      logo: "/Client-logo/Ayurakshaklogo.png",
+      industry: "Healthcare",
+      project: "E-commerce Platform",
+    },
+    {
+      name: "Cambridge",
+      logo: "/Client-logo/cambridgelogo.png",
+      industry: "Education",
+      project: "Learning Management",
+    },
+    {
+      name: "Delhi Public School",
+      logo: "/Client-logo/delhipublicschool.png",
+      industry: "Education",
+      project: "School Portal",
+    },
+    {
+      name: "Krishna Mehandi",
+      logo: "/Client-logo/krishnamehandilogo.png",
+      industry: "Beauty & Wellness",
+      project: "Booking System",
+    },
+    {
+      name: "Mission Education",
+      logo: "/Client-logo/missioneducation.png",
+      industry: "Education",
+      project: "Online Learning",
+    },
+    {
+      name: "Rental Fashion",
+      logo: "/Client-logo/rentalfashionlogo.png",
+      industry: "Fashion & Retail",
+      project: "Rental Platform",
+    },
+    {
+      name: "Shienitu",
+      logo: "/Client-logo/shienitupdatedlogo.png",
+      industry: "Technology",
+      project: "Web Application",
+    },
+    {
+      name: "Shine It Laundry",
+      logo: "/Client-logo/shineitlaundry.png",
+      industry: "Services",
+      project: "Service Management",
+    },
+    {
+      name: "Shyam Mehandi",
+      logo: "/Client-logo/shyammehandilogo.png",
+      industry: "Beauty & Wellness",
+      project: "Booking Platform",
+    },
+    {
+      name: "Vinay Mehandi",
+      logo: "/Client-logo/vinaymehandilogo.png",
+      industry: "Beauty & Wellness",
+      project: "Business Website",
+    },
   ];
 
   // Touch/Mouse drag handlers for mobile scrolling
@@ -149,7 +199,7 @@ export default function ClientLogos() {
             {clients.map((client, index) => (
               <div
                 key={index}
-                className="group relative bg-white rounded-2xl p-6 shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-purple-300"
+                className="group relative bg-white rounded-2xl p-6 shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-purple-300 overflow-hidden"
                 style={{
                   transitionDelay: `${index * 50}ms`,
                 }}
@@ -164,7 +214,7 @@ export default function ClientLogos() {
                     alt={`${client.name} logo`}
                     width={120}
                     height={120}
-                    className="object-contain w-full h-full transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-2"
+                    className="object-contain w-full h-full transition-all duration-500 transform group-hover:scale-110"
                   />
                 </div>
 
@@ -173,6 +223,19 @@ export default function ClientLogos() {
                   <p className="text-sm font-semibold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
                     {client.name}
                   </p>
+                </div>
+
+                {/* Client info - visible on hover */}
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-gray-900/95 via-gray-800/90 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 p-4 pt-16 rounded-b-2xl z-20 transform translate-y-2 group-hover:translate-y-0">
+                  <div className="space-y-1">
+                    <p className="text-xs font-medium text-emerald-400 flex items-center justify-center gap-1">
+                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+                      {client.industry}
+                    </p>
+                    <p className="text-xs text-gray-300 text-center">
+                      {client.project}
+                    </p>
+                  </div>
                 </div>
 
                 {/* Decorative corner accent */}
