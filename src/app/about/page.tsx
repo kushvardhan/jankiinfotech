@@ -488,26 +488,28 @@ const item = {
         </section>
 
         {/* Journey Timeline - Premium & Emotionally Engaging */}
-       <section className="relative py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
-      {/* Gradient background accents */}
+        <section className="relative py-14 md:py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+      {/* Soft background gradient accents */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-80 h-80 bg-green-100/40 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-100/40 rounded-full blur-3xl" />
+        <div className="absolute top-24 left-10 w-64 h-64 bg-green-100/40 rounded-full blur-3xl" />
+        <div className="absolute bottom-16 right-10 w-64 h-64 bg-blue-100/40 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto max-w-6xl px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-semibold text-gray-900">
+        {/* Heading */}
+        <div className="text-center mb-12 md:mb-14">
+          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
             Our <span className="text-green-600">Journey</span>
           </h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-3 text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
             A timeline of dedication, creativity, and milestones that shaped who we are today.
           </p>
         </div>
 
+        {/* Timeline */}
         <div className="relative">
           {/* Central timeline line */}
-          <div className="absolute left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-green-300 via-blue-300 to-green-300 h-full rounded-full opacity-70" />
+          <div className="absolute left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-green-300 via-blue-300 to-green-300 rounded-full opacity-80 shadow-[0_0_8px_rgba(16,185,129,0.2)] top-0 bottom-0" />
 
           {milestones.map((m, i) => {
             const Icon = m.icon;
@@ -516,40 +518,46 @@ const item = {
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 60 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className={`relative flex flex-col md:flex-row items-center mb-16 ${
+                className={`relative flex flex-col md:flex-row items-center mb-12 md:mb-16 ${
                   isLeft ? "md:justify-start" : "md:justify-end"
                 }`}
               >
                 {/* Connector Dot */}
-                <div className="absolute left-1/2 -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-green-500 to-blue-500 rounded-full border-4 border-white shadow-lg z-10" />
+                <div className="absolute left-1/2 -translate-x-1/2 w-5 h-5 bg-gradient-to-br from-green-500 to-blue-500 rounded-full border-4 border-white shadow-md z-10" />
 
                 {/* Card */}
                 <div
                   className={`md:w-5/12 ${
-                    isLeft ? "md:pr-10 text-right" : "md:pl-10 text-left"
+                    isLeft ? "md:pr-8 text-right" : "md:pl-8 text-left"
                   }`}
                 >
-                  <div className="bg-white border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 md:p-8">
-                    <div className={`flex ${isLeft ? "justify-end" : "justify-start"} items-center mb-4`}>
+                  <div className="bg-white border border-gray-100 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 p-5 md:p-6">
+                    <div
+                      className={`flex items-center mb-3 ${
+                        isLeft ? "justify-end" : "justify-start"
+                      }`}
+                    >
                       <div
-                        className={`flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-blue-500 text-white shadow-md ${
+                        className={`flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-blue-500 text-white shadow ${
                           isLeft ? "ml-3" : "mr-3"
                         }`}
                       >
-                        <Icon className="w-6 h-6" />
+                        <Icon className="w-5 h-5" />
                       </div>
                       <div>
-                        <div className="text-sm font-medium text-green-600">{m.year}</div>
-                        <h3 className="text-lg md:text-xl font-semibold text-gray-900">
+                        <div className="text-xs font-medium text-green-600">
+                          {m.year}
+                        </div>
+                        <h3 className="text-base md:text-lg font-semibold text-gray-900">
                           {m.title}
                         </h3>
                       </div>
                     </div>
-                    <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                    <p className="text-gray-600 text-sm leading-relaxed">
                       {m.description}
                     </p>
                   </div>
@@ -559,10 +567,11 @@ const item = {
           })}
         </div>
 
-        <div className="text-center mt-16">
+        {/* CTA */}
+        <div className="text-center mt-12">
           <motion.button
             whileHover={{ scale: 1.05 }}
-            className="px-8 py-3 rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-white font-medium shadow-md hover:shadow-lg transition-all duration-300"
+            className="px-6 py-2.5 rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-white font-medium shadow-md hover:shadow-lg transition-all duration-300 text-sm md:text-base"
           >
             Continue the Journey
           </motion.button>
