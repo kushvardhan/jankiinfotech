@@ -3,6 +3,7 @@
 import ClientLogosShowcase from "@/components/ClientLogosShowcase";
 import { Navbar } from "@/components/Navbar";
 import SmallFooter from "@/components/SmallFooter";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   Award,
@@ -97,7 +98,7 @@ export default function AboutPage() {
       year: "2019",
       title: "The Beginning",
       description:
-        "Born from a dream to revolutionize Bihar's tech ecosystem, we started with just passion and determination",
+        "Born from a dream to revolutionize Bihar's tech ecosystem, we started with just passion and determination.",
       icon: Rocket,
       color: "from-purple-500 to-pink-500",
       bgColor: "bg-purple-50",
@@ -106,7 +107,7 @@ export default function AboutPage() {
       year: "2020",
       title: "First 100 Clients",
       description:
-        "Against all odds during the pandemic, we reached our first major milestone, proving resilience conquers all",
+        "Against all odds during the pandemic, we reached our first major milestone, proving resilience conquers all.",
       icon: Users,
       color: "from-blue-500 to-cyan-500",
       bgColor: "bg-blue-50",
@@ -115,7 +116,7 @@ export default function AboutPage() {
       year: "2021",
       title: "Empowering Youth",
       description:
-        "Launched transformative internship programs, igniting careers and changing lives across Bihar",
+        "Launched transformative internship programs, igniting careers and changing lives across Bihar.",
       icon: GraduationCap,
       color: "from-green-500 to-emerald-500",
       bgColor: "bg-green-50",
@@ -124,7 +125,7 @@ export default function AboutPage() {
       year: "2022",
       title: "National Recognition",
       description:
-        "Our innovation and social impact earned prestigious awards, putting Bihar on India's tech map",
+        "Our innovation and social impact earned prestigious awards, putting Bihar on India's tech map.",
       icon: Award,
       color: "from-orange-500 to-amber-500",
       bgColor: "bg-orange-50",
@@ -133,7 +134,7 @@ export default function AboutPage() {
       year: "2023",
       title: "500+ Success Stories",
       description:
-        "Celebrated over 500 transformed lives - students turned professionals, ideas turned businesses",
+        "Celebrated over 500 transformed lives — students turned professionals, ideas turned businesses.",
       icon: TrendingUp,
       color: "from-pink-500 to-rose-500",
       bgColor: "bg-pink-50",
@@ -142,12 +143,32 @@ export default function AboutPage() {
       year: "2024",
       title: "Global Horizons",
       description:
-        "Expanded beyond borders, taking Bihar's talent and innovation to the world stage",
+        "Expanded beyond borders, taking Bihar's talent and innovation to the world stage.",
       icon: Globe,
       color: "from-indigo-500 to-purple-500",
       bgColor: "bg-indigo-50",
     },
   ];
+
+  // Animation variants for Framer Motion
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
+  };
 
   return (
     <>
@@ -476,9 +497,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Journey Timeline */}
         {/* Journey Timeline - Premium & Emotionally Engaging */}
-        <section className="py-20 md:py-32 bg-gradient-to-br from-white via-orange-50/20 to-amber-50/20 md:from-gray-900 md:via-gray-800 md:to-black relative overflow-hidden">
+        <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-br from-white via-orange-50/30 to-amber-50/30 md:from-gray-900 md:via-gray-800 md:to-black">
           {/* Animated background - subtle on mobile, dramatic on desktop */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-1/4 left-10 w-96 h-96 bg-gradient-to-br from-orange-300/8 to-amber-300/8 md:from-orange-500/20 md:to-amber-500/20 rounded-full filter blur-3xl animate-blob"></div>
@@ -512,127 +532,115 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Timeline - Desktop: Alternating, Mobile: Vertical */}
-            <div className="relative">
+            {/* Timeline with Framer Motion */}
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.12 }}
+              variants={container}
+              className="relative"
+            >
               {/* Timeline Line - Gradient */}
-              <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 md:w-1 bg-gradient-to-b from-purple-500 via-orange-500 to-pink-500 md:transform md:-translate-x-1/2 opacity-30 md:opacity-50"></div>
+              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 md:w-1 bg-gradient-to-b from-purple-500 via-orange-500 to-pink-500 md:transform md:-translate-x-1/2 opacity-30 md:opacity-50"></div>
 
-              {milestones.map((milestone, index) => {
-                const Icon = milestone.icon;
-                return (
-                  <div
-                    key={index}
-                    className={`relative mb-12 md:mb-20 ${
-                      index % 2 === 0
-                        ? "md:flex md:justify-start"
-                        : "md:flex md:justify-end"
-                    }`}
-                    style={{
-                      opacity: 0,
-                      animation: `fadeInUp 0.8s ease-out ${
-                        index * 0.2
-                      }s forwards`,
-                    }}
-                  >
-                    {/* Content Card */}
-                    <div
-                      className={`ml-12 md:ml-0 md:w-5/12 ${
-                        index % 2 === 0
-                          ? "md:pr-12 md:text-right"
-                          : "md:pl-12 md:text-left"
-                      }`}
+              <div className="space-y-12 md:space-y-20">
+                {milestones.map((m, idx) => {
+                  const Icon = m.icon;
+                  const side = idx % 2 === 0 ? "left" : "right";
+
+                  return (
+                    <motion.div
+                      key={idx}
+                      variants={item}
+                      className="relative md:flex md:items-start md:justify-between"
                     >
+                      {/* Content Card */}
                       <div
-                        className={`group relative bg-white md:bg-white/10 md:backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-lg md:shadow-2xl hover:shadow-xl md:hover:shadow-orange-500/20 transition-all duration-500 hover:scale-105 border border-gray-100 md:border-white/20`}
+                        className={`ml-12 md:ml-0 md:w-5/12 ${
+                          side === "left"
+                            ? "md:pr-12 md:text-right"
+                            : "md:pl-12 md:text-left"
+                        }`}
                       >
-                        {/* Glow effect on hover - desktop only */}
                         <div
-                          className={`hidden md:block absolute inset-0 rounded-3xl bg-gradient-to-r ${milestone.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl -z-10`}
-                        ></div>
-
-                        {/* Year Badge */}
-                        <div
-                          className={`inline-flex items-center bg-gradient-to-r ${milestone.color} text-white rounded-full px-4 md:px-6 py-2 md:py-3 mb-4 md:mb-6 shadow-lg`}
+                          className={`group relative bg-white md:bg-white/10 md:backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-lg md:shadow-2xl hover:shadow-xl md:hover:shadow-orange-500/20 transition-all duration-500 hover:scale-105 border border-gray-100 md:border-white/20`}
                         >
-                          <Calendar className="h-4 w-4 md:h-5 md:w-5 mr-2" />
-                          <span className="text-lg md:text-2xl font-bold">
-                            {milestone.year}
-                          </span>
-                        </div>
+                          {/* Glow effect on hover - desktop only */}
+                          <div
+                            className={`hidden md:block absolute inset-0 rounded-3xl bg-gradient-to-r ${m.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl -z-10`}
+                          ></div>
 
-                        {/* Icon */}
+                          {/* Year Badge */}
+                          <div
+                            className={`inline-flex items-center bg-gradient-to-r ${m.color} text-white rounded-full px-4 md:px-6 py-2 md:py-3 mb-4 md:mb-6 shadow-lg`}
+                          >
+                            <Calendar className="h-4 w-4 md:h-5 md:w-5 mr-2" />
+                            <span className="text-lg md:text-2xl font-bold">
+                              {m.year}
+                            </span>
+                          </div>
+
+                          {/* Icon */}
+                          <div
+                            className={`inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-gradient-to-r ${m.color} rounded-2xl mb-4 md:mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                          >
+                            <Icon className="h-7 w-7 md:h-8 md:w-8 text-white" />
+                          </div>
+
+                          {/* Title */}
+                          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 md:text-white mb-3 md:mb-4">
+                            {m.title}
+                          </h3>
+
+                          {/* Description */}
+                          <p className="text-base md:text-lg text-gray-600 md:text-gray-300 leading-relaxed">
+                            {m.description}
+                          </p>
+
+                          {/* Decorative corner accent */}
+                          <div
+                            className={`absolute top-0 ${
+                              side === "left" ? "right-0" : "left-0"
+                            } w-20 h-20 bg-gradient-to-br ${
+                              m.color
+                            } opacity-10 rounded-bl-full ${
+                              side === "left"
+                                ? "rounded-tr-2xl md:rounded-tr-3xl"
+                                : "rounded-tl-2xl md:rounded-tl-3xl"
+                            }`}
+                          ></div>
+                        </div>
+                      </div>
+
+                      {/* Timeline Dot - Animated */}
+                      <div className="absolute left-6 md:left-1/2 top-8 md:top-12 transform -translate-x-1/2 flex items-center justify-center">
                         <div
-                          className={`inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-gradient-to-r ${milestone.color} rounded-2xl mb-4 md:mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                          className={`w-8 h-8 md:w-12 md:h-12 bg-gradient-to-r ${m.color} rounded-full shadow-lg flex items-center justify-center animate-pulse`}
                         >
-                          <Icon className="h-7 w-7 md:h-8 md:w-8 text-white" />
+                          <div className="w-4 h-4 md:w-6 md:h-6 bg-white rounded-full"></div>
                         </div>
-
-                        {/* Title */}
-                        <h3 className="text-2xl md:text-3xl font-bold text-gray-900 md:text-white mb-3 md:mb-4">
-                          {milestone.title}
-                        </h3>
-
-                        {/* Description */}
-                        <p className="text-base md:text-lg text-gray-600 md:text-gray-300 leading-relaxed">
-                          {milestone.description}
-                        </p>
-
-                        {/* Decorative corner accent */}
+                        {/* Ripple effect */}
                         <div
-                          className={`absolute top-0 ${
-                            index % 2 === 0 ? "right-0" : "left-0"
-                          } w-20 h-20 bg-gradient-to-br ${
-                            milestone.color
-                          } opacity-10 rounded-bl-full ${
-                            index % 2 === 0
-                              ? "rounded-tr-2xl md:rounded-tr-3xl"
-                              : "rounded-tl-2xl md:rounded-tl-3xl"
-                          }`}
+                          className={`absolute w-8 h-8 md:w-12 md:h-12 bg-gradient-to-r ${m.color} rounded-full opacity-20 animate-ping`}
                         ></div>
                       </div>
-                    </div>
-
-                    {/* Timeline Dot - Animated */}
-                    <div className="absolute left-4 md:left-1/2 top-8 md:top-12 transform -translate-x-1/2 flex items-center justify-center">
-                      <div
-                        className={`w-8 h-8 md:w-12 md:h-12 bg-gradient-to-r ${milestone.color} rounded-full shadow-lg flex items-center justify-center animate-pulse`}
-                      >
-                        <div className="w-4 h-4 md:w-6 md:h-6 bg-white rounded-full"></div>
-                      </div>
-                      {/* Ripple effect */}
-                      <div
-                        className={`absolute w-8 h-8 md:w-12 md:h-12 bg-gradient-to-r ${milestone.color} rounded-full opacity-20 animate-ping`}
-                      ></div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Bottom CTA */}
-            <div className="text-center mt-16 md:mt-24">
-              <p className="text-lg md:text-xl text-gray-600 md:text-gray-300 mb-6">
-                And this is just the beginning...
-              </p>
-              <div className="inline-flex items-center bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-full px-8 py-4 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer">
-                <Rocket className="h-5 w-5 mr-2 animate-bounce" />
-                <span className="font-semibold">Join Our Journey</span>
+                    </motion.div>
+                  );
+                })}
               </div>
-            </div>
-          </div>
 
-          <style jsx>{`
-            @keyframes fadeInUp {
-              from {
-                opacity: 0;
-                transform: translateY(30px);
-              }
-              to {
-                opacity: 1;
-                transform: translateY(0);
-              }
-            }
-          `}</style>
+              {/* Bottom CTA */}
+              <div className="text-center mt-16 md:mt-24">
+                <p className="text-lg md:text-xl text-gray-600 md:text-gray-300 mb-6">
+                  And this is just the beginning...
+                </p>
+                <div className="inline-flex items-center bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-full px-8 py-4 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer">
+                  <Rocket className="h-5 w-5 mr-2 animate-bounce" />
+                  <span className="font-semibold">Join Our Journey</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </section>
 
         {/* What We Offer Section */}
