@@ -274,10 +274,14 @@ export default function CommunityPage() {
             </div>
 
             <div className="grid lg:grid-cols-3 gap-8">
-              {upcomingEvents.map((event) => (
+              {upcomingEvents.map((event, index) => (
                 <div
                   key={event.id}
-                  className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                  className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+                  style={{
+                    opacity: 0,
+                    animation: `fadeInUp 0.6s ease-out ${index * 0.2}s forwards`,
+                  }}
                 >
                   <div className="bg-gradient-to-r from-green-500 to-green-600 p-6 text-white">
                     <div className="text-4xl mb-3">{event.image}</div>

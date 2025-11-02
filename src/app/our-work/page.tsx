@@ -192,6 +192,12 @@ const projects: Project[] = [
 
 export default function OurWorkPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Trigger entrance animations
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   // Handle ESC key to close modal
   useEffect(() => {
@@ -211,38 +217,129 @@ export default function OurWorkPage() {
     <main className="min-h-screen bg-gradient-to-b from-white via-green-50/30 to-white overflow-x-hidden">
       <Navbar />
 
-      {/* Hero Section - Premium */}
-      <section className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-white via-purple-50/20 to-pink-50/20 md:from-purple-50 md:via-pink-50 md:to-orange-50">
+      {/* Hero Section - Premium with Animations */}
+      <section className="relative pt-32 pb-20 md:pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-white via-purple-50/20 to-pink-50/20 md:from-purple-50 md:via-pink-50 md:to-orange-50">
         <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-purple-300/8 to-pink-300/8 md:from-purple-300/20 md:to-pink-300/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-orange-300/8 to-red-300/8 md:from-orange-300/20 md:to-red-300/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
           <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-gradient-to-br from-pink-300/8 to-rose-300/8 md:from-pink-300/15 md:to-rose-300/15 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
         </div>
 
+        {/* Grid pattern - very subtle */}
+        <div className="absolute inset-0 opacity-[0.02] md:opacity-[0.03] -z-10">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#a855f7_1px,transparent_1px),linear-gradient(to_bottom,#a855f7_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+        </div>
+
         <div className="container mx-auto max-w-6xl text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          {/* Badge */}
+          <div
+            className={`inline-flex items-center bg-gradient-to-r from-purple-100 to-pink-100 md:from-purple-500/10 md:to-pink-500/10 border border-purple-200 md:border-purple-500/20 rounded-full px-6 py-2 mb-6 transition-all duration-700 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 -translate-y-4"
+            }`}
+          >
+            <Sparkles className="h-4 w-4 mr-2 text-purple-600 md:text-purple-400" />
+            <span className="text-sm font-medium text-purple-800 md:text-purple-300">
+              Our Portfolio
+            </span>
+          </div>
+
+          <h1
+            className={`text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight transition-all duration-700 delay-100 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
+            }`}
+          >
             Crafting Digital{" "}
-            <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 md:from-purple-400 md:to-pink-400 bg-clip-text text-transparent">
               Experiences
             </span>{" "}
             That Matter
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p
+            className={`text-lg md:text-xl text-gray-600 md:text-gray-700 max-w-3xl mx-auto leading-relaxed transition-all duration-700 delay-200 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
+            }`}
+          >
             Every project tells a story of innovation, dedication, and
             transformative impact. Explore the digital solutions we&apos;ve
             built with passion and precision.
           </p>
+
+          {/* Stats Row */}
+          <div
+            className={`mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto transition-all duration-700 delay-300 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
+            }`}
+          >
+            <div className="bg-white/50 md:bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-purple-100 md:border-white/20">
+              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                7+
+              </div>
+              <div className="text-sm text-gray-600 md:text-gray-700 mt-1">
+                Projects Delivered
+              </div>
+            </div>
+            <div className="bg-white/50 md:bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-pink-100 md:border-white/20">
+              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-pink-600 to-orange-600 bg-clip-text text-transparent">
+                100%
+              </div>
+              <div className="text-sm text-gray-600 md:text-gray-700 mt-1">
+                Client Satisfaction
+              </div>
+            </div>
+            <div className="bg-white/50 md:bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-orange-100 md:border-white/20">
+              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                10K+
+              </div>
+              <div className="text-sm text-gray-600 md:text-gray-700 mt-1">
+                Users Impacted
+              </div>
+            </div>
+            <div className="bg-white/50 md:bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-purple-100 md:border-white/20">
+              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                5+
+              </div>
+              <div className="text-sm text-gray-600 md:text-gray-700 mt-1">
+                Industries Served
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Projects Grid - Premium Layout */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+      {/* Projects Grid - Premium Layout with Staggered Animations */}
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-gray-50/30 to-white">
         <div className="container mx-auto max-w-7xl">
+          {/* Section Header */}
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Featured{" "}
+              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Projects
+              </span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Transforming ideas into reality with cutting-edge technology and
+              creative excellence
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {projects.map((project) => (
+            {projects.map((project, index) => (
               <div
                 key={project.id}
-                className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-green-200 flex flex-col h-full"
+                className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-purple-200 flex flex-col h-full"
+                style={{
+                  opacity: 0,
+                  animation: `fadeInUp 0.6s ease-out ${index * 0.15}s forwards`,
+                }}
               >
                 {/* Image Container - Larger */}
                 <div className="relative h-64 md:h-72 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
@@ -626,6 +723,19 @@ export default function OurWorkPage() {
       </section> */}
 
       <SmallFooter />
+
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </main>
   );
 }
