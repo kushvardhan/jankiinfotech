@@ -150,25 +150,14 @@ export default function AboutPage() {
     },
   ];
 
-  // Animation variants for Framer Motion
   const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.12 } },
+};
+const item = {
+  hidden: { opacity: 0, y: 12 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+};
 
   return (
     <>
@@ -498,150 +487,92 @@ export default function AboutPage() {
         </section>
 
         {/* Journey Timeline - Premium & Emotionally Engaging */}
-        <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-br from-white via-orange-50/30 to-amber-50/30 md:from-gray-900 md:via-gray-800 md:to-black">
-          {/* Animated background - subtle on mobile, dramatic on desktop */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-1/4 left-10 w-96 h-96 bg-gradient-to-br from-orange-300/8 to-amber-300/8 md:from-orange-500/20 md:to-amber-500/20 rounded-full filter blur-3xl animate-blob"></div>
-            <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-gradient-to-br from-yellow-300/8 to-orange-300/8 md:from-purple-500/20 md:to-pink-500/20 rounded-full filter blur-3xl animate-blob animation-delay-4000"></div>
-            <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-gradient-to-br from-pink-300/8 to-rose-300/8 md:from-blue-500/15 md:to-cyan-500/15 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
+         <section className="relative py-16 md:py-24 bg-white text-gray-900 overflow-hidden">
+      {/* subtle background accent - not animated on hover */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="hidden md:block absolute -left-24 top-12 w-72 h-72 rounded-full blur-3xl bg-gradient-to-br from-orange-100 to-amber-100 opacity-30" />
+      </div>
+
+      <div className="container mx-auto max-w-6xl px-4 relative z-10">
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-flex items-center bg-orange-50 border border-orange-100 rounded-full px-4 py-1 text-orange-700 text-sm font-medium">
+            <span>Our Story</span>
           </div>
+          <h2 className="mt-4 text-3xl md:text-4xl font-semibold leading-tight">
+            The Journey of{" "}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-amber-500">
+              Transformation
+            </span>
+          </h2>
+          <p className="mt-3 text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
+            Every milestone tells a story of dreams, determination, and steady growth.
+          </p>
+        </div>
 
-          {/* Grid pattern - very subtle */}
-          <div className="absolute inset-0 opacity-[0.02] md:opacity-[0.03]">
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#f97316_1px,transparent_1px),linear-gradient(to_bottom,#f97316_1px,transparent_1px)] md:bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-          </div>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="relative"
+        >
+          {/* Vertical center line on md+, simple thin line */}
+          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-orange-200 to-amber-200 opacity-40" />
 
-          <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-            {/* Header */}
-            <div className="text-center mb-16 md:mb-24">
-              <div className="inline-flex items-center bg-gradient-to-r from-orange-100 to-amber-100 md:from-orange-500/10 md:to-amber-500/10 border border-orange-200 md:border-orange-500/20 rounded-full px-6 py-2 mb-6">
-                <Sparkles className="h-4 w-4 mr-2 text-orange-600 md:text-orange-400" />
-                <span className="text-sm font-medium text-orange-800 md:text-orange-300">
-                  Our Story
-                </span>
-              </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 md:text-white mb-6 leading-tight">
-                The Journey of{" "}
-                <span className="bg-gradient-to-r from-orange-600 to-amber-600 md:from-orange-400 md:to-amber-400 bg-clip-text text-transparent">
-                  Transformation
-                </span>
-              </h2>
-              <p className="text-lg md:text-xl text-gray-600 md:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                Every milestone tells a story of dreams, determination, and the
-                relentless pursuit of excellence
-              </p>
-            </div>
+          <div className="space-y-8 md:space-y-12">
+            {milestones.map((m, i) => {
+              const Icon = m.icon;
+              const isLeft = i % 2 === 0;
 
-            {/* Timeline with Framer Motion */}
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.12 }}
-              variants={container}
-              className="relative"
-            >
-              {/* Timeline Line - Gradient */}
-              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 md:w-1 bg-gradient-to-b from-purple-500 via-orange-500 to-pink-500 md:transform md:-translate-x-1/2 opacity-30 md:opacity-50"></div>
-
-              <div className="space-y-12 md:space-y-20">
-                {milestones.map((m, idx) => {
-                  const Icon = m.icon;
-                  const side = idx % 2 === 0 ? "left" : "right";
-
-                  return (
-                    <motion.div
-                      key={idx}
-                      variants={item}
-                      className="relative md:flex md:items-start md:justify-between"
+              return (
+                <motion.div
+                  key={i}
+                  className="relative md:flex md:items-start md:justify-between"
+                >
+                  {/* Card */}
+                  <div
+                    className={`md:w-5/12 ${isLeft ? "md:order-1 md:text-right md:pr-8" : "md:order-2 md:text-left md:pl-8"}`}
+                  >
+                    <div
+                      className="bg-white border border-gray-100 rounded-2xl p-5 md:p-6 shadow-sm transition-shadow transform-gpu will-change-transform hover:shadow-md"
+                      style={{ backfaceVisibility: "hidden" }}
                     >
-                      {/* Content Card */}
-                      <div
-                        className={`ml-12 md:ml-0 md:w-5/12 ${
-                          side === "left"
-                            ? "md:pr-12 md:text-right"
-                            : "md:pl-12 md:text-left"
-                        }`}
-                      >
-                        <div
-                          className={`group relative bg-white md:bg-white/10 md:backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-lg md:shadow-2xl hover:shadow-xl md:hover:shadow-orange-500/20 transition-all duration-500 hover:scale-105 border border-gray-100 md:border-white/20`}
-                        >
-                          {/* Glow effect on hover - desktop only */}
-                          <div
-                            className={`hidden md:block absolute inset-0 rounded-3xl bg-gradient-to-r ${m.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl -z-10`}
-                          ></div>
-
-                          {/* Year Badge */}
-                          <div
-                            className={`inline-flex items-center bg-gradient-to-r ${m.color} text-white rounded-full px-4 md:px-6 py-2 md:py-3 mb-4 md:mb-6 shadow-lg`}
-                          >
-                            <Calendar className="h-4 w-4 md:h-5 md:w-5 mr-2" />
-                            <span className="text-lg md:text-2xl font-bold">
-                              {m.year}
-                            </span>
-                          </div>
-
-                          {/* Icon */}
-                          <div
-                            className={`inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-gradient-to-r ${m.color} rounded-2xl mb-4 md:mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}
-                          >
-                            <Icon className="h-7 w-7 md:h-8 md:w-8 text-white" />
-                          </div>
-
-                          {/* Title */}
-                          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 md:text-white mb-3 md:mb-4">
-                            {m.title}
-                          </h3>
-
-                          {/* Description */}
-                          <p className="text-base md:text-lg text-gray-600 md:text-gray-300 leading-relaxed">
-                            {m.description}
-                          </p>
-
-                          {/* Decorative corner accent */}
-                          <div
-                            className={`absolute top-0 ${
-                              side === "left" ? "right-0" : "left-0"
-                            } w-20 h-20 bg-gradient-to-br ${
-                              m.color
-                            } opacity-10 rounded-bl-full ${
-                              side === "left"
-                                ? "rounded-tr-2xl md:rounded-tr-3xl"
-                                : "rounded-tl-2xl md:rounded-tl-3xl"
-                            }`}
-                          ></div>
+                      <div className="inline-flex items-center space-x-3 md:space-x-0 md:space-x-reverse md:justify-end">
+                        <div className={`inline-flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-r ${m.color} text-white`}>
+                          <Icon className="w-5 h-5" />
+                        </div>
+                        <div className="ml-3 md:ml-0">
+                          <div className="text-sm text-orange-600 font-semibold">{m.year}</div>
+                          <h3 className="mt-2 text-lg font-medium text-gray-900">{m.title}</h3>
                         </div>
                       </div>
 
-                      {/* Timeline Dot - Animated */}
-                      <div className="absolute left-6 md:left-1/2 top-8 md:top-12 transform -translate-x-1/2 flex items-center justify-center">
-                        <div
-                          className={`w-8 h-8 md:w-12 md:h-12 bg-gradient-to-r ${m.color} rounded-full shadow-lg flex items-center justify-center animate-pulse`}
-                        >
-                          <div className="w-4 h-4 md:w-6 md:h-6 bg-white rounded-full"></div>
-                        </div>
-                        {/* Ripple effect */}
-                        <div
-                          className={`absolute w-8 h-8 md:w-12 md:h-12 bg-gradient-to-r ${m.color} rounded-full opacity-20 animate-ping`}
-                        ></div>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
+                      <p className="mt-3 text-sm text-gray-600 leading-relaxed">{m.description}</p>
+                    </div>
+                  </div>
 
-              {/* Bottom CTA */}
-              <div className="text-center mt-16 md:mt-24">
-                <p className="text-lg md:text-xl text-gray-600 md:text-gray-300 mb-6">
-                  And this is just the beginning...
-                </p>
-                <div className="inline-flex items-center bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-full px-8 py-4 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer">
-                  <Rocket className="h-5 w-5 mr-2 animate-bounce" />
-                  <span className="font-semibold">Join Our Journey</span>
-                </div>
-              </div>
-            </motion.div>
+                  {/* Dot / connector */}
+                  <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-4 md:top-6 flex items-center justify-center">
+                    <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${m.color} shadow-sm`} />
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
-        </section>
+
+          {/* CTA */}
+          <div className="text-center mt-12 md:mt-16">
+            <p className="text-gray-600 mb-4">And this is just the beginning...</p>
+            <button
+              type="button"
+              className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-medium shadow hover:shadow-lg transition-transform transform-gpu hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-orange-200"
+            >
+              <span>Join Our Journey</span>
+            </button>
+          </div>
+        </motion.div>
+      </div>
+    </section>
 
         {/* What We Offer Section */}
         <section className="py-20 bg-gradient-to-br from-white via-pink-50/20 to-rose-50/20 md:from-pink-50 md:via-rose-50 md:to-red-50 relative overflow-hidden">
