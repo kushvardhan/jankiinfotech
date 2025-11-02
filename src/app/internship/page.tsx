@@ -3,9 +3,11 @@ import { Navbar } from "@/components/Navbar";
 import SmallFooter from "@/components/SmallFooter";
 import { Button } from "@/components/ui/button";
 import {
+  ArrowRight,
   Award,
   BookOpen,
   Download,
+  GraduationCap,
   MapPin,
   Rocket,
   Sparkles,
@@ -13,8 +15,6 @@ import {
   Target,
   TrendingUp,
   Users,
-  GraduationCap,
-  ArrowRight
 } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -37,14 +37,14 @@ export default function InternshipPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-gray-50 overflow-x-hidden">
+      <main className="min-h-screen bg-white md:bg-gray-50 overflow-x-hidden">
         {/* Hero Section */}
-        <section className="relative min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 text-gray-800 overflow-hidden">
-          {/* Animated Background Elements */}
-          <div className="absolute inset-0">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
-            <div className="absolute top-40 right-10 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
-            <div className="absolute -bottom-8 left-20 w-72 h-72 bg-green-400 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+        <section className="relative min-h-screen bg-gradient-to-br from-white via-green-50/30 to-teal-50/30 md:from-green-50 md:via-white md:to-green-100 text-gray-800 overflow-hidden">
+          {/* Animated Background Elements - Subtle on mobile */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-green-200/10 to-emerald-200/10 md:from-green-200/30 md:to-emerald-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+            <div className="absolute top-40 right-10 w-96 h-96 bg-gradient-to-br from-teal-300/10 to-cyan-300/10 md:from-teal-300/30 md:to-cyan-300/30 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+            <div className="absolute -bottom-8 left-20 w-96 h-96 bg-gradient-to-br from-blue-300/8 to-green-300/8 md:from-blue-300/30 md:to-green-300/30 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
           </div>
 
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 flex items-center min-h-screen">
@@ -197,7 +197,10 @@ export default function InternshipPage() {
         </section>
 
         {/* Brochure Download Section - Internship Themed */}
-        <section className="py-16 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50">
+        <section className="py-16 bg-gradient-to-br from-white via-green-50/20 to-blue-50/20 md:from-green-50 md:via-blue-50 md:to-purple-50 relative overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-10 right-10 w-80 h-80 bg-gradient-to-br from-green-300/8 to-blue-300/8 md:from-green-300/15 md:to-blue-300/15 rounded-full filter blur-3xl animate-blob"></div>
+          </div>
           <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border-2 border-green-100">
               {/* Decorative elements */}
