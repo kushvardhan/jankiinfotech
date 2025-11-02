@@ -125,14 +125,20 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50">
+      <main className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
         {/* Hero Section */}
-        <section className="relative py-20 overflow-hidden">
-          {/* Animated Background */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-            <div className="absolute top-40 right-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-            <div className="absolute -bottom-8 left-20 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+        <section className="relative py-20 overflow-hidden bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+          {/* Enhanced Animated Background */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-blue-400 to-cyan-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+            <div className="absolute top-40 right-10 w-96 h-96 bg-gradient-to-br from-purple-400 to-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+            <div className="absolute -bottom-8 left-20 w-96 h-96 bg-gradient-to-br from-green-400 to-teal-300 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-blob animation-delay-4000"></div>
+            <div className="absolute top-1/2 right-1/4 w-72 h-72 bg-gradient-to-br from-orange-300 to-yellow-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-6000"></div>
+          </div>
+
+          {/* Animated grid pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#8b5cf6_1px,transparent_1px),linear-gradient(to_bottom,#8b5cf6_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
           </div>
 
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
@@ -185,7 +191,10 @@ export default function AboutPage() {
         </section>
 
         {/* Who We Are Section */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-gradient-to-br from-white via-green-50/30 to-blue-50/30 relative overflow-hidden">
+          {/* Subtle background decoration */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-green-200/20 to-blue-200/20 rounded-full filter blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full filter blur-3xl"></div>
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -260,7 +269,12 @@ export default function AboutPage() {
         </section>
 
         {/* Mission & Vision Section */}
-        <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+        <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 relative overflow-hidden">
+          {/* Animated background elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-10 right-10 w-72 h-72 bg-gradient-to-br from-purple-300/30 to-pink-300/30 rounded-full filter blur-3xl animate-blob"></div>
+            <div className="absolute bottom-10 left-10 w-72 h-72 bg-gradient-to-br from-orange-300/30 to-yellow-300/30 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
+          </div>
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl hover:shadow-2xl transition-shadow duration-300">
@@ -307,7 +321,12 @@ export default function AboutPage() {
         </section>
 
         {/* What Makes Us Different Section */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 relative overflow-hidden">
+          {/* Decorative elements */}
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div className="absolute top-20 left-1/4 w-64 h-64 bg-gradient-to-br from-blue-300/20 to-cyan-300/20 rounded-full filter blur-3xl"></div>
+            <div className="absolute bottom-20 right-1/4 w-64 h-64 bg-gradient-to-br from-teal-300/20 to-green-300/20 rounded-full filter blur-3xl"></div>
+          </div>
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <div className="inline-flex items-center bg-gradient-to-r from-green-100 to-blue-100 text-green-800 px-6 py-2 rounded-full text-sm font-semibold mb-6">
@@ -370,7 +389,12 @@ export default function AboutPage() {
         <ClientLogosShowcase />
 
         {/* Team Section */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <section className="py-20 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 relative overflow-hidden">
+          {/* Background decoration */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-green-300/20 to-emerald-300/20 rounded-full filter blur-3xl animate-blob"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-teal-300/20 to-cyan-300/20 rounded-full filter blur-3xl animate-blob animation-delay-4000"></div>
+          </div>
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -426,7 +450,12 @@ export default function AboutPage() {
         </section>
 
         {/* Journey Timeline */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 relative overflow-hidden">
+          {/* Decorative background */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-1/4 left-10 w-72 h-72 bg-gradient-to-br from-orange-300/20 to-amber-300/20 rounded-full filter blur-3xl"></div>
+            <div className="absolute bottom-1/4 right-10 w-72 h-72 bg-gradient-to-br from-yellow-300/20 to-orange-300/20 rounded-full filter blur-3xl"></div>
+          </div>
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -473,7 +502,12 @@ export default function AboutPage() {
         </section>
 
         {/* What We Offer Section */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-gradient-to-br from-pink-50 via-rose-50 to-red-50 relative overflow-hidden">
+          {/* Background elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-0 left-1/3 w-80 h-80 bg-gradient-to-br from-pink-300/20 to-rose-300/20 rounded-full filter blur-3xl animate-blob"></div>
+            <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-gradient-to-br from-red-300/20 to-pink-300/20 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
+          </div>
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <div className="inline-flex items-center bg-gradient-to-r from-green-100 to-blue-100 text-green-800 px-6 py-2 rounded-full text-sm font-semibold mb-6">
@@ -542,7 +576,12 @@ export default function AboutPage() {
         </section>
 
         {/* Brochure Download CTA - About Page Themed */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-gradient-to-br from-indigo-50 via-violet-50 to-purple-50 relative overflow-hidden">
+          {/* Animated background */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-10 right-10 w-96 h-96 bg-gradient-to-br from-indigo-300/25 to-violet-300/25 rounded-full filter blur-3xl animate-blob"></div>
+            <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-br from-purple-300/25 to-pink-300/25 rounded-full filter blur-3xl animate-blob animation-delay-4000"></div>
+          </div>
           <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="relative bg-gradient-to-br from-blue-600 via-green-600 to-teal-600 rounded-3xl overflow-hidden shadow-2xl">
               {/* Animated background shapes */}
