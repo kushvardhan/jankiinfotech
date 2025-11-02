@@ -568,17 +568,6 @@ const item = {
           })}
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <motion.button
-            whileTap={{ scale: 0.97 }}
-            whileHover={{ y: -2 }}
-            className="relative z-0 overflow-hidden px-6 py-2.5 rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-white font-medium shadow-md hover:shadow-lg transition-all duration-300 text-sm md:text-base"
-          >
-            <span className="relative z-10">Continue the Journey</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-blue-600 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-full" />
-          </motion.button>
-        </div>
       </div>
     </section>
         {/* What We Offer Section */}
