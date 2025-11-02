@@ -143,14 +143,19 @@ export default function CommunityPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100">
+      <main className="min-h-screen bg-gradient-to-br from-white via-orange-50/20 to-pink-50/20 md:from-orange-50 md:via-white md:to-pink-100">
         {/* Hero Section */}
-        <section className="relative py-20 overflow-hidden">
-          {/* Animated Background */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-            <div className="absolute top-40 right-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-            <div className="absolute -bottom-8 left-20 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+        <section className="relative py-20 overflow-hidden bg-gradient-to-br from-white via-orange-50/30 to-pink-50/30 md:from-orange-50 md:via-pink-50 md:to-purple-50">
+          {/* Animated Background - Subtle on mobile */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-orange-300/8 to-pink-300/8 md:from-orange-300/30 md:to-pink-300/30 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+            <div className="absolute top-40 right-10 w-96 h-96 bg-gradient-to-br from-purple-300/8 to-blue-300/8 md:from-purple-300/30 md:to-blue-300/30 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+            <div className="absolute -bottom-8 left-20 w-96 h-96 bg-gradient-to-br from-pink-300/8 to-rose-300/8 md:from-pink-300/25 md:to-rose-300/25 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+          </div>
+
+          {/* Grid pattern - very subtle on mobile */}
+          <div className="absolute inset-0 opacity-[0.02] md:opacity-5">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#f97316_1px,transparent_1px),linear-gradient(to_bottom,#f97316_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
           </div>
 
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
