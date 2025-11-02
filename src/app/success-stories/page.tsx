@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/Navbar";
 import SmallFooter from "@/components/SmallFooter";
+import { Button } from "@/components/ui/button";
 import { Award, Calendar, Star, TrendingUp, Users } from "lucide-react";
 import { Metadata } from "next";
 
@@ -157,186 +157,194 @@ export default function SuccessStoriesPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-gradient-to-br from-green-50 to-white">
-      {/* Hero Section */}
-      <section className="pt-24 pb-12">
-        <div className="container mx-auto max-w-7xl px-4">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Success Stories
-              <span className="text-green-600 block">That Inspire</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover how we&apos;ve helped businesses across Bihar and beyond
-              transform their digital presence and achieve remarkable growth.
-            </p>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="w-8 h-8 text-green-600" />
-                </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-gray-600">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+      <main className="min-h-screen bg-gradient-to-br from-white via-blue-50/20 to-green-50/20 md:from-blue-50 md:via-green-50 md:to-white relative overflow-hidden">
+        {/* Subtle background decoration - mobile friendly */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-blue-300/8 to-teal-300/8 md:from-blue-300/15 md:to-teal-300/15 rounded-full filter blur-3xl animate-blob"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-green-300/8 to-emerald-300/8 md:from-green-300/15 md:to-emerald-300/15 rounded-full filter blur-3xl animate-blob animation-delay-4000"></div>
         </div>
-      </section>
+        {/* Hero Section */}
+        <section className="pt-24 pb-12">
+          <div className="container mx-auto max-w-7xl px-4">
+            <div className="text-center mb-12">
+              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                Success Stories
+                <span className="text-green-600 block">That Inspire</span>
+              </h1>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Discover how we&apos;ve helped businesses across Bihar and
+                beyond transform their digital presence and achieve remarkable
+                growth.
+              </p>
+            </div>
 
-      {/* Success Stories */}
-      <section className="py-12">
-        <div className="container mx-auto max-w-7xl px-4">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Featured Case Studies
-          </h2>
-          <div className="space-y-16">
-            {successStories.map((story, index) => (
-              <div
-                key={index}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? "lg:grid-flow-col-dense" : ""
-                }`}
-              >
-                <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
-                  <div className="text-6xl mb-6">{story.image}</div>
-                  <div className="text-green-600 font-semibold mb-2">
-                    {story.category}
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <stat.icon className="w-8 h-8 text-green-600" />
                   </div>
-                  <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                    {story.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6">{story.challenge}</p>
-
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-3">
-                      Our Solution:
-                    </h4>
-                    <p className="text-gray-600">{story.solution}</p>
+                  <div className="text-3xl font-bold text-gray-900 mb-2">
+                    {stat.value}
                   </div>
-
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {story.technologies.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex items-center text-gray-600 mb-6">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    <span>Project Duration: {story.duration}</span>
-                  </div>
+                  <div className="text-gray-600">{stat.label}</div>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-                <div className={index % 2 === 1 ? "lg:col-start-1" : ""}>
-                  <div className="bg-white rounded-2xl p-8 shadow-lg">
-                    <h4 className="font-semibold text-gray-900 mb-4">
-                      Key Results:
-                    </h4>
-                    <ul className="space-y-3 mb-8">
-                      {story.results.map((result, resultIndex) => (
-                        <li key={resultIndex} className="flex items-start">
-                          <TrendingUp className="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-700">{result}</span>
-                        </li>
+        {/* Success Stories */}
+        <section className="py-12">
+          <div className="container mx-auto max-w-7xl px-4">
+            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+              Featured Case Studies
+            </h2>
+            <div className="space-y-16">
+              {successStories.map((story, index) => (
+                <div
+                  key={index}
+                  className={`grid lg:grid-cols-2 gap-12 items-center ${
+                    index % 2 === 1 ? "lg:grid-flow-col-dense" : ""
+                  }`}
+                >
+                  <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
+                    <div className="text-6xl mb-6">{story.image}</div>
+                    <div className="text-green-600 font-semibold mb-2">
+                      {story.category}
+                    </div>
+                    <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                      {story.title}
+                    </h3>
+                    <p className="text-gray-600 mb-6">{story.challenge}</p>
+
+                    <div className="mb-6">
+                      <h4 className="font-semibold text-gray-900 mb-3">
+                        Our Solution:
+                      </h4>
+                      <p className="text-gray-600">{story.solution}</p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {story.technologies.map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"
+                        >
+                          {tech}
+                        </span>
                       ))}
-                    </ul>
+                    </div>
 
-                    <div className="border-t pt-6">
-                      <blockquote className="text-gray-700 italic mb-4">
-                         &ldquo;{story.testimonial}&rdquo;
-                      </blockquote>
-                      <div className="flex items-center">
-                        <div>
-                          <div className="font-semibold text-gray-900">
-                            {story.clientName}
-                          </div>
-                          <div className="text-gray-600 text-sm">
-                            {story.clientRole}
+                    <div className="flex items-center text-gray-600 mb-6">
+                      <Calendar className="w-4 h-4 mr-2" />
+                      <span>Project Duration: {story.duration}</span>
+                    </div>
+                  </div>
+
+                  <div className={index % 2 === 1 ? "lg:col-start-1" : ""}>
+                    <div className="bg-white rounded-2xl p-8 shadow-lg">
+                      <h4 className="font-semibold text-gray-900 mb-4">
+                        Key Results:
+                      </h4>
+                      <ul className="space-y-3 mb-8">
+                        {story.results.map((result, resultIndex) => (
+                          <li key={resultIndex} className="flex items-start">
+                            <TrendingUp className="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-700">{result}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="border-t pt-6">
+                        <blockquote className="text-gray-700 italic mb-4">
+                          &ldquo;{story.testimonial}&rdquo;
+                        </blockquote>
+                        <div className="flex items-center">
+                          <div>
+                            <div className="font-semibold text-gray-900">
+                              {story.clientName}
+                            </div>
+                            <div className="text-gray-600 text-sm">
+                              {story.clientRole}
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Client Testimonials */}
-      <section className="py-12 bg-white">
-        <div className="container mx-auto max-w-7xl px-4">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            What Our Clients Say
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {clientTestimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-6">
-                <div className="flex items-center mb-4">
-                  <div className="text-3xl mr-4">{testimonial.image}</div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">
-                      {testimonial.name}
-                    </h4>
-                    <p className="text-gray-600 text-sm">{testimonial.role}</p>
-                    <p className="text-green-600 text-sm">
-                      {testimonial.company}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 text-yellow-400 fill-current"
-                    />
-                  ))}
-                </div>
-                <p className="text-gray-700 italic">
-                  &ldquo;{testimonial.testimonial}&rdquo;
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-12">
-        <div className="container mx-auto max-w-4xl px-4">
-          <div className="text-center bg-green-600 rounded-2xl p-8 md:p-12 text-white">
-            <h2 className="text-3xl font-bold mb-4">
-              Ready to Create Your Success Story?
-            </h2>
-            <p className="text-xl mb-8 opacity-90">
-              Join our growing list of successful clients and transform your
-              business with innovative technology solutions.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3">
-                Start Your Project
-              </Button>
-              <Button
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
-              >
-                Schedule Consultation
-              </Button>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* Client Testimonials */}
+        <section className="py-12 bg-white">
+          <div className="container mx-auto max-w-7xl px-4">
+            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+              What Our Clients Say
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {clientTestimonials.map((testimonial, index) => (
+                <div key={index} className="bg-gray-50 rounded-xl p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="text-3xl mr-4">{testimonial.image}</div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900">
+                        {testimonial.name}
+                      </h4>
+                      <p className="text-gray-600 text-sm">
+                        {testimonial.role}
+                      </p>
+                      <p className="text-green-600 text-sm">
+                        {testimonial.company}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-4 h-4 text-yellow-400 fill-current"
+                      />
+                    ))}
+                  </div>
+                  <p className="text-gray-700 italic">
+                    &ldquo;{testimonial.testimonial}&rdquo;
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-12">
+          <div className="container mx-auto max-w-4xl px-4">
+            <div className="text-center bg-green-600 rounded-2xl p-8 md:p-12 text-white">
+              <h2 className="text-3xl font-bold mb-4">
+                Ready to Create Your Success Story?
+              </h2>
+              <p className="text-xl mb-8 opacity-90">
+                Join our growing list of successful clients and transform your
+                business with innovative technology solutions.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3">
+                  Start Your Project
+                </Button>
+                <Button
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3"
+                >
+                  Schedule Consultation
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <SmallFooter />
     </>
