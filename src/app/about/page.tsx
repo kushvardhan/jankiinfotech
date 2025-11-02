@@ -488,82 +488,84 @@ const item = {
         </section>
 
         {/* Journey Timeline - Premium & Emotionally Engaging */}
-        <section className="relative py-20 md:py-28 bg-white text-gray-900 overflow-hidden">
-      {/* Background gradients - subtle and brand-aligned */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-green-100/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-72 h-72 bg-emerald-100/40 rounded-full blur-3xl" />
+       <section className="relative py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+      {/* Gradient background accents */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-80 h-80 bg-green-100/40 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-100/40 rounded-full blur-3xl" />
       </div>
 
-      <div className="container relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-6xl px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-3">
+          <h2 className="text-4xl md:text-5xl font-semibold text-gray-900">
             Our <span className="text-green-600">Journey</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            The path of innovation, dedication, and growth that defines who we are.
+          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+            A timeline of dedication, creativity, and milestones that shaped who we are today.
           </p>
         </div>
 
         <div className="relative">
           {/* Central timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-green-300 via-emerald-400 to-green-300 rounded-full h-full shadow-[0_0_20px_rgba(34,197,94,0.25)]" />
+          <div className="absolute left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-green-300 via-blue-300 to-green-300 h-full rounded-full opacity-70" />
 
-          <div className="space-y-14 md:space-y-24">
-            {milestones.map((m, i) => {
-              const isLeft = i % 2 === 0;
+          {milestones.map((m, i) => {
+            const Icon = m.icon;
+            const isLeft = i % 2 === 0;
 
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className={`relative flex flex-col md:flex-row items-center ${
-                    isLeft ? "md:justify-start" : "md:justify-end"
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                viewport={{ once: true }}
+                className={`relative flex flex-col md:flex-row items-center mb-16 ${
+                  isLeft ? "md:justify-start" : "md:justify-end"
+                }`}
+              >
+                {/* Connector Dot */}
+                <div className="absolute left-1/2 -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-green-500 to-blue-500 rounded-full border-4 border-white shadow-lg z-10" />
+
+                {/* Card */}
+                <div
+                  className={`md:w-5/12 ${
+                    isLeft ? "md:pr-10 text-right" : "md:pl-10 text-left"
                   }`}
                 >
-                  {/* Connector Dot */}
-                  <div className="absolute left-1/2 -translate-x-1/2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow-lg z-10"></div>
-
-                  {/* Card */}
-                  <div
-                    className={`relative md:w-5/12 ${
-                      isLeft ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"
-                    }`}
-                  >
-                    <div className="bg-white/90 backdrop-blur-xl border border-gray-100 rounded-2xl p-6 md:p-8 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-                      <div className="flex items-center gap-3 md:gap-4 justify-center md:justify-start">
-                        <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 text-white shadow-md">
-                          {m.icon ? <m.icon className="w-5 h-5" /> : <CheckCircle2 className="w-5 h-5" />}
-                        </div>
-                        <div>
-                          <div className="text-green-600 font-semibold text-sm md:text-base">{m.year}</div>
-                          <h3 className="font-semibold text-lg md:text-xl text-gray-900">{m.title}</h3>
-                        </div>
+                  <div className="bg-white border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 md:p-8">
+                    <div className={`flex ${isLeft ? "justify-end" : "justify-start"} items-center mb-4`}>
+                      <div
+                        className={`flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-blue-500 text-white shadow-md ${
+                          isLeft ? "ml-3" : "mr-3"
+                        }`}
+                      >
+                        <Icon className="w-6 h-6" />
                       </div>
-                      <p className="mt-4 text-gray-600 text-sm md:text-base leading-relaxed">{m.description}</p>
+                      <div>
+                        <div className="text-sm font-medium text-green-600">{m.year}</div>
+                        <h3 className="text-lg md:text-xl font-semibold text-gray-900">
+                          {m.title}
+                        </h3>
+                      </div>
                     </div>
+                    <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                      {m.description}
+                    </p>
                   </div>
-                </motion.div>
-              );
-            })}
-          </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
 
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mt-20"
+        <div className="text-center mt-16">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            className="px-8 py-3 rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-white font-medium shadow-md hover:shadow-lg transition-all duration-300"
           >
-            <p className="text-gray-600 mb-4">And we’re still growing every day...</p>
-            <button className="px-8 py-3 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-medium shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
-              Join Our Journey
-            </button>
-          </motion.div>
+            Continue the Journey
+          </motion.button>
         </div>
       </div>
     </section>
