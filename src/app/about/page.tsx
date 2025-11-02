@@ -91,34 +91,51 @@ export default function AboutPage() {
   const milestones = [
     {
       year: "2019",
-      title: "Company Founded",
-      description: "Started with a vision to transform Bihar's tech landscape",
+      title: "The Beginning",
+      description: "Born from a dream to revolutionize Bihar's tech ecosystem, we started with just passion and determination",
+      icon: Rocket,
+      color: "from-purple-500 to-pink-500",
+      bgColor: "bg-purple-50",
     },
     {
       year: "2020",
       title: "First 100 Clients",
-      description: "Reached our first major milestone during challenging times",
+      description: "Against all odds during the pandemic, we reached our first major milestone, proving resilience conquers all",
+      icon: Users,
+      color: "from-blue-500 to-cyan-500",
+      bgColor: "bg-blue-50",
     },
     {
       year: "2021",
-      title: "Training Programs Launch",
-      description: "Launched comprehensive internship and training programs",
+      title: "Empowering Youth",
+      description: "Launched transformative internship programs, igniting careers and changing lives across Bihar",
+      icon: GraduationCap,
+      color: "from-green-500 to-emerald-500",
+      bgColor: "bg-green-50",
     },
     {
       year: "2022",
       title: "National Recognition",
-      description: "Received awards for innovation and social impact",
+      description: "Our innovation and social impact earned prestigious awards, putting Bihar on India's tech map",
+      icon: Award,
+      color: "from-orange-500 to-amber-500",
+      bgColor: "bg-orange-50",
     },
     {
       year: "2023",
       title: "500+ Success Stories",
-      description:
-        "Helped over 500 students and businesses achieve their goals",
+      description: "Celebrated over 500 transformed lives - students turned professionals, ideas turned businesses",
+      icon: TrendingUp,
+      color: "from-pink-500 to-rose-500",
+      bgColor: "bg-pink-50",
     },
     {
       year: "2024",
-      title: "Global Expansion",
-      description: "Extended services to international markets",
+      title: "Global Horizons",
+      description: "Expanded beyond borders, taking Bihar's talent and innovation to the world stage",
+      icon: Globe,
+      color: "from-indigo-500 to-purple-500",
+      bgColor: "bg-indigo-50",
     },
   ];
 
@@ -450,7 +467,7 @@ export default function AboutPage() {
         </section>
 
         {/* Journey Timeline */}
-        <section className="py-20 bg-gradient-to-br from-white via-orange-50/20 to-amber-50/20 md:from-orange-50 md:via-amber-50 md:to-yellow-50 relative overflow-hidden">
+        <section className="py-20 bg-white relative overflow-hidden">
           {/* Decorative background - subtle on mobile */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-1/4 left-10 w-72 h-72 bg-gradient-to-br from-orange-300/8 to-amber-300/8 md:from-orange-300/20 md:to-amber-300/20 rounded-full filter blur-3xl"></div>
@@ -467,38 +484,52 @@ export default function AboutPage() {
             </div>
 
             <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-green-200"></div>
+  {/* Animated central timeline line */}
+  <div className="absolute left-1/2 transform -translate-x-1/2 w-[3px] h-full bg-gradient-to-b from-green-400 via-green-300 to-green-200 rounded-full"></div>
 
-              {milestones.map((milestone, index) => (
-                <div
-                  key={index}
-                  className={`relative flex items-center mb-12 ${
-                    index % 2 === 0 ? "justify-start" : "justify-end"
-                  }`}
-                >
-                  <div
-                    className={`w-1/2 ${
-                      index % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left"
-                    }`}
-                  >
-                    <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                      <div className="text-2xl font-bold text-green-600 mb-2">
-                        {milestone.year}
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">
-                        {milestone.title}
-                      </h3>
-                      <p className="text-gray-600">{milestone.description}</p>
-                    </div>
-                  </div>
-
-                  {/* Timeline Dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-600 rounded-full border-4 border-white shadow-lg"></div>
-                </div>
-              ))}
-            </div>
+  {milestones.map((milestone, index) => (
+    <div
+      key={index}
+      className={`relative flex flex-col md:flex-row items-center mb-16 ${
+        index % 2 === 0 ? "md:justify-start" : "md:justify-end"
+      }`}
+    >
+      <div
+        className={`md:w-1/2 ${
+          index % 2 === 0
+            ? "md:pr-12 md:text-right"
+            : "md:pl-12 md:text-left"
+        }`}
+      >
+        <div
+          className="group bg-white/70 backdrop-blur-xl border border-green-100/50 rounded-3xl 
+          p-6 sm:p-8 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
+        >
+          <div className="text-2xl font-bold text-green-600 mb-2">
+            {milestone.year}
           </div>
+          <h3
+            className="text-xl sm:text-2xl font-semibold text-gray-900 mb-2
+            group-hover:text-green-700 transition-colors duration-300"
+          >
+            {milestone.title}
+          </h3>
+          <p className="text-gray-700 leading-relaxed">
+            {milestone.description}
+          </p>
+        </div>
+      </div>
+
+      {/* Glowing timeline dot */}
+      <div
+        className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 md:w-6 md:h-6 
+        bg-green-600 rounded-full border-4 border-white shadow-[0_0_15px_rgba(34,197,94,0.4)] 
+        animate-pulse"
+      ></div>
+    </div>
+  ))}
+</div>
+
         </section>
 
         {/* What We Offer Section */}
