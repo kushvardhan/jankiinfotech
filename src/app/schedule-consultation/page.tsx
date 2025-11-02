@@ -101,7 +101,12 @@ export default function ScheduleConsultationPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-gradient-to-br from-green-50 to-white">
+      <main className="min-h-screen bg-gradient-to-br from-white via-green-50/20 to-blue-50/20 md:from-green-50 md:via-blue-50 md:to-white relative overflow-hidden">
+        {/* Subtle background decoration - mobile friendly */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-green-300/8 to-blue-300/8 md:from-green-300/15 md:to-blue-300/15 rounded-full filter blur-3xl animate-blob"></div>
+          <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-br from-purple-300/8 to-pink-300/8 md:from-purple-300/15 md:to-pink-300/15 rounded-full filter blur-3xl animate-blob animation-delay-4000"></div>
+        </div>
         {/* Hero Section */}
         <section className="pt-24 pb-12">
           <div className="container mx-auto max-w-7xl px-4">
