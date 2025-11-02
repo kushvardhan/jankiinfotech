@@ -201,12 +201,18 @@ export default function CareersPage() {
       <Navbar />
       <main className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100">
         {/* Hero Section */}
-        <section className="relative py-20 overflow-hidden">
-          {/* Animated Background */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-            <div className="absolute top-40 right-10 w-72 h-72 bg-green-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-            <div className="absolute -bottom-8 left-20 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+        <section className="relative py-20 overflow-hidden bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+          {/* Enhanced Animated Background */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-green-400 to-emerald-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+            <div className="absolute top-40 right-10 w-96 h-96 bg-gradient-to-br from-blue-400 to-cyan-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+            <div className="absolute -bottom-8 left-20 w-96 h-96 bg-gradient-to-br from-purple-400 to-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-blob animation-delay-4000"></div>
+            <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-gradient-to-br from-teal-300 to-green-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-6000"></div>
+          </div>
+
+          {/* Grid pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#10b981_1px,transparent_1px),linear-gradient(to_bottom,#10b981_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
           </div>
 
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
@@ -259,7 +265,11 @@ export default function CareersPage() {
         </section>
 
         {/* Benefits Section */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-10 right-10 w-80 h-80 bg-gradient-to-br from-blue-300/20 to-indigo-300/20 rounded-full filter blur-3xl animate-blob"></div>
+            <div className="absolute bottom-10 left-10 w-80 h-80 bg-gradient-to-br from-purple-300/20 to-pink-300/20 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
+          </div>
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -290,7 +300,11 @@ export default function CareersPage() {
         </section>
 
         {/* Open Positions */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <section className="py-20 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 relative overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-1/4 left-10 w-72 h-72 bg-gradient-to-br from-orange-300/20 to-amber-300/20 rounded-full filter blur-3xl"></div>
+            <div className="absolute bottom-1/4 right-10 w-72 h-72 bg-gradient-to-br from-yellow-300/20 to-orange-300/20 rounded-full filter blur-3xl"></div>
+          </div>
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -409,7 +423,11 @@ export default function CareersPage() {
         </section>
 
         {/* Application Process */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-gradient-to-br from-pink-50 via-rose-50 to-red-50 relative overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-0 left-1/3 w-80 h-80 bg-gradient-to-br from-pink-300/20 to-rose-300/20 rounded-full filter blur-3xl animate-blob"></div>
+            <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-gradient-to-br from-red-300/20 to-pink-300/20 rounded-full filter blur-3xl animate-blob animation-delay-4000"></div>
+          </div>
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -488,7 +506,11 @@ export default function CareersPage() {
         </section>
 
         {/* Brochure Download CTA - Careers Themed */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-gradient-to-br from-cyan-50 via-teal-50 to-green-50 relative overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-10 right-10 w-96 h-96 bg-gradient-to-br from-cyan-300/20 to-teal-300/20 rounded-full filter blur-3xl animate-blob"></div>
+            <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-br from-green-300/20 to-emerald-300/20 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
+          </div>
           <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="relative bg-gradient-to-br from-purple-600 via-blue-600 to-green-600 rounded-3xl p-8 md:p-12 overflow-hidden shadow-2xl">
               {/* Animated background pattern */}
