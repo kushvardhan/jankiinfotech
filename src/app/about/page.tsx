@@ -10,6 +10,7 @@ import {
   Building,
   Building2,
   Calendar,
+   CheckCircle2 ,
   CheckCircle,
   Download,
   FileText,
@@ -487,73 +488,63 @@ const item = {
         </section>
 
         {/* Journey Timeline - Premium & Emotionally Engaging */}
-         <section className="relative py-16 md:py-24 bg-white text-gray-900 overflow-hidden">
-      {/* subtle background accent - not animated on hover */}
+        <section className="relative py-20 md:py-28 bg-white text-gray-900 overflow-hidden">
+      {/* Background gradients - subtle and brand-aligned */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="hidden md:block absolute -left-24 top-12 w-72 h-72 rounded-full blur-3xl bg-gradient-to-br from-orange-100 to-amber-100 opacity-30" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-green-100/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-72 h-72 bg-emerald-100/40 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto max-w-6xl px-4 relative z-10">
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center bg-orange-50 border border-orange-100 rounded-full px-4 py-1 text-orange-700 text-sm font-medium">
-            <span>Our Story</span>
-          </div>
-          <h2 className="mt-4 text-3xl md:text-4xl font-semibold leading-tight">
-            The Journey of{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-amber-500">
-              Transformation
-            </span>
+      <div className="container relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-3">
+            Our <span className="text-green-600">Journey</span>
           </h2>
-          <p className="mt-3 text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
-            Every milestone tells a story of dreams, determination, and steady growth.
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            The path of innovation, dedication, and growth that defines who we are.
           </p>
         </div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="relative"
-        >
-          {/* Vertical center line on md+, simple thin line */}
-          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-orange-200 to-amber-200 opacity-40" />
+        <div className="relative">
+          {/* Central timeline line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-green-300 via-emerald-400 to-green-300 rounded-full h-full shadow-[0_0_20px_rgba(34,197,94,0.25)]" />
 
-          <div className="space-y-8 md:space-y-12">
+          <div className="space-y-14 md:space-y-24">
             {milestones.map((m, i) => {
-              const Icon = m.icon;
               const isLeft = i % 2 === 0;
 
               return (
                 <motion.div
                   key={i}
-                  className="relative md:flex md:items-start md:justify-between"
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  className={`relative flex flex-col md:flex-row items-center ${
+                    isLeft ? "md:justify-start" : "md:justify-end"
+                  }`}
                 >
+                  {/* Connector Dot */}
+                  <div className="absolute left-1/2 -translate-x-1/2 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+
                   {/* Card */}
                   <div
-                    className={`md:w-5/12 ${isLeft ? "md:order-1 md:text-right md:pr-8" : "md:order-2 md:text-left md:pl-8"}`}
+                    className={`relative md:w-5/12 ${
+                      isLeft ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"
+                    }`}
                   >
-                    <div
-                      className="bg-white border border-gray-100 rounded-2xl p-5 md:p-6 shadow-sm transition-shadow transform-gpu will-change-transform hover:shadow-md"
-                      style={{ backfaceVisibility: "hidden" }}
-                    >
-                      <div className="inline-flex items-center space-x-3 md:space-x-0 md:space-x-reverse md:justify-end">
-                        <div className={`inline-flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-r ${m.color} text-white`}>
-                          <Icon className="w-5 h-5" />
+                    <div className="bg-white/90 backdrop-blur-xl border border-gray-100 rounded-2xl p-6 md:p-8 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                      <div className="flex items-center gap-3 md:gap-4 justify-center md:justify-start">
+                        <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 text-white shadow-md">
+                          {m.icon ? <m.icon className="w-5 h-5" /> : <CheckCircle2 className="w-5 h-5" />}
                         </div>
-                        <div className="ml-3 md:ml-0">
-                          <div className="text-sm text-orange-600 font-semibold">{m.year}</div>
-                          <h3 className="mt-2 text-lg font-medium text-gray-900">{m.title}</h3>
+                        <div>
+                          <div className="text-green-600 font-semibold text-sm md:text-base">{m.year}</div>
+                          <h3 className="font-semibold text-lg md:text-xl text-gray-900">{m.title}</h3>
                         </div>
                       </div>
-
-                      <p className="mt-3 text-sm text-gray-600 leading-relaxed">{m.description}</p>
+                      <p className="mt-4 text-gray-600 text-sm md:text-base leading-relaxed">{m.description}</p>
                     </div>
-                  </div>
-
-                  {/* Dot / connector */}
-                  <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-4 md:top-6 flex items-center justify-center">
-                    <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${m.color} shadow-sm`} />
                   </div>
                 </motion.div>
               );
@@ -561,16 +552,19 @@ const item = {
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-12 md:mt-16">
-            <p className="text-gray-600 mb-4">And this is just the beginning...</p>
-            <button
-              type="button"
-              className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-medium shadow hover:shadow-lg transition-transform transform-gpu hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-orange-200"
-            >
-              <span>Join Our Journey</span>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mt-20"
+          >
+            <p className="text-gray-600 mb-4">And we’re still growing every day...</p>
+            <button className="px-8 py-3 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-medium shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+              Join Our Journey
             </button>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
 
