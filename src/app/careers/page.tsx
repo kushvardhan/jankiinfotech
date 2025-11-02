@@ -199,18 +199,18 @@ export default function CareersPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100">
+      <main className="min-h-screen bg-gradient-to-br from-white via-green-50/20 to-emerald-50/20 md:from-green-50 md:via-white md:to-green-100">
         {/* Hero Section */}
-        <section className="relative py-20 overflow-hidden bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
-          {/* Enhanced Animated Background */}
+        <section className="relative py-20 overflow-hidden bg-gradient-to-br from-white via-green-50/30 to-emerald-50/30 md:from-green-50 md:via-emerald-50 md:to-teal-50">
+          {/* Enhanced Animated Background - Subtle on mobile */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-green-300 to-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-            <div className="absolute top-40 right-10 w-96 h-96 bg-gradient-to-br from-blue-300 to-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-            <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-gradient-to-br from-teal-200 to-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-6000"></div>
+            <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-green-300/10 to-emerald-200/10 md:from-green-300/30 md:to-emerald-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+            <div className="absolute top-40 right-10 w-96 h-96 bg-gradient-to-br from-blue-300/10 to-cyan-200/10 md:from-blue-300/30 md:to-cyan-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+            <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-gradient-to-br from-teal-200/8 to-green-200/8 md:from-teal-200/20 md:to-green-200/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-6000"></div>
           </div>
 
-          {/* Grid pattern */}
-          <div className="absolute inset-0 opacity-5">
+          {/* Grid pattern - very subtle on mobile */}
+          <div className="absolute inset-0 opacity-[0.02] md:opacity-5">
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#10b981_1px,transparent_1px),linear-gradient(to_bottom,#10b981_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
           </div>
 
