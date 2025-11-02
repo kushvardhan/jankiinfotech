@@ -544,7 +544,7 @@ const item = {
                       {/* Icon container - refined size and balance */}
                       <div
                         className={`flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-blue-500 text-white shadow-sm ${
-                          isLeft ? "ml-3" : "mr-3"
+                          isLeft ? "ml-3 mr-3" : "mr-3 ml-3"
                         }`}
                       >
                         <Icon className="w-4 h-4 opacity-90" />
