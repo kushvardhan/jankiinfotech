@@ -1,6 +1,14 @@
 ﻿"use client";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code2, Monitor, TrendingUp,MapPin, GraduationCap, X } from "lucide-react";
+import {
+  ArrowRight,
+  Code2,
+  GraduationCap,
+  MapPin,
+  Monitor,
+  TrendingUp,
+  X,
+} from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -45,7 +53,7 @@ export default function ServicesSection() {
         "Performance Optimization",
       ],
       icon: Code2,
-      color:" text-purple-500",
+      color: " text-purple-500",
       link: "/service/software-development",
       detailedDescription:
         "From concept to deployment, we build robust, scalable software solutions tailored to your unique business needs. Our expert team uses cutting-edge technologies and best practices to deliver software that drives efficiency and growth.",
@@ -71,7 +79,7 @@ export default function ServicesSection() {
         "Ad Management",
       ],
       icon: TrendingUp,
-      color:"text-orange-500",
+      color: "text-orange-500",
       link: "/service/digital-marketing",
       detailedDescription:
         "Grow your brand's online presence with our comprehensive digital marketing strategies. We combine data-driven insights with creative excellence to help you reach your target audience and achieve measurable results.",
@@ -97,7 +105,7 @@ export default function ServicesSection() {
         "Business Insights",
       ],
       icon: MapPin,
-      color:" text-red-500",
+      color: " text-red-500",
       link: "/service/gmb",
       detailedDescription:
         "Maximize your local visibility with expert Google My Business management. We optimize your profile to ensure your business appears prominently in local searches and Google Maps, driving more foot traffic and inquiries.",
@@ -124,7 +132,7 @@ export default function ServicesSection() {
         "Digital Marketing",
       ],
       icon: GraduationCap,
-      color:"text-green-500",
+      color: "text-green-500",
       link: "/service/internships",
       detailedDescription:
         "Launch your tech career with our comprehensive internship programs. Gain hands-on experience working on real projects, learn from industry experts, and build a portfolio that impresses employers.",
@@ -195,19 +203,19 @@ export default function ServicesSection() {
             >
               {/* Icon */}
               <div
-  className={`w-14 md:w-16 h-14 md:h-16 bg-gradient-to-br ${
-    service.color
-      .replace("text-", "from-")
-      .replace(/-\d+/, "-100")
-  } ${
-    service.color
-      .replace("text-", "to-")
-      .replace(/-\d+/, "-200")
-  } rounded-xl flex items-center justify-center mb-4 md:mb-6 flex-shrink-0`}
->
-  <service.icon className={`w-7 md:w-8 h-7 md:h-8 ${service.color}`} />
-</div>
-
+                className={`w-14 md:w-16 h-14 md:h-16 bg-gradient-to-br ${service.color
+                  .replace("text-", "from-")
+                  .replace(/-\d+/, "-100")} ${service.color
+                  .replace("text-", "to-")
+                  .replace(
+                    /-\d+/,
+                    "-200"
+                  )} rounded-xl flex items-center justify-center mb-4 md:mb-6 flex-shrink-0`}
+              >
+                <service.icon
+                  className={`w-7 md:w-8 h-7 md:h-8 ${service.color}`}
+                />
+              </div>
 
               {/* Content */}
               <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4">
@@ -351,26 +359,6 @@ export default function ServicesSection() {
                 </Button>
               </Link>
             </div>
-          </div>
-        </div>
-
-        {/* Stats Section */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <div className="text-4xl font-bold text-green-600 mb-2">50+</div>
-            <div className="text-gray-600">Projects Completed</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-green-600 mb-2">95%</div>
-            <div className="text-gray-600">Client Satisfaction</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-green-600 mb-2">24/7</div>
-            <div className="text-gray-600">Support Available</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-green-600 mb-2">5+</div>
-            <div className="text-gray-600">Years Experience</div>
           </div>
         </div>
       </div>
