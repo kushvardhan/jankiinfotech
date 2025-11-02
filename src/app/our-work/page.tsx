@@ -120,70 +120,74 @@ const projects: Project[] = [
   },
 
   {
-    "id": "5",
-    "title": "Shine It Cleaning (ShineItCleaning)",
-    "image": "/our-projects/ShineItCleaning.png",
-    "duration": "Active local cleaning business (established — ongoing operations)",
-    "liveLink": "https://shineitcleaning.com",
-    "description": "Commercial & residential cleaning services (local/regional provider with online booking / contact presence).",
-    "fullDescription": "Shine It Cleaning is a professional cleaning services brand that advertises home and commercial cleaning, sofa and mattress cleaning, kitchen degreasing, and move-in/move-out cleaning. The business maintains local social listings (Instagram / Facebook) and a booking/contact page. The site positions itself as an eco/quality-focused local cleaning provider.",
-    "features": [
+    id: "5",
+    title: "Shine It Cleaning (ShineItCleaning)",
+    image: "/our-projects/ShineItCleaning.png",
+    duration:
+      "Active local cleaning business (established — ongoing operations)",
+    liveLink: "https://shineitcleaning.com",
+    description:
+      "Commercial & residential cleaning services (local/regional provider with online booking / contact presence).",
+    fullDescription:
+      "Shine It Cleaning is a professional cleaning services brand that advertises home and commercial cleaning, sofa and mattress cleaning, kitchen degreasing, and move-in/move-out cleaning. The business maintains local social listings (Instagram / Facebook) and a booking/contact page. The site positions itself as an eco/quality-focused local cleaning provider.",
+    features: [
       "Home & commercial cleaning packages",
       "Sofa/mattress deep-cleaning",
       "Kitchen degreasing & bathroom deep clean",
       "Online contact / quote form and local booking info",
-      "Social proof via Instagram/Facebook listings"
+      "Social proof via Instagram/Facebook listings",
     ],
-    "technologies": [
-      "Static site / CMS",
-      "HTML / CSS / JavaScript"
-    ],
-    "impact": "Local cleaning coverage with client testimonials and social presence (Instagram / Facebook listings and local directory entries)"
+    technologies: ["Static site / CMS", "HTML / CSS / JavaScript"],
+    impact:
+      "Local cleaning coverage with client testimonials and social presence (Instagram / Facebook listings and local directory entries)",
   },
 
   {
-    "id": "6",
-    "title": "Delhi Public School — Thalwara (DPS Thalwara)",
-    "image": "/our-projects/DPS.png",
-    "duration": "Operational (school ongoing; admissions open notices on social pages)",
-    "liveLink": "https://dpsthalwara.com",
-    "description": "CBSE-affiliated local school serving Thalwara / Darbhanga region with standard K–12 curriculum and community outreach.",
-    "fullDescription": "Delhi Public School Thalwara (DPS Thalwara) runs standard school operations for the Thalwara / Darbhanga area. The website provides about, contact and admission/enquiry details. School contact number and email are publicly listed and the school posts inspection/announcement updates on social pages.",
-    "features": [
+    id: "6",
+    title: "Delhi Public School — Thalwara (DPS Thalwara)",
+    image: "/our-projects/DPS.png",
+    duration:
+      "Operational (school ongoing; admissions open notices on social pages)",
+    liveLink: "https://dpsthalwara.com",
+    description:
+      "CBSE-affiliated local school serving Thalwara / Darbhanga region with standard K–12 curriculum and community outreach.",
+    fullDescription:
+      "Delhi Public School Thalwara (DPS Thalwara) runs standard school operations for the Thalwara / Darbhanga area. The website provides about, contact and admission/enquiry details. School contact number and email are publicly listed and the school posts inspection/announcement updates on social pages.",
+    features: [
       "CBSE-aligned curriculum & standard K–12 academics",
       "Admissions & contact pages",
       "Announcements / inspection / community updates (social posts)",
-      "Contact phone and email publicly listed"
+      "Contact phone and email publicly listed",
     ],
-    "technologies": [
-      "Simple static site",
-      "HTML / CSS / JavaScript"
-    ],
-    "impact": "Serving families in the Thalwara / Darbhanga region — active enrollment / announcements shown on the site and social pages"
+    technologies: ["Simple static site", "HTML / CSS / JavaScript"],
+    impact:
+      "Serving families in the Thalwara / Darbhanga region — active enrollment / announcements shown on the site and social pages",
   },
   {
-  "id": "7",
-  "title": "Mission Education Consultancy",
-  "image": "/our-projects/MissionEducation.png",
-  "duration": "Operational (active consultancy / course listings)",
-  "liveLink": "https://missioneducation.info",
-  "description": "Local education consultancy and admission counselling service offering guidance and direct-admission support for professional & higher education courses.",
-  "fullDescription": "Mission Education is an education consultancy and admission counselling service based in Laheriasarai, Darbhanga. The website lists course pages (B.Ed, Polytechnic, Engineering, Medical, Management and other professional/technical courses), contact details (phone and email), and course-specific pages designed to help students with admissions and course selection. The site presents itself as a local consultancy offering affordable professional course admissions and counselling services.",
-  "features": [
-    "Course listings & course-detail pages (B.Ed, Polytechnic, Engineering, etc.)",
-    "Contact & enquiry page with phone numbers and email",
-    "Local office address listed (Laheriasarai, G.N. Ganj / Gudri Bazar)",
-    "Admission counselling and direct-admission assistance",
-    "Course detail pages (duration, overview) for prospective students"
-  ],
-  "technologies": [
-    "React",
-    "HTML / CSS / JavaScript",
-    "Static SPA style routing"
-  ],
-  "impact": "Local admission counselling for students in Darbhanga region — course pages and contact listings indicate active local operations and student outreach."
-}
-
+    id: "7",
+    title: "Mission Education Consultancy",
+    image: "/our-projects/MissionEducation.png",
+    duration: "Operational (active consultancy / course listings)",
+    liveLink: "https://missioneducation.info",
+    description:
+      "Local education consultancy and admission counselling service offering guidance and direct-admission support for professional & higher education courses.",
+    fullDescription:
+      "Mission Education is an education consultancy and admission counselling service based in Laheriasarai, Darbhanga. The website lists course pages (B.Ed, Polytechnic, Engineering, Medical, Management and other professional/technical courses), contact details (phone and email), and course-specific pages designed to help students with admissions and course selection. The site presents itself as a local consultancy offering affordable professional course admissions and counselling services.",
+    features: [
+      "Course listings & course-detail pages (B.Ed, Polytechnic, Engineering, etc.)",
+      "Contact & enquiry page with phone numbers and email",
+      "Local office address listed (Laheriasarai, G.N. Ganj / Gudri Bazar)",
+      "Admission counselling and direct-admission assistance",
+      "Course detail pages (duration, overview) for prospective students",
+    ],
+    technologies: [
+      "React",
+      "HTML / CSS / JavaScript",
+      "Static SPA style routing",
+    ],
+    impact:
+      "Local admission counselling for students in Darbhanga region — course pages and contact listings indicate active local operations and student outreach.",
+  },
 ];
 
 export default function OurWorkPage() {
@@ -208,10 +212,11 @@ export default function OurWorkPage() {
       <Navbar />
 
       {/* Hero Section - Premium */}
-      <section className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-green-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-72 h-72 bg-emerald-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+      <section className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-white via-purple-50/20 to-pink-50/20 md:from-purple-50 md:via-pink-50 md:to-orange-50">
+        <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-purple-300/8 to-pink-300/8 md:from-purple-300/20 md:to-pink-300/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-orange-300/8 to-red-300/8 md:from-orange-300/20 md:to-red-300/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+          <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-gradient-to-br from-pink-300/8 to-rose-300/8 md:from-pink-300/15 md:to-rose-300/15 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
         </div>
 
         <div className="container mx-auto max-w-6xl text-center">
@@ -320,7 +325,10 @@ export default function OurWorkPage() {
       </section>
 
       {/* Coming Soon Section - Creative */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-green-50 via-emerald-50 to-green-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-white via-green-50/20 to-white md:from-green-50 md:via-emerald-50 md:to-green-50 relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-10 right-10 w-80 h-80 bg-gradient-to-br from-green-300/8 to-emerald-300/8 md:from-green-300/15 md:to-emerald-300/15 rounded-full filter blur-3xl animate-blob"></div>
+        </div>
         <div className="container mx-auto max-w-4xl">
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-green-200 to-emerald-200 rounded-3xl blur-2xl opacity-20"></div>

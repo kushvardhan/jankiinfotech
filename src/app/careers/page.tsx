@@ -264,10 +264,10 @@ export default function CareersPage() {
         </section>
 
         {/* Benefits Section */}
-        <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-br from-white via-blue-50/20 to-indigo-50/20 md:from-blue-50 md:via-indigo-50 md:to-purple-50 relative overflow-hidden">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-10 right-10 w-80 h-80 bg-gradient-to-br from-blue-300/20 to-indigo-300/20 rounded-full filter blur-3xl animate-blob"></div>
-            <div className="absolute bottom-10 left-10 w-80 h-80 bg-gradient-to-br from-purple-300/20 to-pink-300/20 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
+            <div className="absolute top-10 right-10 w-80 h-80 bg-gradient-to-br from-blue-300/8 to-indigo-300/8 md:from-blue-300/20 md:to-indigo-300/20 rounded-full filter blur-3xl animate-blob"></div>
+            <div className="absolute bottom-10 left-10 w-80 h-80 bg-gradient-to-br from-purple-300/8 to-pink-300/8 md:from-purple-300/20 md:to-pink-300/20 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
           </div>
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -299,10 +299,10 @@ export default function CareersPage() {
         </section>
 
         {/* Open Positions */}
-        <section className="py-20 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-br from-white via-orange-50/20 to-amber-50/20 md:from-orange-50 md:via-amber-50 md:to-yellow-50 relative overflow-hidden">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-1/4 left-10 w-72 h-72 bg-gradient-to-br from-orange-300/20 to-amber-300/20 rounded-full filter blur-3xl"></div>
-            <div className="absolute bottom-1/4 right-10 w-72 h-72 bg-gradient-to-br from-yellow-300/20 to-orange-300/20 rounded-full filter blur-3xl"></div>
+            <div className="absolute top-1/4 left-10 w-72 h-72 bg-gradient-to-br from-orange-300/8 to-amber-300/8 md:from-orange-300/20 md:to-amber-300/20 rounded-full filter blur-3xl"></div>
+            <div className="absolute bottom-1/4 right-10 w-72 h-72 bg-gradient-to-br from-yellow-300/8 to-orange-300/8 md:from-yellow-300/20 md:to-orange-300/20 rounded-full filter blur-3xl"></div>
           </div>
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -422,10 +422,10 @@ export default function CareersPage() {
         </section>
 
         {/* Application Process */}
-        <section className="py-20 bg-gradient-to-br from-pink-50 via-rose-50 to-red-50 relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-br from-white via-pink-50/20 to-rose-50/20 md:from-pink-50 md:via-rose-50 md:to-red-50 relative overflow-hidden">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 left-1/3 w-80 h-80 bg-gradient-to-br from-pink-300/20 to-rose-300/20 rounded-full filter blur-3xl animate-blob"></div>
-            <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-gradient-to-br from-red-300/20 to-pink-300/20 rounded-full filter blur-3xl animate-blob animation-delay-4000"></div>
+            <div className="absolute top-0 left-1/3 w-80 h-80 bg-gradient-to-br from-pink-300/8 to-rose-300/8 md:from-pink-300/20 md:to-rose-300/20 rounded-full filter blur-3xl animate-blob"></div>
+            <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-gradient-to-br from-red-300/8 to-pink-300/8 md:from-red-300/20 md:to-pink-300/20 rounded-full filter blur-3xl animate-blob animation-delay-4000"></div>
           </div>
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -505,10 +505,10 @@ export default function CareersPage() {
         </section>
 
         {/* Brochure Download CTA - Careers Themed */}
-        <section className="py-16 bg-gradient-to-br from-cyan-50 via-teal-50 to-green-50 relative overflow-hidden">
+        <section className="py-16 bg-gradient-to-br from-white via-cyan-50/20 to-teal-50/20 md:from-cyan-50 md:via-teal-50 md:to-green-50 relative overflow-hidden">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-10 right-10 w-96 h-96 bg-gradient-to-br from-cyan-300/20 to-teal-300/20 rounded-full filter blur-3xl animate-blob"></div>
-            <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-br from-green-300/20 to-emerald-300/20 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
+            <div className="absolute top-10 right-10 w-96 h-96 bg-gradient-to-br from-cyan-300/8 to-teal-300/8 md:from-cyan-300/20 md:to-teal-300/20 rounded-full filter blur-3xl animate-blob"></div>
+            <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-br from-green-300/8 to-emerald-300/8 md:from-green-300/20 md:to-emerald-300/20 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
           </div>
           <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="relative bg-gradient-to-br from-purple-600 via-blue-600 to-green-600 rounded-3xl p-8 md:p-12 overflow-hidden shadow-2xl">
