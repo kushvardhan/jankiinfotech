@@ -488,8 +488,8 @@ const item = {
         </section>
 
         {/* Journey Timeline - Premium & Emotionally Engaging */}
-        <section className="relative py-14 md:py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
-      {/* Soft background gradient accents */}
+         <section className="relative py-14 md:py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+      {/* Soft background accents */}
       <div className="absolute inset-0">
         <div className="absolute top-24 left-10 w-64 h-64 bg-green-100/40 rounded-full blur-3xl" />
         <div className="absolute bottom-16 right-10 w-64 h-64 bg-blue-100/40 rounded-full blur-3xl" />
@@ -509,7 +509,7 @@ const item = {
         {/* Timeline */}
         <div className="relative">
           {/* Central timeline line */}
-          <div className="absolute left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-green-300 via-blue-300 to-green-300 rounded-full opacity-80 shadow-[0_0_8px_rgba(16,185,129,0.2)] top-0 bottom-0" />
+          <div className="absolute left-1/2 -translate-x-1/2 w-[3px] bg-gradient-to-b from-green-300 via-blue-300 to-green-300 rounded-full opacity-80 shadow-[0_0_12px_rgba(16,185,129,0.2)] top-0 bottom-0" />
 
           {milestones.map((m, i) => {
             const Icon = m.icon;
@@ -527,7 +527,7 @@ const item = {
                 }`}
               >
                 {/* Connector Dot */}
-                <div className="absolute left-1/2 -translate-x-1/2 w-5 h-5 bg-gradient-to-br from-green-500 to-blue-500 rounded-full border-4 border-white shadow-md z-10" />
+                <div className="absolute left-1/2 -translate-x-1/2 w-5 h-5 bg-gradient-to-br from-green-500 to-blue-500 rounded-full border-[3px] border-white shadow-md z-10" />
 
                 {/* Card */}
                 <div
@@ -541,12 +541,13 @@ const item = {
                         isLeft ? "justify-end" : "justify-start"
                       }`}
                     >
+                      {/* Icon container - refined size and balance */}
                       <div
-                        className={`flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-blue-500 text-white shadow ${
+                        className={`flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-blue-500 text-white shadow-sm ${
                           isLeft ? "ml-3" : "mr-3"
                         }`}
                       >
-                        <Icon className="w-5 h-5" />
+                        <Icon className="w-4 h-4 opacity-90" />
                       </div>
                       <div>
                         <div className="text-xs font-medium text-green-600">
@@ -570,15 +571,16 @@ const item = {
         {/* CTA */}
         <div className="text-center mt-12">
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            className="px-6 py-2.5 rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-white font-medium shadow-md hover:shadow-lg transition-all duration-300 text-sm md:text-base"
+            whileTap={{ scale: 0.97 }}
+            whileHover={{ y: -2 }}
+            className="relative z-0 overflow-hidden px-6 py-2.5 rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-white font-medium shadow-md hover:shadow-lg transition-all duration-300 text-sm md:text-base"
           >
-            Continue the Journey
+            <span className="relative z-10">Continue the Journey</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-blue-600 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-full" />
           </motion.button>
         </div>
       </div>
     </section>
-
         {/* What We Offer Section */}
         <section className="py-20 bg-gradient-to-br from-white via-pink-50/20 to-rose-50/20 md:from-pink-50 md:via-rose-50 md:to-red-50 relative overflow-hidden">
           {/* Background elements - subtle on mobile */}
